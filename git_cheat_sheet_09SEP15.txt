@@ -106,6 +106,28 @@ ssh-add -l
 ------------------------------------------------------------------------------------
 git - create a project and upload it to github
 ------------------------------------------------------------------------------------
+
+vi .git/config
+vim .gitconfig
+--snip--
+[user]
+        name = rac3rx
+        email = chris.hammond.tx@gmail.com
+[credential]
+        helper = cache --timeout=3600
+[core]
+        editor = vim
+[push]
+        default = simple
+.
+.
+.
+[remote "origin"]
+        url = ssh://git@github.com/<username>/<project>.git
+        url = https://github.com/<username>/<project>.git
+        fetch = +refs/heads/*:refs/remotes/origin/
+--snip--
+
 git config --global user.name "rac3rx"
 git config --global user.email chris.hammond.tx@gmail.com
 
@@ -135,27 +157,6 @@ git status
 git remote -v
 origin  ssh://git@github.com/yourGithubUserName/yourRepo.git (fetch)
 origin  ssh://git@github.com/yourGithubUserName/yourRepo.git (push)
-
-vi .git/config
-vim .gitconfig
---snip--
-[user]
-        name = rac3rx
-        email = chris.hammond.tx@gmail.com
-[credential]
-        helper = cache --timeout=3600
-[core]
-        editor = vim
-[push]
-        default = simple
-.
-.
-.
-[remote "origin"]
-        url = ssh://git@github.com/<username>/<project>.git
-        url = https://github.com/<username>/<project>.git
-        fetch = +refs/heads/*:refs/remotes/origin/
---snip--
 
 git remote rm origin
 git remote remove origin
