@@ -133,6 +133,33 @@ git branch
 git status
 
 git remote -v
+origin  ssh://git@github.com/yourGithubUserName/yourRepo.git (fetch)
+origin  ssh://git@github.com/yourGithubUserName/yourRepo.git (push)
+
+vi .git/config
+vim .gitconfig
+--snip--
+[user]
+        name = rac3rx
+        email = chris.hammond.tx@gmail.com
+[credential]
+        helper = cache --timeout=3600
+[core]
+        editor = vim
+[push]
+        default = simple
+.
+.
+.
+[remote "origin"]
+        url = ssh://git@github.com/<username>/<project>.git
+        url = https://github.com/<username>/<project>.git
+        fetch = +refs/heads/*:refs/remotes/origin/
+--snip--
+
+git remote rm origin
+git remote remove origin
+git remote add origin git@github.com:<username>/<reponame>.git
 git remote add origin git@github.com:rac3rx/dotFiles.git
 git remote add origin git@github.com:rac3rx/CheatSheets.git
 
