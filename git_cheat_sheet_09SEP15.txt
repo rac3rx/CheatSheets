@@ -141,13 +141,14 @@ eval "$(ssh-agent -s)"
 ssh-add -l
 ssh-add ~/.ssh/id_rsa
 
+git push origin master
+git push -u origin master
+git push --set-upstream origin master
+
+
 ------------------------------------------------------------------------------------
 git - clone a project
 ------------------------------------------------------------------------------------
 git clone https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack
 git clone https://github.com/rac3rx/CheatSheets
-
-git push origin master
-git push -u origin master
-git push --set-upstream origin master
 
