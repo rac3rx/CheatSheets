@@ -2,21 +2,26 @@
 my adaptation
 ------------------------------------------------------------------------------------
 git init
+
+echo "# dotFiles" >> README.md
+
 git add .
+git add README.md
 git add -A --ignore-removal .
+
 git commit -am "1st commit for dotFiles"
+git commit -m "first commit"
+
 curl -u 'USER' https://api.github.com/user/repos -d '{"name":"REPO"}'
-    eg: curl -u 'rac3rx' https://api.github.com/user/repos -d '{"name":"dotFiles"}'
-git remote add origin git@github.com:rac3rx/dotFiles.git
-git push origin master
-git push --set-upstream origin master
+curl -u 'rac3rx' https://api.github.com/user/repos -d '{"name":"dotFiles"}'
 
 git branch
-echo "# dotFiles" >> README.md
-git init
-git add README.md
 git status
+
 git remote -v
-git commit -m "first commit"
 git remote add origin git@github.com:rac3rx/dotFiles.git
+
+git push origin master
 git push -u origin master
+git push --set-upstream origin master
+
