@@ -106,6 +106,9 @@ ssh-add -l
 ------------------------------------------------------------------------------------
 git - create a project and upload it to github
 ------------------------------------------------------------------------------------
+git config --global user.name "rac3rx"
+git config --global user.email chris.hammond.tx@gmail.com
+
 mkdir foo_someProject
 cd foo
 cp someFiles.txt .
@@ -137,6 +140,11 @@ ssh -vT git@github.com
 eval "$(ssh-agent -s)"
 ssh-add -l
 
+------------------------------------------------------------------------------------
+git - clone a project
+------------------------------------------------------------------------------------
+git clone https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack
+git clone https://github.com/rac3rx/CheatSheets
 
 git push origin master
 git push -u origin master
