@@ -131,6 +131,7 @@ git status
 
 git remote -v
 git remote add origin git@github.com:rac3rx/dotFiles.git
+git remote add origin git@github.com:rac3rx/CheatSheets.git
 
 ssh -vT git@github.com
 eval "$(ssh-agent -s)"
