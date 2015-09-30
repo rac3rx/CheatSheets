@@ -1,0 +1,53 @@
+/dev/sda1 	vfat 	32M 	EFI Boot partition
+/dev/sda2 	(swap) 	512M 	Swap partition
+/dev/sda3 	ext4 	Remainder  Root partition
+
+CLI MODE
+LIST partitions
+  parted -l /dev/sdb
+EG
+  parted /dev/sda mklabel gpt mkpart P1 ext3 1MiB 8MiB
+  parted -s -a optimal /dev/sda mklabel gpt -- mkpart primary ext1 1 -1
+Creating the EFI Boot Partition
+  mkpart primary fat32 0 32
+SWAP
+  mkpart primary linux-swap 32 544
+ROOT
+mkpart primary ext4 544 34732.890
+
+Interactive MODE
+  parted /dev/sdb
+  (parted) mklabel gpt
+  mkpart primary 0GB 5909GB
+
+--snip--
+# clear the MBR and partition table                                             
+dd if=/dev/zero of=/dev/sda bs=512 count=1                                      
+parted -s /dev/sda mklabel msdos
+TOTAL=`parted -s /dev/sda unit mb print free | grep Free | awk '{print $3}' | cu
+t -d "M" -f1`
+# calculate start points
+let SWAP_START=$TOTAL-8192
+let OPT_START=$SWAP_START-51680
+# partitions IN ORDER
+parted -s /dev/sda mkpart primary ext3 0 128
+parted -s /dev/sda mkpart primary ext3 128 20128
+parted -s /dev/sda mkpart primary ext3 20128 40256
+parted -s /dev/sda mkpart extended 40256 $TOTAL
+parted -s /dev/sda mkpart logical ext3 40256 $OPT_START
+parted -s /dev/sda mkpart logical ext3 $OPT_START $SWAP_START
+parted -s /dev/sda mkpart logical $SWAP_START $TOTAL
+--snip--
+
+
+
+Key Words:
+osx reEFIit boot loader grub ARCH parted
+
+REF:
+https://support.mayfirst.org/wiki/install_debian/server
+http://www.gentoo.org/doc/en/handbook/handbook-ia64.xml?part=1&chap=4
+http://www.gnu.org/software/parted/manual/html_node/Running-Parted.html
+http://www.tuxation.com/linux-on-mac.html
+http://forums.justlinux.com/showthread.php?153121-Fun-with-GPT-partitioning
+https://www.dark.ca/2009/08/03/complex-partitioning-in-kickstart/
