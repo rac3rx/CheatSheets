@@ -1,0 +1,48 @@
+qemu-img create -f raw /mnt/personal-data/SPool1/SVol1.img 10G
+
+virt-install \
+    --name=rhel7 \
+    --disk path=/mnt/personal-data/SPool1/SVol1.img \
+    --graphics spice \
+    --vcpu=1 \
+    --ram=1024 \
+    --location=/run/media/dos/9e6f605a-f502-4e98-826e-e6376caea288/rhel-server-7.0-x86_64-dvd.iso \
+    --network bridge=virbr0
+
+
+virt-install \
+    --virt-type kvm \
+    --name CentOS-Linux \
+    --ram 2048 \
+    --vcpus=2  \
+    --disk path=/var/lib/libvirt/images/centos-linux.img \
+    --network bridge=br0 \
+    --graphics vnc  \
+    --cdrom /root/CentOS-6.2-x86_64-bin-DVD1.iso  \
+    --os-variant=RHEL6
+
+--start snip--
+
+#!/bin/bash
+set -x
+
+# Note: Replace this with your local Fedora tree if you have one.
+tree= http://download.fedoraproject.org/pub/fedora/linux/releases/15/Everything/x86_64/os
+
+virt-install --connect=qemu:///system \
+    --network=bridge:br0 \
+    --initrd-inject=/export/fed-minimal.ks \
+    --extra-args="ks=file:/fed-minimal.ks \
+      console=tty0 console=ttyS0,115200" \
+    --name=f15testbox \
+    --disk /var/lib/libvirt/images/f15testbox.img,size=20 \
+    --ram 2048 \
+    --vcpus=2 \
+    --check-cpu \
+    --accelerate \
+    --hvm \
+    --location=$tree \
+    --nographics
+
+--stop snip--
+

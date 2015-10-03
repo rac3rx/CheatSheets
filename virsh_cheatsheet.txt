@@ -1,0 +1,83 @@
+virsh --connect qemu:///system list
+virsh --connect qemu://system dumpxml alice > bob.xml
+
+
+qemu-img create -f qcow2 /home/dev/images/alice.img 5G
+
+
+netstat -nap | grep kvm            # Remote Access a VM
+
+virsh list
+virsh list all
+
+virsh -c qemu+tls://wilber@mercury.example.com/system list --all
+
+virsh -c qemu+ssh://tux@mercury.example.com/system list --inactive
+
+
+Virsh dumpxml test > test123.xml
+--start snip--
+
+1) Title of VM  (Name of VM)
+
+2) UUID of Volume (UUID is the unique id of  VM storage/hard disk)
+
+3) Mac address  (unique MAC address for each VM)
+
+4) Volume creation  (creation of new volume for new VM)
+
+--stop snip--
+
+/etc/libvirt/qemu                 # entire configuration of a vm is stored as an xml file, which is named after the vm’s name, and these xml config files are all stored in
+
+virt-manager
+
+virsh create /home/test/test123.xml
+
+virsh edit {machine-name}
+
+virsh destroy test
+
+virsh nodememstats
+
+virsh version
+
+virsh nodecpustats
+
+virsh net-list
+
+virsh dominfo test
+
+virsh shutdown machine_name
+
+virsh start machine_name
+
+virsh reboot myRHELVM1
+
+virsh resume alice
+
+virt-viewer -c qemu:///system  test
+
+virt-viewer -c qemu:///system 8
+
+virt-viewer -c qemu:///system --wait sles11
+
+virt-viewer -c qemu+ssh://tux@mercury.example.com/system -w sles11
+
+ Live Migration of Virtual Machine from One Hypervisor to Another using virsh command
+
+virsh migrate --live machine_name qemu+ssh://destination_server/system
+
+virsh autostart alice
+
+virsh pool-define-as Spool1 dir - - - - "/mnt/personal-data/SPool1/"
+
+virsh pool-list --all
+
+# virsh pool-build Spool1
+
+virsh pool-start Spool1
+
+virsh pool-autostart Spool1
+
+virsh pool-info Spool1
