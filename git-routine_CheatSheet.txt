@@ -107,9 +107,7 @@ ssh-add -l
 git - create a project and upload it to github
 ------------------------------------------------------------------------------------
 
-vi .git/config
-vim .gitconfig
---snip--
+cat > .gitconfig << EOF
 [user]
         name = rac3rx
         email = chris.hammond.tx@gmail.com
@@ -119,6 +117,10 @@ vim .gitconfig
         editor = vim
 [push]
         default = simple
+EOF
+
+vi .git/config
+--snip--
 .
 .
 .
@@ -127,6 +129,7 @@ vim .gitconfig
         url = https://github.com/<username>/<project>.git
         fetch = +refs/heads/*:refs/remotes/origin/
 --snip--
+
 
 git config --global user.name "rac3rx"
 git config --global user.email chris.hammond.tx@gmail.com
