@@ -5,7 +5,7 @@ ssh -T git@github.com
 ssh-add -l
 eval "$(ssh-agent -s)"
 ssh-add -l
-cat > .gitconfig << EOF
+cat > ~/.gitconfig << EOF
 [user]
         name = rac3rx
         email = chris.hammond.tx@gmail.com
