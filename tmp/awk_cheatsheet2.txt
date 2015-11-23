@@ -1,0 +1,13 @@
+Awk syntax: awk [options] '[/pattern/] {action}' [input-file]
+
+awk -F: '{print $1}' /etc/passwd           # -F Specify field separator 
+awk -F: '/root/ {print $1}' /etc/passwd    # /pattern/ Execute actions only for matched pattern 
+
+BEGIN BEGIN block is executed once at the start awk -F: 'BEGIN { print "uid"} { print $1 }' /etc/passwd
+END END block is executed once at the end awk -F: '{print $1} END { print "-done-"}' /etc/passwd
+
+REF:
+https://webcache.googleusercontent.com/search?q=cache:Yl4cUwo0IPwJ:www.thegeekstuff.com/book/download.php%3Ff%3DAwk-Cheatsheet.pdf+&cd=2&hl=en&ct=clnk&gl=us
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&sqi=2&ved=0ahUKEwjvoeKIg6XJAhVERCYKHfAjALoQFggkMAE&url=http%3A%2F%2Fwww.thegeekstuff.com%2Fbook%2Fdownload.php%3Ff%3DAwk-Cheatsheet.pdf&usg=AFQjCNE_YaaTZ-05ZyQRgaAvQ-nOw1hn-g&sig2=Ixh7VZVKV2iAkKkQ5Qy2hA&bvm=bv.108194040,d.eWE
+
