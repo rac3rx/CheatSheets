@@ -1,0 +1,7 @@
+virt-viewer -c qemu:///system  test
+
+virt-viewer -c qemu:///system 8
+
+virt-viewer -c qemu:///system --wait sles11
+
+virt-viewer -c qemu+ssh://tux@mercury.example.com/system -w sles11

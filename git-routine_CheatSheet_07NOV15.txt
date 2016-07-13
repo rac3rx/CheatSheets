@@ -1,3 +1,24 @@
+ssh-keygen -t rsa -b 4096 -C "chris.hammond.tx@gmail.com"
+eval "$(ssh-agent -s)"
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+ssh-add -l
+eval "$(ssh-agent -s)"
+ssh-add -l
+cat > ~/.gitconfig << EOF
+[user]
+        name = rac3rx
+        email = chris.hammond.tx@gmail.com
+[credential]
+        helper = cache --timeout=3600
+[core]
+        editor = vim
+[push]
+        default = simple
+EOF
+
+
+
 
 ------------------------------------------------------------------------------------
 ssh - setup the keys correctly
