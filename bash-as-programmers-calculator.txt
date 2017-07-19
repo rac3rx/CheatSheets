@@ -1,0 +1,213 @@
+    #BruXy's RSS publisher
+
+BruXy.REGNET.CZ
+
+     * GNU/Linux
+     * Programming
+     * Typography
+     * Meteorological satellites
+     * Hamradio station OK2MNM
+     * History of SSTV
+     * Fitness & Bodybuilding
+     * 8 bits computers
+     * Cooking
+     * Graphics
+     * Other topics
+
+   Published: 17. 7. 2014   Category: GNU/Linux
+
+Using the linux command line in bash as a programmer's calculator
+
+Introduction
+
+   It happens sometimes in scripts that you need to perform a mathematical operation. And bash itself and other standard commands can be used as a quick
+   programmer's calculator and number base converter.
+
+   Bash works only with integers, its data type is signed int. My 64bit Fedora installation, has a range from -2^63 to 2^63-1. Numbers are stored in
+   two's complement format, so in hexadecimal notation it is from 0x8000000000000000 to 0x7fffffffffffffff, so beware of number overflow.
+
+Arithmetic expression
+
+   You can use the following syntax to perform math operations:
+     * $((expression)) or $[expression],
+     * let "expression" or ((expression)).
+
+   In the first case, an expression is evaluated and interpreted as a command or a parameter. In the second, an expression is evaluated and a return
+   value $? is set to false (1) if its evaluated value is zero and or true (0) if it is non-zero.
+
+   Examples:
+# echo $[1+1]
+2
+# $[2+2]
+bash: 4: command not found...
+# ((0*1024)) ; echo $?
+1
+# ((2+2)) ; echo $?
+0
+# echo $((355/113)) $[ 355 % 133 ]
+3 89
+# i=10; ((i+=20, i=i-31)); echo $i
+-1
+
+   I like to use a syntax with square brackets instead of double parenthesis, because it is shorter although the square bracket syntax is not mentioned
+   in documentation, but I've never had a problem with doing so in any bash versions.
+
+   We can use variables with or without a prefix dollar symbol, so the syntax $((x)) and $(($x)) will return the same value if $x contains a valid
+   numeric value.
+
+Arithmetic operators and its priorities
+
+   Arithmetic operators are the same as in the C language and its priorities are same. The only exception is in the power operator ** which comes from
+   Fortran, but you might also know it from other programming languages. The operators are listed in order of descending priority , starting with the
+   operator with the highest priority.
+   id++ id--                         postincrementation, postdecrementation
+   ++id --id                         preincrementation, predecrementation
+   - +                               unary minus and plus
+   ! ~                               logic and bit negation
+   **                                power, a**b=a^b
+   * / %                             multiply, division, remainder after division
+   + -                               addition, subtraction
+   << >>                             left and right bitwise shift
+   <= >= < >                         comparison
+   == !=                             equality and inequality
+   &                                 bitwise AND
+   ^                                 bitwise XOR
+   |                                 bitwise OR
+   &&                                logical AND
+   ||                                logical OR
+   expr?expr:expr                    conditional operátor
+   = *= /= %= += -= <<= >>= &= ^= |= assignment
+   expr1 , expr2                     comma
+
+   Few examples:
+# echo $((1<<4 + 1<<5))
+1024
+# a=1; b=2; echo $[++a+++b]
+5
+# let "i = 2 * 3 ** 5"; echo $i
+486
+
+   Bitwise shifts are often used for multiplication or division by the power of 2 but its priority is lower than that for addition, I also write it in
+   this sneaky form so it is looks like the wanted evaluation/ result is 48, but that's wrong. Please note that an expression that accompanies a command
+   must be written in quotes, because the symbol * can be replaced by shell to list all files in the current directory and other unwanted behaviours.
+
+Number base format syntax
+
+   Bash uses decimal numbers in default, but in mathematical regimen you can use also octal and hexadecimal numbers in the usual way. The octal number
+   base uses the prefix zero and hexadecimal uses 0x. Other number bases need to be written with a base before the # symbol. It is possible go up to
+   base 32.
+# echo $[0xffff]
+65535
+# echo $[2#101010101010]
+2730
+# echo $echo $[018]
+bash: 018: value too great for base (error token is "018")
+# echo $[0777]
+511
+
+   It is possible to convert any number to decimal thanks to this syntax, but a conversion in the opposite direction is much more difficult and we need
+   to use external utilities. The first of them is printf from the C standard library. Its control sequences uses %o for octal numbers and %x for
+   decimal. And with %#o or %#x it will also print a number base prefix.
+# printf "%#x\n" 65535
+0xffff
+# printf "%o\n" $[2#101111111]
+577
+
+   If we need any conversion with a base from 2 to 16 we need to use bc, but note that it uses capitals as a digit!
+# echo "obase=2; 255" | bc
+11111111
+# echo "ibase=16; FFFF" | bc
+65535
+
+   For binary conversion perl users can use the following one-liner:
+# perl -e 'printf "%#b\n", 255'
+0b11111111
+
+What about ASCII value to code and vice-versa?
+
+     * printf "%d" \'A - converts A to the decimal value of ASCII code. Syntax \' (or \") is specific for shell printf and it means that the value
+       behind it will be used as the code of ISO/IEC 646:1991 (7bit ASCII).
+     * printf \\$(printf '%03o' 65) - converts decimal value to octal escape sequence and then prints it as char.
+     * printf \\x41\\141 or printf "\x41\141"- hexadecimal and octal values (Aa) can be used directly by escape-sequences.
+     * ascii - print 7bit ASCII table, also returns detailed information about char or value.
+     * man 7 ascii - manual page of ASCII code.
+
+Unicode conversion
+
+   Greek small letter alpha (a) is represented in UTF-8 as 0xCE 0xB1 and in UTF-16 as 0x03B1, with these values you can work in shell in the following
+   way:
+     * echo -e "\u03B1"; # use -e for interpretation of escape-sequences
+     * echo -e "\xce\xb1"
+     * printf "\u03B1\xce\xb1\n"
+     * awk 'BEGIN { print "\xce\xb1"; }'
+     * perl -e 'print "\xce\xb1\n";'
+     * perl -e 'binmode STDOUT, ":utf8"; print "\N{U+03b1}\n";'
+     * perl -Mcharnames=:full -e 'binmode STDOUT, ":utf8"; print "\N{GREEK SMALL LETTER ALPHA}\n";'
+
+   Use hexdump for conversion of UTF-8 characters to hexadecimal:
+# echo -n "a" | hexdump -C
+00000000  ce b1                                             |..|
+00000002
+
+   The echo's option -n disables the print of line feed char, so its value 0x0A is not found in the output.
+
+Random numbers
+
+   There is a built-in variable $RANDOM, it generates integers in range 0 to 32767. If you store a value into RANDOM it will be used as initial seed. I
+   can't recall using it in a serious script, but you can have a lot of fun with it, for example:
+P=(' ' FB .S :S ?S);while :;do printf "\e[$[RANDOM%LINES+1];$[RANDOM%COLUMNS+1]f${P[$RANDOM%5]}";done
+
+   It is possible to generate numbers in lower ranges by using the remainder (modulo operation). For example, for the range 0 to 99 you can get its
+   remainder after division by 100: $((RANDOM % 100)), etc.
+
+Floating point number in IEEE 754 format
+
+   It is possible to convert between decimal floats and its IEEE 754 representation, it is useful for the exploration of memory or binary file hexdumps
+   with floating point numbers stored.
+
+   IEEE 754-1985 uses three precisions: single (32bit.), double (64bit.) and extended (80bit.), it is float, double and long double in C language.
+# gdb --batch -ex "print/x (float *) ( (float) 1234.567 )"
+$1 = 0x449a5224
+
+# gdb --batch -ex "print/f (float *) 0x449a5224"
+$1 = 1234.56689
+
+   I was unable to use gdb for conversion of other types so it was necessary to use other tools. For example in python you can use:
+# python -c 'import struct; print "%#x" % struct.unpack("I", struct.pack("f", 1234.567))'
+0x449a5225
+
+# python -c 'import struct; print "%#x" % struct.unpack("Q", struct.pack("d", 1234.567))'
+0x40934a449ba5e354
+
+# python -c 'import struct; print "%f" % struct.unpack("d", struct.pack("Q", 0x4094b2449ba5e354))'
+1324.567000
+
+# python -c 'import struct; print "%f" % struct.unpack("f", struct.pack("I", 0x449a5225 ))'
+1234.566895
+
+   Structures are used in both python and perl for easy conversion of binary data. It can pack data in one format and unpack in another: f float, d
+   double, Q unsigned long int (8 Bytes), I unsigned int (4 Bytes).
+
+Arithmetic with floating point numbers with bc
+
+   The arbitrary precision calculator bc is used for computation with decimal point. The bc is sometimes just a converter of syntax to reverse or polish
+   notation and the computation is done by dc, but sometimes in GNU/Linux the bc runs the calculation itself. The bc is an interpreter of a language
+   similar to C, so it can be used for a lot of things. The number of digits after a decimal point can be set by variable scale. CLI option bc -l
+   imports a library of mathematical functions: s(x) sin(x), c(x) cos(x), a(x)arctan(x), where x is in radians; l(x) natural logarithms ln(x), e(x)
+   exp(x), j(n,x) Bessel funkce of integer order n of x.
+# echo "scale=10; 355 / 113" | bc
+3.1415929203
+# echo "scale=10; (1+1/10000)^10000" | bc
+2.7181459268
+# echo "3.5 * 785.498" | bc
+2749.243
+# bc <<< "2340 * 1.22"
+2854.80
+# bc -l <<< "scale=10; 4*a(1)"
+3.1415926532
+
+Related articles
+
+   Number of comments: 0
+   © Martin Bruchanov (BruXy), bruchy@gmail.com
+REF: http://bruxy.regnet.cz/web/linux/EN/bash-as-programmers-calculator/

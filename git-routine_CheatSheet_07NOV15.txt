@@ -1,0 +1,208 @@
+ssh-keygen -t rsa -b 4096 -C "chris.hammond.tx@gmail.com"
+eval "$(ssh-agent -s)"
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+ssh-add -l
+eval "$(ssh-agent -s)"
+ssh-add -l
+cat > ~/.gitconfig << EOF
+[user]
+        name = rac3rx
+        email = chris.hammond.tx@gmail.com
+[credential]
+        helper = cache --timeout=3600
+[core]
+        editor = vim
+[push]
+        default = simple
+EOF
+
+
+
+
+------------------------------------------------------------------------------------
+ssh - setup the keys correctly
+------------------------------------------------------------------------------------
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+cat ~/.ssh/id_rsa.pub 
+
+01: Check that you are connecting to the correct server
+ssh -vT git@github.com                                                  <-- always use the git user for ssh
+debug1: identity file /home/chronos/user/.ssh/id_rsa type 1             <-- identity is 1; not being used
+debug1: identity file /home/chronos/user/.ssh/id_rsa-cert type -1
+debug1: identity file /home/chronos/user/.ssh/id_dsa type -1
+debug1: identity file /home/chronos/user/.ssh/id_dsa-cert type -1
+debug1: identity file /home/chronos/user/.ssh/id_ecdsa type -1
+debug1: identity file /home/chronos/user/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/chronos/user/.ssh/id_ed25519 type -1
+debug1: identity file /home/chronos/user/.ssh/id_ed25519-cert type -1
+.
+.
+.
+Hi rac3rx! You've successfully authenticated, but GitHub does not provide shell access.
+debug1: channel 0: free: client-session, nchannels 1
+Transferred: sent 5328, received 2952 bytes, in 0.2 seconds
+Bytes per second: sent 33149.4, received 18366.5
+debug1: Exit status 1                                                   <-- I believe "Exit status 1 is reflected above
+
+02: Make sure you have a key that is being used
+# start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+Agent pid 20587
+
+# The ssh-add command should print out a long string of numbers and letters. 
+# If it does not print anything, you will need to generate a new SSH key and associate it with GitHub.
+# default private keys:
+#     ~/.ssh/id_rsa
+#     ~/.ssh/id_dsa                                                      <-- missing
+#     ~/.ssh/identity                                                    <-- missing
+ssh-add -l
+The agent has no identities.
+
+02:01 Check for SSH keys
+# Lists the files in your .ssh directory, if they exist
+ls -al ~/.ssh
+
+02:02 Generate a new SSH key; since I'm missing the above
+# Creates a new ssh key, using the provided email as a label
+# After you enter a passphrase, you'll be given the fingerprint, or id, of your SSH key. 
+# It will look something like this:
+ssh-keygen -t rsa -b 4096 -C "chris.hammond.tx@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/chronos/user/.ssh/id_rsa): 
+/home/chronos/user/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/chronos/user/.ssh/id_rsa.
+Your public key has been saved in /home/chronos/user/.ssh/id_rsa.pub.
+The key fingerprint is:
+24:66:1b:aa:59:e3:e8:32:82:5b:ee:e0:d3:18:59:e0 chris.hammond.tx@gmail.com
+The key's randomart image is:
++--[ RSA 4096]----+
+|                 |
+| .               |
+|. .   = .        |
+| E . + =         |
+|  o + . S        |
+| o * .           |
+|o O . ...        |
+|*B . ...         |
+|o*=              |
++-----------------+
+
+02:03 Add your key to the ssh-agent
+# start the ssh-agent in the background
+# Ensure ssh-agent is enabled:
+eval "$(ssh-agent -s)"
+Agent pid 59566
+
+#Add your SSH key to the ssh-agent:
+ssh-add ~/.ssh/id_rsa
+Identity added: /home/chronos/user/.ssh/id_rsa (/home/chronos/user/.ssh/id_rsa)
+
+
+
+02:04 Add your SSH key to your account
+cat ~/.ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDZGJcgsbSi/8X5uGZs9GoUwX9BUuWnbtQ6f/keNSEFQzN57MEfGB6fY/XpASqXQfEolx85C9zjCYuxmGdgGv3UseBrNRYLM1p8DaYqLxIdY0bpnjj5vHvoBj2yAi0139STYuxPC1WOEBfBCSgarRBI+EsdL/mA/BP0tPtEHyC+gFxwmu1NL/1X4YvfNyGVXYfXVs5Uc88KUS5xafJDDteaN6qX/Difen8C0hRqiMzE0z3Xi6+usSET0PXCWal9yuqdOOkR3ZX96WWYcL9b+GAfe9Gf2qZCHTY7Ba0Y9cZis04AnxukEGaigQGfNQIf4EHnVbBLx5Qn3SIK7RjzcsRkqQcvI0/0xwon7l35scks2QPrQu5PqQc53tb0AfwyhDB2NVAMnl+wuiUqtV6H6bA8A3kiIqD0bclod6TrTFq7aWGDrm2WIPWYsXt0fXqVaKeNDuTIFdsdhisEwXqnafB5lpxzFjSgl55gCC2vvFHVUtEaFEeBAPrKhSycePlXgj5oXkJkSmGsCMDa8rV33vyd+Koy+NSSVHP4u/7Qt5qj1D2cmiZ+yqhZvQgOKbPsyYcYMSv5WKKaBd2y6XCHRUgXCyPISIbMUMHgDeWMmezZd61OAbVdqhm3ZuGXSaIwlp2ZEJrGpTPbYCUng1si0rWH1N5oPDgzRldH1+CPL3Qr2w== chris.hammond.tx@gmail.com
+
+02:05: Test the connection
+# To make sure everything is working, you'll now try to SSH into GitHub. 
+# When you do this, you will be asked to authenticate this action using your password, which is the SSH key passphrase you created earlier.
+# Attempts to ssh to GitHub
+ssh -T git@github.com
+
+02:06: Start SSH agent in the background.
+eval "$(ssh-agent -s)"
+Agent pid 59566
+
+02:07: Enter ssh-add -l and take note of the resulting fingerprint:
+# In the top right corner of any page, click your profile photo, then click Settings.
+# SSH keysIn the user settings sidebar, click SSH keys.
+# SSH key listing in GitHubCompare the list of SSH keys with the output from ssh-add -l.
+ssh-add -l
+4096 24:66:1b:aa:59:e3:e8:32:82:5b:ee:e0:d3:18:59:e0 /home/chronos/user/.ssh/id_rsa (RSA)
+
+------------------------------------------------------------------------------------
+git - create a project and upload it to github
+------------------------------------------------------------------------------------
+
+cat > ~/.gitconfig << EOF
+[user]
+        name = rac3rx
+        email = chris.hammond.tx@gmail.com
+[credential]
+        helper = cache --timeout=3600
+[core]
+        editor = vim
+[push]
+        default = simple
+EOF
+
+vi .git/config
+--snip--
+.
+.
+.
+[remote "origin"]
+        url = ssh://git@github.com/<username>/<project>.git
+        url = https://github.com/<username>/<project>.git
+        fetch = +refs/heads/*:refs/remotes/origin/
+--snip--
+
+
+git config --global user.name "rac3rx"
+git config --global user.email chris.hammond.tx@gmail.com
+
+mkdir foo_someProject
+cd foo
+cp someFiles.txt .
+touch someMoreFiles.txt
+vim youGetTheIdea.txt
+
+git init
+
+echo "# dotFiles" >> README.md
+
+git add .
+git add README.md
+git add -A --ignore-removal .
+
+git commit -am "1st commit for dotFiles"
+git commit -m "first commit"
+
+curl -u 'USER' https://api.github.com/user/repos -d '{"name":"REPO"}'
+curl -u 'rac3rx' https://api.github.com/user/repos -d '{"name":"dotFiles"}'
+
+git branch
+git status
+
+git remote -v
+origin  ssh://git@github.com/yourGithubUserName/yourRepo.git (fetch)
+origin  ssh://git@github.com/yourGithubUserName/yourRepo.git (push)
+
+git remote rm origin
+git remote remove origin
+git remote add origin git@github.com:<username>/<reponame>.git
+git remote add origin git@github.com:rac3rx/dotFiles.git
+git remote add origin git@github.com:rac3rx/CheatSheets.git
+
+ssh -vT git@github.com
+eval "$(ssh-agent -s)"
+ssh-add -l
+ssh-add ~/.ssh/id_rsa
+
+git push origin master
+git push -u origin master
+git push --set-upstream origin master
+
+git pull -u origin master
+git branch --set-upstream-to=origin/<branch> dotFiles            <--  If you wish to set tracking information for this branch you can do so with:
+
+------------------------------------------------------------------------------------
+git - clone a project
+------------------------------------------------------------------------------------
+git clone https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack
+git clone https://github.com/rac3rx/CheatSheets
+
