@@ -1,0 +1,69 @@
+pv -pet honkin.big.file | nc -q 1 -l 1234 <enter>
+nc sender.net.uci.edu 1234 |pv -b > honkin.big.file <enter>
+
+nc -l  -p  12378   | tar -xzf -
+tar -czvf - fmri_classic | nc -s  10.255.78.2  10.255.78.10  12378
+
+ncat --sctp -l -p 6500 > out.tgz
+tar -zc ~ | ncat --sctp machineb 6500
+
+firewall-cmd --add-port=1234/tcp --zone=public
+iptables -I INPUT 1 -p tcp -s 192.168.146.135 --dport 1234 -j ACCEPT
+nc --sctp -l  -p  1234 > centos7-base.tar
+tar --numeric-owner --exclude=/proc --exclude=/sys -c / | ncat --sctp 192.168.146.1 1234
+
+
+rsync -avz --exclude 'dir1/dir2/file3.txt' source/ destination/
+dc3dd
+dc3dd if=/dev/sda of=image.dd progress=on hash=md5 split=64 splitformat=000 iflag=direct log=image.log
+Switches:
+progress - Will show progress on screen
+hash - Will make a hash value of the image, md5 in this example
+split - Will split the image into x size portions, 64MB parts in here
+splitformat - Will append a number or letter at the end of each part, ie image.dd.001,image.dd.002, etc...
+iflag - Will skip kernel cashing. Used for more precise log information.
+log - Write a log file, image.log in this example
+
+Extra Switche:
+conv=noerror,sync
+conv - Will tell dc3dd to ignore errors and continue reading
+sync - Will synchronize the drives so they are identical with zeros where there are bad sectors
+
+This two options are not recommended because they can be destructive and further damage the drive before you are able to get all the good sectors. If the drive is damaged or has bad sectors, use ddrescue.
+ddrescue -d -n /dev/sda image.dd image.log    # In here the -n switch tells ddrescue to only write the good sectors and stop. 
+                                              # The -d switch tells it to skip kernel caching for a more exact report of sectors read. 
+                                              # If you interrupt the command you can issue the same command with the same log file and 
+                                              # it will continue where it left off. The log file keeps track of good/bad sectors and 
+                                              # where to continue if it needs to.
+ddrescue -d -r3 /dev/sda image.dd image.log   # In the second example we resume our image copy and will read the bad sectors 3 times (-r3 switch) and write zeros if it can't read them.
+
+One other note, the values displayed in the log are in hex, to see them in decimal use bc. Ignore the 0x part.
+Example: echo "ibase=16;12345678" | bc
+
+rpmbuild --rebuild /path/to/srpm/foo-1.2.3.4-1.el4.src.rpm
+chown -R root.root /share/CentOS/4/local
+createrepo /share/CentOS/4/local/i386
+createrepo -g comps.xml /path/to/rpms
+chmod -R o-w+r /share/CentOS/4/local
+
+yum-groups-manager -n "My Group" --id=mygroup --save=mygroups.xml --mandatory yum glibc rpm
+cat > mygroups.xml EOF
+<!DOCTYPE comps PUBLIC "-//Red Hat, Inc.//DTD Comps info//EN" "comps.dtd">
+<comps>
+  <group>
+   <id>mygroup</id>
+   <default>False</default>
+   <uservisible>True</uservisible>
+   <display_order>1024</display_order>
+   <name>My group</name>
+   <description></description>
+    <packagelist>
+      <packagereq type="mandatory">glibc</packagereq>
+      <packagereq type="mandatory">rpm</packagereq>
+      <packagereq type="mandatory">yum</packagereq>
+    </packagelist>
+  </group>
+</comps>
+EOF
+createrepo -g /path/to/mygroups.xml /srv/my/repo
+

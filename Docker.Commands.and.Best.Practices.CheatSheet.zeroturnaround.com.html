@@ -1,0 +1,654 @@
+<!DOCTYPE HTML>
+<html itemscope itemtype="//schema.org/WebSite" lang="en" style="background:#43484c">
+<head>
+<title>Docker Commands and Best Practices Cheat Sheet | zeroturnaround.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="shortcut icon" href="//static.zeroturnaround.com/theme55/images/favicon-rl.ico">
+<link rel="alternate" type="application/rss+xml" title="ZeroTurnaround feed" href="/feed/">
+
+<!-- All in One SEO Pack 2.3.11.3 by Michael Torbert of Semper Fi Web Design[109,185] -->
+<link rel="author" href="https://plus.google.com/115206705377325870061/" />
+<meta name="description"  content="Best practices are important, but often overlooked in a world overloaded with information. This is why presenting information in a digestible form is really" />
+
+<link rel="canonical" href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" />
+<meta property="og:title" content="Docker Cheat Sheet: Commands and Best Practices" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" />
+<meta property="og:image" content="https://zeroturnaround.com/wp-content/uploads/2016/03/Docker-cheat-sheet-by-RebelLabs-640x452.png" />
+<meta property="og:site_name" content="ZeroTurnaround" />
+<meta property="og:description" content="In this blog post we examine typical commands and best practices of how developers use docker. You&#039;ll learn the most useful commands for managing the images and containers, following logs, executing custom commands in the container, how docker compose helps to run multiple containers at the same time and where does docker machine fit." />
+<meta property="article:publisher" content="ZeroTurnaround" />
+<meta property="article:published_time" content="2016-03-17T15:02:13Z" />
+<meta property="article:modified_time" content="2017-01-25T11:53:39Z" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@zeroturnaround" />
+<meta name="twitter:creator" content="@shelajev" />
+<meta name="twitter:domain" content="zeroturnaround.com" />
+<meta name="twitter:title" content="Docker Cheat Sheet: Commands and Best Practices" />
+<meta name="twitter:description" content="In this blog post we examine typical commands and best practices of how developers use docker. You&#039;ll learn the most useful commands for managing the images and containers, following logs, executing custom commands in the container, how docker compose helps to run multiple containers at the same time and where does docker machine fit." />
+<meta name="twitter:image" content="https://zeroturnaround.com/wp-content/uploads/2016/03/Docker-cheat-sheet-by-RebelLabs-640x452.png" />
+<meta itemprop="image" content="https://zeroturnaround.com/wp-content/uploads/2016/03/Docker-cheat-sheet-by-RebelLabs-640x452.png" />
+<!-- /all in one seo pack -->
+<link rel='dns-prefetch' href='//static.zeroturnaround.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="zeroturnaround.com &raquo; Docker Commands and Best Practices Cheat Sheet Comments Feed" href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/feed/" />
+<link rel='stylesheet' id='colorbox-theme7-css'  href='https://zeroturnaround.com/wp-content/plugins/jquery-colorbox/themes/theme7/colorbox.css?ver=4.6.2' type='text/css' media='screen' />
+<link rel='stylesheet' id='jquery-ui-css-css'  href='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css' type='text/css' media='' />
+<link rel='stylesheet' id='ztwp-styles-css'  href='//static.zeroturnaround.com/theme55/stylesheets/zeroturnaround.min.css?ver=7.5.9' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-font-css'  href='//fonts.googleapis.com/css?family=Open+Sans:100,300,400,700,800' type='text/css' media='all' />
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+<script type='text/javascript' src='//static.zeroturnaround.com/theme55/javascripts/zeroturnaround.min.js?ver=7.5.9'></script>
+<script type="text/javascript">
+	!function(){var analytics=window.analytics=window.analytics||[];if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.0";
+		window.analytics.load("fh70m2z67p");
+	window.analytics.page();
+	  }}();
+</script>
+<link rel='https://api.w.org/' href='https://zeroturnaround.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://zeroturnaround.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://zeroturnaround.com/?p=56567' />
+<link rel="alternate" type="application/json+oembed" href="https://zeroturnaround.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fzeroturnaround.com%2Frebellabs%2Fdocker-commands-and-best-practices-cheat-sheet%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://zeroturnaround.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fzeroturnaround.com%2Frebellabs%2Fdocker-commands-and-best-practices-cheat-sheet%2F&#038;format=xml" />
+
+<script>
+var _prum = [['id', '517139bbabe53d602b000000'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+</script>
+
+	<link rel="apple-touch-icon-precomposed" href="//static.zeroturnaround.com/img/icons/touch-icon-precomposed-144.png" sizes="144x144">
+	<link rel="apple-touch-icon-precomposed" href="//static.zeroturnaround.com/img/icons/touch-icon-precomposed-114.png" sizes="114x114">
+	<link rel="apple-touch-icon-precomposed" href="//static.zeroturnaround.com/img/icons/touch-icon-precomposed-72.png" sizes="72x72">
+	<link rel="apple-touch-icon-precomposed" href="//static.zeroturnaround.com/img/icons/touch-icon-precomposed.png">
+	<noscript><link rel="stylesheet" href="//static.zeroturnaround.com/theme55/stylesheets/noscript.css" type="text/css" media="all"></noscript>
+	</head>
+<body class="rl-report-template-default single single-rl-report postid-56567 ztwp slug-docker-commands-and-best-practices-cheat-sheet ztwp-rebellabs">
+<div id="viewport">
+<header>
+    <div class="header-wrapper">
+        <a id="main-logo" class="logo zt-logo" href="//zeroturnaround.com/" title="zeroturnaround.com">
+    <span></span>
+</a>
+<div id="nav-expand-trigger" class="nav-expand-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<form id="search-main" class="search-main" action="//zeroturnaround.com/search/">
+    <label for="search-q" class="label">
+        <span class="icon icon-search">Search the site</span>
+        <a href="#">Search</a>
+    </label>
+    <div class="fields">
+        <input id="search-q" class="search-q" type="text" name="q" value="" placeholder="Search">
+        <button type="submit">Find it!</button>
+    </div>
+</form><ul id="nav-main" class="nav-main"><li id="menu-item-61176" class="remove-href nav-expand-trigger menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-61176"><a href="#nav-main"><div class="menu-item-title"><span>Products</span></div><div></div></a>
+<ul class="sub-menu"><div class="first-level">
+	<li id="menu-item-61181" class="menu-item-jr menu-item menu-item-type-post_type menu-item-object-page menu-item-61181"><a href="https://zeroturnaround.com/software/jrebel/"><div class="menu-item-title"><span>JRebel</span></div><div>Fast track development of Java apps by skipping redeploys.</div></a></li>
+	<li id="menu-item-61184" class="menu-item-xr menu-item menu-item-type-post_type menu-item-object-page menu-item-61184"><a href="https://zeroturnaround.com/software/xrebel/"><div class="menu-item-title"><span>XRebel</span></div><div>Optimize performance of your Java web apps during development.</div></a></li>
+	<li id="menu-item-61182" class="menu-item-xrh menu-item menu-item-type-post_type menu-item-object-page menu-item-61182"><a href="https://zeroturnaround.com/software/xrebel-hub/"><div class="menu-item-title"><span>XRebel Hub</span></div><div>Monitor Java app performance and resolve regressions during testing.</div></a></li>
+	<li id="menu-item-61183" class="menu-item-jra menu-item menu-item-type-post_type menu-item-object-page menu-item-61183"><a href="https://zeroturnaround.com/software/jrebel-for-android/"><div class="menu-item-title"><span>JRebel for Android</span></div><div>Accelerate development of mobile apps by reducing build times.</div></a></li>
+</div></ul>
+</li>
+<li id="menu-item-61177" class="menu-item-rebellabs menu-item menu-item-type-custom menu-item-object-custom highlight menu-item-61177"><a href="/rebellabs/"><div class="menu-item-title"><span>Blog</span></div><div></div></a></li>
+<li id="menu-item-61178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61178"><a href="/forums/"><div class="menu-item-title"><span>Forum</span></div><div></div></a></li>
+</ul><ul class="user-menu">
+	</ul>
+            </div>
+</header>
+
+<div id="content">
+
+<section><div id="blog-content" class="content-body">
+<div class="content">
+    <div class="card intro zebra-alternate-0">
+	
+<div class="card-row left two-col">
+	
+	
+	
+	<div class="card-col center bottom-img" style="margin-top:37px; float:left">
+	
+	
+	<img src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbEAAACxCAMAAAB9eXM3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpGRTdGMTE3NDA3MjA2ODExQUIwOEJFMkQ1Mzc1Q0M0NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFOTk1N0EwQ0EwNDIxMUU1Qjk0QUI0OTc1MzgxOUZDMiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFOTk1N0EwQkEwNDIxMUU1Qjk0QUI0OTc1MzgxOUZDMiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzMxNzU1MkUxRTBEMTFFMzkxQThDRkVGREM2QjQ3MkQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzMxNzU1MkYxRTBEMTFFMzkxQThDRkVGREM2QjQ3MkQiLz4gPC9yZGY6RGVzY3Jp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"></div>
+
+	<div class="card-col">
+	
+	
+	
+<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAABBCAMAAADPP0m5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDQ0N0E2NDNBMDNBMTFFNUI5NEFCNDk3NTM4MTlGQzIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDQ0N0E2NDJBMDNBMTFFNUI5NEFCNDk3NTM4MTlGQzIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjYwNEM4Q0FCNkJCOTExRTM5MENFRDI0QUFBQjlGODg4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjYwNEM4Q0FDNkJCOTExRTM5MENFRDI0QUFBQjlGODg4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FXrrWQAAADBQTFRFh73Zn6GiRlBW6+vram1vjMPhgISHxMbHUWdzdJ+2XnyMPkRIU1pfhLjU////Q0hMrpX42AAABV1JREFUeNrsmmm3qyoMhgGZwfr//+2VeYpT23vOOtp82bssbX0ISV6CaHmsoR/6D/2H/mh0ggUmj0Qn0+v1msgT0R35yv5AdPsKZn/oD0InEf2JsY49OX1kcePTJO5NviNpzLruxWviz1Rz4tarfhfdB7x4Ljp+JDq+dYHbRncCnuIb72HQdoq7bZAfoNO7a7ltdPtc9MVi+1T0+9uIbjp7DDqZUWczeQa6UWjujZlnoI/kT0FfNGMNPWJMAemfUu6s2dVZ3psPFZqtUg3DpWYh7k9fVaSz7amXmoyXOyP9PcQP2900Z62u2JG2Y42bXsUmnIn4qze6lDafv1jwajfcmPEi6tV3B2a22iY6YWzuPmeblaygVBrVZq+4SVahQz87tU8tKgG4j+7o7SV0tfUMYYmimZEGvVmvioxETJmd4lY5nenlGD2160+hh8Evoa9ESPXoa4jGmEVxXmQaduPlhhFdHzl9QI9b+oA+FSvoAnMspjJRYrj0HXSPxDp0pLXUag4QKs3QPGtppXT1i8kt9GOnB3S+qh1Lo/tIRse9HLKln29Fcrv/x7ZXXkdX/hllix4ygyG+SjObZqiESHY7uhzpEZ3Wuc1mdA7tg/JRhohrRAA9kMvoKbIh9Hir9906CShnBPfBwOhmPnR6gx4o+El0Gle8yEvlA/QYmVWia9C9D52Hm+lZi3e6AV13eouOc7CfQLffRE9PqWB0G9G9M02zQ4HR6+qw4fQP0L/pdZuchA68vn4HksdqrnY6I8vZBU//Qqy7PKZkk+jaWEfRe06iMU2O0Gunq+UEOu0yvLDJAHTeZHieriRvoftCtjQPWqGbUPlsqfarujM76KecHotbkO2VnqOQzgno2OlzPHV1PRl/B937kqQ/dV13Yl3PvkYH6RZ3o07GbqOfcnp65cIpkaqsd+iiRt9Xc2+hx7oWaHs1F+VcmpMZFXFrYXRyyumDmrPLBXS+fAU9IZs60TUaPi738DWsggfRqz7FjtM7dGGXK+j4O+gqLXS/4m3r9YhR5XWi5zyqgOJ20uktumhTNAYzvMCrhJ8KaHuEa95AZ0moEJa1etLwq4QPGr4WuSbTQ5LmpNMDOqYUt+/bHBU3EzX88oXiJnOI+xXPtjR8q1SJRtXeDV13eiluonnD7ERdT7XhU0ljVHlGjXKi8+h1HmQSCpTZ9uij0zd60lO7F8fn0XkMkU/Rg5ekVwWhqWQG9Dwlpqnn7mraoQNOr/cyBJI0eMjwf0bDB9zQc0IlmTfoScPbWc2ydXCPDkV6kTh18Fdqbuq7NH8GnfVd4/B4MDprHh5AhyO9ampJCJ0eVaf/ZcGXjlPoNaaENix4v3NDdYV3RLFnhwCnz6pbWcEMpOFxp+F30enrO9uXbl+Z20719iVoeJkYqiOWdCcohBSUAMpvNTu3KRf3sH2htG2821gJKecii7+wfWkvHWWBieh9uiVdT06mIu/rukt+UipWlq8bXcPdddT8LHWSRjcHD1rqYPVaYBZCL0t+7MhaSMMLqCM7Qbfz2H6rDgCZW3sadcKDRcqi4UPyixf5do7vxjJU9Z4QqH6rw8baDIAeMchZ9Gm5jN4/A+ortopz0Wv4JFkVAwYTugbO2sbDNwuhk+TLU+h4+Rh96EHnkRp9dX45aUnHaavbdbdzI/MZSzPdoscGBAcOnlr0acJ8WS6idyfebsGrNh3lvCfXOpZXqtLtUZ1WIZCH/fo1dJ+XqtLkP9uF0N7CdwN60AKXmtGgwaaz2L4OUevPBXxlAurSqFPotzxktuww2NFWW/5fP18nWh2YvtsbVdX25cBu/1bFg+yH/kT7T4ABALS4bgNDmopTAAAAAElFTkSuQmCC'> <br>
+<div style="font-size:1.2em">Imagine a bacon-wrapped Ferrari. Still not better than our free technical reports.</div>
+<a class="em upper bigger button" href="/rebellabs/reports/" style="margin-left:5px;margin-top:20px;">See all our reports</a>
+</div>
+
+</div>
+
+</div>
+
+    	<div id="rebellabs-sidebar" class="sidebar">
+	<div id="zt-blog-sidebar-3" class="widget widget_zt_blog_sidebar">		<div class="textwidget">
+			<p><a href="/software/jrebel/trial/?utm_source=blog&utm_medium=sidebar&utm_campaign=lightspeed_free"><img src="/wp-content/uploads/2016/03/rl-206x206-jr-lightspeed-v2.png"></a></p>
+		</div>
+		</div><div id="text-17" class="widget widget_text">			<div class="textwidget"><div>
+		<a class="twitter-timeline"  
+       href="https://twitter.com/zeroturnaround" 
+       data-widget-id="357070320970117120">Tweets by @zeroturnaround</a>
+       
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"); </script>
+</div></div>
+		</div>			<div id="zt-promoted-posts-2" class="widget widget_zt_promoted_entries">						<ul class="tab-switcher">
+									<li class="tab active">
+						<a class="tab-title" href="#">Reports</a>
+						<ul class="tab-content">
+															<li class="item">
+									<a href="https://zeroturnaround.com/rebellabs/the-curious-coders-java-web-frameworks-comparison-spring-mvc-grails-vaadin-gwt-wicket-play-struts-and-jsf/" title="The Ultimate Java Web Frameworks Comparison: Spring MVC, Grails, Vaadin, GWT, Wicket, Play, Struts and JSF">The Ultimate Java Web Frameworks Comparison: Spring MVC, Grails, Vaadin, GWT, Wicket, Play, Struts and JSF</a>
+									<span class='note'>30 July 2013</span>
+								</li>
+													<li class="item">
+									<a href="https://zeroturnaround.com/rebellabs/the-great-java-application-server-debate-with-tomcat-jboss-glassfish-jetty-and-liberty-profile/" title="The Great Java Application Server Debate with Tomcat, JBoss, GlassFish, Jetty and Liberty Profile">The Great Java Application Server Debate with Tomcat, JBoss, GlassFish, Jetty and Liberty Profile</a>
+									<span class='note'>21 May 2013</span>
+								</li>
+													<li class="item">
+									<a href="https://zeroturnaround.com/rebellabs/java-8-revealed-lambdas-default-methods-and-bulk-data-operations/" title="Java 8 Revealed: Lambdas, Default Methods and Bulk Data Operations">Java 8 Revealed: Lambdas, Default Methods and Bulk Data Operations</a>
+									<span class='note'>25 June 2013</span>
+								</li>
+											</ul>
+					</li>
+								<li class="tab ">
+						<a class="tab-title" href="#">Posts</a>
+						<ul class="tab-content">
+															<li class="item">
+									<a href="https://zeroturnaround.com/rebellabs/java-web-frameworks-index-by-rebellabs/" title="Java Web Frameworks Index by RebelLabs">Java Web Frameworks Index by RebelLabs</a>
+									<span class='note'>16 February 2017</span>
+								</li>
+													<li class="item">
+									<a href="https://zeroturnaround.com/rebellabs/solution-to-the-smallest-java-class-file-challenge/" title="Solution to the smallest Java class file challenge">Solution to the smallest Java class file challenge</a>
+									<span class='note'>8 February 2017</span>
+								</li>
+													<li class="item">
+									<a href="https://zeroturnaround.com/rebellabs/the-smallest-java-class-possible/" title="The smallest Java class possible">The smallest Java class possible</a>
+									<span class='note'>1 February 2017</span>
+								</li>
+											</ul>
+					</li>
+						</ul>
+			</div>			<div id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2>
+<div class="tagcloud"><a href='https://zeroturnaround.com/tag/developers/' class='tag-link-15 tag-link-position-1' title='38' style='font-size: 1em;'>developers</a>
+<a href='https://zeroturnaround.com/tag/development/' class='tag-link-16 tag-link-position-2' title='50' style='font-size: 1em;'>development</a>
+<a href='https://zeroturnaround.com/tag/devops/' class='tag-link-17 tag-link-position-3' title='28' style='font-size: 1em;'>DevOps</a>
+<a href='https://zeroturnaround.com/tag/eclipse/' class='tag-link-20 tag-link-position-4' title='35' style='font-size: 1em;'>eclipse</a>
+<a href='https://zeroturnaround.com/tag/java/' class='tag-link-32 tag-link-position-5' title='192' style='font-size: 1em;'>java</a>
+<a href='https://zeroturnaround.com/tag/java-8/' class='tag-link-1882 tag-link-position-6' title='46' style='font-size: 1em;'>java 8</a>
+<a href='https://zeroturnaround.com/tag/java-ee/' class='tag-link-33 tag-link-position-7' title='47' style='font-size: 1em;'>Java EE</a>
+<a href='https://zeroturnaround.com/tag/jboss/' class='tag-link-35 tag-link-position-8' title='31' style='font-size: 1em;'>JBoss</a>
+<a href='https://zeroturnaround.com/tag/jrebel/' class='tag-link-38 tag-link-position-9' title='137' style='font-size: 1em;'>JRebel</a>
+<a href='https://zeroturnaround.com/tag/jvm/' class='tag-link-90 tag-link-position-10' title='46' style='font-size: 1em;'>JVM</a>
+<a href='https://zeroturnaround.com/tag/liverebel/' class='tag-link-109 tag-link-position-11' title='51' style='font-size: 1em;'>LiveRebel</a>
+<a href='https://zeroturnaround.com/tag/maven/' class='tag-link-41 tag-link-position-12' title='24' style='font-size: 1em;'>Maven</a>
+<a href='https://zeroturnaround.com/tag/performance-2/' class='tag-link-10165 tag-link-position-13' title='24' style='font-size: 1em;'>performance</a>
+<a href='https://zeroturnaround.com/tag/productivity/' class='tag-link-49 tag-link-position-14' title='61' style='font-size: 1em;'>productivity</a>
+<a href='https://zeroturnaround.com/tag/rebellabs/' class='tag-link-16392 tag-link-position-15' title='432' style='font-size: 1em;'>RebelLabs</a>
+<a href='https://zeroturnaround.com/tag/spring/' class='tag-link-55 tag-link-position-16' title='51' style='font-size: 1em;'>spring</a>
+<a href='https://zeroturnaround.com/tag/tools/' class='tag-link-60 tag-link-position-17' title='42' style='font-size: 1em;'>Tools</a>
+<a href='https://zeroturnaround.com/tag/vjug/' class='tag-link-8625 tag-link-position-18' title='46' style='font-size: 1em;'>vJUG</a>
+<a href='https://zeroturnaround.com/tag/xrebel-2/' class='tag-link-10526 tag-link-position-19' title='45' style='font-size: 1em;'>xrebel</a>
+<a href='https://zeroturnaround.com/tag/zeroturnaround/' class='tag-link-16393 tag-link-position-20' title='453' style='font-size: 1em;'>ZeroTurnaround</a></div>
+</div>	</div>
+	
+    
+                <ul class="rebellabs-blog-header-tags">
+                                                <li><a href="https://zeroturnaround.com/rebellabs/" class="tag-link-showall">All Posts</a></li>
+                                                                <li><a href="https://zeroturnaround.com/tag/rebellabs/" class="tag-link-rebellabs">RebelLabs</a></li>
+                                                                <li><a href="https://zeroturnaround.com/tag/zeroturnaround/" class="tag-link-zeroturnaround">ZeroTurnaround</a></li>
+                                                                <li><a href="https://zeroturnaround.com/tag/android/" class="tag-link-android">Android</a></li>
+                                                                <li><a href="https://zeroturnaround.com/tag/vjug/" class="tag-link-vjug">Virtual JUG</a></li>
+                                    </ul>
+    
+                    <div class="post with-pic single">
+
+        <h1 class="title"><a href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" title="Docker Commands and Best Practices Cheat Sheet">Docker Commands and Best Practices Cheat Sheet</a></h1>
+        <ul class="meta head">
+            <li class="date">
+                <span class="icon icon-calendar"></span>
+                March 17, 2016            </li>
+            <li class="author">
+                <span class="icon icon-user"></span>
+                <a href="https://zeroturnaround.com/author/oleg/" title="Posts by Oleg Shelajev" rel="author">Oleg Shelajev</a>            </li>
+            <li class="comments">
+                <span class="icon icon-comments"></span>
+                <a href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/#disqus_thread">No comments</a>
+            </li>
+                    </ul>
+                <ul class="social-buttons">
+            <li>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="zeroturnaround">Tweet</a>
+            </li>
+            <li>
+                <div class="fb-like" data-href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+            </li>
+            <li>
+                <script type="IN/Share" data-url="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" data-counter="right"></script>
+            </li>
+            <li>
+                <div class="g-plusone" data-size="medium" data-href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/"></div>
+            </li>
+        </ul>
+                <div class="excerpt">
+            <p><a href="http://files.zeroturnaround.com/pdf/zt_docker_cheat_sheet.pdf" rel="attachment wp-att-56568"><img src="/wp-content/uploads/2016/03/Docker-cheat-sheet-by-RebelLabs-640x452.png" alt="Docker cheat sheet by RebelLabs" width="640" height="452" class="aligncenter size-large wp-image-56568" /></a></p>
+<p>Best practices are important, but often overlooked in a world overloaded with information. This is why presenting information in a digestible form is really helpful. We&#8217;ve released a couple of cheat sheet on various topics ranging from <a href="http://zeroturnaround.com/rebellabs/java-8-best-practices-cheat-sheet/">Java 8 best practices</a>, to advice on <a href="http://zeroturnaround.com/rebellabs/java-8-streams-cheat-sheet/">how to use Java 8 streams</a>, to <a href="http://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/">the most useful git commands and workflows</a>. </p>
+<p>This time we&#8217;re going to talk about <a href="http://docker.com">Docker</a>. The sparkling unicorn of containerization happening in the world of software development and the amazing tool that can simplify the configuration of your projects tenfold. </p>
+<p>We considered how we use docker at ZeroTurnaround, what are the current best practices and what commands we need to google most frequently. Then we combined this data into a cheat sheet, so you can also benefit from this work. </p>
+<p><a class="em button" href="http://files.zeroturnaround.com/pdf/zt_docker_cheat_sheet.pdf">SHOW ME THE PRINTABLE DOCKER CHEAT SHEET!</a></p>
+<p>Let&#8217;s now go into more details about what is great about Docker and what commands you&#8217;re most likely to use daily. Also, if you don&#8217;t mind, I&#8217;ll be incredibly happy, if you share it with your colleagues and friends: </p>
+<blockquote class="twitter-tweet" data-lang="en" align="center" width="420">
+<p lang="en" dir="ltr">Most useful <a href="https://twitter.com/hashtag/Docker?src=hash">#Docker</a> commands and best practices cheat sheet <a href="https://t.co/FQxR2CXCRp">https://t.co/FQxR2CXCRp</a> <a href="https://t.co/xWgQo8R7UG">pic.twitter.com/xWgQo8R7UG</a></p>
+<p>&mdash; Oleg Šelajev (@shelajev) <a href="https://twitter.com/shelajev/status/710482100907077632">March 17, 2016</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p><a name="getting-started-with-docker"></a></p>
+<h2>One Docker to rule your containers</h2>
+<p>Docker is an open platform to develop, ship, and run applications, more commonly known as a container manager. What&#8217;s a container you ask? A container is an encapsulated environment, which runs on top of a very shallow level of abstractions, providing a virtual machine like isolation for running processes. Now if you are just started with Docker, it’s important we define the vocabulary that you&#8217;ll need to learn as well as a number of utilities you need to master to become proficient with Docker. </p>
+<p>Let&#8217;s start with the terms. In a nutshell Docker uses images to specify what the container infrastructure should look like for you to run your apps in it. </p>
+<p><ul class="bullets"><li><strong>Layer</strong> &#8211; a set of read-only files to provision the system. Think of a layer as a read only snapshot of the filesystem.</li>
+<li><strong>Image</strong> &#8211; a read-only layer that is the base of your container. It can have a parent image to abstract away the more basic filesystem snapshot. So a Java image would inherit from a linux image with the preinstalled utilities. A tomcat image will have a Java image as the parent because it depends on Java to run Tomcat.</li>
+<li><strong>Container</strong> &#8211; a runnable instance of the image, basically it is a process isolated by docker that runs on top of the filesystem that an image provides.</li>
+<li><strong>Registry / Hub</strong> is the central place where all publicly published images live. You can search it, upload your images there and when you pull a docker image, it comes the repository/hub.</li>
+<li><strong>Docker machine</strong> is a VM within which you can run Docker containers. On Linux you can run docker containers natively, but on OSX and Windows you need a layer of abstraction. A docker machine will spin a very lightweight virtual machine that integrates with the docker command line utilities really well.</li>
+<li><strong>Docker compose</strong> is  a utility to run multiple containers as a system of containers. It will take care of making them aware of each other and ensure they’re properly connected to each other. This means you can run your application in one container and your database in a different container, and your analytics application in a different container, and so on. This is the ultimate isolation and it means that your applications are independent and are run in development in a very similar way to how the system might work in production.</li>
+</ul></p>
+<p>Now with the basic terminology cleared, it&#8217;s time to look at the command line utilities that will make you love Docker.  </p>
+<p><hr />
+
+This cheat sheet is brought to you by XRebel, a tool to remind you about your app performance when you are actually working on it, not later when your clients think it is already slow. If you're working with any Java web applications, you should try it. It might change your attitude towards performance. <a id="cheatsheet-banner-link" href="//zeroturnaround.com/software/xrebel/?utm_source=rebellabs&amp;utm_medium=cheatsheet-banner&amp;utm_campaign=rebellabs">Try XRebel</a>!
+
+<a id="cheatsheat-banner" href="//zeroturnaround.com/software/xrebel/?utm_source=rebellabs&amp;utm_medium=cheatsheet-banner&amp;utm_campaign=rebellabs"><img src="/wp-content/uploads/2016/08/cheatsheet-is-brought-to-you-by-xrebel.png" alt="this-cheatsheet-is-brought-to-you-by-xrebel" width="640" class="aligncenter size-full wp-image-58286" /></a>
+
+<hr />
+</p>
+<p><a name="docker-machine"></a></p>
+<h2>Docker machine</h2>
+<p><a href="https://docs.docker.com/machine/overview/">Docker machine</a> is a utility that lets you install Docker on virtual hosts, and then manage those hosts from the command line. Why should developers be interested in docker machine? It is currently the preferred way to run Docker on OSX and Windows. It also helps you to provision and manage docker containers on a network of machines, but that is less interesting from the developer&#8217;s point of view. </p>
+<p>Docker machine will create a tiny virtual machine that is capable or running docker itself. </p>
+<p>After installing the machine you run a command like: </p>
+<pre lang="bash">
+docker-machine start default
+</pre>
+<p>And your virtual machine named <em>default</em> is ready. However, what you also want is to make docker on the host system understand that it has to work with that virtual machine. To do that you&#8217;ll run: </p>
+<pre lang="bash">
+docker-machine env default
+eval &quot;$(docker-machine env default)&quot;
+</pre>
+<p>This command will configure your command line environment variables that will help you use docker with a particular docker-machine, in our case <em>default</em>, without additional complexity. As a developer you&#8217;ll rarely need anything else from the docker machine, you can list the available machines with the <code>docker-machine ls</code> command and start or stop any particular of them by calling <code>docker-machine start|stop machine-name</code>. </p>
+<p>And now we&#8217;re finally ready to dive into the heaven of containerized applications. </p>
+<p><a name="building-docker-containers"></a></p>
+<h2>Building a container</h2>
+<p>A docker container is basically a process or a set of processes running in isolation with a predefined provisioned file system. Think about it this way, a container is a collection of processes that have access to the files in the image.</p>
+<p>Images are loaded from the registry, where they are publicly available to anyone. They form a hierarchy, so images can have dependencies on other images. This is really convenient, as your development platform images can depend on the image with common OS utilities. </p>
+<pre lang="bash">
+docker pull image_name:tag
+</pre>
+<p>The pull command will download the image and all its parents needed to create the containers with that image. The tag parameter is usually used as the part of the name, but if your container evolves, or includes different versions of the software used, it&#8217;s nice to tag them without changing the base image name. </p>
+<pre lang="bash">
+docker create --name container_name image_name:tag
+</pre>
+<p>The create command is used to instantiate the container from the image. You almost always want to name it by providing the &#8211;name parameter. To start and stop the container, naturally, you&#8217;ll use the <code>docker start container_name</code> and <code>docker stop container_name</code> commands respectively. Also, almost always when there&#8217;s a stop command, there&#8217;s a <code>kill</code> command too, to terminate the process less graciously.</p>
+<p>Now there&#8217;s a shorthand for <em>create</em> and <em>start</em> command, which is the <em>run</em>. It will create the container and run it, which is really useful for the various one-liners. We&#8217;ll look at them in the next section of this post.  </p>
+<p>Sometimes you will want to create your own images, either to dockerize your project setup or just because you can. There are 2 ways to do that. </p>
+<p>Create a <a href="https://docs.docker.com/engine/reference/builder/">dockerfile</a> in the directory that describes the image and then run: </p>
+<pre lang="bash>
+docker build image_name .
+</pre>
+<p>Modify the container from the inside and then commit the changes to the image: </p>
+<pre lang="bash>
+docker commit -m &quot;commit message&quot; -a &quot;author&quot; container_id username/imagename:tag
+</pre>
+<p>How do you change the container? You start it and then execute commands you like. To run a command inside the container namespace you run the following docker command: </p>
+<pre lang="bash">
+docker exec -ti container_name &quot;command.sh&quot; 
+</pre>
+<p>And while your container is running, you can do that multiple times: install necessary components, copy files around, etc. In general, you don&#8217;t want to build your project into the container, you just map the filesystem on the host to a directory inside the docker container. Then you don&#8217;t have to worry about changing the build process for your project and you can run it in the same fashion on your host or in the docker container. But if you build the project in the container, map or commit your local Maven repository, npm modules or that of any dependency management tool you use: if will avoid downloading the internet again and again and make building the project so much faster.</p>
+<p><a name="docker-compose"></a></p>
+<h2>Docker compose</h2>
+<p>We are now in a position to create and run a container. Let’s stick a full copy of your workstation into a single container. Actually no, instead we&#8217;ll be smart and isolate various components from each other. </p>
+<p>Consider the following typical project: a web application consists of one or more backend services and a database. While it is possible to fit all that into a single container, that is clearly not a best practice. So we&#8217;ll run these parts of the system independently and manage a couple of containers. </p>
+<p>Luckily, there&#8217;s the a utility that helps us with just that, <a href="https://docs.docker.com/compose/">docker-compose</a>. Docker compose allows you to specify a relationship between several containers in a yml file, and then run all of these containers at once. </p>
+<p>The syntax for the docker-compose.yml is pretty straightforward. You specify the container name, the image it should use and the starting command for the container. Additionally you can specify the mapping of the ports to your host machine ports and the mapping of the filesystem, so your docker container can see the files from your host system.</p>
+<pre lang="bash">
+version: &quot;2&quot;
+services: 
+  web:
+    container_name: &quot;web&quot;
+    image: java:8 # image name
+    command: java -jar /app/app.jar # command to run
+    ports: # map ports to the host
+      - &quot;4567:4567&quot;
+    volumes: # map filesystem to the host
+      - ./myapp.jar:/app/app.jar
+  mongo: # container name
+    image: mongo # image name
+</pre>
+<p>The best part of all this is that you can link the containers together. In the example above, we link the <strong>web</strong> container to the <strong>mongo</strong> container, so our web application will be able to find the database. And docker-compose takes care of providing the port mappings between the linked containers. </p>
+<p>Let’s chat more about port mappings. You most likely won&#8217;t be able to access your web application on your host machine using <em>localhost</em> as the hostname. This is because your container is running in the docker-machine, instead of your host machine. </p>
+<p>One way to overcome that is to use the following command to figure out the IP of your docker-machine:</p>
+<pre lang="bash">
+docker-machine ip default
+</pre>
+<p>Alternatively you can use <a href="https://github.com/bsideup/forward2docker">the forward2docker utility</a>, that our colleague <a href="https://twitter.com/bsideup">Sergei</a> created, to monitor your docker-machine usage and automatically forward the ports to the localhost. This way, you can use your running application in a docker container as if it were available on localhost.</p>
+<p><a name="docker-commands"></a></p>
+<h2>Useful Docker commands</h2>
+<p>Let&#8217;s go over the most useful docker one line commands that you might need along the way. This section somewhat recaps the commands we saw above, but repetition is the best way to remember something, so stay with us. </p>
+<p>Download an image, and all its parents, from the registry:</p>
+<pre lang="bash">
+docker pull image_name
+</pre>
+<p>Run a shell command inside a freshly created and started container: </p>
+<pre lang="bash">
+docker run -ti --name container_name image_name /command
+</pre>
+<p>Start and stop a container, duh!</p>
+<pre lang="bash">
+docker start container_name
+docker stop container_name
+</pre>
+<p>Run a command inside a container from the image and remove the container when command is done.</p>
+<pre lang="bash">
+docker run --rm -ti image_name /command
+</pre>
+<p>Run Tomcat on Java 8 with a custom javaagent attached. This command illustrates mapping the volumes on your host system into the docker container filesystem, see the <code>-v</code> flag part.</p>
+<pre lang="bash">
+docker run -it --rm -p 8080:8080 -v /host/path/to/your/agent/agent.jar:/agent.jar -e JAVA_OPTS=&quot;-javaagent:/agent.jar&quot; tomcat:8.0.29-jre8
+</pre>
+<p>Run a shell command in the container: </p>
+<pre lang="bash">
+docker exec -ti container_name &quot;cmd&quot; 
+</pre>
+<p>To show and follow the log output of the container execute: </p>
+<pre lang="bash">
+docker logs -ft container_name
+</pre>
+<p>When finishing a day, you can easily kill all running docker containers:</p>
+<pre lang="bash">
+docker kill $(docker ps -q)
+</pre>
+<p>Delete the dangling docker images, the ones that are not tagged properly and are hanging around usually as the result of the intermediate container creation: </p>
+<pre lang="bash">
+docker rmi $(docker images -q -f dangling=true)
+</pre>
+<p>Remove all stopped containers, this will actually try to remove all the containers, but will fail to do so with the running ones, so only stopped containers will be gone after that. </p>
+<pre lang="bash">
+docker rm $(docker ps -a -q)
+</pre>
+<p><a name="conclusion"></a></p>
+<h2>Conclusion</h2>
+<p>Alright, we&#8217;ve been over quite some a lot of material in this post. If you&#8217;re looking for even more details about you can use Docker even better, there&#8217;s <a href="https://github.com/docker/community/tree/master/tutorials/java">an amazing Docker tutorial for Java developers available on Github</a>. </p>
+<p>I hope you found this cheat sheet useful and I’d love to hear how your team uses docker! What are your favorite one-liners for docker and what containerization practices simplified your life the most? Leave us a comment or just tweet it at us: @zeroturnaround.</p>
+<p><a class="em button" href="http://files.zeroturnaround.com/pdf/zt_docker_cheat_sheet.pdf">GREAT, I NEED TO PRINT THIS DOCKER CHEAT SHEET!</a></p>
+<p><hr>
+<div style="width:100%;"><strong>Read next:</strong></div><div id='next-posts-div' style="float:left; width:100%;" align="center"></div><div style="clear:both;"></div>
+
+<script type="text/javascript">
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
+function addNextPostThumbnails(n) {
+  var data = [
+    {
+      "title" : "Git Commands Cheat Sheet",
+      "url": "//zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/",
+      "thumbnail" : "/wp-content/uploads/2016/02/Git-Cheat-Sheet-min.png"
+    },
+    {
+      "title" : "Java Tools and Technologies Landscape",
+      "url": "//zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/",
+      "thumbnail" : "//zeroturnaround.com/wp-content/uploads/2016/07/most-popular-java-frameworks-and-tools-2016-RebelLabs.png"
+    },
+    {
+      "title" : "Java 8 Best Practices Cheat Sheet",
+      "url": "//zeroturnaround.com/rebellabs/java-8-best-practices-cheat-sheet/",
+      "thumbnail" : "/wp-content/uploads/2015/12/RebelLabs-Java-8-cheat-sheet.png"
+    },
+    {
+      "title" : "Java 8 Streams Cheat Sheet",
+      "url": "//zeroturnaround.com/rebellabs/java-8-streams-cheat-sheet",
+      "thumbnail" : "/wp-content/uploads/2016/01/Java-8-Streams-cheat-sheet-v3.png"
+    },
+    {
+      "title" : "SQL Cheat Sheet",
+      "url": "//zeroturnaround.com/rebellabs/sql-cheat-sheet/",
+      "thumbnail" : "/wp-content/uploads/2016/06/RebelLabs-SQL-cheat-sheet.png"
+    }
+  ];
+  shuffle(data);
+  for (var i = 0; i < n; i++) {
+    var e = data[i];
+    var r = document.createElement('div');
+    if(window.location.href.indexOf(e.url) === 0) {
+      n++; 
+      continue;
+    }
+    r.innerHTML = '<a id="next-post-link-'+i+'" href="'+ e.url+'">'+e.title+'<br/><img src="'+e.thumbnail+'" width="310px"></a>';
+    r.style.border="1px solid #5f5f5f";
+    r.style.display="block";
+    r.style.float="left";
+    r.style.wordWrap="break-word";
+    r.style.width="310px";
+    r.style.maxWidth="100%";
+    r.style.paddingTop="2px";
+    r.style.marginTop="2px";
+    r.style.marginLeft="2px";
+    r.style.marginRight="2px";
+    r.style.paddingBottom="2px";
+    $('#next-posts-div').append(r);
+    $('#next-post-link-'+i).on('click', function() {
+        analytics.track('Clicked RL next post banner', {
+          category: 'RebelLabs click next post',
+          label: e.title,
+          value: 1
+        });
+    });
+  }
+}
+$(document).ready(function() {
+  addNextPostThumbnails(2);
+});</script></p>
+<ul class="social-buttons">
+            <li>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="zeroturnaround">Tweet</a>
+            </li>
+            <li>
+                <div class="fb-like" data-href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+            </li>
+            <li>
+                <script type="IN/Share" data-url="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" data-counter="right"></script>
+            </li>
+            <li>
+                <div class="g-plusone" data-size="medium" data-href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/"></div>
+            </li>
+        </ul><section class="post-authors post-authors-1 "><div class="author active"><a href="https://zeroturnaround.com/author/oleg/" class="picture"><span class="name">Oleg Shelajev</span><img alt='' src='https://secure.gravatar.com/avatar/7d62cdf2be490deda74a4eb6c44994d6?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/7d62cdf2be490deda74a4eb6c44994d6?s=192&amp;d=mm&amp;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' /></a>
+				<div class="details">
+				<h4 class="title"><a href="https://zeroturnaround.com/author/oleg/" rel="author"><span class="name">Oleg Shelajev</span><br><span class="job-title note">Developer Advocate</span></a></h4>
+				<div class="bio">Oleg Šelajev is an engineer, author, speaker, lecturer and advocate at ZeroTurnaround. He spends his time testing, coding, writing, giving conference talks, crafting blogposts and reports. He is pursuing a PhD on Dynamic System updates and code evolution. Oleg is a part-time lecturer at the University of Tartu and enjoys speaking and participating in Java/JVM development conferences such as JavaOne, JavaZone, JFokus and others. In his free time, Oleg plays chess at a semi-grandmaster level, loves puzzles and solving all kinds of problems.</div>
+				</div>
+				<div class="connect"><a class="item more-posts" href="https://zeroturnaround.com/author/oleg/" title="More posts"><span class="icon icon-ellipsis-horizontal">More posts</span></a> <a class="item twitter" href="http://twitter.com/shelajev" title="Twitter" target="_blank"><span class="icon icon-twitter">http://twitter.com/shelajev</span></a> <a class="item googleplus" href="https://plus.google.com/115206705377325870061/" title="Google+" target="_blank"><span class="icon icon-google-plus">https://plus.google.com/115206705377325870061/</span></a> <a class="item linkedin" href="http://ee.linkedin.com/in/shelajev/" title="LinkedIn" target="_blank"><span class="icon icon-linkedin">http://ee.linkedin.com/in/shelajev/</span></a></div></div></section>
+                            <ul class="meta">
+                    <li class="tags">
+                        <span class="icon icon-tag"></span>
+                                                    <a class="tag" href="https://zeroturnaround.com/tag/best-practices/">best practices</a>
+                                                    <a class="tag" href="https://zeroturnaround.com/tag/cheat-sheet/">cheat sheet</a>
+                                                    <a class="tag" href="https://zeroturnaround.com/tag/docker/">docker</a>
+                                                    <a class="tag" href="https://zeroturnaround.com/tag/rebellabs/">RebelLabs</a>
+                                            </li>
+                </ul>
+                    </div>
+        
+<div id="disqus_thread">
+    </div>
+
+    </div>
+    
+    <div class="pages-nav">
+            </div>
+</div>
+
+</div></section>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=446578002163993";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="fb-root"></div>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+		
+		<div id="sticky-footer"></div>
+	</div>
+</div>
+
+<footer>
+	<div id="footer">
+		<div class="wrapper fat-footer">
+					<div class="col">
+			<div id="nav_menu-3" class="widget widget_nav_menu"><h2 class="widgettitle">Company</h2>
+<div class="menu-footer-company-container"><ul id="menu-footer-company" class="menu"><li id="menu-item-11355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11355"><a href="https://zeroturnaround.com/company/careers/">Careers</a></li>
+<li id="menu-item-11388" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11388"><a href="https://zeroturnaround.com/company/contact/">Contact Us</a></li>
+<li id="menu-item-34909" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34909"><a href="https://zeroturnaround.com/company/">Our story</a></li>
+</ul></div></div>			</div>
+					<div class="col">
+			<div id="nav_menu-7" class="widget widget_nav_menu"><h2 class="widgettitle">Resources</h2>
+<div class="menu-footer-resources-container"><ul id="menu-footer-resources" class="menu"><li id="menu-item-11464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11464"><a target="_blank" href="https://papers.zeroturnaround.com/BJBvy0Ege">JRebel White Paper</a></li>
+<li id="menu-item-52753" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52753"><a href="https://papers.zeroturnaround.com/By3sh3Elx">XRebel White Paper</a></li>
+<li id="menu-item-52081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52081"><a href="https://papers.zeroturnaround.com/SylRkRNee">Rocket powered Java development</a></li>
+<li id="menu-item-60309" class="menu-item menu-item-type-post_type menu-item-object-rl-report menu-item-60309"><a href="https://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">Developer Productivity Report</a></li>
+<li id="menu-item-60308" class="menu-item menu-item-type-post_type menu-item-object-rl-report menu-item-60308"><a href="https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/">Java Tools and Technology Landscape Report</a></li>
+</ul></div></div>			</div>
+					<div class="col">
+						</div>
+				</div>
+		<div class="wrapper footer-strip">
+			<div class="col copyright">
+				<div id="text-13" class="widget widget_text">			<div class="textwidget">All rights reserved. Copyright &copy; 2007-2017 ZeroTurnaround.
+<br>
+<a href="/privacy-policy/">Website Privacy Policy</a>
+/
+<a href="/trademarks/">Trademarks</a></div>
+		</div>			</div>
+			<div class="col social">
+				<div id="text-6" class="widget widget_text">			<div class="textwidget"><ul class="social-badges">
+<li class="footer-badge"><a class="dark-twitter-badge" title="Twitter" href="https://twitter.com/zeroturnaround" rel="nofollow"><span class="icon icon-twitter">Twitter</span></a></li>
+<li class="footer-badge"><a class="dark-facebook-badge" title="Facebook" href="https://www.facebook.com/ZeroTurnaround" rel="nofollow"><span class="icon icon-facebook">Facebook</span></a></li>
+<li class="footer-badge"><a class="dark-linkedin-badge" title="LinkedIn" href="http://www.linkedin.com/company/zeroturnaround" rel="nofollow"><span class="icon icon-linkedin">LinkedIn</span></a></li>
+<li class="footer-badge"><a class="dark-rss-badge" title="RSS" href="/feed/" rel="nofollow"><span class="icon icon-rss">RSS</span></a></li>
+</ul></div>
+		</div>			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="hud">
+	<div class="wrapper">
+		<ul class="site-hud">													<li id="zthud-5fc8ebe3c4e501b81dfa75f9f9fd2970"						class="item headsup-notice hidden center">
+						<p style="font-size:.9em;margin:.5em">By using our site you understand and agree that zeroturnaround.com website uses various cookies. More info available in the <a href="/privacy-policy/ ">Privacy Policy</a>. <button onclick="closeSiteHud(this);" style="padding:.2em .5em;margin-left:.5em" class="button">OK</button></p>						<button type="button" class="remove-notification">close</button>
+											</li>
+												</ul>	</div>
+</div>
+
+ <script type="text/javascript">
+  analytics.track("Viewed Rl-report", {"title":"Docker Commands and Best Practices Cheat Sheet","noninteraction":true}, {"library":"analytics-wordpress"});
+    
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1070022403;
+var google_conversion_label = "UWYfCKGHqwMQg_6c_gM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1070022403/?value=0&amp;label=UWYfCKGHqwMQg_6c_gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<script type="text/javascript" src="//munchkin.marketo.net/munchkin.js"></script>
+<script type="text/javascript">
+Munchkin.init('846-PMW-834');
+</script>
+<!-- Twitter universal website tag code -->
+			<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+			<script type="text/javascript">twttr.conversion.trackPid('nur4u', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+			<noscript>
+				<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nur4u&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+				<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nur4u&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+			</noscript>
+		<!-- End Twitter universal website tag code --><!--twttrpxl:blog-->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+if (typeof twttr !== 'undefined') {
+	twttr.conversion.trackPid('l4vwv');
+}
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l4vwv&p_id=Twitter" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l4vwv&p_id=Twitter" />
+</noscript><!--twttrpxl:blog-->
+<img src="//ads.yahoo.com/pixel?id=2533374&t=2" width="1" height="1" style="position:fixed;z-index:-1000" /><script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.7.2","language":""},"disqusIdentifier":"56567 http:\/\/zeroturnaround.com\/?post_type=rl-report&p=56567","disqusShortname":"zeroturnaround","disqusTitle":"Docker Commands and Best Practices Cheat Sheet","disqusUrl":"https:\/\/zeroturnaround.com\/rebellabs\/docker-commands-and-best-practices-cheat-sheet\/","options":{"manualSync":false},"postId":"56567"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://zeroturnaround.com/wp-content/plugins/disqus-comment-system/media/js/disqus.js?ver=4.7.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"zeroturnaround"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://zeroturnaround.com/wp-content/plugins/disqus-comment-system/media/js/count.js?ver=4.7.2'></script>
+			<script>
+			if (!$.cookie('zthud-5fc8ebe3c4e501b81dfa75f9f9fd2970')) {
+				var $html = $('html');
+				var $siteHud = $('#zthud-5fc8ebe3c4e501b81dfa75f9f9fd2970');
+
+				$siteHud.find('.remove-notification').remove();
+				$siteHud.show();
+
+				var hudHeight = $('.hud').outerHeight();
+				$html.css('margin-top', hudHeight);
+				$(window).on('resize.sitehud', function() {
+					$html.css('margin-top', hudHeight);
+				});
+			}
+			</script>
+			
+<!-- WP-FFPC cache generation stats
+	generation time: 0.319 seconds
+	generaton UNIX timestamp: 1487581109
+	generaton date: 2017-02-20T08:58:29+00:00
+	generator server: 172.30.0.30 -->
+
+<!-- WP-FFPC cache output stats
+	cache engine: memcache
+	UNIX timestamp: 1487608601
+	date: 2017-02-20T16:36:41+00:00
+	from server: 172.30.0.250 -->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"18df73b2f0","applicationID":"22366760","transactionName":"NVAGZBFVXxACBkdRCQwaMUIKG1gNBwBLFhYKRQ==","queueTime":0,"applicationTime":3,"atts":"GRcFEllPTB4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

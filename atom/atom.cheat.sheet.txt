@@ -1,0 +1,62 @@
+apm help
+
+apm config set proxy "http://192.168.0.3:8888"
+apm config set https_proxy "https://192.168.0.3:8888"
+apm config set strict-ssl false
+apm config  set nvatom.directory:
+apm config get https-proxy
+
+apm config list
+apm config ls
+i configs
+globalconfig = "/home/assessor/.atom/.apm/.apmrc"
+user-agent = "npm/3.10.5 node/v4.4.5 linux x64"
+userconfig = "/home/assessor/.atom/.apmrc"
+
+; environment configs
+node-gyp = "/usr/share/atom/resources/app/apm/bin/../node_modules/.bin/node-gyp"
+
+; globalconfig /home/assessor/.atom/.apm/.apmrc
+cache = "/home/assessor/.atom/.apm"
+progress = false
+
+; node bin location = /usr/share/atom/resources/app/apm/bin/node
+; cwd = /home/assessor/MyProjects/mdwiki/myNoteSearchRepo
+; HOME = /home/assessor/.atom/.node-gyp
+; "npm config ls -l" to show all defaults.
+
+; userconfig /home/f_mo/.atom/.apmrc
+http-proxy = "http://127.0.0.1:3128"
+https-proxy = "http://127.0.0.1:3128/"
+strict-ssl = false
+
+apm --version
+
+apm install --verbose
+
+apm install emmet --verbose
+
+HOME=~/.atom/.node-gyp/ /opt/atom/resources/app/apm/bin/node /opt/atom/resources/app/apm/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js "install" "--target=0.22.0" "--dist-url=http://gh-contractor-zcbenz.s3.amazonaws.com/atom-shell/dist" "--arch=x64" "--ensure" "--verbose" "--proxy=http://proxy:80"
+
+
+
+    Add proxy info to APM:
+
+    apm config set proxy http://localhost:9999
+    apm config set http-proxy http://localhost:9999
+    apm config set strict-ssl false # only add if needed - may be required if your proxy uses a non-globally-accepted SSL cert
+
+    Run HTTP_PROXY="http://127.0.0.1:9999" HTTPS_PROXY="http://127.0.0.1:9999" atom --proxy-server="http://127.0.0.1:9999"
+
+    You can now update Atom & packages/themes from within Atom.
+
+(sidenote: git clones still won't work and require proxy configuration in $HOME/.gitconfig or $HOME/.ssh/config.)
+
+
+  apm config set proxy "http://localhost:3128"
+  apm config set https_proxy proxy "http://localhost:3128"
+  apm config set strict-ssl false
+
+Now open Atom and you will be able to install packages!
+
+apm config set https-proxy https://9.0.2.1:0

@@ -1,0 +1,69 @@
+SED CHEAT SHEET
+---------------
+Basic Usage
+-----------
+sed [options] commands [file-to-edit]
+              ^^^^^^^^
+              's/matched.text/replaced.text/'   ...  matched.text=searched.text, filtered.text
+sed ' ' foo.txt  ....................  file reader
+# Printing Lines
+sed 'p' foo.txt  ....................  it *automatically* prints each line, & instructed to print an addtional line /w "p" command
+sed -n 'p' foo.txt                     suppress *automatic* print of each line, & instructed to print the addtional line /w "p" command
+sed -n '1,5p' foo.txt  ..............  suppress *automatic* print of each line, & print the addtional lines 1-5
+sed -n '1,+4p' BSD                     same, but with an offset of 4 ie how many lines to travel
+sed -n '1~2p' BSD  ..................  print every other line, starting /w line 1; specify interval after "~" character. 
+sed '1~2d' BSD                         delete every other line, starting /w line 1; specify interval after "~" character.
+sed '1~2d' BSD > foo.txt ............  delete every other line, starting /w line 1; specify interval after "~" characterr; redirect to foo.txt ie save
+sed -i '1~2d' foo.txt                  delete every other line, starting /w line 1; edit file in place
+sed -i.bak '1~2d' foo.txt ...........  delete every other line, starting /w line 1, edit file in place, & backup to foo.txt.bak
+
+
+LAB01 
+-------
+echo "this is the song that never ends
+yes, it goes on and on, my friend
+some people started singing it
+not knowing what it was
+and they'll continue singing it forever
+just because..." > annoying.txt
+
+sed 's/on/forward/' annoying.txt  .........  only substitutes first pattern on each line
+sed 's/on/forward/g' annoying.txt            substitutes every occurrence of pattern on each line
+sed 's/on/forward/2' annoying.txt .........  substitutes 2nd occurrence of pattern on each line
+sed -n 's/on/forward/2' annoying.txt         automatic printing suppressed
+sed -n 's/on/forward/2p' annoying.txt  ....  automatic printing suppressed; print substitution lines
+yes, it goes on and forward, my friend        
+sed 's/SINGING/saying/i' annoying.txt  .... ignore case of filter
+
+Referencing Matched Text
+------------------------
+sed 's/^.*at/(&)/' annoying.txt  ......................................................  use the "&" character to represent the matched text in the replacement string
+sed 's/\([a-zA-Z0-9][a-zA-Z0-9]*\) \([a-zA-Z0-9][a-zA-Z0-9]*\)/\2 \1/' annoying.txt      more flexible way of referencing matched text is to use escaped parentheses 
+                                                                                         to group sections of matched text
+                                                                                         Every group of search text marked with parentheses can be referenced by an 
+                                                                                         escaped reference number
+                                                                                         For instance, the first parentheses group can be referenced with "\1", 
+                                                                                         second with "\2" and so on
+sed 's/\([a-zA-Z0-9][a-zA-Z0-9]*\) \([a-zA-Z0-9][a-zA-Z0-9]*\)/(&)\2 \1/' annoying.txt
+sed 's#\([a-zA-Z0-9,]* [a-zA-Z0-9]*\) \([a-zA-Z0-9,]* [a-zA-Z0-9]*\)#(&)\2 \1#' annoying.txt
+sed 's/\([^ ][^ ]*\) \([^ ][^ ]*\)/\2 \1/' annoying.txt
+
+Adding New Line Before & After Match Text
+-----------------------------------------
+sed 's/Wf/&\ /g' file
+sed 's/Wf/\ &/g' file
+sed '/pattern/{G;}' filename             # For adding a newline after a pattern
+sed '/regex/G'                           # insert a blank line below every line which matches "regex"
+sed -i '' '/pid = run/ a\ \ ' file.txt   # and adds a linebreak after that line inside file.txt
+sed 's/pattern.*$/&\n/'                  # gnu/posix solution doesn't work on BSD/OSX possibly 
+
+grep -n 53 /etc/named.conf
+sed -n '11p' /etc/named.conf
+sed -n '/filter/p'                       # grep
+# REF:
+#
+# The Basics of Using the Sed Stream Editor to Manipulate Text in Linux
+# https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
+#
+# Sed - An Introduction and Tutorial by Bruce Barnett
+# http://www.grymoire.com/Unix/Sed.html

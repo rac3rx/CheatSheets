@@ -1,0 +1,9 @@
+yum --disablerepo=* --enablerepo=rhel
+yum repolist all
+yum --disablerepo=* --enablerepo=stand-alone -y install rsync yum-utils createrepo genisoimage isomd5sum
+yum deplist <package-name>   ...................  list dependencies
+yumdownloader --destdir=. tcpdump
+rpm -qpR tcpdump-4.4.0-2.fc19.i686.rpm  ........ 
+rpm -qR <package-name>       list dep
+yum install yum-utils   ........................ 
+repoquery --requires --resolve <package-name> 

@@ -1,0 +1,592 @@
+The Geek Stuff <http://www.thegeekstuff.com/>
+
+≡ Menu
+
+  * Home
+
+    <http://www.thegeekstuff.com/>
+  * Free eBook
+
+    <http://www.thegeekstuff.com/linux-101-hacks-ebook/>
+  * Start Here
+
+    <http://www.thegeekstuff.com/best-of-the-blog/>
+  * Contact
+
+    <http://www.thegeekstuff.com/contact/>
+  * About
+
+    <http://www.thegeekstuff.com/about/>
+
+
+  8 Essential Vim Editor Navigation Fundamentals
+
+by Ramesh Natarajan on March 6, 2009
+Vim Vi Editor Navigation Fundamentals
+Photo courtesy of Håkan Dahlström
+<http://www.flickr.com/photos/dahlstroms/1140664831/>
+
+/This article is written by SathiyaMoorthy./
+||
+This article is part of the ongoing Vi / Vim Tips and Tricks
+<http://www.thegeekstuff.com/tag/vi-vim-tips-and-tricks/> series.
+Navigation is a vital part of text editing. To be very productive, you
+should be aware of all possible navigation shortcuts in your editor. In
+this article, let us review the following 8 Vi / Vim navigation options.
+
+ 1. Line navigation
+ 2. Screen navigation
+ 3. Word navigation
+ 4. Special navigation
+ 5. Paragraph navigation
+ 6. Search navigation
+ 7. Code navigation
+ 8. Navigation from command line
+
+
+      1. Vim Line Navigation
+
+Following are the four navigation that can be done line by line.
+
+  * k – navigate upwards
+  * j – navigate downwards
+  * l – navigate right side
+  * h – navigate left side
+
+||
+By using the repeat factor in VIM we can do this operation for N times.
+For example, when you want to
+go down by 10 lines, then type “10j”.
+||
+Within a line if you want to navigate to different position, you have 4
+other options.
+
+  * 0 – go to the starting of the current line.
+  * ^ – go to the first non blank character of the line.
+  * $ – go to the end of the current line.
+  * g_ – go to the last non blank character of the line.
+
+
+      2. Vim Screen Navigation
+
+Following are the three navigation which can be done in relation to text
+shown in the screen.
+
+  * H – Go to the first line of current screen.
+  * M – Go to the middle line of current screen.
+  * L – Go to the last line of current screen.
+  * ctrl+f – Jump forward one full screen.
+  * ctrl+b – Jump backwards one full screen
+  * ctrl+d – Jump forward (down) a half screen
+  * ctrl+u – Jump back (up) one half screen
+
+
+      3. Vim Special Navigation
+
+You may want to do some special navigation inside a file, which are:
+
+  * N% – Go to the Nth percentage line of the file.
+  * NG – Go to the Nth line of the file.
+  * G – Go to the end of the file.
+  * `” – Go to the position where you were in NORMAL MODE while last
+    closing the file.
+  * `^ – Go to the position where you were in INSERT MODE while last
+    closing the file.
+  * g – Go to the beginning of the file.
+
+
+      4. Vim Word Navigation
+
+You may want to do several navigation in relation to the words, such as:
+
+  * e – go to the end of the current word.
+  * E – go to the end of the current WORD.
+  * b – go to the previous (before) word.
+  * B – go to the previous (before) WORD.
+  * w – go to the next word.
+  * W – go to the next WORD.
+
+||
+WORD – WORD consists of a sequence of non-blank characters, separated
+with white space.
+word – word consists of a sequence of letters, digits and underscores.
+||
+Example to show the difference between WORD and word
+
+  * 192.168.1.1 – single WORD
+  * 192.168.1.1 – seven words.
+
+
+      5. Vim Paragraph Navigation
+
+  * *{* – Go to the beginning of the current paragraph. By pressing {
+    again and again move to the previous paragraph beginnings.
+  * *}* – Go to the end of the current paragraph. By pressing } again
+    and again move to the next paragraph end, and again.
+
+
+      6. Vim Search Navigation
+
+  * */i* – Search for a pattern which will you take you to the next
+    occurrence of it.
+  * *?i* – Search for a pattern which will you take you to the previous
+    occurrence of it.
+  * ** *– Go to the next occurrence of the current word under the cursor.
+  * *# *– Go to the previous occurrence of the current word under the
+    cursor.
+
+
+      7. Vim Code Navigation
+
+*%* – Go to the matching braces, or parenthesis inside code.
+
+
+      8. Vim Navigation from Command Line
+
+Vim +N filename: Go to the Nth line of the file after opening it.
+
+vim +10 /etc/passwd
+
+||
+Vim +/pattern filename: Go to the particular pattern’s line inside the
+file, first occurrence from first. In the following example, it will
+open the README file and jump to the first occurrence of the word “install”.
+
+vim +/install README
+
+||
+Vim +?patten filename: Go to the particular pattern’s line inside the
+file, first occurrence from last. In the following example, it will open
+the README file and jump to the last occurrence of the word “bug”.
+
+vim +?bug README
+
+||
+
+
+      Recommended Reading
+
+<http://www.thegeekstuff.com/vim-101-hacks-ebook/>*Vim 101 Hacks
+<http://www.thegeekstuff.com/vim-101-hacks-ebook/>, by Ramesh
+Natarajan*. I’m a command-line junkie. So, naturally I’m a huge fan of
+Vi and Vim editors. Several years back, when I wrote lot of C code on
+Linux, I used to read all available Vim editor tips and tricks. Based on
+my Vim editor experience, I’ve written Vim 101 Hacks eBook that contains
+101 practical examples on various advanced Vim features that will make
+you fast and productive in the Vim editor. Even if you’ve been using Vi
+and Vim Editors for several years and have not read this book, please do
+yourself a favor and read this book. You’ll be amazed with the
+capabilities of Vim editor.
+
+> Add your comment <#commentform>
+
+
+      If you enjoyed this article, you might also like..
+
+ 1. 50 Linux Sysadmin Tutorials
+    <http://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/>
+ 2. 50 Most Frequently Used Linux Commands (With Examples)
+    <http://www.thegeekstuff.com/2010/11/50-linux-commands/>
+ 3. Top 25 Best Linux Performance Monitoring and Debugging Tools
+    <http://www.thegeekstuff.com/2011/12/linux-performance-monitoring-tools/>
+ 4. Mommy, I found it! – 15 Practical Linux Find Command Examples
+    <http://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/>
+ 5. Linux 101 Hacks 2nd Edition eBook
+    <http://www.thegeekstuff.com/linux-101-hacks-ebook/> Linux 101 Hacks
+    Book
+
+	
+
+  * Awk Introduction – 7 Awk Print Examples
+    <http://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/>
+  * Advanced Sed Substitution Examples
+    <http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/>
+  * 8 Essential Vim Editor Navigation Fundamentals
+    <http://www.thegeekstuff.com/2009/03/8-essential-vim-editor-navigation-fundamentals/>
+  * 25 Most Frequently Used Linux IPTables Rules Examples
+    <http://www.thegeekstuff.com/2011/06/iptables-rules-examples/>
+  * Turbocharge PuTTY with 12 Powerful Add-Ons
+    <http://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/>
+
+
+Bash 101 Hacks Book
+<http://www.thegeekstuff.com/bash-101-hacks-ebook/> 	Sed and Awk 101
+Hacks Book <http://www.thegeekstuff.com/sed-awk-101-hacks-ebook/>
+Nagios Core 3 Book <http://www.thegeekstuff.com/nagios-core-ebook/> 	Vim
+101 Hacks Book <http://www.thegeekstuff.com/vim-101-hacks-ebook/>
+
+
+Tagged as: Vi Basic Navigation
+<http://www.thegeekstuff.com/tag/vi-basic-navigation/>, vi command
+<http://www.thegeekstuff.com/tag/vi-command/>, vi editor
+<http://www.thegeekstuff.com/tag/vi-editor/>, Vi Navigation Commands
+<http://www.thegeekstuff.com/tag/vi-navigation-commands/>, vi tips
+<http://www.thegeekstuff.com/tag/vi-tips/>, Vi Vim Tips and Tricks
+<http://www.thegeekstuff.com/tag/vi-vim-tips-and-tricks/>, Vim Basic
+Navigation <http://www.thegeekstuff.com/tag/vim-basic-navigation/>, vim
+command <http://www.thegeekstuff.com/tag/vim-command/>, Vim Commands
+<http://www.thegeekstuff.com/tag/vim-commands/>, vim editor
+<http://www.thegeekstuff.com/tag/vim-editor/>, Vim Editor Examples
+<http://www.thegeekstuff.com/tag/vim-editor-examples/>, Vim Navigation
+Commands <http://www.thegeekstuff.com/tag/vim-navigation-commands/>, vim
+tips <http://www.thegeekstuff.com/tag/vim-tips/>
+
+{ 13 comments… add one <#commentform> }
+
+  *
+    vimer March 11, 2009, 10:06 pm
+
+    Navigation using marks is very important without it vim is as good
+    or bad as Emacs. A mark can be put using the letter m followed by
+    any other latter. A small letter used for a mark is scoped within
+    the file, while a capital letter used for a mark is scoped across
+    files. To jump to a mark use `a or ‘a, I prefer the `a since it
+    takes me to the exact position where I left the mark. To look at
+    where the marks are use :marks in the ed mode.
+
+    overall steps for mark navigation are;
+    Put mark on a line using ma go to some other place edit and then
+    jump back using `a
+    Say I am in some file I put a mark using mA go to some other file in
+    same buffer and then jump back using `A, this is really cool I get
+    to jump back to previous file with just 2 keystrokes.
+
+    Finally, ctags are also very important for code navigation without
+    ctags vim is as bad as Eclipse, use Ctrl-] to jump to a function
+    definition and Ctrl-t to comeback from the tag stack.
+
+    Cheers,
+
+    Link <#comment-7014>
+  *
+    vimer March 11, 2009, 10:08 pm
+
+    sorry forgot Ctrl-O and Ctrl-I, try it
+
+    Link <#comment-7015>
+  *
+    Onan the Barbarian March 12, 2009, 1:29 am
+
+    Another line navigation command:
+    N| – go to column N
+
+    Link <#comment-7020>
+  *
+    <http://www.kenjennings.cc/> Ken Jennings
+    <http://www.kenjennings.cc/> March 12, 2009, 4:52 am
+
+    2. Vim Screen Navigation
+
+    . . .
+
+    * ctrl+f – Jump forward one full screen.
+
+    * ctrl+b – Jump backwards one full screen
+
+    * ctrl+d – Jump forward (down) a half screen
+
+    * ctrl+u – Jump back (up) one half screen
+
+    3. Vim Special Navigation
+
+    . . .
+
+    * g – Go to the beginning of the file.
+
+    Misc
+
+    * ctrl+g – Report cursor position within the file in the status line
+    at the bottom of the screen.
+
+    Link <#comment-7032>
+  *
+    Sam March 12, 2009, 6:44 am
+
+    Okay.. I’ve been using vim for a while and I thought I knew most of
+    the goofy little shortcuts.
+
+    very cool. Screen shortcuts I wasn’t aware of and some of the
+    special navigation shortcuts are new. Thanks for the post.
+
+    Link <#comment-7035>
+  *
+    <http://www.thegeekstuff.com/> SathiyaMoorthy
+    <http://www.thegeekstuff.com/> April 1, 2009, 11:36 am
+
+    @vimer
+
+    Thanks for your comment, and also for the short introduction about
+    the MARKS, for which we have a detailed article at How To Add
+    Bookmarks Inside Vi and Vim Editor
+    <http://www.thegeekstuff.com/2009/02/how-to-add-bookmarks-inside-vi-and-vim-editor/>
+
+    Link <#comment-7737>
+  *
+    Ramesh April 2, 2009, 12:18 am
+
+    @Ken,
+
+    Thanks a lot for your input. I’ve added the shortcuts that you’ve
+    suggested to the article.
+
+    Link <#comment-7757>
+  *
+    Benji Fisher July 2, 2009, 9:46 am
+
+    Under code navigation, you mention the good old % key for matching
+    braces and parentheses. You get a whole world of extra functionality
+    by enabling the matchit plugin and filetype plugins. In brief:
+
+    :runtime macros/matchit.vim
+    :filetype plugin on
+
+    Now, open an HTML file (for example), put the cursor on a tag
+    (inside, not on, the angle brackets) and hit % to jump to the
+    closing tag. For details,
+
+    :help matchit-install
+    :help :filetype-plugin-on
+
+    Link <#comment-12210>
+  *
+    <http://www.techi2teach.blogspot.com/> pawan kumar singh
+    <http://www.techi2teach.blogspot.com/> December 1, 2009, 12:38 pm
+
+    Nice post it will really help beginners to have their hands on short
+    hand..
+
+    Link <#comment-24421>
+  *
+    bellszhu March 10, 2012, 8:42 am
+
+    g – Go to the beginning of the file.
+
+    shoud be gg….
+
+    Link <#comment-207268>
+  *
+    Philippe Petrinko July 12, 2012, 3:40 am
+
+    Hi Ramesh,
+    Thanks for all your work of this site, and thanks for this topic.
+
+    BTW, “bellszhu” seems to be right,
+    [Go to the beginning of the file] is either:
+    gg
+    1G
+    1gg
+
+    but not a simple g
+
+    — Philippe,
+    Versailles, France
+
+    Link <#comment-268233>
+  *
+    Harish July 26, 2013, 2:42 am
+
+    Excellent article. Well surveyed and categorized. I liked it a lot
+    for the clear structure in learning and remembering!
+
+    Link <#comment-857555>
+  *
+    Will March 20, 2014, 2:37 pm
+
+    g; = go the previous change you made.
+    g, = go to the next change you made (after going backwards, vim
+    can’t tell the future just yet).
+
+    honestly life altering key bindings.
+
+    CTRL+O and CTRL+I are similar but they send you back and forth
+    between jumps vs changes.
+
+    More:
+    :h changelist
+    :h jumplist
+
+    Link <#comment-1370500>
+
+Cancel reply
+<http://www.thegeekstuff.com/2009/03/8-essential-vim-editor-navigation-fundamentals/#respond>
+
+
+Leave a Comment
+
+Name
+
+Email
+
+Website
+
+Comment
+
+Notify me of followup comments via e-mail
+
+Next post: Ifconfig: 7 Examples To Configure Network Interface
+<http://www.thegeekstuff.com/2009/03/ifconfig-7-examples-to-configure-network-interface/>
+
+Previous post: Mommy, I found it! — 15 Practical Linux Find Command
+Examples
+<http://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/>
+
+RSS <http://www.thegeekstuff.com/feed>  |  Email
+<http://feedburner.google.com/fb/a/mailverify?uri=TheGeekStuff&loc=en_US> 
+|  Twitter <http://twitter.com/thegeekstuff>  |  Facebook
+<http://www.facebook.com/thegeekstuff>  |  Google+
+<https://plus.google.com/112493711428194838421/posts>
+
+
+
+EBOOKS
+
+  * Linux 101 Hacks Book Linux 101 Hacks 2nd Edition eBook
+    <http://www.thegeekstuff.com/linux-101-hacks-ebook/> - Practical
+    Examples to Build a Strong Foundation in Linux
+  * Bash 101 Hacks eBook
+    <http://www.thegeekstuff.com/bash-101-hacks-ebook/> - Take Control
+    of Your Bash Command Line and Shell Scripting
+  * Sed and Awk 101 Hacks eBook
+    <http://www.thegeekstuff.com/sed-awk-101-hacks-ebook/> - Enhance
+    Your UNIX / Linux Life with Sed and Awk
+  * Vim 101 Hacks eBook
+    <http://www.thegeekstuff.com/vim-101-hacks-ebook/> - Practical
+    Examples for Becoming Fast and Productive in Vim Editor
+  * Nagios Core 3 eBook <http://www.thegeekstuff.com/nagios-core-ebook/>
+    - Monitor Everything, Be Proactive, and Sleep Well
+
+POPULAR POSTS
+
+  * 12 Amazing and Essential Linux Books To Enrich Your Brain and
+    Library
+    <http://www.thegeekstuff.com/2009/01/12-amazing-and-essential-linux-books-to-enrich-your-brain-and-library/>
+  * 50 UNIX / Linux Sysadmin Tutorials
+    <http://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/>
+  * 50 Most Frequently Used UNIX / Linux Commands (With Examples)
+    <http://www.thegeekstuff.com/2010/11/50-linux-commands/>
+  * How To Be Productive and Get Things Done Using GTD
+    <http://www.thegeekstuff.com/2010/08/gtd-getting-things-done/>
+  * 30 Things To Do When you are Bored and have a Computer
+    <http://www.thegeekstuff.com/2010/03/30-things-to-do-when-you-are-bored-and-have-a-computer/>
+  * Linux Directory Structure (File System Structure) Explained with
+    Examples
+    <http://www.thegeekstuff.com/2010/09/linux-file-system-structure/>
+  * Linux Crontab: 15 Awesome Cron Job Examples
+    <http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/>
+  * Get a Grip on the Grep! – 15 Practical Grep Command Examples
+    <http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/>
+  * Unix LS Command: 15 Practical Examples
+    <http://www.thegeekstuff.com/2009/07/linux-ls-command-examples/>
+  * 15 Examples To Master Linux Command Line History
+    <http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/>
+  * Top 10 Open Source Bug Tracking System
+    <http://www.thegeekstuff.com/2010/08/bug-tracking-system/>
+  * Vi and Vim Macro Tutorial: How To Record and Play
+    <http://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/>
+  * Mommy, I found it! -- 15 Practical Linux Find Command Examples
+    <http://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/>
+  * 15 Awesome Gmail Tips and Tricks
+    <http://www.thegeekstuff.com/2009/07/best-gmail-tips-and-tricks/>
+  * 15 Awesome Google Search Tips and Tricks
+    <http://www.thegeekstuff.com/2009/06/expertise-in-google-search/>
+  * RAID 0, RAID 1, RAID 5, RAID 10 Explained with Diagrams
+    <http://www.thegeekstuff.com/2010/08/raid-levels-tutorial/>
+  * Can You Top This? 15 Practical Linux Top Command Examples
+    <http://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/>
+  * Top 5 Best System Monitoring Tools
+    <http://www.thegeekstuff.com/2009/09/top-5-best-network-monitoring-tools/>
+  * Top 5 Best Linux OS Distributions
+    <http://www.thegeekstuff.com/2009/06/top-5-best-linux-os-distributions/>
+  * How To Monitor Remote Linux Host using Nagios 3.0
+    <http://www.thegeekstuff.com/2008/06/how-to-monitor-remote-linux-host-using-nagios-30/>
+  * Awk Introduction Tutorial – 7 Awk Print Examples
+    <http://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/>
+  * How to Backup Linux? 15 rsync Command Examples
+    <http://www.thegeekstuff.com/2010/09/rsync-command-examples/>
+  * The Ultimate Wget Download Guide With 15 Awesome Examples
+    <http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/>
+  * Top 5 Best Linux Text Editors
+    <http://www.thegeekstuff.com/2009/07/top-5-best-linux-text-editors/>
+  * Packet Analyzer: 15 TCPDUMP Command Examples
+    <http://www.thegeekstuff.com/2010/08/tcpdump-command-examples/>
+  * The Ultimate Bash Array Tutorial with 15 Examples
+    <http://www.thegeekstuff.com/2010/06/bash-array-tutorial/>
+  * 3 Steps to Perform SSH Login Without Password Using ssh-keygen &
+    ssh-copy-id
+    <http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/>
+  * Unix Sed Tutorial: Advanced Sed Substitution Examples
+    <http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/>
+  * UNIX / Linux: 10 Netstat Command Examples
+    <http://www.thegeekstuff.com/2010/03/netstat-command-examples/>
+  * The Ultimate Guide for Creating Strong Passwords
+    <http://www.thegeekstuff.com/2008/06/the-ultimate-guide-for-creating-strong-passwords/>
+  * 6 Steps to Secure Your Home Wireless Network
+    <http://www.thegeekstuff.com/2008/08/6-steps-to-secure-your-home-wireless-network/>
+  * Turbocharge PuTTY with 12 Powerful Add-Ons
+    <http://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/>
+
+CATEGORIES
+
+  * Linux Tutorials <http://www.thegeekstuff.com/category/linux/>
+  * Vim Editor <http://www.thegeekstuff.com/category/vim-2/>
+  * Sed Scripting <http://www.thegeekstuff.com/category/sed/>
+  * Awk Scripting <http://www.thegeekstuff.com/category/awk/>
+  * Bash Shell Scripting <http://www.thegeekstuff.com/category/bash-2/>
+  * Nagios Monitoring <http://www.thegeekstuff.com/category/nagios-2/>
+  * OpenSSH <http://www.thegeekstuff.com/category/openssh-2/>
+  * IPTables Firewall <http://www.thegeekstuff.com/category/iptables/>
+  * Apache Web Server <http://www.thegeekstuff.com/category/apache/>
+  * MySQL Database <http://www.thegeekstuff.com/category/mysql/>
+  * Perl Programming <http://www.thegeekstuff.com/category/perl/>
+  * Google Tutorials <http://www.thegeekstuff.com/category/google/>
+  * Ubuntu Tutorials <http://www.thegeekstuff.com/category/ubuntu/>
+  * PostgreSQL DB <http://www.thegeekstuff.com/category/postgresql/>
+  * Hello World Examples <http://www.thegeekstuff.com/category/hello-world/>
+  * C Programming <http://www.thegeekstuff.com/category/c-programming/>
+  * C++ Programming <http://www.thegeekstuff.com/category/c-plus-plus/>
+  * DELL Server Tutorials <http://www.thegeekstuff.com/category/dell-2/>
+  * Oracle Database <http://www.thegeekstuff.com/category/oracle/>
+  * VMware Tutorials <http://www.thegeekstuff.com/category/vmware/>
+
+
+        About The Geek Stuff
+
+
+Linux 101 Hacks Book My name is *Ramesh Natarajan*. I will be posting
+instruction guides, how-to, troubleshooting tips and tricks on Linux,
+database, hardware, security and web. My focus is to write articles that
+will either teach you or help you resolve a problem. Read more about
+Ramesh Natarajan <http://www.thegeekstuff.com/about/> and the blog.
+
+
+        Contact Us
+
+
+*Email Me :* Use this Contact Form <http://www.thegeekstuff.com/contact>
+to get in touch me with your comments, questions or suggestions about
+this site. You can also simply drop me a line to say hello!.
+
+Follow us on Google+ <https://plus.google.com/112493711428194838421/posts>
+
+Follow us on Twitter <http://twitter.com/thegeekstuff>
+
+Become a fan on Facebook <http://www.facebook.com/thegeekstuff>  
+
+
+        Support Us
+
+
+Support this blog by purchasing one of my ebooks.
+
+Bash 101 Hacks eBook <http://www.thegeekstuff.com/bash-101-hacks-ebook/>
+
+Sed and Awk 101 Hacks eBook
+<http://www.thegeekstuff.com/sed-awk-101-hacks-ebook/>
+
+Vim 101 Hacks eBook <http://www.thegeekstuff.com/vim-101-hacks-ebook/>
+
+Nagios Core 3 eBook <http://www.thegeekstuff.com/nagios-core-ebook/>
+
+Copyright © 2008–2017 Ramesh Natarajan. All rights reserved | Terms of
+Service <http://www.thegeekstuff.com/copyright>
+

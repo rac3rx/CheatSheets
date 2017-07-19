@@ -1,0 +1,151 @@
+The following example will search for previous command that CONTAINS the keyword “apache” and execute it. In this example, it picks up the previous command “/usr/local/apache2/bin/apachectl restart” and executes it.
+
+$ !?apache
+/usr/local/apache2/bin/apachectl restart
+
+Execute a command with keywords using !string and !?string
+
+
+Get the 1st argument of a command using :^
+
+In the following example, “!cp:^” was given as an argument to “ls -l” command. “!cp:^” locates the previous command in the history that starts with “cp” and gets the 1st argument of that command.
+
+$ cp /etc/passwd /backup
+
+$ ls -l !cp:^
+ls -l /etc/passwd
+
+
+Get the last argument of a command using :$
+
+In the following example, “!cp:$” was given as an argument to “ls -l” command. “!cp:$” locates the previous command in the history that starts with “cp” and gets the last argument of that command.
+
+$ cp /etc/passwd /backup
+
+$ ls -l !cp:$
+ls -l /backup
+
+
+Get the nth argument of a command using :n
+
+In the following example, “!tar:2” was given as an argument to “ls -l” command. “!tar:2” locates the previous command in the history that starts with “tar” and gets the 2nd argument of that command.
+
+$ tar cvfz /backup/home-dir-backup.tar.gz /home
+
+$ ls -l !tar:2
+ls -l /backup/home-dir-backup.tar.gz
+
+#
+# Get all arguments from command using :*
+#
+cp /etc/passwd /backup
+ls -l !cp:*                            # In the following example, “!cp:*” was given as an argument to “ls -l” command. 
+                                       # “!cp:*” locates the previous command in the history that starts with “cp” and gets all it’s arguments.
+ls -l /etc/passwd /backup
+
+#
+# Refer to the recently searched word using !%
+#
+
+
+/usr/local/apache2/bin/apachectl restart
+!?apache                                  # search for previous history command that CONTAINS the keyword “apache” & execute it
+/usr/local/apache2/bin/apachectl restart
+
+#
+# !% will refer to the whole word that was matched by the previous “?” search.
+#
+
+For example, If you’ve searched previously “?apache”, the “!%” will match the whole word “/usr/local/apache2/bin/apachectl”. Note that “/” is treated as part of one word in this context.
+
+So, in this case, by executing the following, you can stop the apache.
+
+$ !% stop
+/usr/local/apache2/bin/apachectl stop
+
+
+
+Get range of arguments from a command using x-y
+
+In the following example, “!tar:3-5” was given as an argument to “ls -l” command. “!tar:3-5” locates the previous command in the history that starts with “tar” and gets the arguments from 3 through 5.
+
+$ tar cvf home-dir.tar john jason ramesh rita
+
+$ ls -l !tar:3-5
+ls -l john jason ramesh
+
+The following gets all the arguments from 2.
+
+$ ls -l !tar:2-$
+
+
+#
+# Remove the trailing path name from a word using :h
+#
+ls -l /very/long/path/name/file-name.txt
+
+ls -l !!:$:h                                            # In following example, “!!:$:h” takes last argument of previous command, & removes 
+                                                        # trailing path name. In this case, it removes filename, and gets only full path.
+ls -l /very/long/path/name
+
+#
+# Remove all leading path name from a word using :t
+#
+ls -l /very/long/path/name/file-name.txt                # In following example, “!!:$:t” takes last argument of previous command, & removes 
+                                                        # all leading path names. In this case, it gets only the file name.
+ls -l !!:$:t
+ls -l file-name.txt
+
+#
+# Remove the file name extension from a word using :r
+#
+ls -l /very/long/path/name/file-name.txt
+ls -l !!:$:r                                            # In following example, “!!:$:r” takes last argument of previous command, & removes only 
+                                                        # “.suffix” (which is file name extension here). In this case, it removed .txt
+ls -l /very/long/path/name/file-name
+
+cp /data/moloch/etc/elasticsearch.yml /data/moloch/etc/elasticsearch.yml.orig
+awk '{print}' !cp:$:r
+awk '{print}' /data/moloch/etc/elasticsearch.yml
+
+#
+# Sed like Substitution in bash history using :s/str1/str2/
+#
+
+!!:s/ls -l/cat/                                         # Instead of using “^original^replacement^” as we discussed earlier, we can also use a sed 
+                                                        # like substitution in the bash history as shown in the example below. 
+                                                        # This might be easy to remember. 
+                                                        # !! is to call previous command, “:s/original-string/replacement-string/” is sed-like syntax 
+                                                        # to replace a string.
+
+cp /etc/password /backup/password.bak
+!!:gs/password/passwd/
+cp /etc/passwd /backup/passwd.bak
+
+14. Repeat the substitution quickly using :&
+
+If you’ve already executed a bash history substitution successfuly as shown above, you can repeat the same substitution quickly again using :&.
+
+I’ve by mistake typed “password” again instead of “passwd” in another command.
+
+$ tar cvf password.tar /etc/password
+
+Now, instead of retyping the command, or doing the “gs/password/passwd”, I can just use “:&”, which will reuse the last substitution. Use “:g&” for reusing the last subsitution by globally.
+
+$ !!:g&
+tar cvf passwd.tar /etc/passwd
+
+15. Print the command without executing it using :p
+
+This is very helpful when you are doing complex history substitution, and you want to view the final command before executing it.
+
+In the following example, “!tar:3-:p”, doesn’t really execute the command.
+
+Since we’ve given “:p” here, it just does the substitution and displays the new command. Once you’ve verified the bash history expansion, and if you think this is the command you intended to run, remove the “:p” and execute it again.
+
+$ tar cvf home-dir.tar john jason ramesh rita
+
+$ tar cvfz new-file.tar !tar:3-:p
+tar cvfz new-file.tar john jason ramesh
+
+

@@ -1,0 +1,192 @@
+PASTING
+"* and "+  ... registers are for the system's clipboard (:help registers)
+"+p or "*p ... paste you can use :help paste
+
+PASTING IN INSERT MODE
+cw deletes current word to register ", and enter insert mode
+<b> enters the text (we're in insert mode). This text is beginning of html tag for bold text.
+^r start the paste-while-in insert mode
+" paste from register ' ("falsify") into the current location in file.
+</b> enter the closing tag fror bold
+ESC Return to command mode.
+u Removes the <b> tag from "falsify"!
+
+YANKING
+zt move current line to top of page
+zz move current line to middle of page
+zb move current line to bottom of page
+
+REGISTERS 
+" (literally, the quote character)  ...  The unnamed or default register
+a-z,A-Z                                  the lowercase letters and the uppercase letters
++  ....................................  The system default register (the normal cut/paste one)
+*                                        Select/drop registers
+_  ....................................  The black hole -- essentially /dev/null, used to avoid wiping out register " (the unnamed register)
+dd                                       delete the current line into the default, unnamed register ("" or quote-quote)
+"add  .................................  delete the current line into register a
+"xy$                                     Yank from the current character to the end of the line into register x
+"byy  .................................  Yank the current line into register b
+"c24dd                                   c, 24 times delete current line. complex to read, maybe it's easier to just say delete next 24 lines into c register
+
+VUNDLE 
+Plugin 'https://github.com/scrooloose/nerdtree'
+Plugin 'https://github.com/ervandew/supertab'
+Plugin 'https://github.com/bling/vim-airline'
+
+MANPAGES
+:Man subject Get manpage for subject
+\K Get manpage for word currently under the cursor
+
+MARKS
+`a quickly jump back
+`. jump to position where last change occurred in current buffer
+`" jump to position where last exited current buffer
+`0 jump to position in last file edited (when exited Vim)
+`1 like 0 but the previous file (also 2 etc)
+’’ jump back (to line in current buffer where jumped from)
+`` jump back (to position in current buffer where jumped from)
+`[ or `] jump to beginning/end of previously changed or yanked text
+`< or `> jump to beginning/end of last visual selection
+ma	set mark a at current cursor location
+'a	jump to line of mark a (first non-blank character in line)
+`a	jump to position (line and column) of mark a
+d'a	delete from current line to line of mark a
+d`a	delete from current cursor position to position of mark a
+c'a	change text from current line to line of mark a
+y`a	yank text to unnamed buffer from cursor to position of mark a
+:marks	list all the current marks
+:marks aB	list marks a, B
+
+REGISTERS Copying and Moving Text
+
+"{a-zA-Z0-9.%#:-"}	Use register {a-zA-Z0-9.%#:-"} for next delete, yank or put (use uppercase character to append with delete and yank) ({.%#:} only work with put).
+:reg[isters]	Display the contents of all numbered and named registers.
+:reg[isters] {arg}	Display the contents of the numbered and named registers that are mentioned in {arg}.
+:di[splay] [arg]	Same as :registers.
+["x]y{motion}	Yank {motion} text [into register x].
+["x]yy	Yank [count] lines [into register x]
+["x]Y	yank [count] lines [into register x] (synonym for yy).
+{Visual}["x]y	Yank the highlighted text [into register x] (for {Visual} see Selecting Text).
+{Visual}["x]Y	Yank the highlighted lines [into register x]
+:[range]y[ank] [x]	Yank [range] lines [into register x].
+:[range]y[ank] [x] {count}	Yank {count} lines, starting with last line number in [range] (default: current line), [into register x].
+["x]p	Put the text [from register x] after the cursor [count] times.
+["x]P	Put the text [from register x] before the cursor [count] times.
+["x]gp	Just like "p", but leave the cursor just after the new text.
+["x]gP	Just like "P", but leave the cursor just after the new text.
+:[line]pu[t] [x]	Put the text [from register x] after [line] (default current line).
+:[line]pu[t]! [x]	Put the text [from register x] before [line] (default current line).
+"kyy
+Or you can append to a register by using a capital letter
+
+"Kyy
+You can then move through the document and paste it elsewhere using
+
+"kp
+To paste from system clipboard on Linux
+
+"+p
+To paste from system clipboard on Windows (or from "mouse highlight" clipboard on Linux)
+
+"*p
+To access all currently defined registers type
+
+:reg
+
+MARKS
+Marks
+
+m{a-zA-Z}	Set mark {a-zA-Z} at cursor position (does not move the cursor, this is not a motion command).
+m' or
+m`	Set the previous context mark. This can be jumped to with the "''" or "``" command (does not move the cursor, this is not a motion command).
+:[range]ma[rk] {a-zA-Z}	Set mark {a-zA-Z} at last line number in [range], column 0. Default is cursor line.
+:[range]k{a-zA-Z}	Same as :mark, but the space before the mark name can be omitted.
+'{a-z}	To the first non-blank character on the line with mark {a-z} (linewise).
+'{A-Z0-9}	To the first non-blank character on the line with mark {A-Z0-9} in the correct file
+`{a-z}	To the mark {a-z}
+`{A-Z0-9}	To the mark {A-Z0-9} in the correct file
+:marks	List all the current marks (not a motion command).
+:marks {arg}	List the marks that are mentioned in {arg} (not a motion command). For example:
+
+BOOKMARKS
+mx Put bookmark 'x' at the current line.
+'x Jump to mark 'x'.
+
+VISUAL
+v
+mark character-wise
+V
+mark line-wise
+^v
+column-wise marking
+gv
+Remark the area last marked.
+
+COMPLETION
+^n ........  In insert mode, complete a word (forward to through choice list)
+^p           In insert mode, complete a word (backward through choice list)
+^x^f         filename completion;  file explorer mode and wildmenu around 
+^x^l         In insert mode, complete a line
+^n           Get next choice
+^p           Get previous choice; too
+
+BRACKETS
+di{ (delete inside braces) 
+vi{
+ci{
+yi{
+gUi{
+da{
+
+SEARCH
+n repeat last search (like dot for searches!)
+N repeat last search but in the opposite direction.
+
+MOVEMENT
+% move to matching brace, paren, etc
+} Move to end of paragraph (first empty line).
+{ Move to start of paragraph.
+" Move to location of your last edit in the current file.
+
+:options
+:browse options
+:browse set
+:split code.h<enter>   ...... splits window horizontally and loads code.h in a new window
+:vsplit code.h<enter>  ...... splits window vertically and loads code.h in a new window
+
+
+Command in .vimrc
+Meaning
+syntax enable ... turn on all the magic, including Explorer and syntax highlighting
+set showmode Show me when I'm in insert/overtype mode
+set showcmd When a command is in progress, show it in the status bar
+set wildmenu magic for completion at the : command line.
+set ruler< turn on the "ruler" (status info) at the bottom of the screen.
+runtime ftplugin/man.vim
+Turn on man pages (type :Man )
+set autoindent
+indent in a smart way, instead of returning to the left margin all the time set expandtab
+expand tabs to spaces
+set nowrap Don't wrap text (makes windows ugly)
+set hlsearch  ... Highlight all matches in text when you search
+set showmatch ... Show matches for braces, parens, etc.
+set ignorecase
+do case-insensitive searching
+set smartcase
+When a search phrase has uppercase, don't be case insensitive
+set path=.,..,/usr/include/**,/usr/share/**
+Tell the editor where to search for files
+set spelllang=en_us when I want spell-checking, I want it to be english
+set tabstop=8 Use industry standard 8-char tabs
+set shiftwidth=4 Use standard 4-char indentation
+set shiftround Indent/Dedent to nearest 4-char boundary
+set autoindent ... Automatically indent when adding a new line
+set spell and :set nospell
+
+
+set hlsearch  ...  Highlight all matches in text when you search
+*                  Move to next instance of word under cursor         # needs set hlsearch (high light search)
+# ...............  Move to previous instance of word under cursor.
+vimtutor
+vimdiff
+

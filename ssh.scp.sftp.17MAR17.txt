@@ -1,0 +1,57 @@
+
+
+As Jiri mentioned, you can use scp -r user@host:/some/remote/path /some/local/path to copy files recursively. This assumes that there's a single directory containing all of the files you want to transfer (and nothing else).
+
+However, SFTP provides an alternative if you want to transfer files from multiple different directories, and the destinations are not identical:
+
+sftp user@host << EOF
+  get /some/remote/path1/file1 /some/local/path1/file1
+  get /some/remote/path2/file2 /some/local/path2/file2
+  get /some/remote/path3/file3 /some/local/path3/file3
+EOF
+
+This uses the "here doc" syntax to define a sequence of SFTP input commands. As an alternative, you could put the SFTP commands into a text file and execute sftp user@host -b batchFile.txt
+shareimprove this answer
+	
+answered Jun 4 '15 at 1:23
+alev
+32626
+	
+add a comment
+up vote
+10
+down vote
+	
+
+The simplest way is
+
+local$ scp remote:{A/1,A/2,B/3,C/4}.txt ./
+
+So {.. } list can include directories (A,B and C here are directories; "1.txt" and "2.txt" are file names in those directories).
+
+Although it would copy all these four files into one local directory - not sure if that's what you wanted.
+
+In the above case you will end up remote files A/1.txt, A/2.txt, B/3.txt and C/4.txt copied over to a single local directory, with file names ./1.txt, ./2.txt, ./3.txt and ./4.txt
+shareimprove this answer
+	
+edited Jun 7 '16 at 15:46
+	
+answered Dec 23 '15 at 0:35
+Ruslan
+1,87722133
+	
+   	 
+	
+Wouldn't this overwrite the content of A/1.txt with the content of B/1.txt on the local machine? – Yves Dorfsman Jun 7 '16 at 4:03
+   	 
+	
+good point.. adjusted example (so now it wouldn't overwrite) and added description. Thanks. – Ruslan Jun 7 '16 at 15:46
+   	 
+	
+Brace expansions like this are a Bash feature, and not portable to e.g. POSIX sh. – tripleee Jul 31 '16 at 9:41
+   	 
+	
+@tripleee, thanks. it might not be posix, but it works not only in bash. I use ksh all the time and it works there too. – Ruslan Jul 31 '16 at 18:36
+1 	 
+	
+You can also mix dirs and files by doing: local$ scp -r remote:{A/1.txt,A/2.txt,B/3.txt,C/4.txt,D,F} ./ – donhector Oct 19 '16 at 6:40 

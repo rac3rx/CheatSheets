@@ -1,0 +1,20 @@
+Linux Memory Acquisition
+curl -O https://github.com/google/rekall/releases/download/v1.5.1/linpmem-2.1.post4    # bin file
+sudo ./linpmem-2.1.post4 --format raw -o mem.mem    #/proc/iomem & /proc/kcore
+sudo ./linpmem-2.1.post4 --format aff4 -o mem.mem    #/proc/iomem & /proc/kcore
+
+cd ./tools/linux
+make -C /usr/src/linux-headers-3.13.0-67-generic CONFIG_DEBUG_INFO=y M=`pwd` modules
+make -C /usr/src/kernels/3.10.0-327.13.1.el7.x86_64 CONFIG_DEBUG_INFO=y M=`pwd` modules
+# http://www.forensicswiki.org/wiki/Rekall
+sudo insmod pmem.ko
+sudo lsmod | grep pmem
+sudo rmmod pmem
+dd if=/dev/pmem of=image.raw
+rekall/tools/linux/README
+ls /dev/pmem
+
+cp module.ko module_dwarf.ko
+zip "`uname -r`.zip" module_dwarf.ko /boot/System.map-`uname -r`
+
+

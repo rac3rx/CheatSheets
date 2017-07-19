@@ -1,0 +1,459 @@
+<html>
+<head>
+	<title>Docker Cheat Sheet</title>
+	<meta name='msvalidate.01' content='E44DCBC369E3C3527E9DD8CCA28D3680' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta name='keywords' content='Commands,Dockerfile,Examples,Misc,Docker,Cheat,Sheet'/>
+	<meta charset='UTF-8'>  <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"41ad51419c1f931ccaf105dbeee893a5",petok:"7fc0414208f9270b6ebe8a5e170bff8e00ff6777-1487609276-1800",zone:"lzone.de",rocket:"a",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script>
+<style type='text/css'>body {
+	margin:0;
+	padding:0;
+	background:#e0e0e0;
+	font-family: 'Nimbus Sans L', 'Liberation Sans', Helvetica, Arial, sans-serif;
+	line-height: 1.45;
+	color:#222;
+}
+h1 {
+	font-size:150%;
+	color:#777;
+}
+h2 {
+	font-size:140%;
+	color:#777;
+}
+#main {
+	background:#fafafa;
+	padding: 12px 24px;
+	margin:0;
+	float:left;
+}
+.menu {
+	margin-right: 20px;
+}
+.menu.lesser a {
+	color: #faf;
+}
+#header {
+	background:black;
+	border-bottom: 2px solid #3a7791;
+	padding: 6px 18px;
+	font-size:12pt;
+	font-family: "Open Sans Condensed",Helvetica,sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 1.5;
+}
+#header a {
+	text-decoration: none;
+	color:#eee;
+}
+#header a:hover {
+	color:#ccc;
+}	
+
+#searchbar {
+	position: relative;
+	float:right;
+	visibility: hidden;
+}
+
+#query {
+	background:black;
+	color:white;
+	border: 1px solid #777;
+}
+	
+.topic {
+	text-transform: capitalize;
+}
+blockquote {
+	font-style: italic;
+	background:#eee;
+	border-left:3px solid #bbb;
+	padding: 6px 6px 6px 12px;
+}
+form {
+	display: inline;
+}
+pre {
+	color:black;
+	overflow:auto;
+}
+pre, .section {
+	background:white;
+	border-radius:6px;
+	padding:12px 24px;
+	border:1px solid #ddd;
+}
+.index {
+	font-family:Monospace;
+	font-size:120%;		
+}
+@media (max-width: 599px) {
+	#main {
+		width:100%;
+	}
+	pre {
+		overflow-x:auto;
+	}
+}
+@media (min-width: 600px) {
+	.index {
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+		-moz-column-count: 2; /* Firefox */
+		column-count: 2;	
+	}
+
+	#searchbar {
+		visibility:visible;
+	}
+	#main {
+		max-width:1024px;
+		min-width:600px;
+	}
+	h1, .content {
+		clear:both;
+	}
+	.videos {
+		margin-left: 24px;
+	}
+	.toc  {
+		float:left;
+		margin-bottom: 24px;
+	}
+	.toc div, .toc ins {
+		float:left;
+		margin-right: 24px;
+	}
+}
+@media (max-width: 799px) {
+	.toc li {
+		padding:3px;
+	}
+}
+@media (min-width: 800px) {
+	.index {
+		-webkit-column-count: 4; /* Chrome, Safari, Opera */
+		-moz-column-count: 4; /* Firefox */
+		column-count: 4;	
+	}
+
+	#searchbar {
+		visibility:visible;
+	}
+	#main {
+		max-width:1024px;
+		min-width:800px;
+	}
+	.videos {
+		float:left;
+	}
+}
+@media (min-width: 1024px) {
+	.videos {
+		width:340px;
+		position:absolute;
+		top:48px;
+		left:1444px;
+	}
+	.toc {
+		width:300px;
+		position:absolute;
+		top:48px;
+		left:24px;
+	}
+	#main {
+		width:1024px;
+	}
+	.toc .non-ad {
+		margin-top:12px;
+	}
+	#main.sheet {
+		margin-left:372px;
+	}
+
+}
+.index a {
+	text-decoration: none;
+}
+.index a:hover {
+	text-decoration: underline;
+}
+.content table.search, .content table.search td {
+	border:0;
+}
+.content table {
+	border-collapse:collapse;
+	margin:12px 0;
+	border:1px solid black;
+}
+.content table * td {
+	padding:6px;
+	border:1px solid black;		
+}
+.content {
+	margin-bottom:24px;
+}
+.related {
+	background: orange;
+	border-radius:6px;
+}
+.related a {
+	text-transform: capitalize;
+	text-decoration: none;
+	padding:0px 12px;
+}
+.related:hover {
+	background: #cc7500;
+}
+.projectimg {
+	position:relative;
+	border:1px solid #777;	
+}
+.projectimg:hover {
+	border:1px solid white;			
+}
+.imgoverlay {
+	background:black;
+	color:white;
+	opacity:0.7;
+	position:absolute;
+	bottom:0;
+	padding:3px 12px;
+	width:70%;
+}
+
+input {
+    border: 1px solid #ddd; 
+    -webkit-box-shadow: 
+      inset 0 0 1px  rgba(0,0,0,0.1),
+	    0 0 2px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 1px  rgba(0,0,0,0.1),
+	    0 0 2px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 1px  rgba(0,0,0,0.1),
+	    0 0 2px rgba(0,0,0,0.1); 
+    padding: 4px;
+    background: #fcfcfc;
+}
+
+.content a[href^="//"]:after, 
+.content a[href^="http://"]:after, 
+.content a[href^="https://"]:after {
+	content: url(/images/Icon_External_Link.png);
+	margin: 0 0 0 5px;
+}
+
+.content a[href^="//lzone.de/"]:after, 
+.content a[href^="http://lzone.de/"]:after, 
+.content a[href^="https://lzone.de/"]:after {
+  content: '';
+  margin: 0;
+}
+
+.toc, .videos {
+	background:white;
+	border:1px solid #777;
+	padding:12px;
+	white-space:nowrap;
+}
+.toc li {
+	overflow: hidden;
+}
+.toc ul {
+	padding:0 12px;
+	list-style: disc inside none;
+}
+.toc li.h4 {
+	padding-left:24px;
+	font-size:90%;
+}
+.toc li.h5 {
+	padding-left:36px;
+	font-size:80%;
+}
+.toc a {
+	text-decoration:none;
+}
+.toc a:hover {
+	text-decoration:underline;
+}
+.toc .title {
+	font-weight:bold;
+}
+
+.blog .toc {
+	margin-right:12px;
+}
+.blog .section {
+	margin-bottom:24px;
+	padding-top:0;
+}
+.blog .section h2 a {
+	text-decoration:none;
+	color:black;
+}
+.blog pre {
+	background:#eee;
+}
+#main table {
+	margin:12px 0;	
+	border-collapse:collapse;
+}
+#main table td {
+	padding:6px;
+}
+
+table.cheatsheet td {
+	vertical-align: top;
+}
+	</style> <link rel='canonical' href='http://lzone.de/cheat-sheet/Docker'/>
+
+	<link rel='search' type='application/opensearchdescription+xml' title='LZone' href='/opensearch.xml'>
+<!-- base /var/www -->
+</head>
+<body><div id='header'><a class='menu' href='/'>Cheat Sheets</a> /// <a class='menu lesser' href='/blog/'>Blog</a> /// <a class='menu lesser' href='/polscan/'>Polscan</a> /// <a class='menu lesser' href='/web-scan.php'>WebScan</a> <a class='menu lesser' href='/online-scan/latest-cdns.htm'>CDN Usage</a> <a class='menu lesser' href='/online-scan/latest-dns.htm'>DNS Usage</a> <form id='searchbar' onSubmit='document.location.href="/search/"+encodeURIComponent(document.getElementById("query").value);return false;'/><input  type='text' id='query' value=''/></form></div><div id='main' class='sheet'><script type="text/rocketscript">var topic = 'Docker';</script><div class='toc'><!-- Top LZone -->
+<script async data-rocketsrc="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="text/rocketscript"></script>
+<!-- LZone Top -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-3885525830723411"
+     data-ad-slot="9515838475"></ins>
+<script type="text/rocketscript">
+(adsbygoogle = window.adsbygoogle || []).push({
+params: { google_ad_channel: "5842433455" }
+});
+</script><div class='non-ad'><span class='title'>Table of Content</span><ul><li class='h3'><a href='#Commands'>Commands</a></li><li class='h3'><a href='#Dockerfile Examples'>Dockerfile Examples</a></li><li class='h3'><a href='#Misc'>Misc</a></li></ul></div></div><h1 class='topic'>Docker Cheat Sheet</h1><div class='content'><a name="Commands"><h3>Commands</h3></a>
+
+<pre>
+docker ps                           # List running instances
+docker ps -a                        # List all instances
+docker inspect &lt;id&gt;                 # Instance details
+docker top     &lt;id&gt;                 # Instance processes
+docker logs    &lt;id&gt;                 # Instance console log
+
+docker run -i -t ubuntu /bin/bash   # New instance from image
+
+docker start   &lt;id&gt;
+docker restart &lt;id&gt;
+docker stop    &lt;id&gt;
+docker attach  &lt;id&gt;
+docker rm      &lt;id&gt;
+
+docker cp &#39;&lt;id&gt;&#39;:/data/file .       # Copy file out of container
+
+docker images                       # List locally stored images
+</pre>
+
+<a name="Dockerfile Examples"><h3>Dockerfile Examples</h3></a>
+
+<p>Installing packages</p>
+
+<pre>
+FROM debian:wheezy
+RUN apt-get update
+RUN apt-get -y install python git
+</pre>
+
+<p>Adding users</p>
+
+<pre>
+RUN useradd jsmith -u 1001 -s /bin/bash</pre>
+
+<p>Defining work directories and environment</p>
+
+<pre>
+WORKDIR /home/jsmith/
+ENV HOME /home/jsmith</pre>
+
+<p>Mounts</p>
+
+<pre>
+VOLUME [&quot;/home&quot;]</pre>
+
+<p>Opening ports</p>
+
+<pre>
+EXPOSE 22
+EXPOSE 80</pre>
+
+<p>Start command</p>
+
+<pre>
+USER jsmith
+WORKDIR /home/jsmith/
+ENTRYPOINT bin/my-start-script.sh</pre>
+
+<a name="Misc"><h3>Misc</h3></a>
+
+<ul>
+	<li><a href="https://github.com/googlecloudplatform/kubernetes">kubernetes</a>: Docker container cluster management</li>
+	<li><a href="https://coreos.com/blog/rocket/">CoreOS Rocket</a> (commercial Docker alternative)</li>
+	<li><a href="http://aws.amazon.com/ecs/">Amazon EC2 Container Service</a> - Docker container support on AWS</li>
+	<li><a href="http://www.hokstad.com/docker/patterns">Docker Patterns</a> - container inheritance examples</li>
+	<li><a href="https://github.com/docker/docker-bench-security">Docker Bench Security</a> - Test Docker containers for security issues</li>
+	<li><a href="https://github.com/OpenSCAP/container-compliance">Docker OpenSCAP Checks</a></li>
+</ul>
+
+<?youtube,9Ck0okEzRp4,State of Linux Containers?>
+<?youtube,JvjdfQC8jxM,Notary: Docker Content Trust?>
+<?youtube,93VPog3EKbs,Docker and Systemd Conflicts?>
+
+</div></div><div class='videos'><b>Videos</b><br/><br/>State of Linux Containers<br/><iframe width='320' height='180' src='https://www.youtube-nocookie.com/embed/9Ck0okEzRp4?rel=0' frameborder='0' allowfullscreen></iframe><br/>Notary: Docker Content Trust<br/><iframe width='320' height='180' src='https://www.youtube-nocookie.com/embed/JvjdfQC8jxM?rel=0' frameborder='0' allowfullscreen></iframe><br/>Docker and Systemd Conflicts<br/><iframe width='320' height='180' src='https://www.youtube-nocookie.com/embed/93VPog3EKbs?rel=0' frameborder='0' allowfullscreen></iframe><br/></div></div>
+<script type="text/rocketscript">
+var defaultText = "Search Cheat Sheets...";
+var searchBox = document.getElementById("query");
+
+//default text after load
+searchBox.value = defaultText;
+searchBox.style.color = '#ccc';
+
+//on focus behaviour
+searchBox.onfocus = function() {
+    if (this.value == defaultText) {//clear text field
+        this.value = '';
+	this.style.color = 'white';
+    }
+}
+
+//on blur behaviour
+searchBox.onblur = function() {
+    if (this.value == "") {//restore default text
+        this.value = defaultText;
+	this.style.color = '#ccc';
+    }
+}
+
+document.onkeyup = function(e) {
+	if(typeof topic !== 'undefined' && e.which == 119)
+		document.location.href='http://lzone.de/ragna.php?topic='+topic;
+	return true;
+}
+</script>
+
+<!-- Google+ Button -->
+<script type="text/rocketscript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script type="text/rocketscript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/rocketscript">
+var pageTracker = _gat._getTracker("UA-5241348-3");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
+<link rel='stylesheet' id='twentythirteen-fonts-css' href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700%7COpen+Sans+Condensed%3A300%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all'>	

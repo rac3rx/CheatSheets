@@ -1,0 +1,597 @@
+<html>
+   <head>
+<title>BASH and PowerShell Quick Reference </title>
+<style type="text/css">
+    body {margin: 1cm 1cm 0cm 1cm}
+    a:hover      { color: blue; background-color: yellow; }
+    a:active     { color: white; background-color: green;}
+    @page { size: 8.5in 11in }
+    P { text-align: justify }
+    pre {background:AntiqueWhite; }
+    pre.sol {background: yellow; }
+
+    @media print {BODY {font-size: 10pt; line-height: 120%; background: white;} }
+    @media screen {BODY {font-size: medium; background: white; margin: 5em} }
+</style>
+</head>
+<body>
+<h3><a href="http://www.cs.wright.edu/~pmateti/Courses/233/Top/index.html">
+CEG 233: Linux and Windows</a></h3>
+<h1>BASH and PowerShell Quick Reference</h1>
+
+<table cellspacing="0" cellpadding="4" border="1" width="100%">
+  <tr>
+    <td  bgcolor="#d9fed3" valign="top" width="25%">
+      bash</td>
+    <td  bgcolor="#d9fed3" valign="top" width="20%">
+      <b>
+        PowerShell
+      </b></code></td>
+    <td  bgcolor="#d9fed3" valign="top" width="65%">
+      <b>
+        Description
+      </b></code></td>
+  </tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>Scripting Basics</b></center></code></td></tr>
+  <tr>
+    <td valign="top" width="25%">Put a "shebang" at the beginning of the file: <code>
+	<br>
+	#!/bin/bash</code><br />
+    Change permissions on script file to allow execution.</td>
+    <td valign="top" width="20%">Give the file a ps1 extension.
+    For
+    downloaded scripts, unblock the file under file properties in Windows
+    Explorer.</td>
+    <td valign="top" width="65%">Steps for making scripting files run.
+    In PowerShell, the first time you do scripting, you will
+    need to set the appropriate security settings: run PowerShell as 
+    administrator and
+    type <code>set-executionpolicy remotesigned</code>.     
+    </td>
+  </tr>  
+  <tr>
+    <td valign="top" width="25%"><code>source (or) .</code></td>
+    <td valign="top" width="20%"><code>.</code></td>
+    <td valign="top" width="65%">shell built-in: execute the commands in a file</td>
+  </tr>  
+   <tr>
+      <td valign="top" width="25%"><code>echo <i>String</i></code></td>
+      <td valign="top" width="20%"><code>echo <i>String</i></code> (or)<br /><code>Write-Host <i>String</i></code></td>
+      <td valign="top" width="65%">Prints <i>String</i> to the screen. In PowerShell, <code>Write-Host</code> forces the output to the screen instead of being a return value.</td>
+   </tr>
+  <tr>
+    <td valign="top" width="25%"><code><i>var</i>=0</code><br>(No spaces around =)</td>
+    <td valign="top" width="20%"><code>$<i>var</i> = 0</code></td>
+      <td valign="top" width="65%">Creates a variable <i>$var</i>. In BASH, do not put whitespace around the equals sign, and do not use a $ in the variable assignment.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>let <i>var</i>=$<i>var</i>+5</code> (or)<code><br /><i>var</i>=$(( $<i>var</i> + 5 ))</code></td>
+      <td valign="top" width="20%"><code>$<i>var</i> += 5</code></td>
+      <td valign="top" width="65%">Add 5 to $<i>var</i></td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code># <i>comment</i></code></td>
+      <td valign="top" width="20%"><code># <i>comment</i></code></td>
+      <td valign="top" width="65%">A comment</td>
+   </tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>Strings</b></center></code></td></tr>
+   <tr>
+      <td valign="top" width="25%"><code>= !=</code></td>
+      <td valign="top" width="20%"><code>-eq -ne -ceq -cne</code></td>
+      <td valign="top" width="65%">String comparisons. In BASH, be sure the strings litereals are in quotes.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>"" | gm</code></td>
+      <td valign="top" width="20%">&nbsp;</td>
+      <td valign="top" width="65%">Get a list of non-static string members</td></tr>
+   <tr>
+      <td valign="top" width="25%"><code>[string] | gm -static</code></td>
+      <td valign="top" width="20%">&nbsp;</td>
+      <td valign="top" width="65%">Get a list of static string members</td></tr>
+   <tr>
+      <td valign="top" width="25%"><code>${<i>string</i>#<i>text_to_remove</i>}</code></td>
+      <td valign="top" width="20%"><code><i>string</i>.TrimStart("<i>characters</i>")</code></td>
+      <td valign="top" width="65%">Removes the specified characters/text from the beginning of the string.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>${<i>string</i>%<i>text_to_remove</i>}</code></td>
+      <td valign="top" width="20%"><code><i>string</i>.TrimEnd("<i>characters</i>")</code></td>
+      <td valign="top" width="65%">Removes the specified characters/text from the end of the string.&nbsp; 
+		Suppose $fnm == helloThere.txt; then ${fnm%.???} is helloThere</td>
+   </tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>Pattern Matching</b></center></code></td></tr>
+  <tr>
+    <td valign="top" width="25%"><code>grep</code></td>
+    <td valign="top" width="20%"><code>select-string</code></td>
+    <td valign="top" width="65%">print lines matching a pattern</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>sed</code></td>
+    <td valign="top" width="20%"><code>-replace</code></td>
+    <td valign="top" width="65%">performs string transformations</td>
+  </tr>
+
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>Booleans and Conditions</b></center></code></td></tr>
+   <tr>
+      <td valign="top" width="25%"><code>true&nbsp;&nbsp;false</code></td>
+      <td valign="top" width="20%"><code>$true&nbsp;&nbsp;$false</code></td>
+      <td valign="top" width="65%">Boolean literals</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>-lt -gt -le -ge -eq -ne</code></td>
+      <td valign="top" width="20%"><code>-lt -gt -le -ge -eq -ne</code></td>
+      <td valign="top" width="65%">Arithmetic relational operators</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>&nbsp;</code></td>
+		<td valign="top" width="20%"><code>-like</code></td>
+		<td valign="top" width="65%">True if a string matches a wildcard pattern</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>&nbsp;</code></td>
+		<td valign="top" width="20%"><code>-match</code></td>
+		<td valign="top" width="65%">True if a string matches a regular expressions</td>
+   </tr>
+   <tr>
+	<td valign="top" width="25%">&nbsp;</td>
+	<td valign="top" width="20%"><code>Where-Object { <i>condition</i> }</code></td>
+	<td valign="top" width="65%">Used to filter input by a condition. Remember that $_ refers to the current object being tested. 
+   <tr>
+      <td valign="top" width="25%"><code>-z $<i>var</i></code></td>
+      <td valign="top" width="20%"><code>$<i>var</i> -eq $null</code></td>
+      <td valign="top" width="65%">True if $<i>var</i> is null</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>-n $<i>var</i></code></td>
+      <td valign="top" width="20%"><code>$<i>var</i> -ne $null</code></td>
+      <td valign="top" width="65%">True if $<i>var</i> is not null (contains one or more characters)</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>-o -a </code></td>
+      <td valign="top" width="20%"><code>-or -and</code></td>
+      <td valign="top" width="65%">Logical <i>or</i> and <i>and</i></td>
+   </tr>
+   <tr>
+ 	<td valign="top" width="25%"><code>-e <i>file</i></code></td>
+      <td valign="top" width="20%"><code>Test-Path <i>file</i></code></td>
+      <td valign="top" width="65%">True if <i>file</i> exists.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>! -e <i>file</i></code></td>
+      <td valign="top" width="20%"><code>! (Test-Path <i>file</i>)</code></td>
+      <td valign="top" width="65%">True if <i>file</i> does not exist.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>-d <i>file</i></code></td>
+      <td valign="top" width="20%"><code><i>file</i>.PSISContainer</code></td>
+      <td valign="top" width="65%">True if <i>file</i> is a directory. In PowerShell, if <i>file</i> is not a file variable, be sure to get the file object first with <code>gi</code>.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>-s <i>file</i></code></td>
+      <td valign="top" width="20%">&nbsp;</td>
+      <td valign="top" width="65%">True if <i>file</i> exists and has a size 
+		greater than zero.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code><i>file1</i> -nt <i>file2</i></code></td>
+      <td valign="top" width="20%">&nbsp;</td>
+      <td valign="top" width="65%">True if <i>file1</i> is newer (according to modification date) than <i>file2</i></td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code><i>file1</i> -ot <i>file2</i></code></td>
+      <td valign="top" width="20%">&nbsp;</td>
+      <td valign="top" width="65%">True if <i>file1</i> is older (according to modification date) than <i>file2</i></td>
+   </tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>Control Structures</b></center></code></td></tr>
+   <tr>
+      <td valign="top" width="25%"><code>if [ <i>condition</i> ]<br>
+		then <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i><br />fi</code></td>
+      <td valign="top" width="20%"><code>if (<i>condition</i>) { <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i> <br />}</code></td>
+      <td valign="top" width="65%">If statement. In BASH, be sure to leave a space between the condition and the bracket.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>if [ <i>condition</i> ]<br>
+		then <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i><br />elif [ <i>condition</i> ]<br>
+		then <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i><br />else <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i> <br />fi</code></td>
+      <td valign="top" width="20%"><code>if (<i>condition</i>) { <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i> <br />}<br />elseif (<i>condition</i>) { <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i> <br />}<br />else { <br />&nbsp;&nbsp;&nbsp;<i>codeblock</i> <br />}</code></td>
+      <td valign="top" width="65%">If - else if - else statement</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>var=0<br />while [ $var -lt  10 ]<br>
+		do<br />&nbsp;&nbsp;&nbsp;echo $var<br />&nbsp;&nbsp;&nbsp;var=$(( $var + 1 ))<br />done</code></td>
+      <td valign="top" width="20%"><code>$var = 0<br />while ($var -lt 10) {<br />&nbsp;&nbsp;&nbsp;echo $var<br />&nbsp;&nbsp;&nbsp;$var++ <br />}</code></td>
+      <td valign="top" width="65%">Prints numbers 0 through 9.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>for ((i=0; i &lt; 10; i++)) do<br/>&nbsp;&nbsp;&nbsp;echo $i<br/>done</code></td>
+      <td valign="top" width="20%"><code>for ($i=0;$i -lt 10; $i++)<br/>{<br/>&nbsp;&nbsp;&nbsp;echo $i<br/>}</code></td>
+      <td valign="top" width="65%">Prints numbers 0 through 9.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>for <i>var</i> in $<i>array</i><br/>do<br/>&nbsp;&nbsp;&nbsp;<i>codeblock</i><br/>done</code></td>
+      <td valign="top" width="20%"><code>foreach ($<i>var</i> in $<i>array</i>)<br/>{<br/>&nbsp;&nbsp;&nbsp;<i>codeblock</i><br/>}</code></td>
+      <td valign="top" width="65%">For each loop</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>continue&nbsp;&nbsp;break</code></td>
+      <td valign="top" width="20%"><code>continue&nbsp;&nbsp;break</code></td>
+      <td valign="top" width="65%">Loop controls: continue stops current loop iteration and begins the next; break exits the loop currently being executed.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code>basename <i>file</i></code></td>
+      <td valign="top" width="20%"><code><i>file</i>.name</code></td>
+      <td valign="top" width="65%">The name of <i>file</i> without the path. In PowerShell, remember to first get the file object.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>dirname <i>file</i></code></td>
+      <td valign="top" width="20%"><code><i>file</i>.directoryname</code></td>
+      <td valign="top" width="65%">The name directory <i>file</i> is in. In PowerShell, remember to first get the file object.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>stat -c%s $<i>file</i></code> (or)<br/><code>$(stat -c%s $<i>file</i>)</code></td>
+      <td valign="top" width="20%"><code><i>file</i>.length</code></td>
+      <td valign="top" width="65%">The number of bytes in <i>file</i>. In PowerShell, remember to first get the file object.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%">&nbsp;</td>
+      <td valign="top" width="20%"><code><i>file</i>.LastWriteTime</code></td>
+      <td valign="top" width="65%">The last modified time for <i>file</i>. Remember to first get the file object.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code><i>files</i>=`ls`</code> (or)<br /><code><i>files</i>=$(ls)</code> (or)<br /><code><i>files</i>=*</code></td>
+      <td valign="top" width="20%"><code>$<i>files</i> = Get-Item *</code></td>
+      <td valign="top" width="65%">Store a list of the files in the current working directory in <i>$files</i>. In PowerShell, check out the -exclude flag as well as the Get-ChildItem
+      cmdlet.</code></td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>|&nbsp;&nbsp;&gt;&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;2&gt;&nbsp;&nbsp;2&gt;&gt;</code></td>
+      <td valign="top" width="20%"><code>|&nbsp;&nbsp;&gt;&nbsp;&nbsp;&gt;&gt;&nbsp;&nbsp;2&gt;&nbsp;&nbsp;2&gt;&gt;</code></td>
+      <td valign="top" width="65%">Piping, output and error redirection. In BASH, output redirected to <code>/dev/null</code> is gone.
+In PowerShell, output redirected to <code>$null</code> is gone.</code></td>
+	</tr>
+   <tr>
+      <td valign="top" width="25%"><code><i>printArg</i>()<br/>{<br/>&nbsp;&nbsp;&nbsp;<i>echo</i> $1<br/>}</code></td>
+      <td valign="top" width="20%"><code>function <i>printArg</i><br/>{<br />&nbsp;&nbsp;&nbsp;param ($<i>p1</i>)<br/>&nbsp;&nbsp;&nbsp;<i>echo $p1</i><br/>}</code></td>
+      <td valign="top" width="65%">function to print the first argument to the screen.</td>
+   </tr>
+   <tr>
+      <td valign="top" width="25%"><code><i>return_five</i>()<br/>{<br/>&nbsp;&nbsp;&nbsp;return <i>5</i><br/>}<br/><br/><i>return_five</i><br/>echo $?</code></td>
+      <td valign="top" width="20%"><code>function <i>return_five</i><br/>{<br/>&nbsp;&nbsp;&nbsp;echo<i> 5</i></code>&nbsp;&nbsp;(or)&nbsp;&nbsp;<code>return <i>5</i><br/>
+}<br/><br/>$<i>value</i> = <i>return_five</i><br/>echo $<i>value</i></code></td>
+      <td valign="top" width="65%">Function returns 5, which is printed after the function call. In PowerShell, any output in a function that is not caught is returned. The return statement merely ends the function. The return value of a BASH function is stored in the variable $?.</td>
+   </tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>File Information/Operations</b></center></code></td></tr>
+  <tr>
+		<td width="25%" valign="top"><code>ls</code></td>
+		<td width="20%" valign="top">&nbsp;</td>
+		<td width="65%" valign="top">Listing of files.  For 
+		bash, learn the options of <code>-lisa, -r, -R</code>.  
+		</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top">&nbsp;</td>
+		<td width="20%" valign="top"><code>ls</code></td>
+		<td width="65%" valign="top">Listing of files. For PowerShell, 
+		learn <code>-f, -r, -filter, </code> and <code> 
+		-exclude</code></td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"> <code>tree</code></td>
+		<td width="20%" valign="top"><code>tree</code></td>
+		<td width="65%" valign="top">Graphically displays the directory structure of a drive or path.</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>cat</code></td>
+		<td width="20%" valign="top"><code>cat</code></td>
+		<td width="65%" valign="top">List the contents of a file on the <code>stdout</code></td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>more</code></td>
+		<td width="20%" valign="top"><code>more</code></td>
+		<td width="65%" valign="top">List the contents of a file on the <code>stdout</code>, pausing after each page</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>mkdir</code></td>
+		<td width="20%" valign="top"><code>mkdir</code></td>
+		<td width="65%" valign="top">Creates a directory.</td>
+	</tr>
+	<tr>
+      <td valign="top" width="25%"><code>rmdir</code></td>
+      <td valign="top" width="20%"><code>rmdir</code></td>
+      <td valign="top" width="65%">Deletes a folder if it is empty</td>
+   </tr>
+	<tr>
+    <td valign="top" width="25%"><code>pwd</code></td>
+    <td valign="top" width="20%"><code>pwd</code></td>
+    <td valign="top" width="65%">print working directory</td>
+  </tr>
+	<tr>
+		<td width="25%" valign="top"><code>cd </code> </td>
+		<td width="20%" valign="top"><code>cd</code></td>
+		<td width="65%" valign="top">Change the current directory to the one  given as argument.</td>
+
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>pushd</code></td>
+		<td width="20%" valign="top"><code>pushd</code></td>
+		<td width="65%" valign="top">Saves the current directory name on the stack, and  then cd's 
+		the one given as argument.</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>popd</code></td>
+		<td width="20%" valign="top"><code>popd</code></td>
+		<td width="65%" valign="top">Pop off the top-most name on the stack, and  then cd to it</td>
+	</tr>
+	<tr>
+      <td valign="top" width="25%"><code>mv</code></td>
+      <td valign="top" width="20%"><code>mv</code></td>
+      <td valign="top" width="65%">Moves or renames files. In PowerShell, check out the -force and -WhatIf flags. In BASH, check out the -f flag.</td>
+   </tr>
+	<tr>
+		<td width="25%" valign="top"><code>cp -r</code></td>
+		<td width="20%" valign="top"><code>cp -r</code></td>
+		<td width="65%" valign="top">Copies files and directory trees recursively.</td>
+	</tr>
+	<tr>
+      <td valign="top" width="25%"><code>cp</code></td>
+      <td valign="top" width="20%"><code>cp</code></td>
+      <td valign="top" width="65%">Copies files. In PowerShell, check out the -force and -WhatIf flags. In BASH, check out the -f flag.</td>
+   </tr>
+	<tr>
+      <td valign="top" width="25%"><code>rm</code></td>
+      <td valign="top" width="20%"><code>rm</code></td>
+      <td valign="top" width="65%">Deletes a file. Check out the -r flag. In PowerShell, check out the -force and -WhatIf flags. In BASH, check out the -f flag.</td>
+   </tr>
+	<tr>
+    <td valign="top" width="25%"><code>cat</code></td>
+    <td valign="top" width="20%"><code>cat</code></td>
+    <td valign="top" width="65%">show the contents of each file in sequence</td>
+  </tr>
+	<tr>
+    <td valign="top" width="25%"><code>more</code></td>
+    <td valign="top" width="20%"><code>more</code></td>
+    <td valign="top" width="65%">pagination</td>
+  </tr>
+	<tr>
+		<td width="25%" valign="top"><code>rm</code></td>
+		<td width="20%" valign="top"><code>rm</code></td>
+		<td width="65%" valign="top">Remove files</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>ln</code></td>
+		<td width="20%" valign="top">&nbsp;</td>
+		<td width="65%" valign="top">Link (hard or soft) to an existing file.</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top">&nbsp;</td>
+		<td width="20%" valign="top"><code>mklink</code></td>
+		<td width="65%" valign="top">Link (hard or soft) to an existing file. Type <code>cmd /c mklink</code> to use it in PowerShell</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>chmod</code></td>
+		<td width="20%" valign="top"><code>attrib</code></td>
+		<td width="65%" valign="top">Change file permissions/attributes</td>
+
+	</tr>
+	<tr>
+		<td width="25%" valign="top"> </td>
+		<td width="20%" valign="top"><code>icacls</code></td>
+		<td width="65%" valign="top">Displays or modifies access control lists (ACLs) of files</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>chown</code></td>
+		<td width="20%" valign="top"> <code>icacls</code></td>
+		<td width="65%" valign="top">Change ownership of a file.
+		In PowerShell, multiple steps are necessary</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>umask</code></td>
+		<td width="20%" valign="top"> </td>
+		<td width="65%" valign="top">get/set the file mode creation mask; packed vector of bits controlling the initial permissions on a newly 
+		created file</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>du</code></td>
+		<td width="20%" valign="top"><code>measure</code></td>
+		<td width="65%" valign="top">Disk space Used. In PowerShell, try 
+		<code>gci . -r | measure -property length -sum</code></td>
+	</tr>
+	<tr>
+    <td valign="top" width="25%"><code>wc</code></td>
+    <td valign="top" width="20%"><code>Measure-Object</code></td>
+    <td valign="top" width="65%">word count, etc.</td>
+  </tr>
+	<tr>
+		<td width="25%" valign="top"><code>od</code></td>
+		<td width="20%" valign="top"> </td>
+		<td width="65%" valign="top">Octal dump of file content.  Almost always used with -x for 
+		hexadecimal dump</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>tr</code></td>
+		<td width="20%" valign="top"> </td>
+		<td width="65%" valign="top">Translate/substitute characters; useful in 
+		improving interoperability</td>
+
+	</tr>
+	<tr>
+		<td width="25%" valign="top"> </td>
+		<td width="20%" valign="top"><code>assoc</code></td>
+		<td width="65%" valign="top">List associations of commands with extensions.
+		Type <code>cmd /c assoc</code> to use it in PowerShell</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>file</code></td>
+		<td width="20%" valign="top"> </td>
+		<td width="65%" valign="top">Heuristically determine the type of file content</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>grep</code></td>
+		<td width="20%" valign="top"><code>select-string</code></td>
+		<td width="65%" valign="top">Search for a string in a file's content.  For now, learn it 
+		without regexp.</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>find</code></td>
+		<td width="20%" valign="top"><code>gci</code></td>
+		<td width="65%" valign="top">Locate a file.  By name, etc.  For now, learn it without 
+		regexp.</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>which</code></td>
+		<td width="20%" valign="top">&nbsp;</td>
+		<td width="65%" valign="top">Gives the full path name of a command</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top">&nbsp;</td>
+		<td width="20%" valign="top"><code>where</code></td>
+		<td width="65%" valign="top">Gives the full path name of a command.&nbsp; 
+		Type <code>cmd /c where</code> to use it in PowerShell</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>diff</code></td>
+		<td width="20%" valign="top"><code>diff</code></td>
+		<td width="65%" valign="top">List the differences between two text files</td>
+	</tr>
+	<tr>
+    <td valign="top" width="25%"><code>cmp, diff</code></td>
+    <td valign="top" width="20%"><code>compare, diff</code></td>
+    <td valign="top" width="65%">show the differences between two files</td>
+  </tr>
+	<tr>
+    <td valign="top" width="25%"><code>&nbsp;</code></td>
+    <td valign="top" width="20%"><code>  gci . -r | sort length -descending | select -first 10</code></td>
+    <td valign="top" width="65%">get a list of the 10 largest files in the current directory (recursive)</td>
+  </tr>
+	<tr>
+		<td width="25%" valign="top"><code>vi</code></td>
+		<td width="20%" valign="top">
+		<a href="http://www.vim.org/" style="text-decoration: none"><code>vim</code></a></td>
+		<td width="65%" valign="top">A powerful text editor.  For now, learn to edit simple text 
+		files with it.</td>
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>kate, leafpad</code></td>
+		<td width="20%" valign="top"><code>notepad</code></td>
+		<td width="65%" valign="top">Simple text editors.</td>
+
+	</tr>
+	<tr>
+		<td width="25%" valign="top"><code>emacs</code></td>
+		<td width="20%" valign="top">
+		<a href="http://www.gnu.org/software/emacs" style="text-decoration: none">
+		<code>emacs</code></a></td>
+		<td width="65%" valign="top">A very powerful multi-purpose text editor.  For now, learn to edit simple text 
+		files with it.</td>
+	</tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>Processes</b></center></code></td></tr>
+
+  <tr>
+    <td valign="top" width="25%"><code>time</code></td>
+    <td valign="top" width="20%"><code>Measure-Command</code></td>
+    <td valign="top" width="65%">times commands, etc.</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>ps</code></td>
+    <td valign="top" width="20%"><code>ps</code></td>
+    <td valign="top" width="65%">shows current processes</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%">&nbsp;</td>
+    <td valign="top" width="20%"><code>gps | sort ws | select -last 5</code></td>
+    <td valign="top" width="65%">Get a list of the 5 processes using the most memory</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%">&nbsp;</td>
+    <td valign="top" width="20%"><code>gsv | where {$_.Status -eq "Stopped"}</code></td>
+    <td valign="top" width="65%">Get a list of stopped services</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>top</code></td>
+    <td valign="top" width="20%">&nbsp;</td>
+    <td valign="top" width="65%">like ps, but with continuous updates</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>bg</code></td>
+    <td valign="top" width="20%"><code>&nbsp;</code></td>
+    <td valign="top" width="65%">place a STOPped process in the background</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>fg</code></td>
+    <td valign="top" width="20%"><code>&nbsp;</td>
+    <td valign="top" width="65%">bring a backgrounded process to foreground</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>kill</code></td>
+    <td valign="top" width="20%"><code>kill</code></td>
+    <td valign="top" width="65%">kills a running program</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>ltrace</code></td>
+    <td valign="top" width="20%"><code>&nbsp;</code></td>
+    <td valign="top" width="65%">show lib calls made</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>strace</code></td>
+    <td valign="top" width="20%"><code>&nbsp;</code></td>
+    <td valign="top" width="65%">show sys calls made</td>
+  </tr>
+   <tr><td colspan="3" valign="top" bgcolor="#FAEBD7" width="15%"><center><b>System</b></center></code></td></tr>
+  <tr>
+    <td valign="top" width="25%"><code>man</code></td>
+    <td valign="top" width="20%"><code>man</code></td>
+    <td valign="top" width="65%">show reference pages</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>set</code></td>
+    <td valign="top" width="20%"><code>set</code></td>
+    <td valign="top" width="65%">set the values of shell variables</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>set</code></td>
+    <td valign="top" width="20%"><code>gv</code></td>
+    <td valign="top" width="65%">get and show the values of shell variables</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>env</code></td>
+    <td valign="top" width="20%"><code>ls env:\</code></td>
+    <td valign="top" width="65%">lists the current environment variables</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>$PATH</code></td>
+    <td valign="top" width="20%"><code>$env:path</code></td>
+    <td valign="top" width="65%">the search path</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>links</code></td>
+    <td valign="top" width="20%"><code>&nbsp;</code></td>
+    <td valign="top" width="65%">WWW/News/Mail browser</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>sftp, filezilla</code></td>
+    <td valign="top" width="20%"><code>&nbsp;filezilla</code></td>
+    <td valign="top" width="65%">transfer files securely to/from a remote machine</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>ssh, putty</code></td>
+    <td valign="top" width="20%"><code>&nbsp;sshclient, putty</code></td>
+    <td valign="top" width="65%">remote login securely</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>w</code></td>
+    <td valign="top" width="20%"><code>&nbsp;</code></td>
+    <td valign="top" width="65%">who is on the system, and what they are doing</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%"><code>df</code></td>
+    <td valign="top" width="20%"><code>gdr</code></td>
+    <td valign="top" width="65%">show mounted volumes, etc.</td>
+  </tr>
+
+</table>
+
+
+
+
+   </body>
+</html>

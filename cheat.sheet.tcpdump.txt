@@ -1,0 +1,294 @@
+
+tcpdump -nqt -s 0 -A -i eth0 port 5060
+2016-01-29 06:27:08
+User: erez83
+Functions: tcpdump
+Tags: tcpdump voip
+-1
+Up
+Down
+tcpdump -nqt -s 0 -A -i eth0 port 5060
+Comments (7) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth1 -s0 -v -w /tmp/capture_`date +%d_%m_%Y__%H_%I_%S`.pcap
+2015-10-21 09:54:13
+User: erez83
+Functions: tcpdump
+Tags: tcpdump wireshark
+0
+Up
+Down
+tcpdump -i eth1 -s0 -v -w /tmp/capture_`date +%d_%m_%Y__%H_%I_%S`.pcap
+
+tcpdump into file with date format for wireshark
+Show sample output | Comments (2) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth1 -s0 -v -w /tmp/capture.pcap
+2015-10-21 09:14:26
+User: erez83
+Functions: tcpdump
+Tags: tcpdump wireshark
+0
+Up
+Down
+tcpdump -i eth1 -s0 -v -w /tmp/capture.pcap
+
+capture trafic for wireshark from spesific eth interface
+Show sample output | Comments (5) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+2014-09-26 01:15:23
+User: hochmeister
+Functions: awk sort tcpdump uniq
+Tags: sort awk uniq tcpdump top ten
+1
+Up
+Down
+tcpdump top 10 talkers
+
+capture 2000 packets and print the top 10 talkers
+Comments (1) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -nni eth0 -e icmp[icmptype] == 8
+2014-06-08 18:13:24
+User: siamware
+Functions: tcpdump
+2
+Up
+Down
+tcmdump check ping
+
+capture only ping echo requests with tcpdump
+Show sample output | Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+sudo tcpdump -i wlan0 -n ip | awk '{ print gensub(/(.*)\..*/,"\\1","g",$3), $4, gensub(/(.*)\..*/,"\\1","g",$5) }' | awk -F " > " '{print $1"\n"$2}'
+2014-04-11 22:41:32
+User: tweet78
+Functions: awk sudo tcpdump
+Tags: Network tcpdump ip address sniff interface
+20
+Up
+Down
+sniff network traffic on a given interface and displays the IP addresses of the machines communicating with the current host (one IP per line)
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump host <IP> -nXXv -s0 -w file.pcap
+2013-09-04 07:24:04
+User: harpo
+Functions: host tcpdump
+Tags: Network IP tcpdump tcp
+1
+Up
+Down
+tcpdump whole packets to file in ascii and hex with ip adresses instead of hostname
+Comments (2) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -nvvX -s 768 src x.x.x.x and dst port 80
+2013-08-19 11:23:19
+User: bruder_s
+Functions: tcpdump
+0
+Up
+Down
+Get some useful output from tcpdump
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth0 -w - | ssh forge.remotehost.com -c arcfour,blowfish-cbc -C -p 50005 "cat - | gzip > /tmp/eth0.pcap.gz"
+2013-05-30 07:41:22
+User: bhbmaster
+Functions: ssh tcpdump
+Tags: ssh tcpdump gzip
+1
+Up
+Down
+TCPDUMP & Save Capture to Remote Server w/ GZIP
+
+NOTE: When opening the files you might need to strip the very top line with notepad++ as its a mistake header
+
+This is useful when the local machine where you need to do the packet capture with tcpdump doesn?t have enough room to save the file, where as your remote host does
+
+tcpdump -i eth0 -w - | ssh forge.remotehost.com -c arcfour,blowfish-cbc -C -p 50005 "cat - | gzip > /tmp/eth0.pcap.gz"
+
+Your @ PC1 doing a tcpdump of PC1s eth0 interface and its going to save the output @ PC2 who is called save.location.com to a file /tmp/eth0-to-me.pcap.gz again on PC2
+
+More info @: http://www.kossboss.com/linuxtcpdump1
+Show sample output | Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth0 -w - | ssh savelocation.com -c arcfour,blowfish-cbc -C -p 50005 "cat - > /tmp/eth0.pcap"
+2013-05-30 07:33:48
+User: bhbmaster
+Functions: ssh tcpdump
+Tags: ssh tcpdump
+0
+Up
+Down
+TCPDUMP & Save Capture to Remote Server
+
+This is useful when the local machine where you need to do the packet capture with tcpdump doesn?t have enough room to save the file, where as your remote host does
+
+tcpdump -i eth0 -w - | ssh savelocation.com -c arcfour,blowfish-cbc -C -p 50005 "cat - > /tmp/eth0.pcap"
+
+Your @ PC1 doing a tcpdump of PC1s eth0 interface and its going to save the output @ PC2 who is called save.location.com to a file /tmp/ppp1-to-me.pcap.gz again on PC2
+
+More info @: http://www.kossboss.com/linuxtcpdump1
+Show sample output | Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -l -s0 -w - tcp dst port 25 | strings | grep -i 'MAIL FROM\|RCPT TO'
+2013-03-18 18:55:20
+User: ene2002
+Functions: grep strings tcpdump
+4
+Up
+Down
+SMTP Analysis
+
+This works just as well for SMTP. You could run this on your mail server to watch e-mail senders and recipients:
+
+tcpdump -l -s0 -w - tcp dst port 25 | strings | grep -i 'MAIL FROM\|RCPT TO'
+Show sample output | Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth0 -s 65535 -w test_capture
+2013-02-07 19:29:02
+User: ene2002
+Functions: tcpdump
+0
+Up
+Down
+Make "pcap" file
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth0 port http or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|userna me:|password:|login:|pass |user '
+2013-02-07 19:14:58
+User: ene2002
+Functions: egrep tcpdump
+1
+Up
+Down
+tcpdump sniff pop3,imap,smtp and http
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -s 1024 -l -A -n host 192.168.9.56
+2013-02-02 22:29:52
+User: wejn
+Functions: host tcpdump
+Tags: http tcpdump
+-1
+Up
+Down
+Show header HTTP with tcpdump
+
+This is a better way to do the "src X or dst X" filter; plus you might not want to bother with DNS lookups (-n).
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -s 1024 -l -A src 192.168.9.56 or dst 192.168.9.56
+2013-02-01 15:03:12
+User: bleiva
+Functions: tcpdump
+Tags: http tcpdump
+0
+Up
+Down
+Show header HTTP with tcpdump
+
+Where src or dst is the host that you want to view the HTTP header.
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump src <srcIP> and dst <dstIP> -w file.pcap
+2012-12-27 07:15:39
+User: huazhihao
+Functions: tcpdump
+1
+Up
+Down
+tcpdump from src to dst
+
+then open with wireshark
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -ntr NAME_OF_CAPTURED_FILE.pcap 'tcp[13] = 0x02 and dst port 80' | awk '{print $4}' | tr . ' ' | awk '{print $1"."$2"."$3"."$4}' | sort | uniq -c | awk ' {print $2 "\t" $1 }'
+2012-08-22 21:26:10
+User: efuoax
+Functions: awk sort tcpdump tr uniq
+Tags: awk uniq tcpdump print
+1
+Up
+Down
+Read a tcpdump file and count SYN packets to port 80, Order column by destination.
+Comments (1) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump port http or port ftp or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user ' --color=auto --line-buffered -B20
+2012-06-18 19:27:54
+User: jseidl
+Functions: egrep ftp tcpdump
+Tags: grep tcpdump pentest
+1
+Up
+Down
+Plaintext credentials sniffing with tcpdump and grep
+
+Simple TCPDUMP grepping for common unsafe protocols (HTTP, POP3, SMTP, FTP)
+Show sample output | Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -A -s 0 port 80
+2012-02-22 14:17:45
+User: rik
+Functions: tcpdump
+1
+Up
+Down
+Trace and view network traffic
+
+Trace and view network traffic. I made this far too complicated.. now fixed, thanks zolden.
+Comments (4) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+ssh user@server.com sudo tcpdump -i eth0 -w - 'port 80'| /Applications/Wireshark.app/Contents/Resources/bin/wireshark -k -i -
+2012-01-23 18:16:22
+User: bkendinibilir
+Functions: ssh sudo tcpdump
+Tags: ssh wireshark capture sniff mac os x
+2
+Up
+Down
+analyze traffic remotely over ssh w/ wireshark
+
+commandline for mac os x
+Comments (2) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -w - |pv -bert >/dev/null
+2011-12-14 00:24:02
+User: h3xx
+Functions: tcpdump
+Tags: tcpdump pv network performance networking
+7
+Up
+Down
+Show network throughput
+
+Real gurus don't need fancy tools like iftop or jnettop.
+Show sample output | Comments (4) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+tcpdump -i eth0 -n | head
+2011-12-06 18:34:51
+User: anarcat
+Functions: tcpdump
+Tags: tcpdump ddos dos diagnostic
+0
+Up
+Down
+see what traffic is mostly hitting you
+
+Sometimes it is useful to have just a general picture of "what is taking all the bandwidth here". Running this command will limit tcpdump to a few packets (instead of flooding your terminal endlessly) and will provide a small, but sometimes sufficient, sample to determine what is going on.
+
+Useful to quickly diagnose DOS attacks.
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+bzcat ext_if.log.0.bz2 | tcpdump -n -e -tttt -r - | less
+2011-10-17 14:17:01
+User: unixmonkey26415
+Functions: tcpdump
+Tags: FreeBSD
+1
+Up
+Down
+Show bz compressed PF binary log
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+sudo tcpdump -n -i eth0 -w data.pcap -v tcp or udp and 'not host 192.168.1.2'
+2011-10-12 00:20:52
+User: anhpht
+Functions: host sudo tcpdump
+0
+Up
+Down
+Capture all tcp and udp packets in LAN, except packets coming to localhost (192.168.1.2)
+Comments (0) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate
+ssh root@HOST tcpdump -iany -U -s0 -w - 'not port 22' | wireshark -k -i -
+2011-09-13 21:10:40
+User: dr3s
+Functions: ssh tcpdump
+Tags: ssh wireshark capture sniff
+0
+Up
+Down
+analyze traffic remotely over ssh w/ wireshark
+
+analyze traffic remotely over ssh w/ wireshark
+
+When using tcpdump, specify -U option to prevent buffering and -iany to see all interfaces.
+Show sample output | Comments (2) | Add to favourites | Report as malicious | Submit alternative | Report as a duplicate

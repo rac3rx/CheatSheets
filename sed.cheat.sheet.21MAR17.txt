@@ -1,0 +1,40 @@
+        `abcdef'        matches "abcdef"
+        `a*b'           matches zero or more "a"s followed by a single "b",
+                          like "b" or "aaaaaab"
+        `a\?b'          matches "b" or "ab"
+        `a\+b\+'        matches one or more "a"s followed by one or more
+                          "b"s, the minimum match will be "ab", but
+                          "aaaab" or "abbbbb" or "aaaaaabbbbbbb" also
+                          match
+        `.*'            all chars on line, of all lines (including empty
+                          ones)
+        `.\+'           all chars on line, but only on lines containing
+                          at least one char, i.e. empty lines will not
+                          be matched)
+
+        `^main.*(.*)'   search for a line containing "main" as the first
+                          thing on the line, that line must also
+                          contain an opening and closing parenthesis
+                          being the open paren preceded and followed
+                          by any number of chars (including none)
+
+        `^#'            all lines beginning with "#" (shell and
+                        make comments)
+
+        `\\$'           all lines ending with a single `\' (there are
+                          two for escaping `\') -- line continuation
+                          in C and make, and shell, etc...
+
+        `[a-zA-Z_]'     any letters or digits
+
+        `[^     ]\+'    (a tab and a space) -- one or more sequences
+                          of any char that isn't a space or tab.
+                          Usually this means a word
+
+        `^.*A.*$'       match an "A" that is right in the center of the
+                          line
+
+        `A.\{9\}$'      match an "A" that is exactly the last tenth
+                          character on line
+
+        `^.\{,15\}A'    match the last "A" on the first 16 chars of the

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"89b8075f9d","applicationID":"31563158","transactionName":"JVlfRkRcW1hRRR9HRAlCWEJFHERcW0A=","queueTime":8,"applicationTime":54,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+<meta property='current_user:id'>
+<meta charset="UTF-8" />
+<title>Docker Cheat Sheet with examples (Example)</title>
+<meta name="description" content="A protip by tcnksm about docker." />
+<meta name="keywords" content="docker" />
+<link rel="canonical" href="https://coderwall.com/p/2es5jw/docker-cheat-sheet-with-examples" />
+<link rel="author" href="https://coderwall.com/tcnksm" />
+<meta property="og:title" content="Docker Cheat Sheet with examples (Example)" />
+<meta property="og:url" content="https://coderwall.com/p/2es5jw/docker-cheat-sheet-with-examples" />
+<meta property="og:site_name" content="Coderwall" />
+<meta property="og:description" content="A protip by tcnksm about docker." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/86250/ecb3acc2d246962361a4f8b3f7a6dd12.jpeg" />
+<meta name="twitter:title" content="Docker Cheat Sheet with examples (Example)" />
+<meta name="twitter:url" content="https://coderwall.com/p/2es5jw/docker-cheat-sheet-with-examples" />
+<meta name="twitter:site_name" content="Coderwall" />
+<meta name="twitter:site" content="@coderwall" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator:id" content="111908651" />
+<meta name="twitter:image" content="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/86250/ecb3acc2d246962361a4f8b3f7a6dd12.jpeg" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" media="all" href="https://d1ujcb8mxkwm85.cloudfront.net/assets/application_static-8cd0567f17b372fd07cb9de3659f01a06b0ac69ab55f9c66d395f0b8ebfe2180.css" data-turbolinks-track="reload" />
+
+<script src="https://d1ujcb8mxkwm85.cloudfront.net/assets/application_static-22c598a15d68ed9cc9ebb9fe3ef99067fd29fc6bd49307dc40227a0ac08e2a71.js" data-turbolinks-track="reload"></script>
+<script src="https://content.jwplatform.com/libraries/pEaCoeG7.js"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="pxeHt39mZdOHBxFxriq3gMYVdPriqu78+8mXVOxt14UXwhaoNuy/ZnhWZqxD/k5XoS5+7xuu8moQxJ7VR9wEig==" />
+<!-- https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-797907-8', 'auto');
+  </script>
+
+
+</head>
+<body>
+<div class='clearfix'>
+<header class='border-bottom'>
+<nav class='clearfix py2'>
+<div class='col col-4 sm-col-3 md-col-2'>
+<div class='sm-ml1'>
+<a class='btn logo relative' href='https://coderwall.com/'>
+<div class='absolute' style='top: 2px'>
+<svg version="1.1" viewBox="0 0 20 20" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="5" cy="5" r="1.4142" fill="#A26FF9"/>
+  <circle cx="10" cy="5" r="1.4142" fill="#A26FF9"/>
+  <circle cx="15" cy="5" r="1.4142" fill="#A26FF9"/>
+  <circle cx="10" cy="10" r="1.4142" fill="#A26FF9"/>
+  <circle cx="15" cy="10" r="1.4142" fill="#A26FF9"/>
+  <circle cx="15" cy="15" r="1.4142" fill="#A26FF9"/>
+</svg>
+
+</div>
+<div class='left font-x-lg' style='padding-left: 35px;'>
+Coderwall
+</div>
+</a>
+</div>
+</div>
+<div class='col col-3 sm-col-6 md-col-8 h6'>
+<a class='btn muted-until-hover xs-hide sm-mr1' href='/t/ruby/popular'>Ruby</a>
+<a class='btn muted-until-hover xs-hide' href='/t/python/popular'>Python</a>
+<a class='btn muted-until-hover xs-hide' href='/t/javascript/popular'>Javascript</a>
+<a class='btn muted-until-hover xs-hide sm-only-hide' href='/t/web/popular'>Front-End</a>
+<a class='btn muted-until-hover xs-hide sm-only-hide' href='/t/tools/popular'>Tools</a>
+<a class='btn muted-until-hover xs-hide sm-only-hide' href='/t/ios/popular'>iOS</a>
+<div class='btn dropdown' style='margin-top: -3px;'>
+<span class='h3 muted-until-hover'>
+<i class="fa fa-sort-down relative xs-hide" style="top: -2px; margin-right: 2px;"></i>
+</span>
+<span class='muted-until-hover xs-ml3'>
+<span class='xs-hide'>More</span>
+Tips
+</span>
+<div class='dropdown-content bg-white mt1 py1 border z4' style='left:0'>
+<a class='btn py1 muted-until-hover sm-hide' href='/t/ruby/popular'>Ruby</a>
+<a class='btn py1 muted-until-hover sm-hide' href='/t/python/popular'>Python</a>
+<a class='btn py1 muted-until-hover sm-hide' href='/t/javascript/popular'>Javascript</a>
+<a class='btn py1 muted-until-hover md-hide nowrap' href='/t/web/popular'>Front-End</a>
+<a class='btn py1 muted-until-hover md-hide' href='/t/tools/popular'>Tools</a>
+<a class='btn py1 muted-until-hover md-hide' href='/t/ios/popular'>iOS</a>
+<a class='btn py1 muted-until-hover' href='/t/php/popular'>PHP</a>
+<a class='btn py1 muted-until-hover' href='/t/android/popular'>Andriod</a>
+<a class='btn py1 muted-until-hover' href='/t/dot-net/popular'>.NET</a>
+<a class='btn py1 muted-until-hover' href='/t/java/popular'>Java</a>
+<a class='btn py1 muted-until-hover green md-hide' href='/jobs'>Jobs</a>
+</div>
+</div>
+<a class='btn border-left xs-hide sm-only-hide' href='/jobs'>
+<div class='green'>Jobs</div>
+</a>
+</div>
+<div class='col col-5 sm-col-3 md-col-2'>
+<div class='right pr2'>
+<a class='btn btn-primary bg-purple white ml1' href='/signin'>Sign In or Up</a>
+</div>
+</div>
+</nav>
+</header>
+
+
+<div class='mt1 px3'>
+
+</div>
+<main>
+<div class='py2 px3'><div class='container protip' id='protip_97232' itemid='97232' itemscope>
+<div class='hide'><time datetime="2016-04-04T08:05:29Z" itemprop="dateModified">April 04, 2016 08:05</time></div>
+<div class='hide' itemprop='name'>2es5jw</div>
+<div class='clearfix'>
+<div class='sm-col sm-col sm-col-12 md-col-8'>
+<div class='clearfix mt0 mb1'>
+<div class='sm-right'>
+<div class='diminish inline mr1'>Last Updated: April 04, 2016</div>
+<span class='xs-hide'>
+&middot;
+<div class='diminish inline mx1'>
+<i class="fa fa-eye"></i>
+62.38K
+</div>
+</span>
+&middot;
+<span class='mx1'><a href="/tcnksm">tcnksm</a></span>
+<div class='avatar' itemprop='image' style='background-color: #a95174;'><img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/86250/ecb3acc2d246962361a4f8b3f7a6dd12.jpeg" alt="Ecb3acc2d246962361a4f8b3f7a6dd12" /></div>
+</div>
+</div>
+<div class='card p1' style='border-top:solid 5px #a95174'>
+<h1 class='mt4 mb2 center' itemprop='headline'>Docker Cheat Sheet with examples</h1>
+<div class='center mr1' itemprop='keywords'>
+<h6 class='diminish inline px1'><a href="/t/docker/popular">docker</a></h6>
+</div>
+<div class='content p3 mt4' itemprop='articleBody'>
+<p>Original post is <a href="http://deeeet.com/writing/2013/12/08/docker-cheat-with-exmaple/" rel="nofollow">here</a></p>&#x000A;&#x000A;<p><a href="https://gist.github.com/wsargent/7049221" rel="nofollow">Docker Cheat Sheet</a> is a nice documentation. It provides us Docker basic commands and system and It's easy to understand. But there are less exaples, I reconstructed it with real examples. You should refer above document about installation. </p>&#x000A;&#x000A;<h2>Set up</h2>&#x000A;&#x000A;<p>Pull a base image.</p>&#x000A;&#x000A;<pre><code class="prettyprint">docker pull ubuntu</code></pre>&#x000A;&#x000A;<p>It's annoy to restore Container ID, you may forget to restore. You can set below alias. With this, you can get the ID of the last-run Container (<a href="http://sssslide.com/speakerdeck.com/bmorearty/15-docker-tips-in-5-minutes" rel="nofollow">15 Docker tips in 5 minutes</a>)</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">alias dl='docker ps -l -q'</code></pre>&#x000A;&#x000A;<h2>Container</h2>&#x000A;&#x000A;<p>To create a Container. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker run -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"</code></pre>&#x000A;&#x000A;<p>To stop a Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker stop `dl`</code></pre>&#x000A;&#x000A;<p>To start a Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker start `dl`</code></pre>&#x000A;&#x000A;<p>To restart a Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker restart `dl`</code></pre>&#x000A;&#x000A;<p>To Connect to a running Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker attach `dl`</code></pre>&#x000A;&#x000A;<p>To copy file in a Container to the host.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker cp `dl`:/etc/passwd .</code></pre>&#x000A;&#x000A;<p>To mount the directory in host to a Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker run -v /home/vagrant/test:/root/test ubuntu echo yo</code></pre>&#x000A;&#x000A;<p>To delete a Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">dockr rm `dl`</code></pre>&#x000A;&#x000A;<h2>Info of Container</h2>&#x000A;&#x000A;<p>To show running Containers. With <code class="prettyprint">-a</code> option, it shows running and stopped Containers. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker ps</code></pre>&#x000A;&#x000A;<p>To show Container information like IP adress.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker inspect `dl`</code></pre>&#x000A;&#x000A;<p>To show log of a Container. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker logs `dl`</code></pre>&#x000A;&#x000A;<p>To show running process in a Container.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker top `dl`</code></pre>&#x000A;&#x000A;<h2>Image</h2>&#x000A;&#x000A;<p>To create a image from a Container. For tag name, &lt;username&gt;/&lt;imagename&gt; is <a href="http://docs.docker.io/en/latest/use/workingwithrepository/#committing-a-container-to-a-named-image" rel="nofollow">recommended</a>. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker run -d ubuntu /bin/sh -c "apt-get install -y hello"&#x000A;docker commit -m "My first container" `dl` tcnksm/hello</code></pre>&#x000A;&#x000A;<p>To create a image with Dockerfile. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">echo -e "FROM base\nRUN apt-get install hello\nCMD hello" &gt; Dockerfile&#x000A;docker build tcnksm/hello .</code></pre>&#x000A;&#x000A;<p>To login to a image. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker run -rm -t -i tcnksm/hello /bin/bash</code></pre>&#x000A;&#x000A;<p>To push a imges to remote repository. You need to sign up to <a href="https://index.docker.io/" rel="nofollow">Docker index</a> in advance. <a href="https://index.docker.io/u/tcnksm/hello" rel="nofollow">Exmple uploaded image</a>. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker login&#x000A;docker push tcnksm/hello</code></pre>&#x000A;&#x000A;<p>To delete a image</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker rmi tcnkms/hello</code></pre>&#x000A;&#x000A;<h2>Info of Image</h2>&#x000A;&#x000A;<p>To show all images</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker images</code></pre>&#x000A;&#x000A;<p>To show image information like IP adress.</p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker inspect tcnksm/hello</code></pre>&#x000A;&#x000A;<p>To show command history of a image. </p>&#x000A;&#x000A;<pre><code class="prettyprint lang-bash">docker history tcnksm/hello</code></pre>
+</div>
+<div class='clearfix mt1 mb3 mx2 py2'>
+<div class='clearfix border-bottom' itemprop='author'>
+<h4>
+Written by
+<a class='bold user' href='/tcnksm' id='user_86250' itemid='86250' itemscope itemtype='http://schema.org/Person'>
+<span class='blue' itemprop='name'>tcnksm</span>
+</a>
+</h4>
+</div>
+<div class='clearfix mt1'>
+<div class='btn btn-small pl0 mr1 mb1 xs-block'>
+<div id="js-react-on-rails-context" style="display:none" data-rails-context="{&quot;inMailer&quot;:false,&quot;i18nLocale&quot;:&quot;en&quot;,&quot;i18nDefaultLocale&quot;:&quot;en&quot;,&quot;href&quot;:&quot;https://coderwall.com/p/2es5jw/docker-cheat-sheet-with-examples&quot;,&quot;location&quot;:&quot;/p/2es5jw/docker-cheat-sheet-with-examples&quot;,&quot;scheme&quot;:&quot;https&quot;,&quot;host&quot;:&quot;coderwall.com&quot;,&quot;port&quot;:null,&quot;pathname&quot;:&quot;/p/2es5jw/docker-cheat-sheet-with-examples&quot;,&quot;search&quot;:null,&quot;httpAcceptLanguage&quot;:&quot;en-US,en;q=0.8&quot;,&quot;pusherKey&quot;:&quot;56c8c9e2d013d4e9f315&quot;,&quot;user&quot;:null,&quot;serverSide&quot;:false}"></div>
+<div class="js-react-on-rails-component" style="display:none" data-component-name="HeartButton" data-props="{&quot;heartableId&quot;:&quot;protip_97232&quot;,&quot;href&quot;:&quot;/p/2es5jw/likes&quot;,&quot;labels&quot;:[&quot;Recommend&quot;,&quot;Recommended&quot;]}" data-trace="false" data-dom-id="HeartButton-react-component-b2672947-5877-4f9a-b284-895dfcb7a978"></div>
+    <div id="HeartButton-react-component-b2672947-5877-4f9a-b284-895dfcb7a978"></div>
+    
+
+</div>
+<a class='btn btn-small pl0 mb1 mr1 xs-block' href='http://twitter.com/home?status=Docker+Cheat+Sheet+with+examples+by+%40deeeet%0A%0Ahttps%3A%2F%2Fcoderwall.com%2Fp%2F2es5jw' target='twitter'>
+<span class='fixed-space-4'><i class="fa fa-twitter aqua h4"></i></span>
+<span>Say Thanks</span>
+</a>
+<div class='btn btn-small pl0 mb1 mr1 xs-block'>
+<div class="js-react-on-rails-component" style="display:none" data-component-name="ProtipSubscribeButton" data-props="{}" data-trace="false" data-dom-id="ProtipSubscribeButton-react-component-c3af30ef-31ed-4c85-aeda-5dbf208bb5b9"></div>
+    <div id="ProtipSubscribeButton-react-component-c3af30ef-31ed-4c85-aeda-5dbf208bb5b9"></div>
+    
+
+</div>
+<a class='btn btn-small pl0 mb1 mr1 xs-block' href='/signup'>
+<span class='fixed-space-4'><i class="fa fa-comment-o black h4"></i></span>
+Respond
+</a>
+</div>
+</div>
+<div class='clearfix'>
+<div class='clearfix mt3 px2'>
+<h4>
+3 Responses
+<div class='right hide'>
+<div class='btn btn-small green'>Add your response</div>
+</div>
+</h4>
+<div class='border-top comment inline-block mb1 py1' id='comment_11506' itemid='11506' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2013-12-12T06:09:01Z" itemprop="datePublished">December 12, 2013 06:09</time></div>
+<div class='hide' itemprop='name'>11506</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #532ed1;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/23453/4772518a7c8d5a13452fcf2e23667c80.jpeg" alt="4772518a7c8d5a13452fcf2e23667c80" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/creatovisguru' itemprop='alternateName'>
+creatovisguru
+</a>
+</div>
+<div class='content small' itemprop='text'><p>I spent an hour or so working with Docker, and while their documentation says "not for production"...I see a bunch of companies just pushing this technology forward.</p>&#x000A;&#x000A;<p>Good stuffs and super easy to use and understand.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<div class="js-react-on-rails-component" style="display:none" data-component-name="HeartButton" data-props="{&quot;heartableId&quot;:&quot;comment_11506&quot;,&quot;href&quot;:&quot;/comments/11506/likes&quot;,&quot;labels&quot;:[&quot;&quot;,&quot;&quot;]}" data-trace="false" data-dom-id="HeartButton-react-component-366809c1-175d-433d-8c0d-36819d103122"></div>
+    <div style="display:inline-block" id="HeartButton-react-component-366809c1-175d-433d-8c0d-36819d103122"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_11508' itemid='11508' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2013-12-12T10:53:41Z" itemprop="datePublished">December 12, 2013 10:53</time></div>
+<div class='hide' itemprop='name'>11508</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #a95174;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/86250/ecb3acc2d246962361a4f8b3f7a6dd12.jpeg" alt="Ecb3acc2d246962361a4f8b3f7a6dd12" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/tcnksm' itemprop='alternateName'>
+tcnksm
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Thank you for your comment.</p>&#x000A;&#x000A;<p>Yeah, but now Docker's version is just 0.7. So big change may be happened in next version. This is because "not for production", I think. </p>&#x000A;&#x000A;<p>But I think this technology will change development environment and need to be used in production soon. </p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<div class="js-react-on-rails-component" style="display:none" data-component-name="HeartButton" data-props="{&quot;heartableId&quot;:&quot;comment_11508&quot;,&quot;href&quot;:&quot;/comments/11508/likes&quot;,&quot;labels&quot;:[&quot;&quot;,&quot;&quot;]}" data-trace="false" data-dom-id="HeartButton-react-component-e1a59935-0cd7-456e-bed8-b5d061d22775"></div>
+    <div style="display:inline-block" id="HeartButton-react-component-e1a59935-0cd7-456e-bed8-b5d061d22775"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_12532' itemid='12532' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2014-02-04T22:32:31Z" itemprop="datePublished">February 04, 2014 22:32</time></div>
+<div class='hide' itemprop='name'>12532</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #c59743;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/79341/0_9fXpR8mwpGD-dBZTqeQ_RGyIpkVjwBJTNHr_RiDsibaDN1a3sdqrv_MN-2sGHK4Sc26Gqk0uTlhe.jpeg" alt="0 9fxpr8mwpgd dbztqeq rgyipkvjwbjtnhr ridsibadn1a3sdqrv mn 2sghk4sc26gqk0utlhe" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/echernyavskiy' itemprop='alternateName'>
+echernyavskiy
+</a>
+</div>
+<div class='content small' itemprop='text'><p>There are at least two more options to conveniently retain a Docker container ID:</p>&#x000A;&#x000A;<pre><code class="prettyprint"># Assign to a shell variable.&#x000A;DOCKER_CID=$(docker run -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done")&#x000A;# Specify a CID file.&#x000A;docker run -d -cidfile /tmp/my_container.cid ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"&#x000A;# then elsewhere one could just&#x000A;cat /tmp/my_container.cid</code></pre>&#x000A;&#x000A;<p>In my opinion the second option is particularly useful when one uses named containers - a CID file could always be named after the container name and easily referenced that way.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<div class="js-react-on-rails-component" style="display:none" data-component-name="HeartButton" data-props="{&quot;heartableId&quot;:&quot;comment_12532&quot;,&quot;href&quot;:&quot;/comments/12532/likes&quot;,&quot;labels&quot;:[&quot;&quot;,&quot;&quot;]}" data-trace="false" data-dom-id="HeartButton-react-component-26162a46-8d63-4797-b27f-91bfbeb9ce83"></div>
+    <div style="display:inline-block" id="HeartButton-react-component-26162a46-8d63-4797-b27f-91bfbeb9ce83"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class='sm-col sm-col sm-col-12 md-col-4'>
+<div class='clearfix sm-ml3 mt3 p1 pb3'>
+<h5 class='mt0 mb1'>
+<i class="fa fa-folder-o mr1"></i>
+Filed Under
+</h5>
+<hr>
+<div class='topic clearfix py1'>
+<a href='/t/tools/popular'>
+<div class='bold'><span class="translation_missing" title="translation missing: en.categories.long.tools">Tools</span></div>
+</a>
+</div>
+</div>
+<div id="js-react-on-rails-context" style="display:none" data-rails-context="{&quot;inMailer&quot;:false,&quot;i18nLocale&quot;:&quot;en&quot;,&quot;i18nDefaultLocale&quot;:&quot;en&quot;,&quot;href&quot;:&quot;https://coderwall.com/p/2es5jw/docker-cheat-sheet-with-examples&quot;,&quot;location&quot;:&quot;/p/2es5jw/docker-cheat-sheet-with-examples&quot;,&quot;scheme&quot;:&quot;https&quot;,&quot;host&quot;:&quot;coderwall.com&quot;,&quot;port&quot;:null,&quot;pathname&quot;:&quot;/p/2es5jw/docker-cheat-sheet-with-examples&quot;,&quot;search&quot;:null,&quot;httpAcceptLanguage&quot;:&quot;en-US,en;q=0.5&quot;,&quot;pusherKey&quot;:&quot;56c8c9e2d013d4e9f315&quot;,&quot;user&quot;:null,&quot;serverSide&quot;:false}"></div>
+<div class="js-react-on-rails-component" style="display:none" data-component-name="Sponsors" data-props="{}" data-trace="false" data-dom-id="Sponsors-react-component-505d7d6d-3cf0-4df9-8229-767f71fe9a64"></div>
+    <div id="Sponsors-react-component-505d7d6d-3cf0-4df9-8229-767f71fe9a64"></div>
+    
+
+<div class='clearfix sm-ml3 mt3 p1'>
+<div class='clearfix'>
+<div class='col col-7'>
+<h5 class='mt0'>
+<i class="fa fa-diamond mr1"></i>
+Awesome Job
+</h5>
+</div>
+<div class='col col-5'>
+<div class='right font-sm bold'>
+<a class='block' href='/jobs'>
+See All Jobs
+<i class="fa fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+<hr>
+<div class='clearfix py1'>
+<a class='link no-hover mt2' ga-event-action='Protip Sidebar - Featured Job' ga-event-category='Jobs' ga-event-label='Mongolab - b9a9562e-5356-11e5-93eb-ffd6595b8eeb' href='http://jobs.github.com/positions/b9a9562e-5356-11e5-93eb-ffd6595b8eeb' rel='nofollow' target='_blank'>
+<div class='col col-3 md-col-2'>
+<img class="" src="//github-jobs.s3.amazonaws.com/ab54638e-5356-11e5-9e18-a8f0ac895300.png" alt="Ab54638e 5356 11e5 9e18 a8f0ac895300" />
+</div>
+<div class='overflow-hidden pl2'>
+<div class='blue bold'>
+Developer Evangelist/Advocate (aka Crafty Coder Who Loves Evangelism)
+</div>
+<div class='font-sm black'>
+<div class='inline'><a rel="nofollow" target="_blank" ga-event-category="Jobs" ga-event-action="Protip Sidebar - Featured Job" ga-event-label="Mongolab - b9a9562e-5356-11e5-93eb-ffd6595b8eeb" href="http://www.mongolab.com">Mongolab</a></div>
+&middot;
+<div class='inline'>San Francisco, CA</div>
+&middot;
+<div class='inline'>Full Time</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class='mt2 font-sm'>
+<a class='border--green green bold' href='https://coderwall.com/jobs/new'>
+Post a job for only
+$299
+</a>
+</div>
+</div>
+<div class='clearfix ml3 mt4' ga-location='Protip Sidebar'>
+<div class='bsarocks bsap_74f50e679004d8f4d62fec4b0f74ccf1' id='bsap_1305410'></div>
+</div>
+</div>
+</div>
+</div>
+<script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+</div>
+</main>
+<footer class='border-top'>
+<nav class='clearfix'>
+<div class='col col-4 py1 mt1'>
+<a class='btn' href='https://twitter.com/coderwall' target='_blank'>
+@coderwall
+<i class="fa fa-twitter fa-1x ml1"></i>
+</a>
+</div>
+<div class='col col-8 py2 mt1'>
+<div class='right'>
+<a class='inline-block ml1' href='https://github.com/coderwall/coderwall-next' rel='nofollow'>
+<i class="fa fa-github-alt"></i>
+</a>
+<a class='inline-block ml1' href='/t/hackerdesk/popular'>
+<div class='sm-show'><i class="fa fa-gift"></i></div>
+</a>
+<a class='inline-block ml1 mr1' href='mailto:support@coderwall.com'>
+Contact
+</a>
+<a class='inline-block mr1' href='/privacy_policy'>Privacy</a>
+<a class='inline-block mr1' href='/tos'>Terms</a>
+<p class='inline-block diminish inline mr1'>Copyright 2017</p>
+</div>
+</div>
+</nav>
+</footer>
+</div>
+<div class="js-react-on-rails-store" style="display:none" data-store-name="store" data-props="{&quot;currentUser&quot;:{&quot;item&quot;:null},&quot;currentProtip&quot;:{&quot;item&quot;:{&quot;id&quot;:97232,&quot;body&quot;:&quot;Original post is [here](http://deeeet.com/writing/2013/12/08/docker-cheat-with-exmaple/)\r\n\r\n[Docker Cheat Sheet](https://gist.github.com/wsargent/7049221) is a nice documentation. It provides us Docker basic commands and system and It&#39;s easy to understand. But there are less exaples, I reconstructed it with real examples. You should refer above document about installation. \r\n\r\n## Set up\r\n\r\nPull a base image.\r\n\r\n```\r\ndocker pull ubuntu\r\n```\r\n\r\nIt&#39;s annoy to restore Container ID, you may forget to restore. You can set below alias. With this, you can get the ID of the last-run Container ([15 Docker tips in 5 minutes](http://sssslide.com/speakerdeck.com/bmorearty/15-docker-tips-in-5-minutes))\r\n\r\n\r\n``` bash\r\nalias dl=&#39;docker ps -l -q&#39;\r\n```\r\n\r\n\r\n## Container\r\n\r\nTo create a Container. \r\n\r\n``` bash\r\ndocker run -d ubuntu /bin/sh -c \&quot;while true; do echo hello world; sleep 1; done\&quot;\r\n```\r\n\r\nTo stop a Container.\r\n\r\n``` bash\r\ndocker stop `dl`\r\n```\r\n\r\nTo start a Container.\r\n \r\n``` bash\r\ndocker start `dl`\r\n```\r\n\r\nTo restart a Container.\r\n\r\n``` bash\r\ndocker restart `dl`\r\n```\r\n\r\nTo Connect to a running Container.\r\n\r\n``` bash\r\ndocker attach `dl`\r\n```\r\n\r\nTo copy file in a Container to the host.\r\n\r\n``` bash\r\ndocker cp `dl`:/etc/passwd .\r\n```\r\n\r\nTo mount the directory in host to a Container.\r\n\r\n``` bash\r\ndocker run -v /home/vagrant/test:/root/test ubuntu echo yo\r\n```\r\n\r\nTo delete a Container.\r\n\r\n``` bash\r\ndockr rm `dl`\r\n```\r\n\r\n## Info of Container\r\n\r\nTo show running Containers. With `-a` option, it shows running and stopped Containers. \r\n\r\n``` bash\r\ndocker ps\r\n```\r\n\r\nTo show Container information like IP adress.\r\n\r\n``` bash\r\ndocker inspect `dl`\r\n```\r\n\r\nTo show log of a Container. \r\n\r\n``` bash\r\ndocker logs `dl`\r\n```\r\n\r\nTo show running process in a Container.\r\n\r\n``` bash\r\ndocker top `dl`\r\n```\r\n\r\n\r\n## Image\r\n\r\n\r\nTo create a image from a Container. For tag name, \\/\\ is [recommended](http://docs.docker.io/en/latest/use/workingwithrepository/#committing-a-container-to-a-named-image). \r\n\r\n``` bash\r\ndocker run -d ubuntu /bin/sh -c \&quot;apt-get install -y hello\&quot;\r\ndocker commit -m \&quot;My first container\&quot; `dl` tcnksm/hello\r\n```\r\n\r\nTo create a image with Dockerfile. \r\n\r\n``` bash\r\necho -e \&quot;FROM base\\nRUN apt-get install hello\\nCMD hello\&quot; \u0026gt; Dockerfile\r\ndocker build tcnksm/hello .\r\n```\r\n\r\nTo login to a image. \r\n\r\n``` bash\r\ndocker run -rm -t -i tcnksm/hello /bin/bash\r\n```\r\n\r\nTo push a imges to remote repository. You need to sign up to [Docker index](https://index.docker.io/) in advance. [Exmple uploaded image](https://index.docker.io/u/tcnksm/hello). \r\n\r\n``` bash\r\ndocker login\r\ndocker push tcnksm/hello\r\n```\r\n\r\nTo delete a image\r\n\r\n``` bash\r\ndocker rmi tcnkms/hello\r\n```\r\n\r\n## Info of Image\r\n\r\nTo show all images\r\n\r\n``` bash\r\ndocker images\r\n```\r\n\r\nTo show image information like IP adress.\r\n\r\n``` bash\r\ndocker inspect tcnksm/hello\r\n```\r\n\r\nTo show command history of a image. \r\n\r\n``` bash\r\ndocker history tcnksm/hello\r\n```&quot;,&quot;created_at&quot;:&quot;2013-12-09T10:22:01.617Z&quot;,&quot;heartableId&quot;:&quot;protip_97232&quot;,&quot;hearts&quot;:31,&quot;html&quot;:&quot;\u003cp\u003eOriginal post is \u003ca href=\&quot;http://deeeet.com/writing/2013/12/08/docker-cheat-with-exmaple/\&quot; rel=\&quot;nofollow\&quot;\u003ehere\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003e\u003ca href=\&quot;https://gist.github.com/wsargent/7049221\&quot; rel=\&quot;nofollow\&quot;\u003eDocker Cheat Sheet\u003c/a\u003e is a nice documentation. It provides us Docker basic commands and system and It&#39;s easy to understand. But there are less exaples, I reconstructed it with real examples. You should refer above document about installation. \u003c/p\u003e\n\n\u003ch2\u003eSet up\u003c/h2\u003e\n\n\u003cp\u003ePull a base image.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint\&quot;\u003edocker pull ubuntu\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eIt&#39;s annoy to restore Container ID, you may forget to restore. You can set below alias. With this, you can get the ID of the last-run Container (\u003ca href=\&quot;http://sssslide.com/speakerdeck.com/bmorearty/15-docker-tips-in-5-minutes\&quot; rel=\&quot;nofollow\&quot;\u003e15 Docker tips in 5 minutes\u003c/a\u003e)\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003ealias dl=&#39;docker ps -l -q&#39;\u003c/code\u003e\u003c/pre\u003e\n\n\u003ch2\u003eContainer\u003c/h2\u003e\n\n\u003cp\u003eTo create a Container. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker run -d ubuntu /bin/sh -c \&quot;while true; do echo hello world; sleep 1; done\&quot;\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo stop a Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker stop `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo start a Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker start `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo restart a Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker restart `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo Connect to a running Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker attach `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo copy file in a Container to the host.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker cp `dl`:/etc/passwd .\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo mount the directory in host to a Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker run -v /home/vagrant/test:/root/test ubuntu echo yo\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo delete a Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edockr rm `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003ch2\u003eInfo of Container\u003c/h2\u003e\n\n\u003cp\u003eTo show running Containers. With \u003ccode class=\&quot;prettyprint\&quot;\u003e-a\u003c/code\u003e option, it shows running and stopped Containers. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker ps\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo show Container information like IP adress.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker inspect `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo show log of a Container. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker logs `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo show running process in a Container.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker top `dl`\u003c/code\u003e\u003c/pre\u003e\n\n\u003ch2\u003eImage\u003c/h2\u003e\n\n\u003cp\u003eTo create a image from a Container. For tag name, \u0026lt;username\u0026gt;/\u0026lt;imagename\u0026gt; is \u003ca href=\&quot;http://docs.docker.io/en/latest/use/workingwithrepository/#committing-a-container-to-a-named-image\&quot; rel=\&quot;nofollow\&quot;\u003erecommended\u003c/a\u003e. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker run -d ubuntu /bin/sh -c \&quot;apt-get install -y hello\&quot;\ndocker commit -m \&quot;My first container\&quot; `dl` tcnksm/hello\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo create a image with Dockerfile. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003eecho -e \&quot;FROM base\\nRUN apt-get install hello\\nCMD hello\&quot; \u0026gt; Dockerfile\ndocker build tcnksm/hello .\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo login to a image. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker run -rm -t -i tcnksm/hello /bin/bash\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo push a imges to remote repository. You need to sign up to \u003ca href=\&quot;https://index.docker.io/\&quot; rel=\&quot;nofollow\&quot;\u003eDocker index\u003c/a\u003e in advance. \u003ca href=\&quot;https://index.docker.io/u/tcnksm/hello\&quot; rel=\&quot;nofollow\&quot;\u003eExmple uploaded image\u003c/a\u003e. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker login\ndocker push tcnksm/hello\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo delete a image\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker rmi tcnkms/hello\u003c/code\u003e\u003c/pre\u003e\n\n\u003ch2\u003eInfo of Image\u003c/h2\u003e\n\n\u003cp\u003eTo show all images\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker images\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo show image information like IP adress.\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker inspect tcnksm/hello\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eTo show command history of a image. \u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\&quot;prettyprint lang-bash\&quot;\u003edocker history tcnksm/hello\u003c/code\u003e\u003c/pre\u003e\n&quot;,&quot;public_id&quot;:&quot;2es5jw&quot;,&quot;subscribed&quot;:false,&quot;tags&quot;:[&quot;docker&quot;],&quot;title&quot;:&quot;Docker Cheat Sheet with examples&quot;,&quot;upvotes&quot;:31,&quot;user&quot;:{&quot;id&quot;:86250,&quot;name&quot;:&quot;tcnksm&quot;,&quot;avatar&quot;:{&quot;url&quot;:&quot;https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/86250/ecb3acc2d246962361a4f8b3f7a6dd12.jpeg&quot;},&quot;title&quot;:&quot;&quot;,&quot;location&quot;:&quot;tokyo&quot;,&quot;country&quot;:&quot;Japan&quot;,&quot;city&quot;:null,&quot;state_name&quot;:&quot;Tokyo&quot;,&quot;company&quot;:&quot;&quot;,&quot;about&quot;:&quot;I&#39;m a software engineer. \n\n\n[Blog](http://deeeet.com/writing/)\n\n&quot;,&quot;team_id&quot;:null,&quot;api_key&quot;:&quot;d88e6187b6983792&quot;,&quot;admin&quot;:false,&quot;receive_newsletter&quot;:true,&quot;receive_weekly_digest&quot;:true,&quot;last_ip&quot;:&quot;114&quot;,&quot;last_email_sent&quot;:&quot;2015-03-31T04:38:52.205Z&quot;,&quot;last_request_at&quot;:&quot;2015-01-26T12:14:30.571Z&quot;,&quot;created_at&quot;:&quot;2013-10-31T00:58:56.714Z&quot;,&quot;updated_at&quot;:&quot;2016-04-04T08:05:29.516Z&quot;,&quot;username&quot;:&quot;tcnksm&quot;,&quot;email&quot;:&quot;nsd22843@gmail.com&quot;,&quot;encrypted_password&quot;:&quot;$2a$10$dzgp6Qme4WBuCcpYG/P1hOHNFQPW75e0jgdcfnN3mEPilMJGRcSKW&quot;,&quot;confirmation_token&quot;:null,&quot;remember_token&quot;:null,&quot;skills&quot;:[&quot;Ruby&quot;,&quot;JavaScript&quot;,&quot;Go&quot;,&quot;CSS&quot;,&quot;Java&quot;,&quot;Emacs Lisp&quot;,&quot;Objective-C&quot;,&quot;Node.js&quot;,&quot;Open Source&quot;,&quot;Shell&quot;,&quot;CoffeeScript&quot;,&quot;Perl&quot;,&quot;Python&quot;],&quot;github_id&quot;:&quot;1256183&quot;,&quot;twitter_id&quot;:&quot;111908651&quot;,&quot;github&quot;:&quot;tcnksm&quot;,&quot;twitter&quot;:&quot;deeeet&quot;,&quot;color&quot;:&quot;#a95174&quot;,&quot;karma&quot;:1158,&quot;banned_at&quot;:null,&quot;marketing_list&quot;:&quot;125409&quot;,&quot;email_invalid_at&quot;:null,&quot;partner_last_contribution_at&quot;:null,&quot;partner_asm_username&quot;:null,&quot;partner_slack_username&quot;:null,&quot;partner_email&quot;:null,&quot;partner_coins&quot;:null}}},&quot;comments&quot;:{&quot;items&quot;:[{&quot;id&quot;:11506,&quot;hearts&quot;:2,&quot;heartableId&quot;:&quot;comment_11506&quot;},{&quot;id&quot;:11508,&quot;hearts&quot;:0,&quot;heartableId&quot;:&quot;comment_11508&quot;},{&quot;id&quot;:12532,&quot;hearts&quot;:2,&quot;heartableId&quot;:&quot;comment_12532&quot;}]}}"></div>
+  <script>
+    // perfectaudience
+    (function () {
+        window._pa = window._pa || {};
+        var pa = document.createElement('script');
+        pa.type = 'text/javascript';
+        pa.async = true;
+        pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/50775e2d30a1d50002000221.js";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(pa, s);
+    })();    
+  </script>
+
+</body>
+</html>

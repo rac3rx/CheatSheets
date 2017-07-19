@@ -1,0 +1,217 @@
+Mark Down
+
+Title Block (Metadata block)
+    % title
+    % author(s) (separated by semicolons)
+    % date
+
+YAML ( yaml_metadata_block )
+    pandoc chap1.md chap2.md chap3.md metadata.yaml -s -o book.html
+
+Inline TeX and HTML
+    TeX commands are passed through to Markdown, LaTeX and ConTeXt output; otherwise they are deleted.
+    HTML is passed through untouched but
+    Markdown inside HTML blocks is parsed as markdown.
+
+Paragraphs and line breaks
+    paragraph is one or more lines of text separated by a blank line.
+    line that ends /w two spaces, or line that ends /w an escaped new-line (backslash followed by carriage return) indicates a manual line break
+
+Italics, bold, superscript, subscript, strikeout
+    *Italics* and **bold** are indicated with asterisks
+    ~~strikeout~~ text use double tildas
+    Superscripts use carats, like so: 2^nd^
+    Subscripts use single tildas, like so: H~2~O
+    Spaces inside subscripts and superscripts must be escaped
+        e.g., H~this\ is\ a\ long\ subscript~
+
+Inline TeX math and Inline Code
+    Inline TeX math goes inside dollar signs: $2 + 2$. 
+    Inline code goes between backticks: `echo 'hello'`.
+        What is the difference between `>>=` and `>>`?
+        some bash command substitution double back quoted /w single back quotes, `ls -ltrh `` `find . -iregex '.*\.txt$` ``
+
+Reference Links and images
+    [my label 1]: /foo/bar.html  "My title, optional"
+    [my label 2]: /foo
+    [my label 3]: http://fsf.org (The free software foundation)
+    [my label 4]: /bar#special  'A title in single quotes'
+    <http://example.com>
+    <foo@bar.com>
+    [inline link](http://example.com "Title")
+    ![inline image](/path/to/image, "alt text")
+
+    [reference link][id]
+    [implicit reference link][]
+    ![reference image][id2]
+
+    [id]: http://example.com "Title"
+    [implicit reference link]: http://example.com
+    [id2]: /path/to/image "alt text"
+
+Footnotes
+    Inline notes are like this.^[Note that inline notes cannot contain multiple paragraphs.] Reference notes are like this.[^id]
+    [^id]:  Reference notes can contain multiple paragraphs.
+        Subsequent paragraphs must be indented.
+
+Citations
+    Blah blah [see @doe99, pp. 33-35; also @smith04, ch. 1].
+    Blah blah [@doe99, pp. 33-35, 38-39 and *passim*].
+    Blah blah [@smith04; @doe99].
+    Smith says blah [-@smith04].
+    @smith04 says blah.
+    @smith04 [p. 33] says blah.
+
+Headers
+    Header 1
+    ========
+    Header 2
+    --------
+    # Header 1 #
+    ## Header 2 ##
+        Closing #s are optional. Blank line required before and after each header.
+
+Lists
+    Ordered lists
+        1. example
+        2. example
+
+        A) example
+        B) example
+    Unordered lists
+    Items may be marked by '*', '+', or '-'.
+    +   example
+    -   example
+    *   example
+    Lists may be nested in the usual way:
+    +   example                <-- compact list
+        +   example
+        +   example
+
+    +   example                <-- loose list
+
+        +   example
+
+        +   example
+
+   * First paragraph.
+
+     Continued.
+
+   * Second paragraph. With a code block, which must be indented
+     eight spaces:
+
+         { code }              <-- indented 4 spaces
+     Definition lists
+
+    Term 1
+      ~ Definition 1
+    Term 2
+      ~ Definition 2a
+      ~ Definition 2b
+
+    Term 1
+    :   Definition 1
+    Term 2
+    :   Definition 2
+        Second paragraph of definition 2.
+
+Blockquotes
+    >   blockquote
+    >>  nested blockquote
+        Blank lines required before and after blockquotes.
+
+Tables
+      Right     Left     Center     Default
+    -------     ------ ----------   -------
+         12     12        12            12
+        123     123       123          123
+          1     1          1             1
+
+    Table:  Demonstration of simple table syntax.
+    (For more complex tables, see the pandoc documentation.)
+
+    Headers may be omitted in multiline tables as well as simple tables:
+
+    ----------- ------- --------------- -------------------------
+       First    row                12.0 Example of a row that
+                                        spans multiple lines.
+
+      Second    row                 5.0 Here's another one. Note
+                                        the blank line between
+                                        rows.
+    ----------- ------- --------------- -------------------------
+
+    : Sample grid table.
+
+    +---------------+---------------+--------------------+
+    | Fruit         | Price         | Advantages         |
+    +===============+===============+====================+
+    | Bananas       | $1.34         | - built-in wrapper |
+    |               |               | - bright color     |
+    +---------------+---------------+--------------------+
+    | Oranges       | $2.10         | - cures scurvy     |
+    |               |               | - tasty            |
+    +---------------+---------------+--------------------+
+
+    : pipe_tables
+    Pipe tables look like this:
+
+    | Right | Left | Default | Center |
+    |------:|:-----|---------|:------:|
+    |   12  |  12  |    12   |    12  |
+    |  123  |  123 |   123   |   123  |
+    |    1  |    1 |     1   |     1  |
+
+    fruit| price         <-- pipes indicate column boundaries, columns need not be vertically aligned
+    -----|-----:
+    apple|2.05
+    pear|1.37
+    orange|3.09
+
+Code Blocks
+BackTick Block Code
+    `
+    { some code }
+    `
+Verbatim (code) blocks (Indented code blocks 4 spaces)
+         if (a > 3) {
+         moveShip(5 * gravity, DOWN);
+         }
+Fenced Block Code
+    Begin with three or more tildes; end with at least as many tildes:
+    ~~~~~~~
+    {code here}
+    ~~~~~~~
+
+    Optionally, you can specify the language of the code block:
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ {.haskell .numberLines}
+    qsort []     = []
+    qsort (x:xs) = qsort (filter (< x) xs) ++ [x] ++
+                   qsort (filter (>= x) xs) 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Line blocks
+    | The limerick packs laughs anatomical
+    | In space that is quite economical.
+    |    But the good ones I've seen
+    |    So seldom are clean
+    | And the clean ones so seldom are comical
+
+    | 200 Main St.
+    | Berkeley, CA 94718
+
+Horizontal Rules
+
+3 or more dashes or asterisks on a line (space between okay)
+
+---
+* * *
+- - - -
+
+REF:
+http://daringfireball.net/projects/markdown/syntax 
+http://johnmacfarlane.net/pandoc/README.html.
+http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html
+http://pandoc.org/MANUAL.html
+
+

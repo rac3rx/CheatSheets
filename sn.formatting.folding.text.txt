@@ -1,0 +1,6 @@
+fmt -w 80
+fold -sw 80
+pr -w 80
+wrap -w 80
+wrap -w 80 | pr -tw 80 # omit headers & trailers
+fmt -tw 80

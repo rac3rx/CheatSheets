@@ -1,0 +1,1 @@
+find /home/assessor/ -mmin -$((60 * 48)) -type f -not -path "*/.cache/*" -not -path "*/.config/*" -not -path "*/.local/*" -not -path "*/.*" -not -path "*/_UL/*" -not -path "*/Downloads/*" -exec cp {} ~/_UL/29Nov16/ \;

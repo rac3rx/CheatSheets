@@ -1,0 +1,1661 @@
+From: <Saved by Blink>
+Subject: pathogen.vim - Poor man's package manager. Easy manipulation of 'runtimepath' et al : vim online
+Date: Wed, 6 Dec 2016 18:26:03 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----"
+
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: text/html
+Content-ID: <frame-2239-a6250d5f-6f3e-4ed0-a5a3-eab4b9323f27@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.vim.org/scripts/script.php?script_id=2332
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dwindows-1=
+252">
+  <link rel=3D"Stylesheet" type=3D"text/css" href=3D"http://www.vim.org/css=
+/style.css">
+  <title>pathogen.vim - Poor man's package manager. Easy manipulation of 'r=
+untimepath' et al : vim online</title>
+ =20
+  <meta name=3D"KEYWORDS" content=3D"Vim, Vi IMproved, text editor, home, d=
+ocumentation, tips, scripts, news">
+  <link rel=3D"shortcut icon" type=3D"image/x-icon" href=3D"http://www.vim.=
+org/images/vim_shortcut.ico">
+<style>@media print {#ghostery-purple-box {display:none !important}}</style=
+><link id=3D"noteanywherecss" media=3D"screen" type=3D"text/css" rel=3D"sty=
+lesheet" href=3D"data:text/css,.note-anywhere%20.closebutton%7Bbackground-i=
+mage%3A%20url%28chrome-extension%3A//bohahkiiknkelflnjjlipnaeapefmjbh/asset=
+/deleteButton.png%29%3B%7D%0A"></head>
+
+<body topmargin=3D"0" leftmargin=3D"0" marginheight=3D"0" marginwidth=3D"0"=
+ bgcolor=3D"#ffffff">=20
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bord=
+ercolor=3D"red">
+  <tbody><tr>
+    <td colspan=3D"4" class=3D"lightbg"><img src=3D"http://www.vim.org/imag=
+es/spacer.gif" width=3D"1" height=3D"5" alt=3D""></td>
+  </tr>
+  <tr>
+  <td class=3D"lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class=3D"lightbg" align=3D"left"><a href=3D"http://www.vim.org/sponso=
+r/index.php"><img src=3D"http://www.vim.org/images/sponsorvim.gif" alt=3D"s=
+ponsor Vim development" border=3D"0"></a></td>
+    <td class=3D"lightbg" align=3D"center"><a href=3D"http://www.vim.org/">=
+<img src=3D"http://www.vim.org/images/vim_header.gif" border=3D"0" alt=3D"V=
+im logo"></a></td>
+    <td class=3D"lightbg" align=3D"right"><a href=3D"http://iccf-holland.or=
+g/click5.html"><img src=3D"http://www.vim.org/images/buyhelplearn.gif" alt=
+=3D"Vim Book Ad" border=3D"0"></a></td>
+  </tr>
+  <tr>
+    <td colspan=3D"4" class=3D"lightbg"><img src=3D"http://www.vim.org/imag=
+es/spacer.gif" width=3D"1" height=3D"5" alt=3D""></td>
+  </tr>
+  <tr>
+    <td colspan=3D"4" class=3D"darkbg"><img src=3D"http://www.vim.org/image=
+s/spacer.gif" width=3D"1" height=3D"10" alt=3D""></td>
+  </tr>
+</tbody></table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+  <colgroup><col width=3D"180">
+  <col width=3D"1">
+
+  </colgroup><tbody><tr valign=3D"top">
+    <td class=3D"sidebar">
+      <table width=3D"180" cellpadding=3D"4" cellspacing=3D"0" border=3D"0"=
+>
+        <tbody><tr valign=3D"top">
+          <td class=3D"sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bord=
+ercolor=3D"red">
+    <tbody><tr>
+        <td><small>not logged in (<a href=3D"http://www.vim.org/login.php">=
+login</a>)</small></td>
+    </tr>
+    <tr><td>
+<small>&nbsp;</small>
+<form action=3D"http://www.google.com/cse" id=3D"cse-search-box">
+  <div>
+    <input type=3D"hidden" name=3D"cx" value=3D"partner-pub-300525999829496=
+2:bvyni59kjr1">
+    <input type=3D"hidden" name=3D"ie" value=3D"ISO-8859-1">
+    <input type=3D"text" name=3D"q" size=3D"20" style=3D"background: url(&q=
+uot;https://www.google.com/cse/static/en/google_custom_search_watermark.gif=
+&quot;) left center no-repeat rgb(255, 255, 255);">
+    <br>
+    <input type=3D"submit" name=3D"sa" value=3D"Search">
+  </div>
+<input name=3D"siteurl" type=3D"hidden" value=3D"www.vim.org/scripts/script=
+.php?script_id=3D2332"><input name=3D"ref" type=3D"hidden" value=3D"nvie.co=
+m/posts/how-i-boosted-my-vim/"><input name=3D"ss" type=3D"hidden" value=3D"=
+"></form>
+
+    </td></tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"1"></td>
+    </tr>
+    <tr>
+        <td class=3D"darkbg"><img src=3D"http://www.vim.org/images/spacer.g=
+if" alt=3D"" border=3D"0" height=3D"3"></td>
+    </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"2"></td>
+    </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/">Hom=
+e</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/searc=
+h.php">Advanced search</a></td>
+        </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"7"></td>
+    </tr>
+    <tr>
+        <td class=3D"checker"><img src=3D"http://www.vim.org/images/spacer.=
+gif" alt=3D"" border=3D"0" height=3D"1"></td>
+    </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"7"></td>
+    </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/about=
+.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/commu=
+nity.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/news/=
+news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/spons=
+or/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/trivi=
+a.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/docs.=
+php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader download"><a href=3D"http://www.vim.=
+org/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"7"></td>
+    </tr>
+    <tr>
+        <td class=3D"checker"><img src=3D"http://www.vim.org/images/spacer.=
+gif" alt=3D"" border=3D"0" height=3D"1"></td>
+    </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"7"></td>
+    </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/scrip=
+ts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/tips/=
+index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/accou=
+nt/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"7"></td>
+    </tr>
+    <tr>
+        <td class=3D"checker"><img src=3D"http://www.vim.org/images/spacer.=
+gif" alt=3D"" border=3D"0" height=3D"1"></td>
+    </tr>
+    <tr>
+        <td><img src=3D"http://www.vim.org/images/spacer.gif" alt=3D"" bord=
+er=3D"0" width=3D"1" height=3D"7"></td>
+    </tr>
+        <tr>
+            <td class=3D"sidebarheader"><a href=3D"http://www.vim.org/huh.p=
+hp">Site Help</a></td>
+        </tr>
+</tbody></table>
+<br>
+<div id=3D"___plusone_0" style=3D"text-indent: 0px; margin: 0px; padding: 0=
+px; background: transparent; border-style: none; float: none; line-height: =
+normal; font-size: 1px; vertical-align: baseline; display: inline-block; wi=
+dth: 106px; height: 24px;"><iframe frameborder=3D"0" hspace=3D"0" marginhei=
+ght=3D"0" marginwidth=3D"0" scrolling=3D"no" style=3D"position: static; top=
+: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility=
+: visible; height: 24px;" tabindex=3D"0" vspace=3D"0" width=3D"100%" id=3D"=
+I0_1481047891083" name=3D"I0_1481047891083" src=3D"cid:frame-2241-dee747c4-=
+2dc0-4258-8847-d2ea9f755ec2@mhtml.blink" data-gapiattached=3D"true" title=
+=3D"+1"></iframe></div>
+
+            <table width=3D"172" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0">
+              <tbody><tr><td><img src=3D"http://www.vim.org/images/spacer.g=
+if" alt=3D"" border=3D"0" width=3D"1" height=3D"8"></td></tr>
+              <tr><td class=3D"darkbg"><img src=3D"http://www.vim.org/image=
+s/spacer.gif" width=3D"1" height=3D"3" alt=3D""></td></tr>
+            </tbody></table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+
+    <td class=3D"darkbg"><img src=3D"http://www.vim.org/images/spacer.gif" =
+width=3D"1" height=3D"1" border=3D"0" alt=3D""><br></td>
+    <td>
+      <table width=3D"100%" cellpadding=3D"10" cellspacing=3D"0" border=3D"=
+0" bordercolor=3D"red">
+        <tbody><tr>
+          <td valign=3D"top">
+
+<span class=3D"txth1">pathogen.vim : Poor man's package manager. Easy manip=
+ulation of 'runtimepath' et al</span>=20
+
+<br>
+<br>
+
+<!-- karma table -->
+<table cellpadding=3D"4" cellspacing=3D"0" border=3D"1" bordercolor=3D"#000=
+066">
+<tbody><tr>
+  <td class=3D"lightbg"><b>&nbsp;script karma&nbsp;</b></td>
+  <td>
+    Rating <b>5091/1460</b>,
+    Downloaded by 67547    &nbsp;
+    <div id=3D"___plusone_1" style=3D"text-indent: 0px; margin: 0px; paddin=
+g: 0px; background: transparent; border-style: none; float: none; line-heig=
+ht: normal; font-size: 1px; vertical-align: baseline; display: inline-block=
+; width: 106px; height: 24px;"><iframe frameborder=3D"0" hspace=3D"0" margi=
+nheight=3D"0" marginwidth=3D"0" scrolling=3D"no" style=3D"position: static;=
+ top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibi=
+lity: visible; height: 24px;" tabindex=3D"0" vspace=3D"0" width=3D"100%" id=
+=3D"I1_1481047891087" name=3D"I1_1481047891087" src=3D"cid:frame-2242-28357=
+cda-af36-4617-953e-1572cbdbb4f7@mhtml.blink" data-gapiattached=3D"true" tit=
+le=3D"+1"></iframe></div>
+  </td>
+  <td class=3D"lightbg">
+  <b>&nbsp;Comments, bugs, improvements&nbsp;</b>
+  </td>
+  <td>
+    <a href=3D"http://vim.wikia.com/wiki/Script:2332">Vim wiki</a>
+  </td> =20
+</tr>
+</tbody></table>
+<p>
+
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+<tbody><tr><td class=3D"prompt">created by</td></tr>
+<tr><td><a href=3D"http://www.vim.org/account/profile.php?user_id=3D9012">T=
+im Pope</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class=3D"prompt">script type</td></tr>
+<tr><td>utility</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class=3D"prompt">description</td></tr>
+<tr><td>Manage your 'runtimepath' with ease.&nbsp;&nbsp;In practical terms,=
+ pathogen.vim makes it super easy to install plugins and runtime files in t=
+heir own private directories.
+<br>
+<br>Add this to your vimrc:
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;execute pathogen#infect()
+<br>
+<br>Now any plugins you wish to install can be extracted to a subdirectory =
+under ~/.vim/bundle, and they will be added to the 'runtimepath'.
+<br>
+<br>Use :Helptags to run :helptags on every doc/ directory in your 'runtime=
+path'.
+<br>
+<br>For more detailed, better formatted documentation, see the README on Gi=
+tHub:
+<br>
+<br><a target=3D"_blank" href=3D"http://github.com/tpope/vim-pathogen">http=
+://github.com/tpope/vim-pathogen</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class=3D"prompt">install details</td></tr>
+<tr><td>Install in ~/.vim/autoload (~\vimfiles\autoload on Windows). Or cop=
+y and paste:
+<br>
+<br>mkdir -p ~/.vim/autoload ~/.vim/bundle
+<br>curl -LSso ~/.vim/autoload/pathogen.vim <a target=3D"_blank" href=3D"ht=
+tps://tpo.pe/pathogen.vim">https://tpo.pe/pathogen.vim</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+</tbody></table>
+
+<!-- rating table -->
+</p><form name=3D"rating" method=3D"post">
+<input type=3D"hidden" name=3D"script_id" value=3D"2332">
+<table cellpadding=3D"4" cellspacing=3D"0" border=3D"1" bordercolor=3D"#000=
+066">
+<tbody><tr>
+  <td class=3D"lightbg"><b>rate this script</b></td>
+  <td valign=3D"middle">
+    <input type=3D"radio" name=3D"rating" value=3D"life_changing">Life Chan=
+ging
+    <input type=3D"radio" name=3D"rating" value=3D"helpful">Helpful
+    <input type=3D"radio" name=3D"rating" value=3D"unfulfilling">Unfulfilli=
+ng&nbsp;
+    <input type=3D"submit" value=3D"rate">
+  </td>
+</tr>
+</tbody></table>
+</form>
+<span class=3D"txth2">script versions</span> (<a href=3D"http://www.vim.org=
+/scripts/add_script_version.php?script_id=3D2332">upload new version</a>)
+<p>
+Click on the package to download.
+</p><p>
+
+<table cellspacing=3D"2" cellpadding=3D"4" border=3D"0" width=3D"100%">
+<tbody><tr class=3D"tableheader">
+        <th valign=3D"top">package</th>
+    <th valign=3D"top">script version</th>
+    <th valign=3D"top">date</th>
+    <th valign=3D"top">Vim version</th>
+    <th valign=3D"top">user</th>
+    <th valign=3D"top">release notes</th>
+</tr>
+<tr>
+        <td class=3D"rowodd" valign=3D"top" nowrap=3D""><a href=3D"http://w=
+ww.vim.org/scripts/download_script.php?src_id=3D23828">pathogen.zip</a></td=
+>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><b>2.4</b></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><i>2015-12-26</i></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"rowodd" valign=3D"top"><i><a href=3D"http://www.vim.org/ac=
+count/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"rowodd" valign=3D"top" width=3D"2000">Use $VIMBLACKLIST to=
+ temporarily disable bundles.
+<br>Allow disabling rest of vimrc by adding it to blacklist.
+<br>Expand bundle/{a,b} as bundle/a and bundle/b.
+<br>Experimental: Support "vimfiles" subdirectory.
+<br>Work around weird lockup on ancient Vim.
+<br>Restore disabling of paths ending in ~.</td>
+</tr>
+<tr>
+        <td class=3D"roweven" valign=3D"top" nowrap=3D""><a href=3D"http://=
+www.vim.org/scripts/download_script.php?src_id=3D21650">pathogen.zip</a></t=
+d>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><b>2.3</b></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><i>2014-03-21</i></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"roweven" valign=3D"top"><i><a href=3D"http://www.vim.org/a=
+ccount/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"roweven" valign=3D"top" width=3D"2000">Deprecation warning=
+s.
+<br>Introduce pathogen#interpose() to replace incubate().
+<br>Fix glob issues with fish shell.
+<br>Silence all errors in :helptags.</td>
+</tr>
+<tr>
+        <td class=3D"rowodd" valign=3D"top" nowrap=3D""><a href=3D"http://w=
+ww.vim.org/scripts/download_script.php?src_id=3D19375">pathogen.vim</a></td=
+>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><b>2.2</b></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><i>2013-01-14</i></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"rowodd" valign=3D"top"><i><a href=3D"http://www.vim.org/ac=
+count/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"rowodd" valign=3D"top" width=3D"2000">Accept multiple argu=
+ments to pathogen#infect().
+<br>Fix errors in deprecated methods.</td>
+</tr>
+<tr>
+        <td class=3D"roweven" valign=3D"top" nowrap=3D""><a href=3D"http://=
+www.vim.org/scripts/download_script.php?src_id=3D19365">pathogen.vim</a></t=
+d>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><b>2.1</b></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><i>2013-01-14</i></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"roweven" valign=3D"top"><i><a href=3D"http://www.vim.org/a=
+ccount/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"roweven" valign=3D"top" width=3D"2000">Deprecate :Vopen co=
+mmands in favor of <a href=3D"http://www.vim.org/scripts/script.php?script_=
+id=3D4394">vimscript #4394</a>.
+<br>Deprecate pathogen#infect() calls on paths without explicit globs. (Cha=
+nge pathogen#infect('bundle') to pathogen#infect('bundle/*')).
+<br>Introduce pathogen#incubate() to replace pathogen#runtime_append_all_bu=
+ndles().
+<br>Introduce pathogen#surround() to replace pathogen#runtime_prepend_subdi=
+rectories().
+<br>Allow absolute paths in g:pathogen_disabled.</td>
+</tr>
+<tr>
+        <td class=3D"rowodd" valign=3D"top" nowrap=3D""><a href=3D"http://w=
+ww.vim.org/scripts/download_script.php?src_id=3D16224">pathogen.vim</a></td=
+>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><b>2.0</b></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><i>2011-08-10</i></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"rowodd" valign=3D"top"><i><a href=3D"http://www.vim.org/ac=
+count/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"rowodd" valign=3D"top" width=3D"2000">Add pathogen#infect(=
+) as primary entry point for basic setup.
+<br>Provide :Helptags to generate all help tags.
+<br>Provide :Vedit and related commands for editing runtime files.</td>
+</tr>
+<tr>
+        <td class=3D"roweven" valign=3D"top" nowrap=3D""><a href=3D"http://=
+www.vim.org/scripts/download_script.php?src_id=3D15192">pathogen.vim</a></t=
+d>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><b>1.3</b></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><i>2011-03-10</i></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"roweven" valign=3D"top"><i><a href=3D"http://www.vim.org/a=
+ccount/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"roweven" valign=3D"top" width=3D"2000">Allow disabling bun=
+dles with g:pathogen_disabled.
+<br>Fix appending "after" directories on Windows.</td>
+</tr>
+<tr>
+        <td class=3D"rowodd" valign=3D"top" nowrap=3D""><a href=3D"http://w=
+ww.vim.org/scripts/download_script.php?src_id=3D12116">pathogen.vim</a></td=
+>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><b>1.2</b></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><i>2010-01-17</i></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"rowodd" valign=3D"top"><i><a href=3D"http://www.vim.org/ac=
+count/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"rowodd" valign=3D"top" width=3D"2000">Add pathogen#legacyj=
+oin() which escapes spaces for older options like 'path' and 'tags'.
+<br>Fix pathogen#join() to not escape spaces (caused problems on many Windo=
+ws setups).
+<br>Add pathogen#uniq() to filter out duplicates.
+<br>Add pathogen#helptags() to generate helptags for everything in 'runtime=
+path'.</td>
+</tr>
+<tr>
+        <td class=3D"roweven" valign=3D"top" nowrap=3D""><a href=3D"http://=
+www.vim.org/scripts/download_script.php?src_id=3D9394">pathogen.vim</a></td=
+>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><b>1.1</b></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D""><i>2008-10-24</i></td>
+    <td class=3D"roweven" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"roweven" valign=3D"top"><i><a href=3D"http://www.vim.org/a=
+ccount/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"roweven" valign=3D"top" width=3D"2000">Properly escape spa=
+ces in paths</td>
+</tr>
+<tr>
+        <td class=3D"rowodd" valign=3D"top" nowrap=3D""><a href=3D"http://w=
+ww.vim.org/scripts/download_script.php?src_id=3D9085">pathogen.vim</a></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><b>1.0</b></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D""><i>2008-08-07</i></td>
+    <td class=3D"rowodd" valign=3D"top" nowrap=3D"">7.0</td>
+    <td class=3D"rowodd" valign=3D"top"><i><a href=3D"http://www.vim.org/ac=
+count/profile.php?user_id=3D9012">Tim Pope</a></i></td>
+    <td class=3D"rowodd" valign=3D"top" width=3D"2000">Initial upload</td>
+</tr>
+</tbody></table>
+<small>ip used for rating: 198.154.11.3</small>
+<!-- finish off the framework -->
+          </p></td>
+        </tr>
+      </tbody></table>
+    </td>
+
+  </tr>
+</tbody></table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bord=
+ercolor=3D"red">
+  <tbody><tr><td colspan=3D"4"><img src=3D"http://www.vim.org/images/spacer=
+.gif" width=3D"1" height=3D"5" alt=3D""></td></tr>
+  <tr><td colspan=3D"4" bgcolor=3D"#000000"><img src=3D"http://www.vim.org/=
+images/spacer.gif" height=3D"2" width=3D"1" alt=3D""></td></tr>
+  <tr><td colspan=3D"4"><img src=3D"http://www.vim.org/images/spacer.gif" w=
+idth=3D"1" height=3D"5" alt=3D""></td></tr>
+  <tr>
+    <td><img src=3D"http://www.vim.org/images/spacer.gif" width=3D"5" heigh=
+t=3D"1" alt=3D""></td>
+
+    <td align=3D"left" valign=3D"top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href=3D"http://vimonline.sf.net/">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br>=20
+     =20
+      Questions about <a href=3D"http://www.vim.org/about.php">Vim</a> shou=
+ld go
+      to the <a href=3D"http://www.vim.org/maillist.php">maillist</a>.
+      Help Bram <a href=3D"http://iccf-holland.org/">help Uganda</a>.
+      </small>
+	&nbsp;
+	&nbsp;
+
+    </td>
+
+    <td align=3D"right" valign=3D"top">
+      	<a href=3D"http://sourceforge.net/projects/vim" rel=3D"nofollow"><im=
+g src=3D"http://sflogo.sourceforge.net/sflogo.php?group_id=3D8&amp;type=3D1=
+" width=3D"88" height=3D"31" border=3D"0" alt=3D"SourceForge.net Logo"></a>
+    </td>
+
+    <td><img src=3D"http://www.vim.org/images/spacer.gif" width=3D"5" heigh=
+t=3D"1" alt=3D""></td>
+  </tr>
+
+   =20
+  <tr><td colspan=3D"4"><img src=3D"http://www.vim.org/images/spacer.gif" w=
+idth=3D"1" height=3D"5" alt=3D""></td>
+ =20
+  </tr>
+</tbody></table>
+
+<!-- for Google +1 button -->
+
+
+
+
+
+<iframe name=3D"oauth2relay379543111" id=3D"oauth2relay379543111" src=3D"ci=
+d:frame-2243-d86d0ec0-f533-4b39-8ab3-2a95f73c64a2@mhtml.blink" tabindex=3D"=
+-1" aria-hidden=3D"true" style=3D"width: 1px; height: 1px; position: absolu=
+te; top: -100px;"></iframe></body></html>
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://vim.sourceforge.net/images/checkerboard.gif
+
+R0lGODlhCgAKAIAAAAB/APDw8CH5BAAAAAAALAAAAAAKAAoAAAIShBMGqHz5Gpq0Wriwy7K/C1YF
+ADs=
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.vim.org/css/style.css
+
+@charset "windows-1252";
+
+body, td, p { font-family: arial, helvetica, sans-serif; }
+
+th { font-family: arial, helvetica, sans-serif; font-weight: bold; text-ali=
+gn: left; }
+
+em { font-weight: bold; font-style: italic; }
+
+.darkbg { background-color: rgb(0, 127, 0); }
+
+.lightbg { background-color: rgb(204, 204, 153); }
+
+.sidebar { font-family: arial, helvetica, sans-serif; background-color: rgb=
+(240, 240, 221); font-size: small; }
+
+.topheader { font-family: arial, helvetica, sans-serif; font-size: large; f=
+ont-weight: bold; background-color: rgb(204, 204, 153); }
+
+.sidebarheader { font-family: arial, helvetica, sans-serif; font-size: smal=
+l; font-weight: bold; }
+
+.download { padding: 5px 0px 8px 5px; background-color: rgb(0, 221, 0); }
+
+.newsdate { font-style: italic; color: rgb(102, 102, 204); font-size: small=
+; }
+
+pre, code { font-family: "andale mono", "monotype.com", "courier new", mono=
+space; }
+
+h1 { font-family: arial, helvetica, sans-serif; font-size: medium; font-wei=
+ght: bold; color: rgb(0, 0, 102); }
+
+.txth1 { font-family: arial, helvetica, sans-serif; font-size: medium; font=
+-weight: bold; color: rgb(0, 0, 102); }
+
+h2 { font-family: arial, helvetica, sans-serif; font-size: small; font-weig=
+ht: bold; color: rgb(0, 0, 102); }
+
+.txth2 { font-family: arial, helvetica, sans-serif; font-size: small; font-=
+weight: bold; color: rgb(0, 0, 102); }
+
+h3 { font-family: arial, helvetica, sans-serif; font-size: x-small; font-we=
+ight: bold; color: rgb(0, 0, 102); }
+
+.txth3 { font-family: arial, helvetica, sans-serif; font-size: x-small; fon=
+t-weight: bold; color: rgb(0, 0, 102); }
+
+small { font-family: arial, helvetica, sans-serif; font-size: 75%; }
+
+a.small { font-family: arial, helvetica, sans-serif; font-size: 75%; text-d=
+ecoration: none; color: rgb(0, 0, 102); }
+
+.style1 { color: rgb(102, 102, 102); }
+
+input { font-family: arial, helvetica, sans-serif; }
+
+textarea { font-family: arial, helvetica, sans-serif; width: 100%; }
+
+.prompt { font-family: arial, helvetica, sans-serif; font-weight: bold; }
+
+.errortext { font-family: arial, helvetica, sans-serif; color: rgb(204, 0, =
+0); }
+
+.errorheader { font-family: arial, helvetica, sans-serif; color: rgb(204, 0=
+, 0); font-size: medium; }
+
+.tableheader { font-family: arial, helvetica, sans-serif; font-weight: bold=
+; background-color: rgb(204, 204, 153); }
+
+.rowodd { font-family: arial, helvetica, sans-serif; background-color: rgb(=
+240, 240, 221); }
+
+.roweven { font-family: arial, helvetica, sans-serif; background-color: rgb=
+(204, 204, 153); }
+
+tr.tableheader th { font-family: arial, helvetica, sans-serif; background-c=
+olor: rgb(204, 204, 153); text-align: center; }
+
+td.checker { background-color: rgb(0, 127, 0); background-image: url("http:=
+//vim.sourceforge.net/images/checkerboard.gif"); }
+
+.example { background-color: rgb(238, 255, 204); border-color: rgb(136, 170=
+, 102); border-style: solid none; border-width: 1px medium; padding: 5px; }
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.vim.org/images/spacer.gif
+
+R0lGODlhAQABAJH/AP///wAAAP///wAAACH/C0FET0JFOklSMS4wAt7tACH5BAEAAAIALAAAAAAB
+AAEAAAICVAEAOw==
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.vim.org/images/sponsorvim.gif
+
+R0lGODlh1wAmAPcAAAAAAAB7AACEAAgICAiECBAQEBCEEBCMEBgYGBiMGCEhISGMISGUISkpKSmU
+KTExMTGUMTGcMTk5OTmcOUJCQkKcQkKlQkpKSkqlSlJSUlKlUlKtUlpaWlqtWmNjY2OtY2O1Y2tr
+a2u1a3Nzc3O1c3O9c3t7e3u9e4SEhITGhIyMjIzGjJSUlJTGlJTOlJycnJzOnKWlpaXOpaXWpa2t
+ra3WrbW1tbXWtbXetb29vb3evcbGxsbexsbnxs7Ozs7nztbW1tbn1tbv1t7e3t7v3ufn5+fv5+f3
+5+/v7+/37/f39/f/9///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAA1wAmAAAI/gADCAgg
+kODAgggPKjTIMGHDhQ4jQpz4sKJEixQvaszIEaPHjR87gnTIpKTJkyhTqlzJsqXLlzBjypxJs6bN
+myYJ4tzJs6fPn0CD0tQptKjRo0iT8iSqtKnTp1B/Mj2JJMaIES+UlFQSo2sMGj5Q+lARAkWOkzRi
+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
+SjgSItGES+iETPiEUhiFVAiFViiFAxEQAAA7
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.vim.org/images/vim_header.gif
+
+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
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.vim.org/images/buyhelplearn.gif
+
+R0lGODlhDwEmAMQfAEShRLvdu4iIiERERIjDiLu7u93u3ZnMme727mayZszlzCKQIhGIETOZMxER
+EXe7d+7u7szMzN3d3WZmZqrUqjMzM1WqVSIiIpmZmXd3d1VVVaqqqgB/AAAAAP///////yH5BAEA
+AB8ALAAAAAAPASYAAAX/4MeNZGmeaKqubOu+cCzPdG3TX67vfM95wKBwSCwaj8ikcslsOp/QqHT6
+5PSu2B91y+16v+CweGnFmnXasXrNbrvfxvLZnIbb7/i8HiifX+tAEQWDgxBCgxFBiB6EhoGFe16C
+BUEQgxJAhJqGEpBCnZt2k0STmphBk6dAoISqHqCqnYlkfnREAx25uhlBuQO9Hb8ZuROrDh0VkV64
+HYq5AkC60pQCuZRC1dIdGo5tzLfaHdBBF8TY4RWz2Q6O1b+0tX/g4gLHHbO+wL8Q9pgT1sq6fMv0
+LFoHBwMSDkiU7VqQbBUG2CvmZqAQZgoHYECly8G5DhME/AsGJBtJD+6Y//SJh2ZeSYAe8hl8hyGX
+BgnmAnKxWKBgzJMfHb7sQAlCuWYVc7ksMkzXhocwKyhFKQ1aSngsdwDywKzABqnJZuoLIhXZwW46
+pzATwHbkuFwX2LIdKpQqUSBl31gMslauqmMjNUC966HchZcVyjmQcFXJyqxbmVUdK5agrnFpqUjW
+9jYc3SHZBBTIJjgp0ovhrm3IFUFDrnbEBDDbSHVAz2CNkzxmGfmZyFy8fr4TLmRk2Myaff8WZzCu
+3M8fpTmY5W0qanpsT/07XLMDbZO6aNf20LTccN1ZefQ+nZd4ZcuYkUvh6VNmUNC5Ig4QgJbNXiD/
+ecBPOO+ENtJwKRmly/95SOwWz3pAKOhRYWcxkhN88iV32m2dMWhXXQ3lEWCA3SnUz4cQlDXOVbcB
+hV56LQ2BkUQ+rSOZUBxmqJZ1Of6kDTXhNBMiHpvlUyRzrh02lFUARWDPU4015WEcMMZ4nS4ViIeS
+PR1c8NQhPukIBX3M+TiNXdp8KCKBXIXDH3BB4ISMmh50N11jA05ZhIO1bMXEImIGKmigfPrh56CI
+JqpoEIXOceiikEaKXKNnPCrppZjiQaktmXbq6R2bZvHpqKSqEao8SBgQgAFfKBAAAlC4CusUAQQw
+qKx74JrZqT4QQQABQRDAAbBOEADAA0EcAEACHgDAga1POAutFCNEAQD/AAoAoSyyYkjLhrHceqAs
+s97uWmUOW1ULhLDENkHBCLM2wAGyujpRLrWWHjECtMICMMa9Y7zLQbzzelCvTryqN8QBI/xqALvG
+JsDqutdKTAQDHBzggQEjZHsAAax+rEACAAAb8axCOHsAyQnMGgDJFmgMhAEPXEvArNUi8CsFKj27
+Lgf+Gsyyw+JacO0D2YpLgAI13zwzy/LaaqzNKHeBscYcc+AxyEqPXLIHJ9uRsFZDOEtCAMKWELSz
+DcjLQNUeJMCBBWBzsAAQ3ppNwgIktBuEswwAwLe/AgOAMbIGYNwA3w3w8YPcDcCtr891+5s4Bw2Y
+bavggnPwdrMmAHv5/wKae4C54UCDITfdwt4N+uYm8N2w2OeKQIS6dTOrQLXv0h13xkPsPrC8xOYN
+vAUcMNsvEd4igLEBUXvg/MAPDIs3Bzw37HnSZFC+vNzMvr6x9AHwDbvGy1fvu7esGiAwGMIjQPz1
+53uAvPKpwzG2lYymwa7jdQsdEfiWtokZT2rWC0D+UkY5aeFOWuX6XwnC1zN+pa5c3jqA7PYlPgX6
+C4M+ewDGSBAGAo7AgD7z1v88SLtzpct/1jPdD4RlgVrVamJCqN4IGkc/8a1wgX+jHN8UgDGCKQB5
+PPNA9YDVMIxNyzHA+52/kCczaXFsAbDLogdY6KwkSothFsgW7rygQ//MBVGLPwzaG/aHrtsNiwIP
+i2G1EscAAgSAAgnw28xIIDPxqTCBQLyeHeV2t9WhzW7iwhwFDvA8GdZtAZIzgtzqqEONMYySTlTg
+AihAAfN1MHXCasAizdevADAsX1DIWhT96LM0trBKWynjIYmlrk6WoI9CkNfAzuhDQKoxiLJbQLYQ
+oDdhAqGMDJCZupzlOyUQswThIgDGOgc7zHnSWyx8pjWfZQDZIQ+VUNAlyg5YN2CxUH+185OqnmgE
+V7GzDa4agqq4BwQE1OoL66zaAVgVgEYajJ5JiOcQVlUqaqWzoHowQbgQGgk22o6hd0DbrwAK0Tw4
+FJwVzShCL6rRjnoUlA/pvIFIR0rSkpr0pChNKQzOFQIAOw==
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: https://www.google.com/cse/static/en/google_custom_search_watermark.gif
+
+R0lGODlhyAAQAOYAAP///5SUlJOTk8zMzPr6+vv7+/7+/tLS0v39/fPz897e3vLy8vn5+dHR0e/v
+79/f3+Tk5OLi4uXl5djY2PDw8MvLy8nJybW1tezs7Pf399bW1rOzs/X19dPT0/z8/L+/v+7u7uPj
+47m5ubS0tNnZ2c3NzdTU1Ofn58LCwvT09NDQ0M7Ozs/Pz/j4+Li4uOrq6tzc3Ojo6ODg4L6+vtra
+2tXV1bKyssHBwdvb2+3t7ba2tsrKysjIyKurq+Hh4a+vr62trampqbGxsa6ursXFxcTExPb29vHx
+8b29vaysrKioqOnp6aSkpKqqquvr693d3bCwsMDAwLu7u+bm5sfHx7y8vMPDw7q6utfX1wAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/
+C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRj
+emtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRv
+YmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAg
+ICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRm
+LXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0
+dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUu
+Y29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4w
+L3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
+IE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyM0Q2RDU0NjQ1QTMxMUUxOTgx
+Q0VDRTNEMDVFNzYyNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyM0Q2RDU0NzQ1QTMxMUUx
+OTgxQ0VDRTNEMDVFNzYyNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4
+bXAuaWlkOkUxRkY1OTIxNDVBMjExRTE5ODFDRUNFM0QwNUU3NjI0IiBzdFJlZjpkb2N1bWVudElE
+PSJ4bXAuZGlkOkUxRkY1OTIyNDVBMjExRTE5ODFDRUNFM0QwNUU3NjI0Ii8+IDwvcmRmOkRlc2Ny
+aXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7
++vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPC
+wcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJ
+iIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQ
+T05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgX
+FhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAMgAEABAB/+AAIKDhIWGh4iJiouM
+jY6PkJGSk4wHQRiDEhMDECINgi0XLDAsggQ4JVJRAA42CREXDiIlIBmLAYW4AAKCAbwAur+/usSJ
+w766uwHBu4TDlNDR0QwfKoQYCgWCCNqFCIkKOguCHt8GFQAD6rkCycbQ7e6S8tL19o4GGQkZ3YMG
+hv8AnHCBwQOBD0TuKVzIsKFDAAQimGCx4kELSgYUEHnxsKPHjx0bXPhmSMaHBARmbIDIw0ELEx0Q
+wKiQAgUUAg8uECBhwYAGJeMQ/Rr0DFg7Ae16JUPKlB49ZYSWHYNqdCjIq4seNLkigQMDEkxiUPgx
+IEcHCx4W7DhgxIkFIwD/GFjoEQKAAiASQCQR0kEBAUXLliZlKiipUaK9EudaFtXwUWZUi2Gd3DCB
+iCo1NBxIQLmz58+gQ4seLe2IlQYvQCjYIKJfpCcXQBRSt24A6du4E534weGQAQk1VuwIyiCEDAkO
+AHg4QePACgowdHBAIKOGBQUUbqTbPmjpLUpDnzqymrsjCiEkCSEockBQjCARINgGkGMCDRQTAGAY
+QiHCiAXsPXCACSkkIg8zVkkmjGLk7WIYMIoh1kwxC5b30AJDzBAQARPQ9YELgnCwQQSbaFNAAzhg
+4IIKPPgAwBQjMHDDBq4hkgwukBXWzI4VFiUhhDtK+MwzOVro0BJI2DBDQQUdaMDZEQ1oEAIDgqSA
+BQkQ2BJDCSqMAIQDCdAAAQAUVECFDzUaqeaajhxgQzcNoMPmnHROQgAED7yQZp18ehYIADs=
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://sflogo.sourceforge.net/sflogo.php?group_id=8&type=1
+
+iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAFpQTFRF////7u7uX2pytLm9ipKYn6aqdH6F3+Hj6uvsf4iOv8PHanR7
+1NfZlJyhqrC09PX2ys3Qsri8kpqf7KqcmJ+k1kkqzdDTxcnMub7BoKarqpOR8cK4lp2j6Z6NbVan
+UgAAARFJREFUSMft08lu3DAURNHb93EUKbUcJ7Ez/f9vZiG3h2TdG0O1IMDNQaEIcrlTuHCXnPAJ
+n/Bng69deyXU3nIGUi5qEGpkX5JnVzdUe6tdjUV1gWQwTepxWC5cdisR25i0Xm5wEIZBzTlDM0Gz
+VLJZWfwxSiW2xQAgaZ0mE8BiHFPktcEIoPrlFc4jrQBZfVINA64OJfx6iItagGQp+1G2vcG03OMG
+r0Daiva5HvCt8Rtc3MOA5MNr41rKv41nr4S/x0LtfRuNOqLEdF8Mak8fpkiGtpFeLg8GPH57TLbq
+f1Ns6kZW12vrarqWYBrvHi8Bs+sIlN3+vajrs+rPP7+SjTimKO+mOD/ICZ/wJ4LvlL9T9gm7i8l6
+8gAAAABJRU5ErkJggg==
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: text/html
+Content-ID: <frame-2241-dee747c4-2dc0-4258-8847-d2ea9f755ec2@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&origin=http%3A%2F%2Fwww.vim.org&url=http%3A%2F%2Fwww.vim.org%2Fscripts%2Fscript.php%3Fscript_id%3D2332&gsrc=3p&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.es_419.mLUelocxrI0.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCN8Q8jj0R4H2hGK1xbwGdZvPqiuJA#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&id=I0_1481047891083&parent=http%3A%2F%2Fwww.vim.org&pfname=&rpctoken=40111154
+
+<!DOCTYPE html><html lang=3D"es" dir=3D"ltr"><head><meta http-equiv=3D"Cont=
+ent-Type" content=3D"text/html; charset=3DUTF-8"><base href=3D"https://apis=
+.google.com/u/0/se/0/wm/1/"><style>body {-webkit-font-smoothing: antialiase=
+d;}/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/ek4gzZ-GeXAPcSbHtCeQI_esZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/-2n2p-_Y08sg57CNWQfKNvesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/NdF9MtnOpLzo-noMoG0miPesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) f=
+ormat('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+</style><link rel=3D"stylesheet" href=3D"https://apis.google.com/_/scs/apps=
+-static/_/ss/k=3Doz.plusone.wgyqmusf1v5f.L.W.O/d=3D0/rs=3DAGLTcCOTg7zD2RuG_=
+3hggYn2JcLXPfZh2g"></head><body class=3D"kv8eNc " marginwidth=3D"0" marginh=
+eight=3D"0"><div id=3D"root"><div id=3D"plusone" dir=3D"ltr" class=3D"Jg"><=
+span id=3D"widget_bounds"><div class=3D"dIa"><div style=3D"height:24px;widt=
+h:38px;" class=3D"FP HP Gib Ina " id=3D"button" title=3D"+1" role=3D"button=
+" tabindex=3D"0"><div class=3D"Ul"><div style=3D"margin:0px 0px 0 0px;" cla=
+ss=3D"s7"><svg version=3D"1.1" xmlns=3D"http://www.w3.org/2000/svg" preserv=
+eAspectRatio=3D"xMidYMid meet" width=3D"36px" height=3D"22px" viewBox=3D"-1=
+4 -8 72 44" class=3D"u7 uzlpSb"><path d=3D"M32 8.2h-3v4h-4V15h4v4h3v-4h4v-2=
+.9h-4V8.2zm6-2V8h3v15h3V4l-6 2.2z"></path><path d=3D"M11.4 11.3v4.5h6c-.4 2=
+.6-2.7 4.5-6 4.5-3.6 0-6.6-3.1-6.6-6.7s2.9-6.7 6.6-6.7c1.7 0 3.1.5 4.3 1.7l=
+3.2-3.2c-2-1.8-4.5-2.9-7.5-2.9C5.3 2.5.3 7.5.3 13.6s5 11.1 11.1 11.1c6.5 0 =
+10.7-4.6 10.7-10.9 0-.8-.1-1.7-.2-2.5H11.4z"></path></svg><div class=3D"xuw=
+mvb xuwmvb-22"></div></div></div><div class=3D"GP"><svg version=3D"1.1" xml=
+ns=3D"http://www.w3.org/2000/svg" preserveAspectRatio=3D"xMidYMid meet" wid=
+th=3D"22px" height=3D"22px" viewBox=3D"-1.5555555555555554 -1.5555555555555=
+554 17.11111111111111 17.11111111111111" class=3D"u7 u7 iva"><g id=3D"Q0N8V=
+c" fill=3D"#aaaaaa" transform=3D"rotate(0,7,7)"><path class=3D"zVaWQ" d=3D"=
+M5.5,1.5h3v4h4v3h-4v4h-3v-4h-4v-3h4z"></path></g></svg><div class=3D"C9sAve=
+ C9sAve-22"></div></div><div class=3D"q7"><svg version=3D"1.1" xmlns=3D"htt=
+p://www.w3.org/2000/svg" preserveAspectRatio=3D"xMidYMid meet" width=3D"20p=
+x" height=3D"22px" viewBox=3D"0 -2 20 22" class=3D"u7 u7 hva"><path fill=3D=
+"#DD4B39" d=3D"m19.8059,16.041-8.74-15.404c-.223-.394-.635-.637-1.078-.637-=
+.443,0-.855,.243-1.078,.637l-8.739,15.404c-.227,.396-.227,.9-.005,1.299 .22=
+3,.398 .637,.66 1.283,.66h17.279c.445,0 .859-.262 1.082-.66 .22-.399 .22-.9=
+02-.004-1.299zm-9.798-1.041c-.552,0-1-.463-1-1.02 0-.555 .448-1.002 1-1.002=
+ .552,0 1,.447 1,1.002-.001,.557-.448,1.02-1,1.02zm.999-9-.375,5h-1.25l-.37=
+4-5h.004l-.004-.02c0-.551 .448-.996 1-.996 .552,0 1,.449 1,1-.001,.007-.004=
+,.016-.004,.016h.003z"></path></svg><div class=3D"tapvDe tapvDe-22"></div><=
+/div></div></div><div class=3D"ap"><div class=3D"iQa HI"><div id=3D"aggrega=
+teCount" class=3D"Oy">220</div></div></div></span></div></div></body></html>
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: font/woff2
+Content-Transfer-Encoding: base64
+Content-Location: https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2
+
+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
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://apis.google.com/_/scs/apps-static/_/ss/k=oz.plusone.wgyqmusf1v5f.L.W.O/d=0/rs=AGLTcCOTg7zD2RuG_3hggYn2JcLXPfZh2g
+
+@charset "utf-8";
+
+.d-k-l { position: relative; display: inline-block; }
+
+* html .d-k-l, :first-child + html .d-k-l { display: inline; }
+
+.FP { border: 1px solid rgba(0, 0, 0, 0.168627); border-radius: 2px; box-sh=
+adow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px; box-sizing: border-box; transit=
+ion: background-color 0.218s, border-color 0.218s, box-shadow 0.218s; user-=
+select: none; -webkit-appearance: none; background-color: rgb(255, 255, 255=
+); background-image: none; color: rgb(38, 38, 38); cursor: pointer; outline=
+: none; overflow: hidden; position: relative; text-align: center; vertical-=
+align: middle; white-space: nowrap; width: auto; }
+
+.FP:hover { border: 1px solid rgba(0, 0, 0, 0.247059); box-shadow: rgba(0, =
+0, 0, 0.0980392) 0px 1px 0px; }
+
+.FP:active { background-color: rgb(229, 229, 229); border: 1px solid rgba(0=
+, 0, 0, 0.247059); box-shadow: rgb(221, 221, 221) 0px 1px 0px inset; color:=
+ rgb(38, 38, 38); }
+
+.t7 { background-color: rgb(245, 245, 245); color: rgb(38, 38, 38); }
+
+.t7:active { background-color: rgb(229, 229, 229); color: rgb(38, 38, 38); =
+}
+
+.ud, .jd, .nd, .rd { border: none; box-shadow: rgba(0, 0, 0, 0.0980392) 0px=
+ 1px 0px; color: rgb(255, 255, 255); }
+
+.ud:hover, .jd:hover, .nd:hover, .rd:hover { border: none; box-shadow: rgba=
+(0, 0, 0, 0.2) 0px -2px 0px inset; color: rgb(255, 255, 255); }
+
+.ud:active, .jd:active, .nd:active, .rd:active { border: none; box-shadow: =
+rgba(0, 0, 0, 0.2) 0px 2px 0px inset; color: rgb(255, 255, 255); }
+
+.ud { background-color: rgb(83, 169, 63); }
+
+.ud:hover { background-color: rgb(101, 176, 69); }
+
+.ud:active { background-color: rgb(62, 128, 47); }
+
+.jd { background-color: rgb(219, 68, 55); }
+
+.jd:hover { background-color: rgb(231, 75, 55); }
+
+.jd:active { background-color: rgb(190, 62, 46); }
+
+.nd { background-color: rgb(66, 127, 237); }
+
+.nd:hover { background-color: rgb(66, 133, 244); }
+
+.nd:active { background-color: rgb(44, 86, 177); }
+
+.rd { background-color: rgb(115, 115, 115); }
+
+.rd:hover { background-color: rgb(128, 128, 128); }
+
+.rd:active { background-color: rgb(64, 64, 64); }
+
+.Wd, .Wd:hover, .Wd:active { background-color: rgb(229, 229, 229); border: =
+none; box-shadow: none; color: rgb(170, 170, 170); }
+
+.s7 { float: left; }
+
+.u7 { display: block; }
+
+.Nr { fill: rgb(219, 68, 55); }
+
+.ud .Nr, .jd .Nr, .nd .Nr, .rd .Nr, .Wd .Nr { fill: rgb(255, 255, 255); }
+
+.hma { font-family: Roboto, arial, sans-serif; font-size: 12px; font-weight=
+: 700; margin-left: 6px; margin-right: 6px; vertical-align: top; }
+
+.Ul { height: 100%; width: 100%; }
+
+.ud .Ul, .jd .Ul, .nd .Ul, .rd .Ul, .Wd .Ul { border: 1px solid transparent=
+; }
+
+.q7, .GP { display: none; height: 100%; width: 100%; }
+
+.hva, .iva { margin-left: auto; margin-right: auto; }
+
+.uk, .Nl { border: 1px solid rgba(0, 0, 0, 0.168627); box-shadow: rgba(0, 0=
+, 0, 0.0470588) 0px 1px 0px; color: rgb(38, 38, 38); }
+
+.uk:hover, .Nl:hover { border: 1px solid rgba(0, 0, 0, 0.247059); box-shado=
+w: rgba(0, 0, 0, 0.0980392) 0px 1px 0px; }
+
+.uk:active, .Nl:active { border: 1px solid rgba(0, 0, 0, 0.247059); box-sha=
+dow: rgb(221, 221, 221) 0px 1px 0px inset; color: rgb(38, 38, 38); }
+
+.Nl, .Nl:hover { background-color: rgb(245, 245, 245); }
+
+.Nl:active { background-color: rgb(229, 229, 229); }
+
+.uk, .uk:hover { background-color: rgb(255, 255, 255); }
+
+.uk:active { background-color: rgb(229, 229, 229); }
+
+.Nl .GP, .uk .q7 { display: block; }
+
+.uk .Ul, .Nl .Ul, .uk .GP { display: none; }
+
+@-webkit-keyframes ozWidgetRioButtonWorkingIconPathSpinKeyframes {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ozWidgetRioButtonWorkingIconPathSpinKeyframes {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.zVaWQ { animation: ozWidgetRioButtonWorkingIconPathSpinKeyframes 2s linear=
+ infinite; transform-origin: 7px 7px 0px; }
+
+.ima { background-position: left top; background-repeat: no-repeat; }
+
+.HP, .HP:hover, .HP:active { color: rgb(219, 68, 55); }
+
+.uzlpSb { fill: rgb(219, 68, 55); }
+
+.ud .uzlpSb, .jd .uzlpSb, .nd .uzlpSb, .rd .uzlpSb, .Wd .uzlpSb { fill: rgb=
+(255, 255, 255); }
+
+.dIa { float: left; white-space: nowrap; }
+
+.Ina { cursor: pointer; display: block; outline: 0px; position: relative; t=
+ext-decoration: none; }
+
+.B8 { vertical-align: top; color: rgb(102, 102, 102); font-family: Roboto, =
+arial, sans-serif; }
+
+.b1 { text-align: center; margin-bottom: 8px; overflow: visible; width: 48p=
+x; height: 30px; position: relative; background: rgb(255, 255, 255); border=
+: 1px solid rgb(204, 204, 204); border-radius: 2px; }
+
+.b1::after, .b1::before { top: 100%; left: 50%; border: solid transparent; =
+content: " "; height: 0px; width: 0px; position: absolute; pointer-events: =
+none; }
+
+.b1::after { border-color: rgb(255, 255, 255) rgba(255, 255, 255, 0) rgba(2=
+55, 255, 255, 0); border-width: 4px; margin-left: -4px; }
+
+.b1::before { border-color: rgb(204, 204, 204) rgba(192, 192, 192, 0) rgba(=
+192, 192, 192, 0); border-width: 5px; margin-left: -5px; }
+
+.b1 .IY { padding-top: 6px; }
+
+.b1 { font-size: 15px; }
+
+.Jp, .bp, .ap { float: left; position: relative; background: rgb(255, 255, =
+255); border: 1px solid rgb(204, 204, 204); border-radius: 2px; }
+
+.HI { float: left; position: relative; }
+
+.Oy { color: rgb(102, 102, 102); font-family: Roboto, arial, sans-serif; ov=
+erflow: hidden; white-space: nowrap; }
+
+.Jp .HI { max-width: 43px; min-width: 5px; }
+
+.Jp .Oy { font-size: 10px; margin: 1px 5px; height: 11px; line-height: 12px=
+; }
+
+.bp .HI { max-width: 53px; min-width: 10px; }
+
+.bp .Oy { font-size: 11px; margin: 1px 6px; height: 16px; line-height: 17px=
+; }
+
+.ap .HI { max-width: 63px; min-width: 12px; }
+
+.ap .Oy { font-size: 12px; margin: 1px 6px; height: 20px; line-height: 21px=
+; }
+
+.ap::after, .ap::before, .bp::after, .bp::before, .Jp::after, .Jp::before {=
+ right: 100%; top: 50%; border: solid transparent; content: " "; height: 0p=
+x; width: 0px; position: absolute; pointer-events: none; }
+
+.ap, .bp { margin-left: 5px; }
+
+.ap::after, .bp::after { border-color: rgba(255, 255, 255, 0) rgb(255, 255,=
+ 255) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); border-width: 4px; mar=
+gin-top: -4px; }
+
+.ap::before, .bp::before { border-color: rgba(192, 192, 192, 0) rgb(204, 20=
+4, 204) rgba(192, 192, 192, 0) rgba(192, 192, 192, 0); border-width: 5px; m=
+argin-top: -5px; }
+
+.Jp { margin-left: 4px; }
+
+.Jp::after { border-color: rgba(255, 255, 255, 0) rgb(255, 255, 255) rgba(2=
+55, 255, 255, 0) rgba(255, 255, 255, 0); border-width: 3px; margin-top: -3p=
+x; }
+
+.Jp::before { border-color: rgba(192, 192, 192, 0) rgb(204, 204, 204) rgba(=
+192, 192, 192, 0) rgba(192, 192, 192, 0); border-width: 4px; margin-top: -4=
+px; }
+
+.A8 { color: rgb(102, 102, 102); font-style: normal; font-variant: normal; =
+font-weight: normal; font-stretch: normal; font-size: 11px; font-family: Ro=
+boto, arial, sans-serif; line-height: 1; white-space: normal; display: inli=
+ne-block; }
+
+.zra { border: 1px solid rgb(102, 102, 102); }
+
+.Ara { vertical-align: top; display: inline-block; }
+
+.Bra { padding-left: 1px; }
+
+.Jda { color: rgb(66, 127, 237); text-decoration: none; }
+
+.wfa { vertical-align: top; padding-right: 5px; white-space: nowrap; }
+
+.b6 { border-collapse: collapse; display: table; }
+
+.D8 { display: table-row; }
+
+.gP { border-spacing: 0px; display: table-cell; font-size: 11px; padding: 0=
+px; text-align: left; }
+
+.A8.fja { display: inline; overflow: hidden; padding-bottom: 0.1em; text-ov=
+erflow: ellipsis; white-space: nowrap; }
+
+.eja { line-height: 10px !important; }
+
+.LLa { width: 100%; height: 24px; }
+
+.aIa { padding-top: 5px; vertical-align: top; }
+
+.Jc { border-radius: 2px; user-select: none; cursor: pointer; display: inli=
+ne-block; float: left; font-family: Roboto, arial, sans-serif; font-weight:=
+ bold; outline: none; position: relative; text-decoration: none; white-spac=
+e: nowrap; }
+
+.in .Jc { font-size: 9px; line-height: 10px; }
+
+.wm .Jc { font-size: 11px; line-height: 14px; }
+
+.jn .Jc { font-size: 11px; line-height: 14px; }
+
+.wh .Jc { font-size: 12px; line-height: 16px; }
+
+.jz .Jc { font-size: 30px; line-height: 32px; }
+
+.in .Jc { padding: 1px 5px 2px 15px; }
+
+.wm .Jc { padding: 2px 8px 2px 17px; }
+
+.jn .Jc { padding: 4px 18px 4px 32px; }
+
+.wh .Jc { padding: 5px 18px 5px 32px; }
+
+.jz .Jc { padding: 13px 25px 13px 75px; }
+
+.Jc.Si { background-color: rgb(228, 228, 228); background-image: -webkit-li=
+near-gradient(top, rgb(244, 244, 244), rgb(228, 228, 228)); border-width: 1=
+px; border-style: solid; border-color: rgb(202, 202, 202) rgb(186, 186, 186=
+) rgb(172, 172, 172); border-image: initial; color: rgb(218, 87, 59); text-=
+shadow: rgba(255, 255, 255, 0.701961) 0px 1px 3px; }
+
+.Jc.Si:hover { box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 3px inset; back=
+ground-color: rgb(244, 244, 244); background-image: -webkit-linear-gradient=
+(top, rgb(255, 255, 255), rgb(244, 244, 244)); }
+
+.Jc.Si:active { box-shadow: rgba(101, 101, 101, 0.2) 0px 1px 3px inset; bac=
+kground-color: rgb(226, 226, 226); background-image: -webkit-linear-gradien=
+t(top, rgb(242, 242, 242), rgb(226, 226, 226)); border-width: 1px; border-s=
+tyle: solid; border-color: rgb(172, 172, 172) rgb(186, 186, 186) rgb(202, 2=
+02, 202); border-image: initial; }
+
+.Jc.Ih { box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 3px inset; background=
+-color: rgb(209, 66, 40); background-image: -webkit-linear-gradient(top, rg=
+b(217, 79, 49), rgb(209, 66, 40)); border: 1px solid rgb(196, 61, 32); colo=
+r: rgb(255, 255, 255); text-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 0px; }
+
+.Jc.Ih:hover, .Jc.Ih.gva { box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 3px=
+ inset; background-color: rgb(208, 64, 40); background-image: -webkit-linea=
+r-gradient(top, rgb(236, 112, 69), rgb(208, 64, 40)); border-width: 1px; bo=
+rder-style: solid; border-color: rgb(150, 48, 36) rgb(136, 38, 26) rgb(132,=
+ 33, 20); border-image: initial; }
+
+.Jc.Ih:active, .Jc.Ih.fva { box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px inse=
+t; background-color: rgb(208, 65, 40); background-image: -webkit-linear-gra=
+dient(top, rgb(208, 65, 40), rgb(219, 84, 52)); border-width: 1px; border-s=
+tyle: solid; border-color: rgb(132, 33, 20) rgb(136, 38, 26) rgb(150, 48, 3=
+6); border-image: initial; }
+
+.OIa { border-radius: 2px; background-color: rgb(255, 255, 255); border: 1p=
+x solid rgb(204, 204, 204); height: 19px; padding: 5px 0px; position: relat=
+ive; }
+
+.OIa::after, .OIa::before { top: 100%; left: 50%; border: solid transparent=
+; content: " "; height: 0px; width: 0px; position: absolute; pointer-events=
+: none; }
+
+.OIa::after { border-color: rgb(255, 255, 255) rgba(255, 255, 255, 0) rgba(=
+255, 255, 255, 0); border-width: 4px; margin-left: -4px; }
+
+.OIa::before { border-color: rgb(204, 204, 204) rgba(192, 192, 192, 0) rgba=
+(192, 192, 192, 0); border-width: 5px; margin-left: -5px; }
+
+.PIa { font-size: 15px; height: 35px; margin-bottom: 5px; overflow: hidden;=
+ text-align: center; }
+
+.kv8eNc { background-color: transparent; margin: 0px; padding: 0px; }
+
+.D5jmcc { background-color: rgb(245, 245, 245); margin: 0px; padding: 5px; =
+}
+
+sentinel { }
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: text/html
+Content-ID: <frame-2242-28357cda-af36-4617-953e-1572cbdbb4f7@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&origin=http%3A%2F%2Fwww.vim.org&url=http%3A%2F%2Fwww.vim.org%2Fscripts%2Fscript.php%3Fscript_id%3D2332&gsrc=3p&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.es_419.mLUelocxrI0.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCN8Q8jj0R4H2hGK1xbwGdZvPqiuJA#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&id=I1_1481047891087&parent=http%3A%2F%2Fwww.vim.org&pfname=&rpctoken=20391437
+
+<!DOCTYPE html><html lang=3D"es" dir=3D"ltr"><head><meta http-equiv=3D"Cont=
+ent-Type" content=3D"text/html; charset=3DUTF-8"><base href=3D"https://apis=
+.google.com/u/0/se/0/wm/1/"><style>body {-webkit-font-smoothing: antialiase=
+d;}/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/ek4gzZ-GeXAPcSbHtCeQI_esZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/-2n2p-_Y08sg57CNWQfKNvesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/NdF9MtnOpLzo-noMoG0miPesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-=
+xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) f=
+ormat('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+</style><link rel=3D"stylesheet" href=3D"https://apis.google.com/_/scs/apps=
+-static/_/ss/k=3Doz.plusone.wgyqmusf1v5f.L.W.O/d=3D0/rs=3DAGLTcCOTg7zD2RuG_=
+3hggYn2JcLXPfZh2g"></head><body class=3D"kv8eNc " marginwidth=3D"0" marginh=
+eight=3D"0"><div id=3D"root"><div id=3D"plusone" dir=3D"ltr" class=3D"Jg"><=
+span id=3D"widget_bounds"><div class=3D"dIa"><div style=3D"height:24px;widt=
+h:38px;" class=3D"FP HP Gib Ina " id=3D"button" title=3D"+1" role=3D"button=
+" tabindex=3D"0"><div class=3D"Ul"><div style=3D"margin:0px 0px 0 0px;" cla=
+ss=3D"s7"><svg version=3D"1.1" xmlns=3D"http://www.w3.org/2000/svg" preserv=
+eAspectRatio=3D"xMidYMid meet" width=3D"36px" height=3D"22px" viewBox=3D"-1=
+4 -8 72 44" class=3D"u7 uzlpSb"><path d=3D"M32 8.2h-3v4h-4V15h4v4h3v-4h4v-2=
+.9h-4V8.2zm6-2V8h3v15h3V4l-6 2.2z"></path><path d=3D"M11.4 11.3v4.5h6c-.4 2=
+.6-2.7 4.5-6 4.5-3.6 0-6.6-3.1-6.6-6.7s2.9-6.7 6.6-6.7c1.7 0 3.1.5 4.3 1.7l=
+3.2-3.2c-2-1.8-4.5-2.9-7.5-2.9C5.3 2.5.3 7.5.3 13.6s5 11.1 11.1 11.1c6.5 0 =
+10.7-4.6 10.7-10.9 0-.8-.1-1.7-.2-2.5H11.4z"></path></svg><div class=3D"xuw=
+mvb xuwmvb-22"></div></div></div><div class=3D"GP"><svg version=3D"1.1" xml=
+ns=3D"http://www.w3.org/2000/svg" preserveAspectRatio=3D"xMidYMid meet" wid=
+th=3D"22px" height=3D"22px" viewBox=3D"-1.5555555555555554 -1.5555555555555=
+554 17.11111111111111 17.11111111111111" class=3D"u7 u7 iva"><g id=3D"Q0N8V=
+c" fill=3D"#aaaaaa" transform=3D"rotate(0,7,7)"><path class=3D"zVaWQ" d=3D"=
+M5.5,1.5h3v4h4v3h-4v4h-3v-4h-4v-3h4z"></path></g></svg><div class=3D"C9sAve=
+ C9sAve-22"></div></div><div class=3D"q7"><svg version=3D"1.1" xmlns=3D"htt=
+p://www.w3.org/2000/svg" preserveAspectRatio=3D"xMidYMid meet" width=3D"20p=
+x" height=3D"22px" viewBox=3D"0 -2 20 22" class=3D"u7 u7 hva"><path fill=3D=
+"#DD4B39" d=3D"m19.8059,16.041-8.74-15.404c-.223-.394-.635-.637-1.078-.637-=
+.443,0-.855,.243-1.078,.637l-8.739,15.404c-.227,.396-.227,.9-.005,1.299 .22=
+3,.398 .637,.66 1.283,.66h17.279c.445,0 .859-.262 1.082-.66 .22-.399 .22-.9=
+02-.004-1.299zm-9.798-1.041c-.552,0-1-.463-1-1.02 0-.555 .448-1.002 1-1.002=
+ .552,0 1,.447 1,1.002-.001,.557-.448,1.02-1,1.02zm.999-9-.375,5h-1.25l-.37=
+4-5h.004l-.004-.02c0-.551 .448-.996 1-.996 .552,0 1,.449 1,1-.001,.007-.004=
+,.016-.004,.016h.003z"></path></svg><div class=3D"tapvDe tapvDe-22"></div><=
+/div></div></div><div class=3D"ap"><div class=3D"iQa HI"><div id=3D"aggrega=
+teCount" class=3D"Oy">220</div></div></div></span></div></div></body></html>
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W----
+Content-Type: text/html
+Content-ID: <frame-2243-d86d0ec0-f533-4b39-8ab3-2a95f73c64a2@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.vim.org&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.es_419.mLUelocxrI0.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCN8Q8jj0R4H2hGK1xbwGdZvPqiuJA#rpctoken=757448713&forcesecure=1
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3DUTF-8"><title></title><meta http-equiv=3D"X-UA-Compatible=
+" content=3D"IE=3Dedge"><meta name=3D"viewport" content=3D"width=3Ddevice-w=
+idth, initial-scale=3D1, minimum-scale=3D1, maximum-scale=3D1, user-scalabl=
+e=3D0"></head><body></body></html>
+------MultipartBoundary--MupktCAXIhx7yBRFAW8lHPH5FH1xbH5L56J9KQ259W------

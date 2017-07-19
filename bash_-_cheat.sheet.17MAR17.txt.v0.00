@@ -1,0 +1,40 @@
+    $1, $2, $3, ... are the positional parameters.
+    "$@" is an array-like construct of all positional parameters, {$1, $2, $3 ...}.
+    "$*" is the IFS expansion of all positional parameters, $1 $2 $3 ....
+    $# is the number of positional parameters.
+    $- current options set for the shell.
+    $$ pid of the current shell (not subshell).
+    $_ most recent parameter (or the abs path of the command to start the current shell immediately after startup).
+    $IFS is the (input) field separator.
+    $? is the most recent foreground pipeline exit status.
+    $! is the PID of the most recent background command.
+    $0 is the name of the shell or shell script.
+
+    #
+    # HEREDOCS 
+    #
+
+    # literal code escaped
+    (
+    cat << "EOF"
+    #!/bin/bash
+
+    echo "This is a generated shell script."
+    #  Note that since we are inside a subshell,
+    #+ we can't access variables in the "outside" script.
+
+    echo "Generated file will be named: $OUTFILE"
+    #  Above line will not work as normally expected
+    #+ because parameter expansion has been disabled.
+    #  Instead, the result is literal output.
+
+    a=7
+    b=3
+
+    let "c = $a * $b"
+    echo "c = $c"
+
+    exit 0
+    EOF > fooCode.bash
+    )
+

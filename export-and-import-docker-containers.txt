@@ -1,0 +1,270 @@
+   #[1]TecAdmin.net » Feed [2]TecAdmin.net » Comments Feed [3]TecAdmin.net
+   » How to Export and Import Docker Containers Comments Feed [4]alternate
+   [5]alternate
+
+   ____________________ (Search)
+
+     * [6]Home
+     * [7]Ubuntu 16.04
+          + [8]Whats New ?
+          + [9]Install JAVA 8
+          + [10]Setup LAMP Stack
+          + [11]Install LEMP Stack
+          + [12]Install Node.js
+          + [13]Install Git
+          + [14]Move Unity Launcher to Bottom
+     * [15]FeedBack
+     * [16]Funny Tools
+     * Tutorials
+          + [17]Linux Distributions
+               o [18]CentOS
+               o [19]Debian
+               o [20]Fedora
+               o [21]LinuxMint
+          + [22]Monitoring Tools
+               o [23]Monit
+               o [24]Nagios
+               o [25]NRPE
+          + [26]Network Services
+               o [27]DHCP
+               o [28]DNS
+               o [29]FTP
+          + [30]Databases
+               o [31]MySQL
+               o [32]MariaDB
+               o [33]MongoDB
+               o [34]PostgreSQL
+               o [35]SQL Server
+          + [36]Amazon Web Services
+     * [37]Submit Article
+     * [38]About Us
+
+   [39]TecAdmin.net
+     * [40]Home
+     * [41]Ubuntu 16.04
+          + [42]Whats New ?
+          + [43]Install JAVA 8
+          + [44]Setup LAMP Stack
+          + [45]Install LEMP Stack
+          + [46]Install Node.js
+          + [47]Install Git
+          + [48]Move Unity Launcher to Bottom
+     * [49]FeedBack
+     * [50]Funny Tools
+     * Tutorials
+          + [51]Linux Distributions
+               o [52]CentOS
+               o [53]Debian
+               o [54]Fedora
+               o [55]LinuxMint
+          + [56]Monitoring Tools
+               o [57]Monit
+               o [58]Nagios
+               o [59]NRPE
+          + [60]Network Services
+               o [61]DHCP
+               o [62]DNS
+               o [63]FTP
+          + [64]Databases
+               o [65]MySQL
+               o [66]MariaDB
+               o [67]MongoDB
+               o [68]PostgreSQL
+               o [69]SQL Server
+          + [70]Amazon Web Services
+     * [71]Submit Article
+     * [72]About Us
+
+   02 March 2016
+
+How to Export and Import Docker Containers
+
+   Written by [73]Rahul K.
+   [74]Linux Tutorials [75]Leave a Comment
+   [INS: :INS]
+
+   In our previous tutorials you have learned about installation of Docker
+   engine on [76]CentOS/RHEL and [77]Ubuntu operating system and pulled
+   images from Docker hub. After that created containers with images. This
+   tutorial will help you to export and import Docker containers and move
+   them between hosts.
+
+List Containers
+
+   Fist list all containers on your system using below command. Using ps
+   -a will list all containers (running and stopped) from your system.
+[78][email protected]:~# docker ps -a
+
+CONTAINER ID   IMAGE    COMMAND      CREATED       STATUS      PORTS  NAMES
+f2582758af13   ubuntu   "/bin/bash"  2 hours ago   Up 2 hours         ubuntu-web
+2b199b9976c4   centos   "/bin/bash"  3 days ago    Up 3 hours         centos-mys
+ql
+
+Export Container
+
+   Finally use the following command to export container named ubuntu-web
+   (container id: f2582758af13) and make a zipped archive named
+   ubuntu-web.tar.gz. Remember that export is used for making backup of
+   docker containers (not images) in image format.
+# docker export ubuntu-web | gzip > ubuntu-web.tar.gz
+
+Import Container
+
+   After exporting docker container on your system move it to remote
+   server using scp or ftp. After that use below command on remote server
+   to import Docker container on remote server with name ubuntu-web.
+# zcat ubuntu-web.gz | docker import - ubuntu-web
+
+   The above command will create a docker image on your system. You can
+   now launch a container from this image using below command.
+# docker run -i -t ubuntu-web /bin/bash
+
+   [INS: :INS] [INS: :INS]
+   Share it!
+   [INS: :INS]
+
+Rahul K.
+
+    Previous Article [79]How to Remove Docker Images and Containers
+   Next Article   [80]How to Move Docker Images between Hosts
+
+Leave a Reply
+
+   [81]Cancel reply
+
+   Comments *
+   _____________________________________________
+   _____________________________________________
+   _____________________________________________
+   _____________________________________________
+   _____________________________________________
+   _____________________________________________
+   _____________________________________________
+   _____________________________________________
+
+   Name * ___________________
+
+   Email * ___________________
+
+   Website ___________________
+
+   Submit
+
+   [ ] Notify me of follow-up comments by email.
+   [INS: :INS]
+
+   ____________________ (Search)
+
+Popular Posts
+
+     * [82]How to Install Subversion Server on Ubuntu 16.04 & 14.04 LTS
+     * [83]How To Control Privileged User on Linux
+
+   [INS: :INS]
+   © Copyright 2013-2016 [84]TecAdmin.net.
+
+   [85]Close
+   Please support the site
+   By clicking any of these buttons you help our site to get better
+   [86]Follow Me
+
+References
+
+   Visible links
+   1. http://tecadmin.net/feed/
+   2. http://tecadmin.net/comments/feed/
+   3. http://tecadmin.net/export-and-import-docker-containers/feed/
+   4. http://tecadmin.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftecadmin.net%2Fexport-and-import-docker-containers%2F
+   5. http://tecadmin.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Ftecadmin.net%2Fexport-and-import-docker-containers%2F&format=xml
+   6. http://tecadmin.net/
+   7. http://tecadmin.net/tag/ubuntu-16-04/
+   8. http://tecadmin.net/ubuntu-16-04-lts-xenial-xerus-release-schedule/
+   9. http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
+  10. http://tecadmin.net/install-apache-mysql-php-lamp-stack-on-ubuntu-16-04/
+  11. http://tecadmin.net/install-nginx-mysql-php-lemp-stack-on-ubuntu-16-04/
+  12. http://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
+  13. http://tecadmin.net/install-git-on-ubuntu/
+  14. http://tecadmin.net/move-unity-launcher-to-bottom-in-ubuntu/
+  15. http://tecadmin.net/feedback/
+  16. http://tecadmin.net/funny-tools/
+  17. http://tecadmin.net/category/linux-distributions/
+  18. http://tecadmin.net/category/linux-distributions/centos-linux-distributions/
+  19. http://tecadmin.net/category/linux-distributions/debian/
+  20. http://tecadmin.net/category/linux-distributions/fedora-linux-distributions/
+  21. http://tecadmin.net/category/linux-distributions/linuxmint-linux-distributions/
+  22. http://tecadmin.net/category/monitoring-tools/
+  23. http://tecadmin.net/category/monitoring-tools/monit/
+  24. http://tecadmin.net/category/monitoring-tools/nagios-monitoring-tools/
+  25. http://tecadmin.net/category/monitoring-tools/nrpe/
+  26. http://tecadmin.net/category/network-services/
+  27. http://tecadmin.net/category/network-services/dhcp/
+  28. http://tecadmin.net/category/network-services/dns-network-services/
+  29. http://tecadmin.net/category/network-services/ftp-network-services/
+  30. http://tecadmin.net/category/databases/
+  31. http://tecadmin.net/category/databases/mysql-databases/
+  32. http://tecadmin.net/category/databases/mariadb-databases/
+  33. http://tecadmin.net/category/databases/mongodb-databases/
+  34. http://tecadmin.net/category/databases/postgresql/
+  35. http://tecadmin.net/category/databases/sql-server/
+  36. http://tecadmin.net/category/amazon-tools/
+  37. http://tecadmin.net/submit-article/
+  38. http://tecadmin.net/about/
+  39. http://tecadmin.net/
+  40. http://tecadmin.net/
+  41. http://tecadmin.net/tag/ubuntu-16-04/
+  42. http://tecadmin.net/ubuntu-16-04-lts-xenial-xerus-release-schedule/
+  43. http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
+  44. http://tecadmin.net/install-apache-mysql-php-lamp-stack-on-ubuntu-16-04/
+  45. http://tecadmin.net/install-nginx-mysql-php-lemp-stack-on-ubuntu-16-04/
+  46. http://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
+  47. http://tecadmin.net/install-git-on-ubuntu/
+  48. http://tecadmin.net/move-unity-launcher-to-bottom-in-ubuntu/
+  49. http://tecadmin.net/feedback/
+  50. http://tecadmin.net/funny-tools/
+  51. http://tecadmin.net/category/linux-distributions/
+  52. http://tecadmin.net/category/linux-distributions/centos-linux-distributions/
+  53. http://tecadmin.net/category/linux-distributions/debian/
+  54. http://tecadmin.net/category/linux-distributions/fedora-linux-distributions/
+  55. http://tecadmin.net/category/linux-distributions/linuxmint-linux-distributions/
+  56. http://tecadmin.net/category/monitoring-tools/
+  57. http://tecadmin.net/category/monitoring-tools/monit/
+  58. http://tecadmin.net/category/monitoring-tools/nagios-monitoring-tools/
+  59. http://tecadmin.net/category/monitoring-tools/nrpe/
+  60. http://tecadmin.net/category/network-services/
+  61. http://tecadmin.net/category/network-services/dhcp/
+  62. http://tecadmin.net/category/network-services/dns-network-services/
+  63. http://tecadmin.net/category/network-services/ftp-network-services/
+  64. http://tecadmin.net/category/databases/
+  65. http://tecadmin.net/category/databases/mysql-databases/
+  66. http://tecadmin.net/category/databases/mariadb-databases/
+  67. http://tecadmin.net/category/databases/mongodb-databases/
+  68. http://tecadmin.net/category/databases/postgresql/
+  69. http://tecadmin.net/category/databases/sql-server/
+  70. http://tecadmin.net/category/amazon-tools/
+  71. http://tecadmin.net/submit-article/
+  72. http://tecadmin.net/about/
+  73. http://tecadmin.net/author/myadmin/
+  74. http://tecadmin.net/category/linux-tutorials/
+  75. http://tecadmin.net/export-and-import-docker-containers/#respond
+  76. http://tecadmin.net/install-and-manage-docker-on-centos/
+  77. http://tecadmin.net/install-and-manage-docker-on-ubuntu/
+  78. http://tecadmin.net/cdn-cgi/l/email-protection
+  79. http://tecadmin.net/remove-docker-images-and-containers/
+  80. http://tecadmin.net/move-docker-images-between-hosts/
+  81. http://tecadmin.net/export-and-import-docker-containers/#respond
+  82. http://tecadmin.net/install-subversion-server-on-ubuntu/
+  83. http://tecadmin.net/control-privileged-user-on-linux/
+  84. http://tecadmin.net/
+  85. http://tecadmin.net/export-and-import-docker-containers/
+  86. https://twitter.com/TecRahul
+
+   Hidden links:
+  88. http://www.facebook.com/share.php?u=http://tecadmin.net/export-and-import-docker-containers/&title=How+to+Export+and+Import+Docker+Containers
+  89. http://twitter.com/home?status=How+to+Export+and+Import+Docker+Containers+http://tecadmin.net/export-and-import-docker-containers/
+  90. https://plus.google.com/share?url=http://tecadmin.net/export-and-import-docker-containers/
+  91. http://www.linkedin.com/shareArticle?mini=true&url=http://tecadmin.net/export-and-import-docker-containers/&title=How+to+Export+and+Import+Docker+Containers&source=http://tecadmin.net
+  92. http://pinterest.com/pin/create/bookmarklet/?media=&url=http://tecadmin.net/export-and-import-docker-containers/&is_video=false&description=How+to+Export+and+Import+Docker+Containers
+  93. http://www.tumblr.com/share?v=3&u=http://tecadmin.net/export-and-import-docker-containers/&t=How+to+Export+and+Import+Docker+Containers
+  94. https://www.facebook.com/TecRahul
+  95. https://www.twitter.com/TecRahul
+  96. https://plus.google.com/+RahulKumar1099/posts

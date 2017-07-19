@@ -1,0 +1,12 @@
+gnome-panel-screenshot              # Using Gnome Screenshot
+    PrtScrn                         # entire display
+    Alt+PrtScn                      # active window
+    ^
+    | + shift + Alt + PrtScn        # prompted /w crosshair to drag a square around desired screen shot
+    
+ksnapshot
+import -window root filename.png    # ImageMagick
+
+REF:
+https://access.redhat.com/solutions/2178
+http://www.wikihow.com/Take-a-Screenshot-in-Linux

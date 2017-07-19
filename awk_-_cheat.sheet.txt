@@ -1,0 +1,32 @@
+awk '{print}' foo.txt
+"awk" enables you to create a condition and action pair, and for each record that matches the condition, the action will fire. 
+ls -la > temp.txt
+awk '/root/ {print $1, $9;}' temp.txt
+Most "awk" commands follow this pattern – you have a condition, followed by an action in curly braces. Our condition in this case is the regular expression /root/, which will match any line that contains "root".
+
+awk '/cluster\.name/' /data/moloch/etc/elasticsearch.yml
+cluster.name: Moloch
+
+awk '/cluster\.name/ {print}' /data/moloch/etc/elasticsearch.yml
+cluster.name: Moloch
+
+awk '/cluster\.name/ {gsub(/Moloch/, "niceLady"); print}' /data/moloch/etc/elasticsearch.yml
+cluster.name: niceLady
+
+
+
+In latest GNU Awk (since 4.1.0 released), it has the option of "inplace" file editing:
+
+    [...] The "inplace" extension, built using the new facility, can be used to simulate the GNU "sed -i" feature. [...]
+
+    Example usage:
+
+    $ gawk -i inplace '{ gsub(/foo/, "bar") }; { print }' file1 file2 file3
+
+    To keep the backup:
+
+    $ gawk -i inplace -v INPLACE_SUFFIX=.bak '{ gsub(/foo/, "bar") }
+    > { print }' file1 file2 file3
+
+
+

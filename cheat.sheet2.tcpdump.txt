@@ -1,0 +1,88 @@
+tcpdump -nqt -s 0 -A -i eth0 port 5060
+Functions: tcpdump
+Tags: tcpdump voip
+tcpdump -nqt -s 0 -A -i eth0 port 5060
+tcpdump -i eth1 -s0 -v -w /tmp/capture_`date +%d_%m_%Y__%H_%I_%S`.pcap
+Functions: tcpdump
+Tags: tcpdump wireshark
+tcpdump -i eth1 -s0 -v -w /tmp/capture_`date +%d_%m_%Y__%H_%I_%S`.pcap
+tcpdump into file with date format for wireshark
+tcpdump -i eth1 -s0 -v -w /tmp/capture.pcap
+Functions: tcpdump
+Tags: tcpdump wireshark
+tcpdump -i eth1 -s0 -v -w /tmp/capture.pcap
+Functions: awk sort tcpdump uniq
+Tags: sort awk uniq tcpdump top ten
+tcpdump top 10 talkers
+tcpdump -nni eth0 -e icmp[icmptype] == 8
+Functions: tcpdump
+capture only ping echo requests with tcpdump
+sudo tcpdump -i wlan0 -n ip | awk '{ print gensub(/(.*)\..*/,"\\1","g",$3), $4, gensub(/(.*)\..*/,"\\1","g",$5) }' | awk -F " > " '{print $1"\n"$2}'
+Functions: awk sudo tcpdump
+Tags: Network tcpdump ip address sniff interface
+tcpdump host <IP> -nXXv -s0 -w file.pcap
+Functions: host tcpdump
+Tags: Network IP tcpdump tcp
+tcpdump whole packets to file in ascii and hex with ip adresses instead of hostname
+tcpdump -nvvX -s 768 src x.x.x.x and dst port 80
+Functions: tcpdump
+Get some useful output from tcpdump
+tcpdump -i eth0 -w - | ssh forge.remotehost.com -c arcfour,blowfish-cbc -C -p 50005 "cat - | gzip > /tmp/eth0.pcap.gz"
+Functions: ssh tcpdump
+Tags: ssh tcpdump gzip
+This is useful when the local machine where you need to do the packet capture with tcpdump doesn?t have enough room to save the file, where as your remote host does
+tcpdump -i eth0 -w - | ssh forge.remotehost.com -c arcfour,blowfish-cbc -C -p 50005 "cat - | gzip > /tmp/eth0.pcap.gz"
+Your @ PC1 doing a tcpdump of PC1s eth0 interface and its going to save the output @ PC2 who is called save.location.com to a file /tmp/eth0-to-me.pcap.gz again on PC2
+More info @: http://www.kossboss.com/linuxtcpdump1
+tcpdump -i eth0 -w - | ssh savelocation.com -c arcfour,blowfish-cbc -C -p 50005 "cat - > /tmp/eth0.pcap"
+Functions: ssh tcpdump
+Tags: ssh tcpdump
+This is useful when the local machine where you need to do the packet capture with tcpdump doesn?t have enough room to save the file, where as your remote host does
+tcpdump -i eth0 -w - | ssh savelocation.com -c arcfour,blowfish-cbc -C -p 50005 "cat - > /tmp/eth0.pcap"
+Your @ PC1 doing a tcpdump of PC1s eth0 interface and its going to save the output @ PC2 who is called save.location.com to a file /tmp/ppp1-to-me.pcap.gz again on PC2
+More info @: http://www.kossboss.com/linuxtcpdump1
+tcpdump -l -s0 -w - tcp dst port 25 | strings | grep -i 'MAIL FROM\|RCPT TO'
+Functions: grep strings tcpdump
+tcpdump -l -s0 -w - tcp dst port 25 | strings | grep -i 'MAIL FROM\|RCPT TO'
+tcpdump -i eth0 -s 65535 -w test_capture
+Functions: tcpdump
+tcpdump -i eth0 port http or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|userna me:|password:|login:|pass |user '
+Functions: egrep tcpdump
+tcpdump sniff pop3,imap,smtp and http
+tcpdump -s 1024 -l -A -n host 192.168.9.56
+Functions: host tcpdump
+Tags: http tcpdump
+Show header HTTP with tcpdump
+tcpdump -s 1024 -l -A src 192.168.9.56 or dst 192.168.9.56
+Functions: tcpdump
+Tags: http tcpdump
+Show header HTTP with tcpdump
+tcpdump src <srcIP> and dst <dstIP> -w file.pcap
+Functions: tcpdump
+tcpdump from src to dst
+tcpdump -ntr NAME_OF_CAPTURED_FILE.pcap 'tcp[13] = 0x02 and dst port 80' | awk '{print $4}' | tr . ' ' | awk '{print $1"."$2"."$3"."$4}' | sort | uniq -c | awk ' {print $2 "\t" $1 }'
+Functions: awk sort tcpdump tr uniq
+Tags: awk uniq tcpdump print
+Read a tcpdump file and count SYN packets to port 80, Order column by destination.
+tcpdump port http or port ftp or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user ' --color=auto --line-buffered -B20
+Functions: egrep ftp tcpdump
+Tags: grep tcpdump pentest
+Plaintext credentials sniffing with tcpdump and grep
+tcpdump -A -s 0 port 80
+Functions: tcpdump
+ssh user@server.com sudo tcpdump -i eth0 -w - 'port 80'| /Applications/Wireshark.app/Contents/Resources/bin/wireshark -k -i -
+Functions: ssh sudo tcpdump
+tcpdump -w - |pv -bert >/dev/null
+Functions: tcpdump
+Tags: tcpdump pv network performance networking
+tcpdump -i eth0 -n | head
+Functions: tcpdump
+Tags: tcpdump ddos dos diagnostic
+Sometimes it is useful to have just a general picture of "what is taking all the bandwidth here". Running this command will limit tcpdump to a few packets (instead of flooding your terminal endlessly) and will provide a small, but sometimes sufficient, sample to determine what is going on.
+bzcat ext_if.log.0.bz2 | tcpdump -n -e -tttt -r - | less
+Functions: tcpdump
+sudo tcpdump -n -i eth0 -w data.pcap -v tcp or udp and 'not host 192.168.1.2'
+Functions: host sudo tcpdump
+ssh root@HOST tcpdump -iany -U -s0 -w - 'not port 22' | wireshark -k -i -
+Functions: ssh tcpdump
+When using tcpdump, specify -U option to prevent buffering and -iany to see all interfaces.

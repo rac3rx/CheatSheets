@@ -1,0 +1,3 @@
+rpm -ql
+rpm -qR powershell   # list dependencies
+

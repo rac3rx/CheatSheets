@@ -1,0 +1,98 @@
+
+local: -L    Specifies that the given port on the local (client) host is to be forwarded to the given host and port on the remote side
+remote: -R   Specifies that the given port on the remote (server) host is to be forwarded to the given host and port on the local side
+
+
+When you create a tunnel, you specify an address and port on which it will answer, and an address and port to which it will be delivered. 
+    The -L option tells the tunnel to answer on the local side of the tunnel (the host running your client). 
+    The -R option tells the tunnel to answer on the remote side (the SSH server).
+
+
+ssh -L sourcePort:<forwardToHost...[localhost][farawayhost]>:onPort connectToHost
+ssh -L 80:localhost:80 SUPERSERVER
+
+
+ssh -R sourcePort:<forwardToHost...[localhost][farawayhost]>:onPort connectToHost
+ssh -R 80:localhost:80 tinyserver
+ssh -R 80:SUPERSERVER:30180 tinyserver1
+
+
+.-----.      .-----.                        .-----.
+|  A  |  ==  |  B  |  - - ( Internet ) - -  |  C  |
+'-----'      '-----'                        '-----'
+      `-->----'  `--->--->---^  
+
+Example 01:
+http://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot
+Example for 1
+
+ssh -L 80:localhost:80 SUPERSERVER
+You specify that a connection made to the local port 80 is to be forwarded to port 80 on SUPERSERVER. That means if someone connects to your computer with a webbrowser, he gets the response of the webserver running on SUPERSERVER. You, on your local machine, have no webserver running.
+
+ssh -R 80:localhost:80 tinyserver
+
+
+.-------------.          .-------------.
+|             |          |     RH      |
+| your-host 80.----------.  .______.   |
+| where ssh  \==============> 80 LH|   | >
+| is typed    .----------.  '------'   |   \
+|             |          |  tinyserver |    \
+'-------------'          '-------------'    /
+           ^      http://your-host80       /
+            \     reflects tinyserver     /
+             \___________________________/
+
+
+===================================================================================================================
+LEGEND
+===================================================================================================================
+LH ................. :  local host
+RH ................. :  remote host
+
+initial big tube ... :  ---------- 
+
+                        ----------
+                         started with your SSH client and ends up at the SSH server you connected to.
+
+subsequent small tube:  ==========
+                        "start" or "end" is determined by whether you used -L or -R (respectively) to create them.
+===================================================================================================================
+http://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot
+You specify that a connection made to the local port 80 is to be forwarded to port 80 on TINYSERVER. 
+That means if someone connects to your computer with a webbrowser, he gets the response of the webserver running on TINYSERVER. 
+You, on your local machine, have no webserver running.
+
+
+
+
+ssh -f -N -T -R22222:localhost:22 yourpublichost.example.com
+    This tells your client to establish a tunnel with a -Remote entry point. 
+    Anything that attaches to port 22222 on the far end of the tunnel will actually reach 
+    "localhost port 22", where "localhost" is from the perspective of the exit point of the tunnel (i.e. your ssh client).
+
+The other options are:
+    -f tells ssh to background itself after it authenticates, so you don't have to sit around running something on the remote 
+       server for the tunnel to remain alive.
+    -N says that you want an SSH connection, but you don't actually want to run any remote commands. 
+       If all you're creating is a tunnel, then including this option saves resources.
+    -T disables pseudo-tty allocation, which is appropriate because you're not trying to create an interactive shell.
+
+Example for 2
+http://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot
+
+ssh -R 80:localhost:80 tinyserver
+   You specify, that a connection made to the port 80 of tinyserver is to be forwarded to port 80 on your local machine. 
+   That means if someone connects to the small and slow server with a webbrowser, he gets the response of the webserver running on your local machine. 
+   The tinyserver, which has not enough diskspace for the big website, has no webserver running. But people connecting to tinyserver think so.
+
+
+
+QUESTIONS:
+ssh port forward to access my home machine from anywhere
+
+
+REF:
+http://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work  <-- the best one
+http://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot <-- good explanation
+http://unix.stackexchange.com/questions/19620/ssh-port-forward-to-access-my-home-machine-from-anywhere  <-- great ascii

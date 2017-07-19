@@ -1,0 +1,7 @@
+awk '{for (i=2; i<=NF; i++) print $i}' firewall-cmd.history.txt  ...  for loop
+awk '{sub($1 FS,"" );print}' firewall-cmd.history.txt  ...  subtract first field and seperator/delimiter
+cat resp.ports.and.orig.hosts.24072.sansquotes.csv | awk -F, 'NR==1 {for (i=1; i<=NF; i++) print $i}'
+
+NR
+FS
+NF

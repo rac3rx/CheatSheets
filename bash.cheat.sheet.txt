@@ -1,0 +1,12 @@
+How To Initiate a Loop
+Although the while loop remains the easiest method for reading a file line by line, it does have its side effects. The while loop will obliterate the formatting of lines, including spaces and tabs. Furthermore, the for loop coupled with a change of IFS helps keep the structure of the document output.
+
+Syntax
+
+old_IFS=$IFS      # save the field separator               # while loop con: delete formatting of lines, spaces, & tabs    
+IFS=$'\n'     # new field separator, the end of line       # backup and change IFS to keep structure of document outpus    
+for line in $(cat fichier)          
+do          
+   command          
+done          
+IFS=$old_IFS     # restore default field separator         # restore IFS
