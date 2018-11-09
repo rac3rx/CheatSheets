@@ -1,0 +1,7 @@
+find / -name sqlite*
+/opt/metasploit-framework/embedded/bin/sqlite3
+sqlite> .mode csv
+sqlite> .import /tmp/ORACLE.csv oracle
+sqlite> .schema oracle
+sqlite> select "Plugin ID", CVE, HOST from oracle;
+
