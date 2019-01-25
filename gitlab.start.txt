@@ -1,0 +1,27 @@
+#
+# Git global setup
+#
+git config --global user.name "hammondc"
+git config --global user.email "hammondc@gitlab.com"
+git config --global credential.helper cache
+git config --global core.editor vim
+git config --global push.default simple
+
+ssh git@gitlab -T                                      # welcome to gitlab chris
+ssh git@gitlab -v                                      # welcome to gitlab chris
+ssh -i ~/.ssh/id_rsa git@gitlab
+
+eval ssh-agent $SHELL
+eval "$(ssh-agent -s)"
+ssh-add                                                # for alternate location; ssh-add .ssh/keys/*
+ssh-add -l
+
+#
+# Clone repository
+#
+git clone http://gitlab.dozer.com/hammondc/MySNs.git
+cd MySNs
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master

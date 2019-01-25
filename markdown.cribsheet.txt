@@ -1,0 +1,48 @@
+# collection of dot config files :sparkles:
+
+## make some lists
+    * [ ] .profile
+    * [ ] .bashrc
+    * [x] .screenrc
+    * [ ] .vimrc
+
+## Create a task list :camel:
+    - [ ] .profile
+    - [ ] .bashrc
+    - [x] .screenrc
+    - [ ] .vimrc
+    - [ ] @mentions, #refs, [links](), **formatting**, \*\*foo\*\*, and <del>tags<\del> supported
+
+## Write some code :+1:
+''' # write some code
+
+    for i in `ls -1`
+    do
+        printf '%s\n' "wzup dude here is a file from ls: ${$i}"
+    done
+'''
+
+## Create a table (pipes and hyphens) :tada:
+first header | second header
+----------------------------
+col 1 cell 1 | col 2 cell 1 
+----------------------------
+col 1 cell 2 | col 2 cell 2 
+
+
+## emojis  :metal:
+\:\+1\:
+\:sparkles\:
+\:camel\:
+\:tada\:
+\:rocket\:
+\:metal\:
+\:octocat\:
+
+
+## blockquotes :rocket:
+\> some junk appeared
+\> and I winced
+
+## images/links :octocat:
+[github logo](/var/www/images/logo.png
