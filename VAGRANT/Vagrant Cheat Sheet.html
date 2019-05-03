@@ -1,0 +1,2573 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-UFMpXZiU8/kG0aZl62l3OFZi0gwlVRLYrsamBbXttDRSbDmQk1ZyKj5R11ghzrHB/NaIPBuLauI34mVpsuxx5w==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-94eca081886beb7440fa7236f4fd103f.css" />
+  
+    <link crossorigin="anonymous" media="all" integrity="sha512-2NgDCU40htWjl2BQJcPMK+yfLjQpy9RVDqFIAuKKu6Hhjbf9yynqs9Z3ghZqLoesxs0/k6veHaKQ/gaVx3zDKA==" rel="stylesheet" href="https://github.githubassets.com/assets/github-61558f0e67a914c311cf66c3443ac94c.css" />
+    
+    
+    
+    
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Vagrant Cheat Sheet</title>
+    <meta name="description" content="Vagrant Cheat Sheet. GitHub Gist: instantly share code, notes, and snippets.">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch-gist.xml" title="Gist">
+  <link rel="fluid-icon" href="https://gist.github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/890951?s=400&amp;v=4" /><meta property="og:site_name" content="Gist" /><meta property="og:type" content="article" /><meta property="og:title" content="Vagrant Cheat Sheet" /><meta property="og:url" content="https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4" /><meta property="og:description" content="Vagrant Cheat Sheet. GitHub Gist: instantly share code, notes, and snippets." /><meta property="article:author" content="262588213843476" /><meta property="article:publisher" content="262588213843476" />
+
+  <link rel="assets" href="https://github.githubassets.com/">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzczNzc4MzkxOmEzMjI0MjBhYjgxMGM0ZjM0YzY5OWJkNzlhMTY4MTY5YTFiMzdiM2NlODdmNTg1YWFjMDQ4MjZhYWNlMzI3NWU=--6550a358af7e9bd64ba31fa7f55e63eb9e863b69">
+  <meta name="pjax-timeout" content="1000">
+  <link rel="sudo-modal" href="/sessions/sudo_modal">
+  <meta name="request-id" content="1CE6:347B:21750:3C2EB:5C7EAA9F" data-pjax-transient>
+
+
+  
+
+  <meta name="selected-link" value="gist_code" data-pjax-transient>
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="gist" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="1CE6:347B:21750:3C2EB:5C7EAA9F" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="10985441" /><meta name="octolytics-actor-login" content="rac3rx" /><meta name="octolytics-actor-hash" content="a261b54b28b8ddd9e4bfe13376e7195a8950ba83ded26ba414606f23d153735f" />
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;gist-id&gt;" data-pjax-transient="true" />
+
+
+
+    <meta name="google-analytics" content="UA-3769691-4">
+
+  <meta class="js-ga-set" name="userId" content="248109623574494709cf774ba041fc47">
+
+<meta class="js-ga-set" name="dimension1" content="Logged In">
+
+
+
+    <meta name="octolytics-dimension-public" content="true" /><meta name="octolytics-dimension-gist_id" content="22845144" /><meta name="octolytics-dimension-gist_name" content="a49594e2e2b918f4d0c4" /><meta name="octolytics-dimension-anonymous" content="false" /><meta name="octolytics-dimension-owner_id" content="890951" /><meta name="octolytics-dimension-owner_login" content="wpscholar" /><meta name="octolytics-dimension-forked" content="false" />
+
+  <meta class="js-ga-set" name="dimension5" content="public">
+  <meta class="js-ga-set" name="dimension6" content="owned">
+  <meta class="js-ga-set" name="dimension7" content="markdown">
+
+
+      <meta name="hostname" content="gist.github.com">
+    <meta name="user-login" content="rac3rx">
+
+      <meta name="expected-hostname" content="gist.github.com">
+    <meta name="js-proxy-site-detection-payload" content="OWQ3MGQwNzZjZjA4MTk0ZTMyNzZhNGJmOTQyYTgxY2NkODYyMjE3YTVhNzZmYzhhNzQ1MjRjOTBjZTg3YWM1Ynx7InJlbW90ZV9hZGRyZXNzIjoiMTIuMjM3LjE3NS4xODUiLCJyZXF1ZXN0X2lkIjoiMUNFNjozNDdCOjIxNzUwOjNDMkVCOjVDN0VBQTlGIiwidGltZXN0YW1wIjoxNTUxODA1MDg3LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+
+    <meta name="enabled-features" content="UNIVERSE_BANNER,MARKETPLACE_SOCIAL_PROOF,MARKETPLACE_PLAN_RESTRICTION_EDITOR,NOTIFY_ON_BLOCK,RELATED_ISSUES,MARKETPLACE_BROWSING_V2">
+
+  <meta name="html-safe-nonce" content="1c14ee17d3c1b73fec68dfeb25e66073ecb22425">
+
+  <meta http-equiv="x-pjax-version" content="f7eed42f81fd40ab2e42c5fe2c9324be">
+  
+
+      <link href="/wpscholar.atom" rel="alternate" title="atom" type="application/atom+xml">
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-L+anfaRoTRLzOqKiqeJ5GZ86gvuVvypBXUmu+S7LYCR6ET9olF/BcHIW0fLxRW6MVBhxg/mpDrCgm9eNvvTmAA==" rel="stylesheet" href="https://github.githubassets.com/assets/gist-85d4a385fff492f1295d9e2574aba8c8.css" />
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://github.githubassets.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+  <meta name="u2f-support" content="true">
+
+
+
+  </head>
+
+  <body class="logged-in env-production">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="p-3 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+        <div class="Header gist-header header-logged-in" role="banner">
+  <div class="container-lg px-3 clearfix">
+    <div class="d-flex flex-justify-between">
+      <div class="d-flex">
+        <a class="header-logo-wordmark" data-hotkey="g d" aria-label="Gist Homepage" href="/">
+          <svg width="78" height="28" class="octicon octicon-logo-github" viewBox="0 0 45 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M18.53 12.03h-.02c.009 0 .015.01.024.011h.006l-.01-.01zm.004.011c-.093.001-.327.05-.574.05-.78 0-1.05-.36-1.05-.83V8.13h1.59c.09 0 .16-.08.16-.19v-1.7c0-.09-.08-.17-.16-.17h-1.59V3.96c0-.08-.05-.13-.14-.13h-2.16c-.09 0-.14.05-.14.13v2.17s-1.09.27-1.16.28c-.08.02-.13.09-.13.17v1.36c0 .11.08.19.17.19h1.11v3.28c0 2.44 1.7 2.69 2.86 2.69.53 0 1.17-.17 1.27-.22.06-.02.09-.09.09-.16v-1.5a.177.177 0 0 0-.146-.18zM42.23 9.84c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25zm2.43-.16c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88zm-8.72-3.61h-2.1c-.11 0-.17.08-.17.19v5.44s-.55.39-1.3.39-.97-.34-.97-1.09V6.25c0-.09-.08-.17-.17-.17h-2.14c-.09 0-.17.08-.17.17v5.11c0 2.2 1.23 2.75 2.92 2.75 1.39 0 2.52-.77 2.52-.77s.05.39.08.45c.02.05.09.09.16.09h1.34c.11 0 .17-.08.17-.17l.02-7.47c0-.09-.08-.17-.19-.17zm-23.7-.01h-2.13c-.09 0-.17.09-.17.2v7.34c0 .2.13.27.3.27h1.92c.2 0 .25-.09.25-.27V6.23c0-.09-.08-.17-.17-.17zm-1.05-3.38c-.77 0-1.38.61-1.38 1.38 0 .77.61 1.38 1.38 1.38.75 0 1.36-.61 1.36-1.38 0-.77-.61-1.38-1.36-1.38zm16.49-.25h-2.11c-.09 0-.17.08-.17.17v4.09h-3.31V2.6c0-.09-.08-.17-.17-.17h-2.13c-.09 0-.17.08-.17.17v11.11c0 .09.09.17.17.17h2.13c.09 0 .17-.08.17-.17V8.96h3.31l-.02 4.75c0 .09.08.17.17.17h2.13c.09 0 .17-.08.17-.17V2.6c0-.09-.08-.17-.17-.17zM8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17z"/></svg>
+          <svg width="40" height="28" class="octicon octicon-logo-gist" viewBox="0 0 25 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M4.7 8.73h2.45v4.02c-.55.27-1.64.34-2.53.34-2.56 0-3.47-2.2-3.47-5.05 0-2.85.91-5.06 3.48-5.06 1.28 0 2.06.23 3.28.73V2.66C7.27 2.33 6.25 2 4.63 2 1.13 2 0 4.69 0 8.03c0 3.34 1.11 6.03 4.63 6.03 1.64 0 2.81-.27 3.59-.64V7.73H4.7v1zm6.39 3.72V6.06h-1.05v6.28c0 1.25.58 1.72 1.72 1.72v-.89c-.48 0-.67-.16-.67-.7v-.02zm.25-8.72c0-.44-.33-.78-.78-.78s-.77.34-.77.78.33.78.77.78.78-.34.78-.78zm4.34 5.69c-1.5-.13-1.78-.48-1.78-1.17 0-.77.33-1.34 1.88-1.34 1.05 0 1.66.16 2.27.36v-.94c-.69-.3-1.52-.39-2.25-.39-2.2 0-2.92 1.2-2.92 2.31 0 1.08.47 1.88 2.73 2.08 1.55.13 1.77.63 1.77 1.34 0 .73-.44 1.42-2.06 1.42-1.11 0-1.86-.19-2.33-.36v.94c.5.2 1.58.39 2.33.39 2.38 0 3.14-1.2 3.14-2.41 0-1.28-.53-2.03-2.75-2.23h-.03zm8.58-2.47v-.86h-2.42v-2.5l-1.08.31v2.11l-1.56.44v.48h1.56v5c0 1.53 1.19 2.13 2.5 2.13.19 0 .52-.02.69-.05v-.89c-.19.03-.41.03-.61.03-.97 0-1.5-.39-1.5-1.34V6.94h2.42v.02-.01z"/></svg>
+</a>
+        <div class="site-search js-site-search" role="search">
+            <div class="header-search" role="search">
+
+<!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative js-quicksearch-form" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="header-search-wrapper form-control js-chromeless-input-container">
+    <input type="text"
+      class="form-control js-site-search-focus header-search-input js-navigation-enable js-quicksearch-field"
+      data-hotkey="s,/"
+      name="q"
+      aria-label="Search"
+      placeholder="Search…"
+      autocorrect="off"
+      autocomplete="off"
+      autocapitalize="off">
+  </div>
+
+    <div class="gist-quicksearch-results js-quicksearch-results js-navigation-container" data-quicksearch-url="/search/quick"></div>
+</form></div>
+
+        </div>
+
+        <ul class="list-style-none d-flex flex-items-center text-bold pl-2" role="navigation">
+          <li><a class="HeaderNavlink px-2" data-ga-click="Header, go to all gists, text:all gists" href="/discover">All gists</a></li>
+          <li><a class="HeaderNavlink px-2" data-ga-click="Header, go to GitHub, text:Back to GitHub" href="https://github.com">Back to GitHub</a></li>
+        </ul>
+      </div>
+
+        <ul class="user-nav d-flex flex-items-center list-style-none" id="user-links">
+          <li><a class="HeaderNavlink text-bold pr-3" data-ga-click="Header, go to new gist, text:new gist" href="/">New gist</a></li>
+          <li class="dropdown">
+            <details class="details-overlay details-reset pl-2">
+              <summary class="HeaderNavlink name mt-1"
+                aria-label="View profile and more"
+                data-ga-click="Header, show menu, icon:avatar">
+                <img class="avatar" src="https://avatars3.githubusercontent.com/u/10985441?s=40&amp;v=4" width="20" height="20" alt="@rac3rx" />
+                <span class="dropdown-caret"></span>
+              </summary>
+              <details-menu class="dropdown-menu dropdown-menu-sw">
+                <div class="header-nav-current-user css-truncate"><a role="menuitem" class="no-underline user-profile-link px-3 pt-2 pb-2 mb-n2 mt-n1 d-block" href="/rac3rx" data-ga-click="Header, go to profile, text:Signed in as">Signed in as <strong class="css-truncate-target">rac3rx</strong></a></div>
+                <div role="none" class="dropdown-divider"></div>
+                <a role="menuitem" class="dropdown-item" href="/rac3rx" data-ga-click="Header, go to your gists, text:your gists">Your gists</a>
+                <a role="menuitem" class="dropdown-item" href="/rac3rx/starred" data-ga-click="Header, go to starred gists, text:starred gists">Starred gists</a>
+                <a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
+                <div role="none" class="dropdown-divider"></div>
+                <a role="menuitem" class="dropdown-item" href="https://github.com/rac3rx" data-ga-click="Header, go to profile, text:your profile">Your GitHub profile</a>
+                <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="https://gist.github.com/auth/github/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="/gALOlVGzdOEAV/ClFlUXDJchH9Pd4v4UAaSDQPkAKr+N9NjphP6Z4gye4VuqrYBhRZEjBeio0GED3GhYM6Xrg==" />
+                  <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
+                    Sign out
+                  </button>
+</form>              </details-menu>
+            </details>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+      
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+
+</div>
+
+
+
+  <div class="application-main " data-commit-hovercards-enabled>
+        <div itemscope itemtype="http://schema.org/Code">
+    <div id="gist-pjax-container" class="gist-content-wrapper" data-pjax-container>
+      
+
+
+
+
+<div class="gisthead pagehead repohead instapaper_ignore readability-menu experiment-repo-nav mb-4">
+  <div class="container">
+    
+  
+<div class="container repohead-details-container">
+
+  <ul class="pagehead-actions">
+
+
+    <li>
+          <div class="js-toggler-container js-social-container starring-container ">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/wpscholar/a49594e2e2b918f4d0c4/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="D8FAVCzz9e5u/wsFOXKI9rpY3F53U0MZZWjqkGNoLzsYZN+GwweHyDYjm/TMBvN4hU8eWMaYUtFa3EBUZYtz/Q==" />
+      <input type="hidden" name="context" value="gist"></input>
+      <button
+        type="submit"
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Unstar this gist" title="Unstar wpscholar/a49594e2e2b918f4d0c4"
+        data-ga-click="Repository, click unstar button, action:gists/gists#show; text:Unstar">
+        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="/wpscholar/a49594e2e2b918f4d0c4/stargazers"
+           aria-label="239 users starred this repository">
+          239
+        </a>
+</form>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/wpscholar/a49594e2e2b918f4d0c4/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Ij8niwkbZgQenvkMEHfZUv3Ib70yJtrG3tN3bPdeNA6t/3PW57K634qpY1kFIuknIKK4mC4XL5tPMoRbT402Ng==" />
+      <input type="hidden" name="context" value="gist"></input>
+      <button
+        type="submit"
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Star this gist" title="Star wpscholar/a49594e2e2b918f4d0c4"
+        data-ga-click="Repository, click star button, action:gists/gists#show; text:Star">
+        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="/wpscholar/a49594e2e2b918f4d0c4/stargazers"
+           aria-label="239 users starred this repository">
+          239
+        </a>
+</form>  </div>
+
+
+    </li>
+
+      <li>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/wpscholar/a49594e2e2b918f4d0c4/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="AQLlmcxaShKf2ZeRIsAjeHejbt6otfVEixzA6FYZJ6QDFsAztsabA2lSvqkM0xzuKIDgigqf7S/ZqTOvftiK0A==" />
+    <button class="btn btn-sm btn-with-count" type="submit">
+      <svg class="octicon octicon-repo-forked" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      Fork
+    </button>
+      <a class="social-count js-social-count"
+        href="/wpscholar/a49594e2e2b918f4d0c4/forks"
+        aria-label="100 users forked this gist">
+        100
+      </a>
+</form>
+      </li>
+  </ul>
+
+  <h1 class="public css-truncate">
+    <a class="avatar gist-avatar" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=890951" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/wpscholar"><img src="https://avatars0.githubusercontent.com/u/890951?s=52&amp;v=4" width="26" height="26" alt="@wpscholar" /></a>
+    <span class="author"><a data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=890951" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/wpscholar">wpscholar</a></span><!--
+        --><span class="path-divider">/</span><!--
+        --><strong itemprop="name" class="gist-header-title css-truncate-target"><a href="/wpscholar/a49594e2e2b918f4d0c4">vagrant-cheat-sheet.md</a></strong>
+
+    <div class="d-block text-small text-gray">
+      Last active <time-ago datetime="2019-03-03T20:19:52Z">Mar 3, 2019</time-ago>
+        &bull;
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" method="post" action="/wpscholar/a49594e2e2b918f4d0c4/report"><input class="btn-link link-gray" aria-label="Report gist as abuse" data-confirm="Do you want to report the contents of this gist as abuse?" type="submit" value="Report abuse" /><input type="hidden" name="authenticity_token" value="oI3P/ChctkghdZRJuMOqcybqqvdU0ZSbVENPk5sfW+GxqLu6Z8PqYMbAg/MmEPWaAz1UcpjlDf8X2rxyLeyZTg==" /></form>
+    </div>
+  </h1>
+</div>
+
+<div class="container gist-file-navigation">
+  <div class="float-right file-navigation-options" data-multiple>
+
+    <div class="file-navigation-option v-align-middle">
+
+  <div class="input-group js-gist-share-menu">
+    <div class="input-group-button">
+      <details class="details-reset details-overlay select-menu">
+        <summary class="btn btn-sm select-menu-button" data-ga-click="Repository, clone Embed, location:repo overview">
+          <span data-menu-button>Embed</span>
+        </summary>
+        <details-menu class="select-menu-modal position-absolute" style="z-index: 99;" aria-label="Clone options">
+          <div class="select-menu-header">
+            <span class="select-menu-title">What would you like to do?</span>
+          </div>
+          <div class="select-menu-list">
+              <button type="button"
+                  class="select-menu-item width-full"
+                  aria-checked="true"
+                  role="menuitemradio"
+                  tabindex="0"
+                  value="&lt;script src=&quot;https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4.js&quot;&gt;&lt;/script&gt;">
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+                <div class="select-menu-item-text">
+                  <span class="select-menu-item-heading" data-menu-button-text>
+                    
+                    Embed
+                  </span>
+                    <span class="description">
+                      Embed this gist in your website.
+                    </span>
+                </div>
+              </button>
+              <button type="button"
+                  class="select-menu-item width-full"
+                  aria-checked="false"
+                  role="menuitemradio"
+                  tabindex="0"
+                  value="https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4">
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+                <div class="select-menu-item-text">
+                  <span class="select-menu-item-heading" data-menu-button-text>
+                    
+                    Share
+                  </span>
+                    <span class="description">
+                      Copy sharable link for this gist.
+                    </span>
+                </div>
+              </button>
+              <button type="button"
+                  class="select-menu-item width-full"
+                  aria-checked="false"
+                  role="menuitemradio"
+                  tabindex="0"
+                  value="https://gist.github.com/a49594e2e2b918f4d0c4.git">
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+                <div class="select-menu-item-text">
+                  <span class="select-menu-item-heading" data-menu-button-text>
+                    Clone via
+                    HTTPS
+                  </span>
+                    <span class="description">
+                      Clone with Git or checkout with SVN using the repository’s web address.
+                    </span>
+                </div>
+              </button>
+              <button type="button"
+                  class="select-menu-item width-full"
+                  aria-checked="false"
+                  role="menuitemradio"
+                  tabindex="0"
+                  value="git@gist.github.com:a49594e2e2b918f4d0c4.git">
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+                <div class="select-menu-item-text">
+                  <span class="select-menu-item-heading" data-menu-button-text>
+                    Clone via
+                    SSH
+                  </span>
+                    <span class="description">
+                      Clone with an SSH key and passphrase from your GitHub settings.
+                    </span>
+                </div>
+              </button>
+          </div>
+          <div class="select-menu-list" role="menu">
+            <a class="select-menu-item select-menu-action" href="https://help.github.com/articles/which-remote-url-should-i-use" target="_blank">
+              <svg class="octicon octicon-question select-menu-item-icon" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"/></svg>
+              <div class="select-menu-item-text">
+                Learn more about clone URLs
+              </div>
+            </a>
+          </div>
+        </details-menu>
+      </details>
+    </div>
+
+    <input
+      id="gist-share-url"
+      type="text"
+      data-autoselect
+      class="form-control input-monospace input-sm"
+      value="&lt;script src=&quot;https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4.js&quot;&gt;&lt;/script&gt;"
+      aria-label="Clone this repository at &lt;script src=&quot;https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4.js&quot;&gt;&lt;/script&gt;"
+      readonly>
+
+    <div class="input-group-button">
+      <clipboard-copy for="gist-share-url" aria-label="Copy to clipboard" class="btn btn-sm zeroclipboard-button">
+        <svg class="octicon octicon-clippy" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg>
+      </clipboard-copy>
+    </div>
+  </div>
+</div>
+
+
+    <div class="file-navigation-option">
+</div>
+
+
+    <div class="file-navigation-option">
+      <a href="/wpscholar/a49594e2e2b918f4d0c4/archive/fca88b3b51a3009a734950a21f7ff7f3383c626c.zip"
+          class="btn btn-sm"
+          rel="nofollow"
+          data-ga-click="Gist, download zip, location:gist overview">
+        Download ZIP
+      </a>
+    </div>
+  </div>
+
+  <div class="float-left">
+    <nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     role="navigation"
+     data-pjax="#gist-pjax-container">
+
+  <a class="js-selected-navigation-item selected reponav-item" aria-label="Code" data-pjax="true" data-hotkey="g c" aria-current="page" data-selected-links="gist_code /wpscholar/a49594e2e2b918f4d0c4" href="/wpscholar/a49594e2e2b918f4d0c4">
+    <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+    Code
+</a>
+    <a class="js-selected-navigation-item reponav-item" aria-label="Revisions" data-pjax="true" data-hotkey="g r" data-selected-links="gist_revisions /wpscholar/a49594e2e2b918f4d0c4/revisions" href="/wpscholar/a49594e2e2b918f4d0c4/revisions">
+      <svg class="octicon octicon-git-commit" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"/></svg>
+      Revisions
+      <span class="Counter">11</span>
+</a>
+    <a class="js-selected-navigation-item reponav-item" aria-label="Stars" data-pjax="true" data-hotkey="g s" data-selected-links="gist_stars /wpscholar/a49594e2e2b918f4d0c4/stargazers" href="/wpscholar/a49594e2e2b918f4d0c4/stargazers">
+      <svg class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+      Stars
+      <span class="Counter">239</span>
+</a>
+    <a class="js-selected-navigation-item reponav-item" aria-label="Forks" data-pjax="true" data-hotkey="g f" data-selected-links="gist_forks /wpscholar/a49594e2e2b918f4d0c4/forks" href="/wpscholar/a49594e2e2b918f4d0c4/forks">
+      <svg class="octicon octicon-git-branch" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      Forks
+      <span class="Counter">100</span>
+</a></nav>
+
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content gist-content">
+    
+  <div>
+      <div itemprop="about">
+    Vagrant Cheat Sheet
+  </div>
+
+
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vagrant-cheat-sheet-md" class="file">
+      <div class="file-header">
+        <div class="file-actions">
+
+          <a class="btn btn-sm " href="/wpscholar/a49594e2e2b918f4d0c4/raw/fca88b3b51a3009a734950a21f7ff7f3383c626c/vagrant-cheat-sheet.md">Raw</a>
+        </div>
+        <div class="file-info">
+          <span class="icon">
+            <svg class="octicon octicon-gist" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.5 5L10 7.5 7.5 10l-.75-.75L8.5 7.5 6.75 5.75 7.5 5zm-3 0L2 7.5 4.5 10l.75-.75L3.5 7.5l1.75-1.75L4.5 5zM0 13V2c0-.55.45-1 1-1h10c.55 0 1 .45 1 1v11c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1zm1 0h10V2H1v11z"/></svg>
+          </span>
+          <a class="tooltipped tooltipped-s css-truncate" aria-label="Permalink" href="#file-vagrant-cheat-sheet-md">
+            <strong class="user-select-contain gist-blob-name css-truncate-target">
+              vagrant-cheat-sheet.md
+            </strong>
+          </a>
+        </div>
+      </div>
+    
+  <div id="file-vagrant-cheat-sheet-md-readme" class="readme blob instapaper_body js-code-block-container">
+    <article class="markdown-body entry-content" itemprop="text"><p>Typing <code>vagrant</code> from the command line will display a list of all available commands.</p>
+<p>Be sure that you are in the same directory as the Vagrantfile when running these commands!</p>
+<h1><a id="user-content-creating-a-vm" class="anchor" aria-hidden="true" href="#creating-a-vm"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a VM</h1>
+<ul>
+<li><code>vagrant init</code>           -- Initialize Vagrant with a Vagrantfile and ./.vagrant directory, using no specified base image. Before you can do vagrant up, you'll need to specify a base image in the Vagrantfile.</li>
+<li><code>vagrant init &lt;boxpath&gt;</code> -- Initialize Vagrant with a specific box. To find a box, go to the <a href="https://app.vagrantup.com/boxes/search" rel="nofollow">public Vagrant box catalog</a>. When you find one you like, just replace it's name with boxpath. For example, <code>vagrant init ubuntu/trusty64</code>.</li>
+</ul>
+<h1><a id="user-content-starting-a-vm" class="anchor" aria-hidden="true" href="#starting-a-vm"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Starting a VM</h1>
+<ul>
+<li><code>vagrant up</code>                  -- starts vagrant environment (also provisions only on the FIRST vagrant up)</li>
+<li><code>vagrant resume</code>              -- resume a suspended machine (vagrant up works just fine for this as well)</li>
+<li><code>vagrant provision</code>           -- forces reprovisioning of the vagrant machine</li>
+<li><code>vagrant reload</code>              -- restarts vagrant machine, loads new Vagrantfile configuration</li>
+<li><code>vagrant reload --provision</code>  -- restart the virtual machine and force provisioning</li>
+</ul>
+<h1><a id="user-content-getting-into-a-vm" class="anchor" aria-hidden="true" href="#getting-into-a-vm"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting into a VM</h1>
+<ul>
+<li><code>vagrant ssh</code>           -- connects to machine via SSH</li>
+<li><code>vagrant ssh &lt;boxname&gt;</code> -- If you give your box a name in your Vagrantfile, you can ssh into it with boxname. Works from any directory.</li>
+</ul>
+<h1><a id="user-content-stopping-a-vm" class="anchor" aria-hidden="true" href="#stopping-a-vm"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stopping a VM</h1>
+<ul>
+<li><code>vagrant halt</code>        -- stops the vagrant machine</li>
+<li><code>vagrant suspend</code>     -- suspends a virtual machine (remembers state)</li>
+</ul>
+<h1><a id="user-content-cleaning-up-a-vm" class="anchor" aria-hidden="true" href="#cleaning-up-a-vm"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cleaning Up a VM</h1>
+<ul>
+<li><code>vagrant destroy</code>     -- stops and deletes all traces of the vagrant machine</li>
+<li>`vagrant destroy -f   -- same as above, without confirmation</li>
+</ul>
+<h1><a id="user-content-boxes" class="anchor" aria-hidden="true" href="#boxes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Boxes</h1>
+<ul>
+<li><code>vagrant box list</code>              -- see a list of all installed boxes on your computer</li>
+<li><code>vagrant box add &lt;name&gt; &lt;url&gt;</code>  -- download a box image to your computer</li>
+<li><code>vagrant box outdated</code>          -- check for updates vagrant box update</li>
+<li><code>vagrant boxes remove &lt;name&gt;</code>   -- deletes a box from the machine</li>
+<li><code>vagrant package</code>               -- packages a running virtualbox env in a reusable box</li>
+</ul>
+<h1><a id="user-content-saving-progress" class="anchor" aria-hidden="true" href="#saving-progress"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Saving Progress</h1>
+<p>-<code>vagrant snapshot save [options] [vm-name] &lt;name&gt;</code> -- vm-name is often <code>default</code>. Allows us to save so that we can rollback at a later time</p>
+<h1><a id="user-content-tips" class="anchor" aria-hidden="true" href="#tips"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tips</h1>
+<ul>
+<li><code>vagrant -v</code>                    -- get the vagrant version</li>
+<li><code>vagrant status</code>                -- outputs status of the vagrant machine</li>
+<li><code>vagrant global-status</code>         -- outputs status of all vagrant machines</li>
+<li><code>vagrant global-status --prune</code> -- same as above, but prunes invalid entries</li>
+<li><code>vagrant provision --debug</code>     -- use the debug flag to increase the verbosity of the output</li>
+<li><code>vagrant push</code>                  -- yes, vagrant can be configured to <a href="http://docs.vagrantup.com/v2/push/index.html" rel="nofollow">deploy code</a>!</li>
+<li><code>vagrant up --provision | tee provision.log</code>  -- Runs <code>vagrant up</code>, forces provisioning and logs all output to a file</li>
+</ul>
+<h1><a id="user-content-plugins" class="anchor" aria-hidden="true" href="#plugins"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plugins</h1>
+<ul>
+<li><a href="https://github.com/cogitatio/vagrant-hostsupdater">vagrant-hostsupdater</a> : <code>$ vagrant plugin install vagrant-hostsupdater</code> to update your <code>/etc/hosts</code> file automatically each time you start/stop your vagrant box.</li>
+</ul>
+<h1><a id="user-content-notes" class="anchor" aria-hidden="true" href="#notes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notes</h1>
+<ul>
+<li>If you are using <a href="https://github.com/varying-vagrant-vagrants/vvv/">VVV</a>, you can enable xdebug by running <code>vagrant ssh</code> and then <code>xdebug_on</code> from the virtual machine's CLI.</li>
+</ul>
+</article>
+  </div>
+
+  </div>
+</div>
+
+
+    <a name="comments"></a>
+    <div class="discussion-timeline gist-discussion-timeline js-quote-selection-container" data-quote-markdown=".js-comment-body">
+      <div class="js-discussion js-socket-channel" data-channel="marked-as-read:gist:22845144">
+        
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=10699135" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/kiknaio"><img class="avatar rounded-1" height="44" width="44" alt="@kiknaio" src="https://avatars0.githubusercontent.com/u/10699135?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2222266">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="667600cb4761ca0613197044c089ee1a">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2222266-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=10699135" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/kiknaio"><img class="avatar" height="28" width="28" alt="@kiknaio" src="https://avatars1.githubusercontent.com/u/10699135?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=10699135" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/kiknaio">kiknaio</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2222266" id="gistcomment-2222266-minimized-permalink" class="timestamp"><relative-time datetime="2017-10-06T08:04:44Z">Oct 6, 2017</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>Useful cheatsheet <g-emoji class="g-emoji" alias="+1" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png">👍</g-emoji></p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="667600cb4761ca0613197044c089ee1a"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="tOM1r83GdQ9V5mK0U0psMXOm+LTaO0aofdInGfkXDd04SXhrZcKvZMR3RClPB+PieKoTH5kA9qKITuQOK5MPCw==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2222266-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=10699135" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/kiknaio">kiknaio</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2222266" id="gistcomment-2222266-permalink" class="timestamp js-timestamp"><relative-time datetime="2017-10-06T08:04:44Z">Oct 6, 2017</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Useful cheatsheet <g-emoji class="g-emoji" alias="+1" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png">👍</g-emoji></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7142689" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/bdmbdsm"><img class="avatar rounded-1" height="44" width="44" alt="@bdmbdsm" src="https://avatars0.githubusercontent.com/u/7142689?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2275286">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="38f5c24717fedaa404babb0c4710152e">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2275286-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7142689" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/bdmbdsm"><img class="avatar" height="28" width="28" alt="@bdmbdsm" src="https://avatars1.githubusercontent.com/u/7142689?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7142689" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/bdmbdsm">bdmbdsm</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2275286" id="gistcomment-2275286-minimized-permalink" class="timestamp"><relative-time datetime="2017-12-04T09:40:50Z">Dec 4, 2017</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>Thanks!</p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="38f5c24717fedaa404babb0c4710152e"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="6uE/dZiYLvMEzdJvnc0zfHLXNJsU/23oRxK1cD+gVS5mS3KxMJz0mJVc9PKBgLyvedvfMFfE3eKyjnZn7SRX+A==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2275286-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7142689" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/bdmbdsm">bdmbdsm</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2275286" id="gistcomment-2275286-permalink" class="timestamp js-timestamp"><relative-time datetime="2017-12-04T09:40:50Z">Dec 4, 2017</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>Thanks!</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=3662090" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/dimmo"><img class="avatar rounded-1" height="44" width="44" alt="@dimmo" src="https://avatars2.githubusercontent.com/u/3662090?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2275508">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="d54067d7d5664736faa9fa7ae217112b">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2275508-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=3662090" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/dimmo"><img class="avatar" height="28" width="28" alt="@dimmo" src="https://avatars3.githubusercontent.com/u/3662090?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=3662090" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/dimmo">dimmo</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2275508" id="gistcomment-2275508-minimized-permalink" class="timestamp"><relative-time datetime="2017-12-04T14:48:12Z">Dec 4, 2017</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>fix: <code>vagrant boxes remove</code> =&gt; <code>vagrant box remove</code></p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="d54067d7d5664736faa9fa7ae217112b"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="8bz03jmYnhhrHj2jwLJRumRMwV3M2pbDuHl1oawmxOZ9FrkakZxEc/qPGz7c/95pb0Aq9o/hJslN5ba2fqLGMA==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2275508-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=3662090" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/dimmo">dimmo</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2275508" id="gistcomment-2275508-permalink" class="timestamp js-timestamp"><relative-time datetime="2017-12-04T14:48:12Z">Dec 4, 2017</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>fix: <code>vagrant boxes remove</code> =&gt; <code>vagrant box remove</code></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=25303681" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/zencircle"><img class="avatar rounded-1" height="44" width="44" alt="@zencircle" src="https://avatars2.githubusercontent.com/u/25303681?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2368020">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="0f87c6b07c7ebce3be42bef209258081">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2368020-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=25303681" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/zencircle"><img class="avatar" height="28" width="28" alt="@zencircle" src="https://avatars3.githubusercontent.com/u/25303681?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=25303681" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/zencircle">zencircle</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2368020" id="gistcomment-2368020-minimized-permalink" class="timestamp"><relative-time datetime="2018-03-02T18:41:35Z">Mar 2, 2018</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>vagrant global-status (will provide id)<br>
+Network changes --&gt; <a href="https://stackoverflow.com/questions/28401565/how-can-i-access-a-vagrant-guest-from-another-virtualbox-guest" rel="nofollow">https://stackoverflow.com/questions/28401565/how-can-i-access-a-vagrant-guest-from-another-virtualbox-guest</a><br>
+vagrant reload id</p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="0f87c6b07c7ebce3be42bef209258081"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="p4KP0jkJNFgwCXbNUD1ZBPaJoPpi6DtE8WEC9mo4nk0rKMIWkQ3uM6GYUFBMcNbX/YVLUSHTi04E/cHhuLycmw==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2368020-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=25303681" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/zencircle">zencircle</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2368020" id="gistcomment-2368020-permalink" class="timestamp js-timestamp"><relative-time datetime="2018-03-02T18:41:35Z">Mar 2, 2018</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+        
+  <span class="d-inline-block text-gray-light">&#8226;</span>
+
+  <details class="details-overlay details-reset d-inline-block dropdown">
+    <summary class="btn-link no-underline text-gray js-notice">
+      <div class="position-relative">
+        <span>
+            edited
+        </span>
+        <svg height="11" class="octicon octicon-triangle-down v-align-middle" viewBox="0 0 12 16" version="1.1" width="8" aria-hidden="true"><path fill-rule="evenodd" d="M0 5l6 6 6-6H0z"/></svg>
+      </div>
+    </summary>
+    <details-menu class="anim-scale-in dropdown-menu dropdown-menu-se py-0" style="width:352px" src="/_render_node/MDExOkdpc3RDb21tZW50YTQ5NTk0ZTJlMmI5MThmNGQwYzQ6MjM2ODAyMA==/comments/comment_edit_history_log" preload>
+      <include-fragment class="octocat-spinner my-3" aria-label="Loading"></include-fragment>
+    </details-menu>
+  </details>
+
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>vagrant global-status (will provide id)<br>
+Network changes --&gt; <a href="https://stackoverflow.com/questions/28401565/how-can-i-access-a-vagrant-guest-from-another-virtualbox-guest" rel="nofollow">https://stackoverflow.com/questions/28401565/how-can-i-access-a-vagrant-guest-from-another-virtualbox-guest</a><br>
+vagrant reload id</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=11005974" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/walkerlala"><img class="avatar rounded-1" height="44" width="44" alt="@walkerlala" src="https://avatars2.githubusercontent.com/u/11005974?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2683244">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="db19ad2478a428b272e4b5adbbcab729">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2683244-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=11005974" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/walkerlala"><img class="avatar" height="28" width="28" alt="@walkerlala" src="https://avatars3.githubusercontent.com/u/11005974?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=11005974" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/walkerlala">walkerlala</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2683244" id="gistcomment-2683244-minimized-permalink" class="timestamp"><relative-time datetime="2018-08-20T01:28:40Z">Aug 20, 2018</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>what does "provision" mean in Vagrant?</p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="db19ad2478a428b272e4b5adbbcab729"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="ydKT66yqdcJJeUO/+mxWwPxqhhz73cMt1M6hMRilOCZFeN4vBK6vqdjoZSLmIdkT92Ztt7jmcychUmImyiE68A==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2683244-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=11005974" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/walkerlala">walkerlala</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2683244" id="gistcomment-2683244-permalink" class="timestamp js-timestamp"><relative-time datetime="2018-08-20T01:28:40Z">Aug 20, 2018</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>what does "provision" mean in Vagrant?</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=31368099" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/MohanSai1997"><img class="avatar rounded-1" height="44" width="44" alt="@MohanSai1997" src="https://avatars3.githubusercontent.com/u/31368099?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2696786">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="d0ab4da07f172a51f5c861c7cd12d9be">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2696786-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=31368099" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/MohanSai1997"><img class="avatar" height="28" width="28" alt="@MohanSai1997" src="https://avatars2.githubusercontent.com/u/31368099?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=31368099" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/MohanSai1997">MohanSai1997</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2696786" id="gistcomment-2696786-minimized-permalink" class="timestamp"><relative-time datetime="2018-09-04T06:22:27Z">Sep 4, 2018</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>provision means " the action of providing or supplying something for use "<br>
+so,<br>
+provision in vagrant means<br>
+providing a particular machine in vagrant.</p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="d0ab4da07f172a51f5c861c7cd12d9be"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="TQY/RnbouFSSERQ4upYj6CfHfsF4Frehz35o3tXFjInBrHKC3uxiPwOAMqWm26w7LMuVajstB6s64qvJB0GOXw==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2696786-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=31368099" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/MohanSai1997">MohanSai1997</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2696786" id="gistcomment-2696786-permalink" class="timestamp js-timestamp"><relative-time datetime="2018-09-04T06:22:27Z">Sep 4, 2018</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>provision means " the action of providing or supplying something for use "<br>
+so,<br>
+provision in vagrant means<br>
+providing a particular machine in vagrant.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=27919170" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/rootkeb"><img class="avatar rounded-1" height="44" width="44" alt="@rootkeb" src="https://avatars0.githubusercontent.com/u/27919170?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2834076">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="44cc27d4502c3700ba8b8104f3d63ab2">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2834076-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=27919170" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/rootkeb"><img class="avatar" height="28" width="28" alt="@rootkeb" src="https://avatars1.githubusercontent.com/u/27919170?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=27919170" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/rootkeb">rootkeb</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2834076" id="gistcomment-2834076-minimized-permalink" class="timestamp"><relative-time datetime="2019-02-11T19:59:45Z">Feb 11, 2019</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>very useful thank you !</p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="44cc27d4502c3700ba8b8104f3d63ab2"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="S6ayJOnHhMg3AB1wkMF7YUUpJfi+Cfy0oFpwQoNh7BnHDP/gQcNeo6aRO+2MjPSyTiXOU/0yTL5VxrNVUeXuzw==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2834076-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=27919170" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/rootkeb">rootkeb</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2834076" id="gistcomment-2834076-permalink" class="timestamp js-timestamp"><relative-time datetime="2019-02-11T19:59:45Z">Feb 11, 2019</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>very useful thank you !</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+      
+
+<div class="avatar-parent-child timeline-comment-avatar">
+    <a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=47441643" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ravdevops"><img class="avatar rounded-1" height="44" width="44" alt="@ravdevops" src="https://avatars1.githubusercontent.com/u/47441643?s=88&amp;v=4" /></a>
+
+</div>
+
+
+    
+<div class="timeline-comment-group js-minimizable-comment-group targetable-comment-container-nojs js-targetable-comment" id="gistcomment-2844656">
+    <div class="minimized-comment d-none ">
+        
+
+  <details class="Details-element details-reset border rounded-1 bg-white"
+       data-body-version="bbf867b59938f8f9551f7d98f6d7185e">
+    <summary class="bg-gray border-bottom-0 py-0 px-2">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <h3 class="timeline-comment-header-text f5 text-gray text-normal text-italic">
+              This comment has been minimized.
+
+        </h3>
+        <div class="Details-content--closed text-gray f6"><svg class="octicon octicon-unfold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>Show comment</div>
+        <div class="Details-content--open text-gray f6"><svg class="octicon octicon-fold position-relative mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg>Hide comment</div>
+      </div>
+    </summary>
+    <div class="review-comment border-top pt-3">
+      <div class="previewable-edit  js-task-list-container reorderable-task-lists">
+        <div class="edit-comment-hide">
+          <div class="timeline-comment-actions">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2844656-minimized-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+          </div>
+            <a class="float-left mt-1" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=47441643" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ravdevops"><img class="avatar" height="28" width="28" alt="@ravdevops" src="https://avatars0.githubusercontent.com/u/47441643?s=60&amp;v=4" /></a>
+          <div class="review-comment-contents">
+            <h4 class="f5 text-normal d-inline text-gray-dark">
+              <strong class="text-gray">
+                
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=47441643" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ravdevops">ravdevops</a>
+  
+
+              </strong>
+              <span class="text-gray">
+                  <a href="#gistcomment-2844656" id="gistcomment-2844656-minimized-permalink" class="timestamp"><relative-time datetime="2019-02-22T08:53:20Z">Feb 22, 2019</relative-time></a>
+              </span>
+            </h4>
+            
+
+            
+            <task-lists disabled sortable>
+              <div class="comment-body markdown-body p-0 pt-1 js-comment-body ">
+                  <p>how to scroll up in vagrant ubuntutrusty64</p>
+              </div>
+            </task-lists>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+
+    </div>
+  <div class="unminimized-comment comment previewable-edit js-comment js-task-list-container timeline-comment targetable-comment-container-nojs reorderable-task-lists "
+       data-body-version="bbf867b59938f8f9551f7d98f6d7185e"
+       data-unfurl-hide-url="/content_reference_attachments/hide"
+       data-unfurl-authenticity-token="ZaKsdKNZGoUFc3/kzEWf1c0mwdvoXvD7/n1eYqCqPynpCOGwC13A7pTiWXnQCBAGxioqcKtlQPEL4Z11ci49/w==">
+
+    
+<div class="timeline-comment-header clearfix">
+  <div class="timeline-comment-actions">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="details-overlay details-reset position-relative d-inline-block ">
+  <summary class="btn-link timeline-comment-action">
+    <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" role="img"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM13 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+  </summary>
+  <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover text-gray-dark anim-scale-in" style="width:185px">
+        <clipboard-copy
+    class="dropdown-item btn-link"
+    for="gistcomment-2844656-permalink"
+    aria-label="Copy link"
+    role="menuitem"
+    
+    >
+    Copy link
+  </clipboard-copy>
+
+        <button
+    type="button"
+    class="dropdown-item btn-link d-none js-comment-quote-reply"
+    role="menuitem">
+    Quote reply
+  </button>
+
+      
+  </details-menu>
+</details>
+
+  </div>
+
+    
+
+
+  
+
+
+  <h3 class="timeline-comment-header-text f5 text-normal">
+
+
+    <strong class="css-truncate">
+      
+
+  <a class="author text-inherit css-truncate-target" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=47441643" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ravdevops">ravdevops</a>
+  
+
+    </strong>
+
+    commented
+
+      <a href="#gistcomment-2844656" id="gistcomment-2844656-permalink" class="timestamp js-timestamp"><relative-time datetime="2019-02-22T08:53:20Z">Feb 22, 2019</relative-time></a>
+
+
+    <span class="js-comment-edit-history">
+    </span>
+  </h3>
+</div>
+
+
+    <div class="edit-comment-hide">
+
+      
+<task-lists disabled sortable>
+<table class="d-block">
+  <tbody class="d-block">
+    <tr class="d-block">
+      <td class="d-block comment-body markdown-body  js-comment-body">
+
+          <p>how to scroll up in vagrant ubuntutrusty64</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</task-lists>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+
+<!-- Rendered timeline since 2019-03-03 12:19:52 -->
+<div id="partial-timeline-marker"
+      class="js-timeline-marker js-updatable-content"
+      data-url="/wpscholar/a49594e2e2b918f4d0c4/show_partial?partial=gist%2Ftimeline_marker&amp;since=1551644392"
+      data-last-modified="Sun, 03 Mar 2019 20:19:52 GMT"
+      >
+</div>
+
+
+        <div class="discussion-timeline-actions">
+            <div class="timeline-comment-wrapper timeline-new-comment js-comment-container">
+  <span class="timeline-comment-avatar "><a class="d-inline-block" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=10985441" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/rac3rx"><img class="avatar" src="https://avatars1.githubusercontent.com/u/10985441?s=88&amp;v=4" width="44" height="44" alt="@rac3rx" /></a></span>
+
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-new-comment-form js-needs-timeline-marker-header" action="/wpscholar/a49594e2e2b918f4d0c4/comments" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Pwoel+oXfQSAm1IOJhEKA5N0u1KcOXHTjFiwBniBT2hEIkDNGGLkz8Na310oqcui9PDfDw/NbRQmKnyuahyBzg==" />
+    <div class="timeline-comment">
+      <div class="js-suggester-container js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;subject=a49594e2e2b918f4d0c4&amp;subject_type=Gist" data-preview-authenticity-token="hOkj4LAVN90T0Txzji+JB9ydEjZxFusnfDgx5aiKd6TyO49Km+9WYJOHk3oxWFqrZrFgfeyRl68ZzsyVm/ETKw==">
+  <div class="comment-form-head tabnav ">
+      
+<markdown-toolbar for="new_comment_field" class="toolbar-commenting ">
+  <div class="toolbar-group">
+    <md-header tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add header text" data-ga-click="Markdown Toolbar, click, header">
+      <svg class="octicon octicon-text-size" viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"/></svg>
+    </md-header>
+
+    <md-bold tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add bold text <ctrl+b>" data-ga-click="Markdown Toolbar, click, bold">
+      <svg class="octicon octicon-bold" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"/></svg>
+    </md-bold>
+
+    <md-italic tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add italic text <ctrl+i>" data-ga-click="Markdown Toolbar, click, italic">
+      <svg class="octicon octicon-italic" viewBox="0 0 6 16" version="1.1" width="6" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"/></svg>
+    </md-italic>
+  </div>
+
+  <div class="toolbar-group">
+    <md-quote tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Insert a quote" data-ga-click="Markdown Toolbar, click, quote">
+      <svg class="octicon octicon-quote" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg>
+    </md-quote>
+
+    <md-code tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Insert code" data-ga-click="Markdown Toolbar, click, code">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+    </md-code>
+
+    <md-link tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add a link <ctrl+k>" data-ga-click="Markdown Toolbar, click, link">
+      <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+    </md-link>
+  </div>
+
+  <div class="toolbar-group">
+    <md-unordered-list tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add a bulleted list" data-ga-click="Markdown Toolbar, click, unordered list">
+      <svg class="octicon octicon-list-unordered" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"/></svg>
+    </md-unordered-list>
+
+    <md-ordered-list tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add a numbered list" data-ga-click="Markdown Toolbar, click, ordered list">
+      <svg class="octicon octicon-list-ordered" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12.01 13c0 .59 0 1-.59 1H4.6c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1h.01zM4.6 4h6.81C12 4 12 3.59 12 3c0-.59 0-1-.59-1H4.6c-.59 0-.59.41-.59 1 0 .59 0 1 .59 1zm6.81 3H4.6c-.59 0-.59.41-.59 1 0 .59 0 1 .59 1h6.81C12 9 12 8.59 12 8c0-.59 0-1-.59-1zm-9.4-6h-.72c-.3.19-.58.25-1.03.34V2h.75v2.14H.17V5h2.84v-.86h-1V1zm.392 8.12c-.129 0-.592.04-.802.07.53-.56 1.14-1.25 1.14-1.89C2.72 6.52 2.18 6 1.38 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3v-.88h-.598zm-.222 3.79v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"/></svg>
+    </md-ordered-list>
+
+    <md-task-list tabindex="-1" class="toolbar-item tooltipped tooltipped-n" aria-label="Add a task list" data-ga-click="Markdown Toolbar, click, task list">
+      <svg class="octicon octicon-tasklist" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"/></svg>
+    </md-task-list>
+  </div>
+
+  <div class="toolbar-group">
+    <md-mention tabindex="-1" class="toolbar-item tooltipped tooltipped-nw" aria-label="Directly mention a user or team" data-ga-click="Markdown Toolbar, click, mention">
+      <svg class="octicon octicon-mention" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"/></svg>
+    </md-mention>
+
+    <md-ref tabindex="-1" class="toolbar-item tooltipped tooltipped-nw" aria-label="Reference an issue or pull request" data-ga-click="Markdown Toolbar, click, reference">
+      <svg class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg>
+    </md-ref>
+
+  </div>
+</markdown-toolbar>
+
+      <nav class="tabnav-tabs " role="tablist">
+        <button type="button" class="btn-link tabnav-tab write-tab js-write-tab selected" role="tab" aria-selected="true">Write</button>
+        <button type="button" class="btn-link tabnav-tab preview-tab js-preview-tab" role="tab">Preview</button>
+      </nav>
+  </div>
+
+
+  <div class="comment-form-error js-comment-form-error" style="display:none">    There was an error creating your Gist.
+</div>
+  <file-attachment class="js-upload-markdown-image is-default" data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="TncnBoYtsMIZCwKCUUyKK5XLeyoA/QzSWzGonekpFQsH194zEF7nLMpPCcXM1jmffYXCQtomrf7JiCHxL58I+w==">
+    <div class="write-content js-write-bucket upload-enabled  js-reaction-suggestion tooltipped tooltipped-ne tooltipped-no-delay tooltipped-align-left-1 hide-reaction-suggestion" data-reaction-markup="Would you like to leave a reaction instead?">
+
+
+      <textarea name="comment[body]"
+                id="new_comment_field"
+                
+                placeholder="Leave a comment"
+                aria-label="Comment body"
+                class="form-control input-contrast comment-form-textarea js-comment-field js-paste-markdown js-task-list-field js-quick-submit js-size-to-fit js-suggester-field js-session-resumable "
+                ></textarea>
+
+          <p class="drag-and-drop position-relative">
+    <input accept=".gif,.jpeg,.jpg,.png" type="file"
+      multiple="multiple"
+      class="manual-file-chooser top-0 right-0 bottom-0 left-0 width-full ml-0 js-manual-file-chooser form-control"
+      style="opacity: 0.1; min-height: 0;"
+      aria-label="Attach files to your comment">
+    <span class="bg-gray-light position-absolute top-0 left-0 width-full height-full rounded-1" style="pointer-events: none;"></span>
+    <span class="position-relative" style="pointer-events: none;">
+      <span class="default">
+          Attach files by dragging &amp; dropping,
+          selecting them, or pasting
+          from the clipboard.
+      </span>
+      <span class="loading">
+        <img alt="" width="16" height="16" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" /> Uploading your files…
+      </span>
+      <span class="error bad-file">
+        We don’t support that file type.
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a
+          GIF, JPEG, JPG or PNG.
+        </span>
+      </span>
+      <span class="error bad-permissions">
+        Attaching documents requires write permission to this repository.
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a GIF, JPEG, JPG or PNG.
+        </span>
+      </span>
+      <span class="error repository-required">
+        We don’t support that file type.
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a GIF, JPEG, JPG or PNG.
+        </span>
+      </span>
+      <span class="error too-big">
+        Yowza, that’s a big file
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a file smaller than 10MB.
+        </span>
+      </span>
+      <span class="error empty">
+        This file is empty.
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a file that’s not empty.
+        </span>
+      </span>
+      <span class="error hidden-file">
+        This file is hidden.
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with another file.
+        </span>
+      </span>
+      <span class="error failed-request">
+        Something went really wrong, and we can’t process that file.
+        <span class="drag-and-drop-error-info">
+          <button type="button" class="btn-link manual-file-chooser-text">Try again.</button>
+        </span>
+      </span>
+    </span>
+  </p>
+
+
+      <div class="suggester-container">
+        <div class="suggester js-suggester js-navigation-container"
+             data-url="/wpscholar/a49594e2e2b918f4d0c4/suggestions"
+             hidden>
+        </div>
+      </div>
+    </div>
+</file-attachment>
+  <div class="preview-content overflow-auto border-bottom">
+    <input type="hidden" name="original-line" value="" class="js-original-line">
+    <input type="hidden" name="path" value="" class="js-path">
+    <input type="hidden" name="line" value="" class="js-line-number">
+    <div class="comment js-suggested-changes-container" data-thread-side="">
+  <div class="comment-body markdown-body js-preview-body">
+    <p>Nothing to preview</p>
+  </div>
+</div>
+
+  </div>
+
+  <div class="float-left ">
+      <a class="tabnav-extra " href="https://guides.github.com/features/mastering-markdown/" target="_blank" data-ga-click="Markdown Toolbar, click, help">
+        <svg class="octicon octicon-markdown v-align-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"/></svg>
+        Styling with Markdown is supported
+      </a>
+  </div>
+
+
+  <div class="comment-form-error comment-form-bottom js-comment-update-error"></div>
+</div>
+
+
+      <div class="form-actions">
+        <div id="partial-new-comment-form-actions">
+  <button type="submit" class="btn btn-primary" data-disable-with data-disable-invalid>
+    Comment
+  </button>
+</div>
+
+      </div>
+    </div>
+</form></div>
+
+        </div>
+      </div>
+    </div>
+</div>
+  </div>
+
+  <div class="modal-backdrop js-touch-events"></div>
+</div><!-- /.container -->
+
+    </div>
+  </div>
+
+  </div>
+
+        
+<div class="footer container-lg px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2019 <span title="0.28165s from unicorn-5968f4497d-76x4j">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
+        <li class="mr-3"><a href="https://githubstatus.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-lg-4" href="https://github.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3"><a href="https://github.blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" integrity="sha512-JVFl2xmiUaDu/xTQyYqBaa1RTCTLS4Xg7XCkBKRw1AHpo9prDh4cq0XA74+KoeZIOFtRcZeNmN9lzg43fC0C9w==" type="application/javascript" src="https://github.githubassets.com/assets/compat-bootstrap-de9cc2a2.js"></script>
+    <script crossorigin="anonymous" integrity="sha512-3xoVN5Gv/jGY+cP8LfhoI54EFBhCVRxuPhpXkuVdbL932EmZ7UP6IjvKD9/S0Vg+HqEqHwmuC5inZCFyWNyAww==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-b740280f.js"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-6sVOnGehZuYws7Cz9qgQ8DPeAsrNBI8mpB+zkdsWdkLt9IuaaUK1Hb2bCYrny3QBhsc2l+YMnyqDVCZ0Idczvg==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-ec802528.js"></script>
+    
+      <script crossorigin="anonymous" async="async" integrity="sha512-p88e/rhCSS/cJ2BaOMxZ6MMim27UaR9fHEsw3fKCXqtfjk/52nKguzx3uaRWHZl/Qw82wUnmSLb05cC97eAEfw==" type="application/javascript" src="https://github.githubassets.com/assets/gist-bootstrap-91eb3896.js"></script>
+
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open>
+    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+  <div aria-live="polite" class="js-global-screen-reader-notice sr-only"></div>
+
+  </body>
+</html>
+
