@@ -1,0 +1,121 @@
+sudo docker run --rm  -it -p 3333:3333 -v ~/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data remnux/metasploit                                         
+The --rm option will delete the container after it stops.
+
+The -it options are used to open an interactive session and start a shell on the container for the user.
+
+The -p option will bind port 3333 of the host machine with port 3333 of the docker container (Make sure your iptable rules are set accordingly).
+
+The -v directory will create a shared folder between host and container.
+
+root@Sauron:~# echo "rvm install ruby-2.3.3
+gem install bundler
+yard config --gem-install-yri
+" > sn.remnux.metasploit.txt
+
+
+
+First, do a service postgresql start
+Then, run ss -lntp | grep post
+sed -i 's/\(port = \)5433/\15432/' /etc/postgresql/9.6/main/postgresql.conf
+"service postgresql restart"
+"msfdb reinit"
+
+
+
+
+Assuming you've gone the non-Kali route, there are a couple extra steps when running Metasploit Framework on Ubuntu if you
+want the database capabilities.
+
+First, make sure PostgreSQL is installed
+
+apt-get install postgresql
+Verify that the PostgreSQL service is running:
+
+service restart postgresql
+Make sure you have the appropriate access:
+
+sudo -s
+Change to the built-in postgres user so you have the rights to create a database:
+
+su postgres
+Create a PostgreSQL "msf" database user that Metasploit Framework can use to connect to the database:
+
+createuser msf -P -S -R -D
+Remember the password you entered, you'll need it in a moment.
+
+Create an "msf" database to store the information we discover using Metasploit Framework:
+
+createdb -O msf msf
+In your Metasploit Framework directory, under ./config/ there is a database.yml file that must be modified.
+
+In the database.yml file specify the following:
+
+adapter: postgresql
+database: msf
+username: msf
+password: <Your database user's password>
+Launch the Metasploit Framework console, then use the db_status command to verify that Metasploit Framework Console is
+connected to the PostgreSQL database:
+
+msfconsole
+b_status
+
+
+
+
+
+
+
+
+
+
+msf > db_status
+[*] postgresql selected, no connection
+msf > db_connect -y /opt/framework/config/database.yml
+msf > db_status
+
+
+
+
+
+db_connect msf3:zIYTU8yvQ7aUUTQbXJt5MsQZxo3tD0ew@127.0.0.1/msf3
+
+
+
+
+
+POSTGRES
+==============
+For password less login:
+
+sudo -u user_name psql db_name
+To reset the password if you have forgotten:
+
+ALTER USER user_name WITH PASSWORD 'new_password';
+ALTER USER username WITH ENCRYPTED PASSWORD 'password';
+
+
+To change password using Linux command line, use:
+
+sudo -u <user_name> psql -c "ALTER USER <user_name> PASSWORD '<new_password>';"
+
+
+$ sudo -u postgres psql
+Then:
+
+\password postgres
+Then to quit psql:
+
+\q
+If that does not work, reconfigure authentication.
+
+Edit /etc/postgresql/9.1/main/pg_hba.conf (path will differ) and change:
+
+    local   all             all                                     peer
+to:
+
+    local   all             all                                     md5
+Then restart the server:
+
+$ sudo service postgresql restart
+
