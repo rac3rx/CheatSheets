@@ -1,0 +1,6 @@
+cat myscript.sh
+awk -F\" '/^NAME=/{NAME=$0; next}/^VERSION=/{print NAME "," $2}' /etc/os-release
+
+
+ssh me@foo.com "bash -s" < myscript.sh
+

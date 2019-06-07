@@ -1,0 +1,45 @@
+
+mysql -u root -p
+
+sudo grep 'temporary password' /var/log/mysqld.log
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+
+SHOW DATABASES;
+
+CREATE DATABASE pets;
+
+USE pets
+
+CREATE TABLE cats
+
+SHOW TABLES;
+
+DESCRIBE cats;
+
+INSERT INTO cats ( name, owner, birth) VALUES
+
+SELECT * FROM cats;
+
+
+
+
+
+
+
+#
+# python mysql 
+#
+import mysql.connector
+mydb=mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="foo"
+)
+print(mydb)
+
+
+
+REF:
+https://pythonspot.com/mysql-with-python/
+
