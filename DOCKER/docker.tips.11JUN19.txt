@@ -1,0 +1,69 @@
+    
+    git clone https://github.com/phocean/dockerfile-msf.git
+    docker pull phocean/msf
+    docker run --rm -it --net=host --hostname msf -v $HOME/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf phocean/msf
+    sudo docker save -o ~/MyProjects/docker.images/phocean.msf.tar phocean/msf
+    sudo docker load -i ~/MyProjects/docker.images/phocean.msf.tar
+
+
+    https://fedoraproject.org/wiki/Metasploit_Postgres_Setup
+    su postgres
+    createuser msf_user -P
+    createdb --owner=msf_user msf_database
+
+    msfupdate
+
+    db_status
+    db_connect msf_user:msf@127.0.0.1:5433/msf_database
+
+https://www.offensive-security.com/metasploit-unleashed/using-databases/
+msf > workspace -a lab4
+[*] Added workspace: lab4
+msf > workspace lab4
+
+msf > workspace -d lab4 
+[*] Deleted workspace: lab4
+msf > workspace
+
+msf > workspace -h
+db_import /root/msfu/nmapScan 
+db_nmap -A 172.16.194.134
+db_nmap -v -sV host_or_network_to_scan[eg 192.168.0.0/24]
+
+search port-scan
+hosts
+hosts -R
+
+search type:exploit
+search CVE-XXXX-XXXX
+search cve:2014
+search name:wordpress
+
+msf > db_nmap -A 172.16.194.134
+msf > hosts
+msf > db_export -f xml /root/msfu/Exported.xml
+hosts -c address,os_flavor
+msf > hosts -c address,os_flavor -S Linux
+msf > services -c name,info 172.16.194.134
+msf > services -c name,info -S http
+msf > services -c info,name -p 445
+msf > services -c port,proto,state -p 70-81
+msf > services -s http -c port 172.16.194.134
+msf > services -S Unr
+msf > services -s http -c port 172.16.194.134 -o /root/msfu/http.csv
+
+To save an image to any file path or shared NFS place see the following example.
+
+    Get the image id by doing:
+
+        sudo docker images
+
+Say you have an image with id "matrix-data".
+
+    Save the image with id:
+
+        sudo docker save -o /home/matrix/matrix-data.tar matrix-data
+
+    Copy the image from the path to any host. Now import to your local Docker installation using:
+
+        sudo docker load -i <path to copied image file>

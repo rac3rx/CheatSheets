@@ -39,33 +39,42 @@ yard config --gem-install-yri
 
 
 
-First, do a service postgresql start
-Then, run ss -lntp | grep post
+#
+# Postgres /w MSF (KALI WAY)
+#
+service postgresql start
+ss -lntp | grep post
 sed -i 's/\(port = \)5433/\15432/' /etc/postgresql/9.6/main/postgresql.conf
-"service postgresql restart"
-"msfdb reinit"
+service postgresql restart
+msfdb reinit
 
 
-
-
+#
+# Postgres /w MSF (NON-KALI WAY)
+#
 Assuming you've gone the non-Kali route, there are a couple extra steps when running Metasploit Framework on Ubuntu if you
 want the database capabilities.
 
 First, make sure PostgreSQL is installed
 
-apt-get install postgresql
+    apt-get install postgresql
+
 Verify that the PostgreSQL service is running:
 
-service restart postgresql
+    service restart postgresql
+
 Make sure you have the appropriate access:
 
-sudo -s
+    sudo -s
+
 Change to the built-in postgres user so you have the rights to create a database:
 
-su postgres
+    su postgres
+
 Create a PostgreSQL "msf" database user that Metasploit Framework can use to connect to the database:
 
 createuser msf -P -S -R -D
+
 Remember the password you entered, you'll need it in a moment.
 
 Create an "msf" database to store the information we discover using Metasploit Framework:
@@ -162,6 +171,13 @@ https://medium.com/@airman604/kali-linux-in-a-docker-container-5a06311624eb
 docker pull kalilinux/kali-linux-docker
 docker run -ti kalilinux/kali-linux-docker /bin/bash
 
+https://unix.stackexchange.com/questions/429729/apt-get-update-error-in-kali-linux-after-dist-upgrade
+cat << EOF > /etc/apt/source.list
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+# For source package access, uncomment the following line
+# deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+EOF
+
 apt update
 apt dist-upgrade
 apt autoremove
@@ -173,13 +189,15 @@ apt install exploitdb
 
 
 docker ps -a
+docker ps
 docker commit <CONTAINER ID> my-kali
-docker run -ti my-kali /bin/bash
+docker commit 956badea3fca mykali
+docker run -ti mykali /bin/bash
+sudo docker save -o ~/MyProjects/docker.images/mykali.tar mykali
 
 
-https://unix.stackexchange.com/questions/429729/apt-get-update-error-in-kali-linux-after-dist-upgrade
-cat > /etc/apt/source.list
- deb http://http.kali.org/kali kali-rolling main contrib non-free
- # For source package access, uncomment the following line
- # deb-src http://http.kali.org/kali kali-rolling main contrib non-free
-
+git clone https://github.com/phocean/dockerfile-msf.git
+docker pull phocean/msf
+docker run --rm -it --net=host --hostname msf -v $HOME/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf phocean/msf
+sudo docker save -o ~/MyProjects/docker.images/phocean.msf.tar phocean/msf
+sudo docker load -i ~/MyProjects/docker.images/phocean.msf.tar

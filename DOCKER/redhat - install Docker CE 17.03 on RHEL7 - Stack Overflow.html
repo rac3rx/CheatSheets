@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+
+
+    <html itemscope itemtype="http://schema.org/QAPage" class="html__responsive">
+
+    <head>
+
+        <title>redhat - install Docker CE 17.03 on RHEL7 - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content= "website" />
+        <meta property="og:url" content="https://stackoverflow.com/questions/42981114/install-docker-ce-17-03-on-rhel7"/>
+        <meta property="og:site_name" content="Stack Overflow" />
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded" />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:domain" content="stackoverflow.com"/>
+        <meta name="twitter:title" property="og:title" itemprop="name" content="install Docker CE 17.03 on RHEL7" />
+        <meta name="twitter:description" property="og:description" itemprop="description" content="Is it possible to install DockerCE in the specific version 17.03 on RHEL7 ?
+There is information here:
+https://docs.docker.com/engine/installation/linux/rhel/#install-using-the-repository about the " />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.sstatic.net/Js/stub.en.js?v=36e546707fc0"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=dc5f18145375" >
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary.css?v=311b618169d2" >
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;install Docker CE 17.03 on RHEL7&#39;" href="/feeds/question/42981114">
+            <meta name="twitter:app:country" content="US" />
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:iphone" content="871299723" />
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/42981114/install-docker-ce-17-03-on-rhel7" />
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:ipad" content="871299723" />
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/42981114/install-docker-ce-17-03-on-rhel7" />
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/42981114/install-docker-ce-17-03-on-rhel7">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({votesCast:[],autoShowCommentHelp:true,showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:42981114});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '42981114');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+
+
+        <script>
+        StackExchange.init({"locale":"en","serverTime":1559922171,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"timingsGuid":"5f3919dc-d845-414f-9944-c2286a618c11","timingsInfo":"9OrNSdpjMHgAzsC1EmWcg4JOKyst+dmRvN7MNwR95Y7S7siXi1HDGLqOluvFp9qdYhJEo9LoMK3ONmvU4Q5NkPXlkyCzpE3D8OgMuCfSxfPcUFYUeGk/xav57DUDjv+0zvMxo1Wo2LZdLN2chuIEeygSv9VxhZzakDGp1rwTuNszPYDsfOaJXHoNfmdpm5EJM5EdU9SYQSS3GR7dHbr1B4aEol1rKDAz/OGKmtd8SJM03fP/SOv7+ALo8EINYE8kPbFfebrs76KNMxL9NLoLRg==","user":{"fkey":"fc4ce19a1e9e269756c8a8197b96c9694eb35eec41f619a67011c9db1ebe0faf","tid":"852435b6-afa4-3f70-2b2c-875a73cd4cea","rep":1,"isRegistered":true,"userType":3,"userId":6549317,"accountId":5556037,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://lh3.googleusercontent.com/-nNrqfKFEQqY/AAAAAAAAAAI/AAAAAAAAAyg/rQ5HjkUAi1w/photo.jpg?sz=32\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"https://stackoverflow.com/users/6549317/rac3rx","canSeeDeletedPosts":false,"ab":{"similar_questions_breakout":{"v":"c","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"d5683df72f21"}, {"userProfile":{"openGraphAPIKey":"4a307e43-b625-49bb-af15-ffadf2bda017"},"userMessaging":{},"tags":{},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"},"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"paths":{},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"markdown":{"asteriskIntraWordEmphasis":true},"flags":{"allowRetractingFlags":true},"comments":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"21fdacf770f8","js/moderator.en.js":"4a562de79968","js/pseudomoderator.en.js":"82a5b8fad192","js/full-anon.en.js":"e9596bc82cf7","js/full.en.js":"944a89f1aa09","js/wmd.en.js":"70c2711fe668","js/mobile.en.js":"32a7cb3d19b9","js/help.en.js":"f3c040d51f3b","js/tageditor.en.js":"58dcbe3bac4c","js/tageditornew.en.js":"8a3e61348dee","js/inline-tag-editing.en.js":"09084a455513","js/revisions.en.js":"9042f0dc9de0","js/review.en.js":"bf8db5bd613d","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"c843bdee1082","js/explore-qlist.en.js":"490ee9150d11","js/events.en.js":"f7502b4089bd","js/keyboard-shortcuts.en.js":"a18d9cac28f2","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"3238dd301e69","js/stacks-polyfills.en.js":"f68a88a2d4f8","js/snippet-javascript-codemirror.en.js":"f0d3039d3019"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    </head>
+        <body class="question-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar top-bar__network _fixed">
+    <div class="-container">
+        <div class="-main">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
+                                <a href="https://stackoverflow.com" class="-logo js-gps-track"
+                        data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+
+        </div>
+
+            <form id="search" action=/search method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="s-input js-search-field " />
+                        <button type="submit" aria-label="Search…" class="s-btn s-btn__primary s-btn__icon btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z"/></svg></button>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively user-logged-in">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z"/></svg></a></li>
+                <li class="-item">
+                <a href="/users/6549317/rac3rx" class="my-profile js-gps-track" data-gps-track="profile_summary.click()">
+                <div class="gravatar-wrapper-24" title="rac3rx"><img src="https://lh3.googleusercontent.com/-nNrqfKFEQqY/AAAAAAAAAAI/AAAAAAAAAyg/rQ5HjkUAi1w/photo.jpg?sz=48" alt="" width="24" height="24" class="-avatar js-avatar-me"></div>
+                    <div class="-rep js-header-rep" title="your reputation: 1">1</div>
+                        <div class="-badges">
+                        </div>
+                </a>
+            </li>
+        <li class="-item inbox-button-item">
+        <a href="https://stackexchange.com/users/5556037?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M4.63 1h10.56a2 2 0 0 1 1.94 1.35L20 10.79V15a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-4.21l2.78-8.44c.25-.8 1-1.36 1.85-1.35zm8.28 12l2-2h2.95l-2.44-7.32a1 1 0 0 0-.95-.68H5.35a1 1 0 0 0-.95.68L1.96 11h2.95l2 2h6z"/></svg>
+            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
+        </a>
+    </li>
+    <li class="-item achievements-button-item">
+        <a href="https://stackexchange.com/users/5556037?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"/></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+    <li class="-item help-button-item" data-remove-order=1><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8c-.3.34-.65.65-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66.4-.49.88-.9 1.43-1.22.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"/></svg>
+    </a></li>
+
+    <li class="-item site-switcher-item">
+        <a href="https://stackexchange.com" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 175 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zm16-7H1v4h16V6z"/></svg>
+        </a>
+    </li>
+
+
+    <li class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://stackoverflow.com"
+       class="current-site-link site-link js-gps-track grid gs8 gsx"
+       data-id="1"
+       data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:14 })"
+>help</a>
+                    <a href="https://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+                    <a href="https://stackoverflow.com/users/logout" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:8 })"
+>log out</a>
+    </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="552"
+       data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+                    <a href="https://stackexchange.com/users/5556037/?tab=accounts">your communities</a>
+            </h3>
+
+                <a href="#" id="edit-pinned-sites">edit</a>
+                <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <ul class="my-sites">
+                        <li>
+                                <a href="https://serverfault.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="2"
+       data-gps-track="site.switch({ target_site:2, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-serverfault site-icon grid--cell" title="Server Fault"></div>
+        <span class="grid--cell fl1">
+            Server Fault
+        </span>
+            <span class="rep-score grid--cell">11</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://apple.stackexchange.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="118"
+       data-gps-track="site.switch({ target_site:118, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-apple site-icon grid--cell" title="Ask Different"></div>
+        <span class="grid--cell fl1">
+            Ask Different
+        </span>
+            <span class="rep-score grid--cell">1</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://bicycles.stackexchange.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="126"
+       data-gps-track="site.switch({ target_site:126, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-bicycles site-icon grid--cell" title="Bicycles"></div>
+        <span class="grid--cell fl1">
+            Bicycles
+        </span>
+            <span class="rep-score grid--cell">1</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://crypto.stackexchange.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="281"
+       data-gps-track="site.switch({ target_site:281, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-crypto site-icon grid--cell" title="Cryptography"></div>
+        <span class="grid--cell fl1">
+            Cryptography
+        </span>
+            <span class="rep-score grid--cell">1</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://emacs.stackexchange.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="583"
+       data-gps-track="site.switch({ target_site:583, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-emacs site-icon grid--cell" title="Emacs"></div>
+        <span class="grid--cell fl1">
+            Emacs
+        </span>
+            <span class="rep-score grid--cell">1</span>
+    </a>
+
+                        </li>
+                </ul>
+                    <div class="pinned-site-editor-container" style="display: none;">
+                        <input type="hidden" name="fkey" value="fc4ce19a1e9e269756c8a8197b96c9694eb35eec41f619a67011c9db1ebe0faf">
+                        <input id="js-site-search-txt"
+                                type="text"
+                                class="site-filter-input"
+                                value=""
+                                placeholder="Add a Stack Exchange community"/>
+                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled"/>
+                        <ul class="js-found-sites found-sites"></ul>
+                        <ul class="pinned-site-list sortable" data-custom-list="False">
+                        </ul>
+                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled"/>
+                        <a href="#" id="reset-pinned-sites">reset to default list</a>
+                    </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+            <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+
+
+
+
+    <div class="container">
+
+
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+            <nav role="navigation">
+                <ol class="nav-links">
+                    <li>    <li>
+        <a
+            href="/"
+            class="pl8 js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+</li>
+                    <li>
+                        <ol class="nav-links">
+                                <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+                                <li class=" youarehere">
+        <a id="nav-questions"
+            href="/questions"
+            class="pl8 js-gps-track nav-links--link -link__with-icon"
+            
+            data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24v.01z"/></svg>                <span class="-link--channel-name">Stack Overflow</span>
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags"
+            href="/tags"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users"
+            href="/users"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-jobs"
+            href="/jobs?med=site-ui&amp;ref=jobs-tab"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
+Jobs        </a>
+    </li>
+                                                    </ol>
+                    </li>
+                        <li>
+                            <ol class="nav-links">
+                                        <li class="p6">
+                                            <div class="ba bc-black-2 bar-sm p16 grid fd-column ps-relative overflow-hidden">
+                                                <strong class="grid--cell">Teams</strong>
+                                                <span class="grid--cell mt2 fs-caption fc-medium">Q&amp;A for work </span>
+                                                <a href="https://stackoverflow.com/teams"
+                                                   class="js-gps-track s-btn s-btn__outlined grid--cell mt12"
+                                                   data-gps-track="teams.create.left-sidenav.click({ CampaignType: None})"
+                                                   data-ga="[&quot;teams traffic&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]">
+                                                    Learn More
+                                                </a>
+
+                                                <div class="ps-absolute t4 rn6">
+                                                    <svg width="53" height="49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M49 11l.2 31H18.9L9 49v-7H4V8h31" fill="#CCEAFF" /><path d="M44.5 19v-.3l-.2-.1-18-13-.1-.1H.5v33h4V46l.8-.6 9.9-6.9h29.3V19z" stroke="#1060E1" stroke-miterlimit="10" /><path d="M31 2l6-1.5 7 2V38H14.9L5 45v-7H1V6h25l5-4z" fill="#fff" /><path d="M7 16.5h13m-13 6h14m-14 6h18" stroke="#1060E1" stroke-miterlimit="10" /><path d="M39 30a14 14 0 1 0 0-28 14 14 0 0 0 0 28z" fill="#FFB935" /><path d="M50.5 14a13.5 13.5 0 1 1-27 0 13.5 13.5 0 0 1 27 0z" stroke="#F48024" stroke-miterlimit="10" /><path d="M32.5 21.5v-8h9v8h-9zm2-9.5V9.3A2.5 2.5 0 0 1 37 6.8a2.5 2.5 0 0 1 2.5 2.5V12h-5zm2 3v2m1-2v2" stroke="#fff" stroke-miterlimit="10" /></svg>
+                                                </div>
+                                            </div>
+                                        </li>
+                            </ol>
+                        </li>
+                </ol>
+            </nav>
+    </div>
+</div>
+
+
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+
+<div itemprop="mainEntity" itemscope itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+    
+    
+
+            <div id="question-header" class="grid">
+                    <h1 itemprop="name" class="grid--cell fs-headline1 fl1 ow-break-word"><a href="/questions/42981114/install-docker-ce-17-03-on-rhel7" class="question-hyperlink">install Docker CE 17.03 on RHEL7</a></h1>
+
+            
+<div class="pl8 aside-cta grid--cell print:d-none" role="navigation" aria-label="ask new question">
+        <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary" >
+            Ask Question
+        </a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="42981114"  id="question">
+
+    <style>.everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty,.everyoneloves__bot-mid-leaderboard:empty{                height:90px;width:728px;box-sizing:border-box;
+}</style>
+        <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div>
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="42981114">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This question shows research effort; it is useful and clear (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="46">46</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This question does not show any research effort; it is unclear or not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+        <button class="js-favorite-btn s-btn s-btn__unset c-pointer py8" aria-pressed="false" aria-label="favorite (31)" data-selected-classes="fc-yellow-600">
+            <svg aria-hidden="true" class="svg-icon iconStar" width="18" height="18" viewBox="0 0 18 18"><path d="M9 12.65l-5.29 3.63 1.82-6.15L.44 6.22l6.42-.17L9 0l2.14 6.05 6.42.17-5.1 3.9 1.83 6.16L9 12.65z"/></svg>
+            <div class="js-favorite-count mt8" data-value="31">31</div>
+        </button>
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+
+<p>Is it possible to install DockerCE in the specific version 17.03 on RHEL7 ?</p>
+
+<ul>
+<li><p>There is information here:</p>
+
+<ul>
+<li><a href="https://docs.docker.com/engine/installation/linux/rhel/#install-using-the-repository" rel="noreferrer">https://docs.docker.com/engine/installation/linux/rhel/#install-using-the-repository</a> about the installing Docker on RHEL but there is no version info.</li>
+</ul></li>
+<li><p>and here with Docker 17.03 but only in Docker EE not <strong>Docker CE</strong></p>
+
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.0_Release_Notes/sect-Red_Hat_Enterprise_Linux-7.0_Release_Notes-Linux_Containers_with_Docker_Format-Using_Docker.html" rel="noreferrer">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.0_Release_Notes/sect-Red_Hat_Enterprise_Linux-7.0_Release_Notes-Linux_Containers_with_Docker_Format-Using_Docker.html</a>
+but they talk about Docker v 0.12 </li>
+</ul></li>
+</ul>
+    </div>
+
+        <div class="post-taglist grid gs4 gsy fd-column">
+            <div class="grid ps-relative d-block">
+                <a href="/questions/tagged/docker" class="post-tag" title="show questions tagged &#39;docker&#39;" rel="tag">docker</a> <a href="/questions/tagged/redhat" class="post-tag" title="show questions tagged &#39;redhat&#39;" rel="tag">redhat</a> 
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
+            <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/q/42981114/6549317" title="short permalink to this question" class="short-link" itemprop="url" id="link-post-42981114">share</a><span class="lsep">|</span><a href="/posts/42981114/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>
+            </div>
+
+            <div class="post-signature owner grid--cell">
+<div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2017-03-23 15:58:26Z" class="relativetime">Mar 23 '17 at 15:58</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/3313834/user3313834"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/1520bf35a582afbccf3c5c5db6135612?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/3313834/user3313834">user3313834</a><span class="d-none" itemprop="name">user3313834</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,330</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="55 bronze badges"><span class="badge3"></span><span class="badgecount">55</span></span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+                
+    <div class="post-layout--right">
+	    <div id="comments-42981114" class="comments js-comments-container " data-post-id="42981114">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-91931870" class="comment js-comment " data-comment-id="91931870">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">You might have to <a href="https://stackoverflow.com/questions/45272827/docker-ce-on-rhel-requires-container-selinux-2-9">handle the dependency on <code>container-selinux</code></a></span>
+                
+                    &ndash;&nbsp;<a href="/users/545127/raedwald"
+                       title="27,587 reputation"
+                       class="comment-user">Raedwald</a>
+                <span class="comment-date" dir="ltr"><span title="2018-09-25 10:15:16Z" class="relativetime-clean">Sep 25 '18 at 10:15</span></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-42981114" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>        </div>
+</div>
+
+
+<div id="dfp-isb" class="everyonelovesstackoverflow everyoneloves__inline-sidebar"></div>
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="6">
+                                6 Answers
+                            <span style="display:none;" itemprop="answerCount">6</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="/questions/42981114/install-docker-ce-17-03-on-rhel7?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="/questions/42981114/install-docker-ce-17-03-on-rhel7?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="/questions/42981114/install-docker-ce-17-03-on-rhel7?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="42981811"></a>
+<div id="answer-42981811" class="answer accepted-answer" data-answerid="42981811"  itemprop="acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="42981811">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="73">73</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"/></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>As per the documentation <a href="https://store.docker.com/editions/community/docker-ce-server-centos?tab=description" rel="noreferrer" title="Docker RHEL7">here</a>, you can install Docker CE 17.03 (or future versions) on RHEL 7.3 64-bit via:</p>
+
+<p>Set up the Docker CE repository on RHEL:</p>
+
+<pre><code>sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum makecache fast
+</code></pre>
+
+<p>Install the latest version of Docker CE on RHEL:</p>
+
+<pre><code>sudo yum -y install docker-ce
+</code></pre>
+
+<p>Alternatively, you can specify a specific version of Docker CE:</p>
+
+<pre><code>sudo yum -y install docker-ce-&lt;version&gt;-&lt;release&gt;
+</code></pre>
+
+<p>Start Docker:</p>
+
+<pre><code>sudo systemctl start docker
+</code></pre>
+
+<p>Test your Docker CE installation:</p>
+
+<pre><code>sudo docker run hello-world
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2017-03-23T16:29:17"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/42981811/6549317" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-42981811">share</a><span class="lsep">|</span><a href="/posts/42981811/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/42981811/revisions" title="show all edits to this post">edited <span title="2017-03-23 16:53:56Z" class="relativetime">Mar 23 '17 at 16:53</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-03-23 16:29:17Z" class="relativetime">Mar 23 '17 at 16:29</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/5343387/matt-schuchard"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/15a14cec3014822297a08ed6dfae2563?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/5343387/matt-schuchard">Matt Schuchard</a><span class="d-none" itemprop="name">Matt Schuchard</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">8,001</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="23 silver badges"><span class="badge2"></span><span class="badgecount">23</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-42981811" class="comments js-comments-container " data-post-id="42981811">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="3"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-77941529" class="comment js-comment " data-comment-id="77941529">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Are there any licensing concerns with attempting to manually install Docker CE on RHEL? Is this legally allowed?</span>
+                
+                    &ndash;&nbsp;<a href="/users/843759/link-boy"
+                       title="495 reputation"
+                       class="comment-user">link_boy</a>
+                <span class="comment-date" dir="ltr"><span title="2017-08-03 16:45:46Z" class="relativetime-clean">Aug 3 '17 at 16:45</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-77941831" class="comment js-comment " data-comment-id="77941831">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">This is not actually a manual install, but besides the point, non-enterprise Moby is released under the Apache 2.0 license, so there are no licensing issues with installing and using it. If you took code from enterprise and reused it, or used enterprise without paying for it, then there would probably be licensing issues.</span>
+                
+                    &ndash;&nbsp;<a href="/users/5343387/matt-schuchard"
+                       title="8,001 reputation"
+                       class="comment-user">Matt Schuchard</a>
+                <span class="comment-date" dir="ltr"><span title="2017-08-03 16:53:13Z" class="relativetime-clean">Aug 3 '17 at 16:53</span></span>
+                        <span title="this comment was edited 2 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-81106968" class="comment js-comment " data-comment-id="81106968">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="warm">5</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Don&#39;t forget <code>sudo systemctl enable docker</code>, otherwise the service won&#39;t start automatically on boot.</span>
+                
+                    &ndash;&nbsp;<a href="/users/1485952/fnkr"
+                       title="5,080 reputation"
+                       class="comment-user">fnkr</a>
+                <span class="comment-date" dir="ltr"><span title="2017-11-02 15:34:15Z" class="relativetime-clean">Nov 2 '17 at 15:34</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-81913882" class="comment js-comment " data-comment-id="81913882">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">My machine has the RPM <code>docker-1.12.6-16-e17.x86_64</code> installed, and I got error of <code>Error: docker-ce conflicts with 2:docker-1.12.6-16.el7.x86_64</code>.  There are two suggestions after the error message: 1. <code>You could try using --skip-broken to work around the problem</code> and 2. <code>You could try running: rpm -Va --nofiles --nodigest</code>.  What would you recommend?  Thanks!</span>
+                
+                    &ndash;&nbsp;<a href="/users/1168041/leeyuiwah"
+                       title="3,064 reputation"
+                       class="comment-user">leeyuiwah</a>
+                <span class="comment-date" dir="ltr"><span title="2017-11-24 20:19:01Z" class="relativetime-clean">Nov 24 '17 at 20:19</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-83627628" class="comment js-comment " data-comment-id="83627628">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">@leeyuiwah You have to uninstall the old Docker RPM first. For some reason, Docker (company) forgot to use the <code>obsoletes</code> tag in its RPM metadata so CE does not automatically replace the older series like it should.</span>
+                
+                    &ndash;&nbsp;<a href="/users/5343387/matt-schuchard"
+                       title="8,001 reputation"
+                       class="comment-user">Matt Schuchard</a>
+                <span class="comment-date" dir="ltr"><span title="2018-01-18 12:23:37Z" class="relativetime-clean">Jan 18 '18 at 12:23</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-42981811" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>3</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow everyoneloves__mid-leaderboard"></div>
+  
+<a name="45033117"></a>
+<div id="answer-45033117" class="answer" data-answerid="45033117"  itemprop="suggestedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="45033117">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="28">28</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"/></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>Procedure for a disposable dev test RHEL 7.3. Never do this in production.</p>
+
+<pre><code># pre-requisite for container-selinux-2.9-4.el7.noarch.rpm
+sudo yum install policycoreutils-python
+
+wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.21-1.el7.noarch.rpm
+sudo rpm -i container-selinux-2.21-1.el7.noarch.rpm
+
+#Set up the Docker CE repository on RHEL:
+sudo yum install -y yum-utils
+sudo yum install -y device-mapper-persistent-data lvm2
+sudo yum-config-manager --enable rhel-7-server-extras-rpms
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum makecache fast
+
+# Install the latest version of Docker CE on RHEL:
+sudo yum -y install docker-ce
+
+#Start Docker:
+sudo systemctl start docker
+
+#Test your Docker CE installation:
+sudo docker run hello-world
+
+# configure Docker to start on boot
+sudo systemctl enable docker
+
+# add user to the docker group 
+sudo usermod -aG docker jethro
+
+# install Docker Compose:
+# install python-pip
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+sudo yum install ./epel-release-latest-7.noarch.rpm
+sudo yum install -y python-pip
+
+sudo pip install docker-compose
+
+# upgrade your Python packages:
+sudo yum upgrade python*
+</code></pre>
+
+<p>The above assumes you are NOT using a proxy. If you are, you will need to add <code>proxy=http://myproxy:myport</code> lines pretty much at the end of each block in each file under <code>/etc/yum.repos.d/</code>, or add it to <code>/etc/yum.conf</code>.</p>
+
+<p>Hope this helps.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2017-07-11T11:20:32"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/45033117/6549317" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-45033117">share</a><span class="lsep">|</span><a href="/posts/45033117/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/45033117/revisions" title="show all edits to this post">edited <span title="2018-01-31 23:18:42Z" class="relativetime">Jan 31 '18 at 23:18</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/101827/mike-atlas"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/R2AOA.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/101827/mike-atlas">Mike Atlas</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">7,077</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="36 silver badges"><span class="badge2"></span><span class="badgecount">36</span></span><span title="58 bronze badges"><span class="badge3"></span><span class="badgecount">58</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-07-11 11:20:32Z" class="relativetime">Jul 11 '17 at 11:20</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/3597426/bertrand-szoghy"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/ae7f803a05b187be9ebd2d9fffb9479a?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/3597426/bertrand-szoghy">Bertrand_Szoghy</a><span class="d-none" itemprop="name">Bertrand_Szoghy</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">535</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-45033117" class="comments js-comments-container " data-post-id="45033117">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="2"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-77195572" class="comment js-comment " data-comment-id="77195572">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">your solution perfectly worked! Thanks a lot! Question: why you are not recommending same process for PRD? then what will be right process for PRD?</span>
+                
+                    &ndash;&nbsp;<a href="/users/7356516/tushar-de"
+                       title="123 reputation"
+                       class="comment-user">Tushar De</a>
+                <span class="comment-date" dir="ltr"><span title="2017-07-14 21:34:44Z" class="relativetime-clean">Jul 14 '17 at 21:34</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-77276922" class="comment js-comment " data-comment-id="77276922">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">You will want and need Docker support in production in particular for scalability issues.</span>
+                
+                    &ndash;&nbsp;<a href="/users/3597426/bertrand-szoghy"
+                       title="535 reputation"
+                       class="comment-user">Bertrand_Szoghy</a>
+                <span class="comment-date" dir="ltr"><span title="2017-07-17 21:28:08Z" class="relativetime-clean">Jul 17 '17 at 21:28</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-83205581" class="comment js-comment " data-comment-id="83205581">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">The container-selinux part is outdated. Use: <code>wget http:&#47;&#47;mirror.centos.org&#47;centos&#47;7&#47;extras&#47;x86_64&#47;Packages&#47;container-selinux-2.21-1.el7.noarch.rpm; rpm -i container-selinux-2.21-1.el7.noarch.rpm</code></span>
+                
+                    &ndash;&nbsp;<a href="/users/406423/madmike"
+                       title="430 reputation"
+                       class="comment-user">MadMike</a>
+                <span class="comment-date" dir="ltr"><span title="2018-01-05 13:44:30Z" class="relativetime-clean">Jan 5 '18 at 13:44</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"/></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-84102552" class="comment js-comment " data-comment-id="84102552">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">This is close, but the official AMI for RHEL 7 on AWS ships with xfs filesystem with d_type=0, and won&#39;t start for me. <a href="https://community.centminmod.com/threads/using-docker-on-centos-7-choose-ext4-over-xfs.12492/" rel="nofollow noreferrer">community.centminmod.com/threads/&hellip;</a></span>
+                
+                    &ndash;&nbsp;<a href="/users/101827/mike-atlas"
+                       title="7,077 reputation"
+                       class="comment-user">Mike Atlas</a>
+                <span class="comment-date" dir="ltr"><span title="2018-01-31 23:20:04Z" class="relativetime-clean">Jan 31 '18 at 23:20</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-90944684" class="comment js-comment " data-comment-id="90944684">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">it works, just point the se-linux to the new url</span>
+                
+                    &ndash;&nbsp;<a href="/users/6315366/alongkorn-chetasumon"
+                       title="1,418 reputation"
+                       class="comment-user">Alongkorn Chetasumon</a>
+                <span class="comment-date" dir="ltr"><span title="2018-08-24 05:02:53Z" class="relativetime-clean">Aug 24 '18 at 5:02</span></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-45033117" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>2</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="48801042"></a>
+<div id="answer-48801042" class="answer" data-answerid="48801042"  itemprop="suggestedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="48801042">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="13">13</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"/></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>For those who are facing below error:</p>
+
+<pre><code>Error: Package: docker-ce-17.06.0.ce-1.el7.centos.x86_64 (docker-ce-stable)
+       Requires: container-selinux &gt;= 2.9
+       You could try using --skip-broken to work around the problem
+       You could try running: rpm -Va --nofiles --nodigest
+</code></pre>
+
+<p>While installing docker on RHEL 7.3+ we need to execute:</p>
+
+<pre><code>    sudo subscription-manager repos --enable rhel-7-server-extras-rpms
+</code></pre>
+
+<p>which will enable extra rpms to be installed on yum update.After this execute:</p>
+
+<pre><code>    sudo yum update
+</code></pre>
+
+<p>Then follow:
+<a href="https://docs.docker.com/install/linux/docker-ce/centos/" rel="noreferrer">Install Docker</a></p>
+
+<p>This has worked for me.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2018-02-15T06:21:01"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/48801042/6549317" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-48801042">share</a><span class="lsep">|</span><a href="/posts/48801042/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/48801042/revisions" title="show all edits to this post">edited <span title="2018-09-25 10:10:20Z" class="relativetime">Sep 25 '18 at 10:10</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/545127/raedwald"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/12085165b40ecb2e46549f96c34417d9?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/545127/raedwald">Raedwald</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 27,587" dir="ltr">27.6k</span><span title="23 gold badges"><span class="badge1"></span><span class="badgecount">23</span></span><span title="100 silver badges"><span class="badge2"></span><span class="badgecount">100</span></span><span title="164 bronze badges"><span class="badge3"></span><span class="badgecount">164</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2018-02-15 06:21:01Z" class="relativetime">Feb 15 '18 at 6:21</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/4514193/akash-srivastava"><div class="gravatar-wrapper-32"><img src="https://lh5.googleusercontent.com/-HI6fJTFkrPg/AAAAAAAAAAI/AAAAAAAAAIs/6RX23Vdk5zU/photo.jpg?sz=32" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/4514193/akash-srivastava">Akash Srivastava</a><span class="d-none" itemprop="name">Akash Srivastava</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">166</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-48801042" class="comments js-comments-container " data-post-id="48801042">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-85021508" class="comment js-comment " data-comment-id="85021508">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Thanks a lot!!!</span>
+                
+                    &ndash;&nbsp;<a href="/users/6893346/alvaro-ni%c3%b1o"
+                       title="372 reputation"
+                       class="comment-user">Alvaro Ni&#241;o</a>
+                <span class="comment-date" dir="ltr"><span title="2018-02-27 12:20:49Z" class="relativetime-clean">Feb 27 '18 at 12:20</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-86655842" class="comment js-comment " data-comment-id="86655842">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="warm">6</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Seems as of Docker 18.03+ it needs the additional dependency <code>pigz</code>- which is sadly not in <i>Extras</i>; but in EPEL -&gt;  <code>yum install –y https:&#47;&#47;dl.fedoraproject.org&#47;pub&#47;epel&#47;epel-release-latest-7.noarch.rpm</code>:(</span>
+                
+                    &ndash;&nbsp;<a href="/users/2920878/christian-ulbrich"
+                       title="1,195 reputation"
+                       class="comment-user">Christian Ulbrich</a>
+                <span class="comment-date" dir="ltr"><span title="2018-04-13 15:26:11Z" class="relativetime-clean">Apr 13 '18 at 15:26</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-88179533" class="comment js-comment " data-comment-id="88179533">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Executing the <code>subsciption-manager</code> command, I get a connection refused error: &quot;Network error, unable to connect to server. Please see /var/log/rhsm/rhsm.log for more information.&quot;</span>
+                
+                    &ndash;&nbsp;<a href="/users/981922/dokaspar"
+                       title="3,036 reputation"
+                       class="comment-user">dokaspar</a>
+                <span class="comment-date" dir="ltr"><span title="2018-05-29 13:07:17Z" class="relativetime-clean">May 29 '18 at 13:07</span></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-48801042" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="51299109"></a>
+<div id="answer-51299109" class="answer" data-answerid="51299109"  itemprop="suggestedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="51299109">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="4">4</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"/></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>INSTALLING DOCKER RHEL/CENTOS</p>
+
+<ol>
+<li><p>Got To: <a href="https://download.docker.com/linux/centos/7/x86_64/stable/Packages/" rel="nofollow noreferrer">https://download.docker.com/linux/centos/7/x86_64/stable/Packages/</a></p>
+
+<p><strong>download:  docker-ce-17.03.2.ce-1.el7.centos.x86_64.rpm                  2018-06-08 05:48  19M 
+download:  docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm          2018-06-08 05:48  29K</strong></p>
+
+<p><strong>Upload to server</strong></p>
+
+<ol start="2">
+<li><p>yum -y install docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm</p></li>
+<li><p>yum -y install docker-ce-17.03.2.ce-1.el7.centos.x86_64.rpm</p></li>
+<li><p>sudo systemctl start docker</p></li>
+<li><p>REF:
+<a href="https://stackoverflow.com/questions/42981114/install-docker-ce-17-03-on-rhel7">install Docker CE 17.03 on RHEL7</a>
+<a href="https://nickjanetakis.com/blog/docker-tip-39-installing-docker-ce-on-redhat-rhel-7x" rel="nofollow noreferrer">https://nickjanetakis.com/blog/docker-tip-39-installing-docker-ce-on-redhat-rhel-7x</a>
+<a href="https://docs.docker.com/install/linux/docker-ee/rhel/#set-up-the-repository" rel="nofollow noreferrer">https://docs.docker.com/install/linux/docker-ee/rhel/#set-up-the-repository</a></p></li>
+</ol></li>
+</ol>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2018-07-12T06:57:23"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/51299109/6549317" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-51299109">share</a><span class="lsep">|</span><a href="/posts/51299109/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2018-07-12 06:57:23Z" class="relativetime">Jul 12 '18 at 6:57</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1820466/fred-ondieki"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/d13f45b1874fa314beaa3be83cbe5937?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/1820466/fred-ondieki">Fred Ondieki</a><span class="d-none" itemprop="name">Fred Ondieki</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,084</span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="22 bronze badges"><span class="badge3"></span><span class="badgecount">22</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-51299109" class="comments js-comments-container  dno" data-post-id="51299109">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-51299109" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="44821012"></a>
+<div id="answer-44821012" class="answer" data-answerid="44821012"  itemprop="suggestedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="44821012">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="3">3</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"/></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>Well maybe you can acheive installing Docker CE 17.06 or 17.03 on RHEL 7.3, but Docker documentation is quite clear:</p>
+
+<blockquote>
+  <p>Docker Community Edition (Docker CE) is not supported on RHEL.</p>
+</blockquote>
+
+<p>See <a href="https://docs.docker.com/engine/installation/linux/docker-ee/rhel/" rel="nofollow noreferrer">https://docs.docker.com/engine/installation/linux/docker-ee/rhel/</a></p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2017-06-29T09:17:26"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/44821012/6549317" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-44821012">share</a><span class="lsep">|</span><a href="/posts/44821012/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-06-29 09:17:26Z" class="relativetime">Jun 29 '17 at 9:17</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/6829682/antoine-palavioux"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/3b8492ca949c94444105af0a56f5db48?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/6829682/antoine-palavioux">Antoine Palavioux</a><span class="d-none" itemprop="name">Antoine Palavioux</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">63</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="4 bronze badges"><span class="badge3"></span><span class="badgecount">4</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-44821012" class="comments js-comments-container " data-post-id="44821012">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-77915876" class="comment js-comment " data-comment-id="77915876">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="supernova">33</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Neither is running Doom on your coffee machine, but it&#39;s nice to have the option.</span>
+                
+                    &ndash;&nbsp;<a href="/users/1353645/saustrup"
+                       title="494 reputation"
+                       class="comment-user">Saustrup</a>
+                <span class="comment-date" dir="ltr"><span title="2017-08-03 07:36:27Z" class="relativetime-clean">Aug 3 '17 at 7:36</span></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-44821012" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="50572777"></a>
+<div id="answer-50572777" class="answer" data-answerid="50572777"  itemprop="suggestedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="50572777">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful (click again to undo)" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"/></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="2">2</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful (click again to undo)" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"/></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"/></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>I had the same problem running 7.x and I did the following:</p>
+
+<pre><code>yum install -y yum-utils
+
+wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+rpm -ivh epel-release-latest-7.noarch.rpm
+
+subscription-manager repos --enable=rhel-7-server-extras-rpms
+
+yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.55-1.el7.noarch.rpm
+
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+yum install -y docker-ce
+
+systemctl restart docker
+</code></pre>
+
+<p>
+With this you'll not fall on the pigz error</p>
+
+<pre><code>Error: Package: docker-ce-18.03.1.ce-1.el7.centos.x86_64 (docker-ce-stable)
+           Requires: pigz
+ You could try using --skip-broken to work around the problem
+</code></pre>
+
+<p>Also <strong>you need to keep an eye</strong> on the <strong><em>container-selinux</em></strong> since i'm using a direct link to the version 2.55-1</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2018-05-28T19:54:24"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/50572777/6549317" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-50572777">share</a><span class="lsep">|</span><a href="/posts/50572777/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2018-05-28 19:54:24Z" class="relativetime">May 28 '18 at 19:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/4613313/pekosog"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/ID1Ht.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="/users/4613313/pekosog">PekosoG</a><span class="d-none" itemprop="name">PekosoG</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">213</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="8 bronze badges"><span class="badge3"></span><span class="badgecount">8</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-50572777" class="comments js-comments-container  dno" data-post-id="50572777">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-50572777" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+                                    <a name='new-answer'></a>
+                        <form id="post-form" action="/questions/42981114/answer/submit" method="post"  class="post-form">
+                            <input type="hidden" id="post-id" value="42981114" />
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" />
+                            <input type="hidden" name="referrer" value="https://www.google.com/" />
+                            <h2 class="space">
+                                Your Answer
+                            </h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        var channelOptions = {
+            tags: "".split(" "),
+            id: "1"
+        };
+        initTagRenderer("".split(" "), "".split(" "), channelOptions);
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                    autoActivateHeartbeat: false,
+                    convertImagesToLinks: true,
+                noModals: true,
+                showLowRepImageUploadWarning: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                imageUploader: {
+                    brandingHtml: "Powered by \u003ca class=\"icon-imgur-white\" href=\"https://imgur.com/\"\u003e\u003c/a\u003e",
+                    contentPolicyHtml: "User contributions licensed under \u003ca href=\"https://creativecommons.org/licenses/by-sa/3.0/\"\u003ecc by-sa 3.0 with attribution required\u003c/a\u003e \u003ca href=\"https://stackoverflow.com/legal/content-policy\"\u003e(content policy)\u003c/a\u003e",
+                    allowUrls: true
+                },
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true,userId:6549317
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor js-wz-element" data-wz-state = "8,16,32,64,128,256">
+
+    <div class="ps-relative"> 
+        <div class="wmd-container mb8">
+            <div id="wmd-button-bar" class="wmd-button-bar btr-sm"></div>
+                        <div class="js-stacks-validation">
+                <div class="ps-relative">
+                    <textarea id="wmd-input" class="wmd-input js-wz-element s-input bar0" name="post-text" cols="92" rows="15" tabindex="101" data-wz-state = "256" data-min-length=""></textarea>
+                </div>
+                <div class="s-input-message mt4 d-none js-stacks-validation-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <aside class="grid ai-start jc-space-between js-answer-help s-notice s-notice__warning pb0 pr4 pt4 mb8 d-none" role="status" aria-hidden="true">
+    <div class="grid--cell pt8">
+        <p>Thanks for contributing an answer to Stack Overflow!</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="/help/how-to-answer">tips on writing great answers</a>.</p>
+    </div>
+    <button class="grid--cell js-answer-help-close-btn s-btn s-btn__muted fc-dark">
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41z"/></svg>
+    </button>
+</aside>
+
+<aside class="grid ai-start jc-space-between js-answer-ban s-notice s-notice__danger pb0 pr4 pt4 mb8 d-none" role="status" aria-hidden="true">
+    <div class="grid--cell pt8">
+        <p>Some of your past answers have not been well-received, and you're in danger of being <a href="/help/answer-bans">blocked from answering</a>.</p><p>Please pay close attention to the following guidance:</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="/help/how-to-answer">tips on writing great answers</a>.</p>
+    </div>
+    <button class="grid--cell js-answer-ban-close-btn s-btn s-btn__muted fc-dark">
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41z"/></svg>
+    </button>
+</aside>
+
+    <div id="draft-saved" class="draft-saved community-option fl" style="height:24px; display:none;">draft saved</div>
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="fc4ce19a1e9e269756c8a8197b96c9694eb35eec41f619a67011c9db1ebe0faf">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div class="ps-relative">
+                                
+                                
+                            </div>
+
+                                                            <div class="form-submit cbt grid gsx gs4">
+                                    <button id="submit-button" class="grid--cell s-btn s-btn__primary s-btn__icon" type="submit" tabindex="120" autocomplete="off">
+Post Your Answer                                    </button>
+                                    <button class="grid--cell s-btn s-btn__danger discard-answer dno">
+                                        Discard
+                                    </button>
+                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you&#39;re looking for?                            Browse other questions tagged <a href="/questions/tagged/docker" class="post-tag" title="show questions tagged &#39;docker&#39;" rel="tag">docker</a> <a href="/questions/tagged/redhat" class="post-tag" title="show questions tagged &#39;redhat&#39;" rel="tag">redhat</a>  or <a href="/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+
+<script>
+    window.showNewUser = false;
+
+</script>
+
+<div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+    <h4>Hello World!</h4>
+    <div>
+        <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free.</p><p>Got a question about the site itself? <a href="https://meta.stackoverflow.com">meta</a> is the place to talk about things like what questions are appropriate, what tags we should use, etc.</p>
+        <p class="ar">
+                <a href="/tour?mnu=1">about &raquo;</a>&nbsp;&nbsp;&nbsp;
+            <a href="/help?mnu=1">help &raquo;</a>
+                &nbsp; <a href="https://meta.stackoverflow.com">meta &raquo;</a>
+        </p>
+    </div>
+</div>
+    <script>
+    if (showNewUser) {
+        document.getElementById('newuser-box').style.display = '';
+    }
+    </script>                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2017-03-23 15:58:26Z">
+                                    <b>
+                                        <time itemprop="dateCreated" datetime="2017-03-23T15:58:26">2 years, 2 months ago</time>
+                                    </b>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>80,277 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2018-09-25 10:10:20Z">8 months ago</a></b></p>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+            <div class="s-sidebarwidget s-sidebarwidget__yellow s-anchors s-anchors__default mb16" data-tracker="cb=1">
+            <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text">
+                Featured on Meta
+            </div>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <a href="https://meta.stackexchange.com/questions/328475/unicorn-meta-zoo-3-how-do-we-grade-questions" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/328475/unicorn-meta-zoo-3-how-do-we-grade-questions&quot;,null,null]">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+        </div>
+        <div class="grid--cell">
+            <a href="https://meta.stackexchange.com/questions/328475/unicorn-meta-zoo-3-how-do-we-grade-questions" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/328475/unicorn-meta-zoo-3-how-do-we-grade-questions&quot;,null,null]">Unicorn Meta Zoo #3: How do we grade questions?</a>
+        </div>
+    </li>
+        </ul>
+            <div class="s-sidebarwidget--header s-sidebarwidget__small-bold-text">
+                Hot Meta Posts
+            </div>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">12</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://meta.stackoverflow.com/questions/385785/should-i-pay-attention-to-answers-when-in-the-triage-review-queue" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/385785/should-i-pay-attention-to-answers-when-in-the-triage-review-queue&quot;,null,null]">Should I pay attention to answers when in the Triage review queue?</a>
+        </div>
+    </li>
+        </ul>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">12</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://meta.stackoverflow.com/questions/385818/typo-in-tag-anguarjs-digest-cycle" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/385818/typo-in-tag-anguarjs-digest-cycle&quot;,null,null]">Typo in tag [anguarjs-digest-cycle]</a>
+        </div>
+    </li>
+        </ul>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">23</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://meta.stackoverflow.com/questions/385795/placeholder-text-for-tags-is-cut-off-on-meta-stack-overflow" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/385795/placeholder-text-for-tags-is-cut-off-on-meta-stack-overflow&quot;,null,null]">Placeholder text for tags is cut off on Meta Stack Overflow</a>
+        </div>
+    </li>
+        </ul>
+        <ul class="s-sidebarwidget--content s-sidebarwidget__items pt0 pr16 pb0 pl16">
+    <li class="s-sidebarwidget--item grid">
+        <div class="grid--cell1 fl-shrink0">
+                <span class="fc-black-500" title="Vote score (upvotes - downvotes)">17</span>
+        </div>
+        <div class="grid--cell">
+            <a href="https://meta.stackoverflow.com/questions/385834/mcve-survives-in-an-auto-generated-text-on-so" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/385834/mcve-survives-in-an-auto-generated-text-on-so&quot;,null,null]">MCVE survives in an auto-generated text on SO</a>
+        </div>
+    </li>
+        </ul>
+</div>
+<div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div>
+            <div id="hireme"></div>
+<script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=d5e853c48d84","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=002bd589ccb2","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){var a=x.lib;l()&&(a=a.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2')),i(a)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':/^\/$/.test(location.pathname)||/^\/home/.test(location.pathname)?'home-page':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],smlb:[[728,90]],bmlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-smlb":'smlb',"dfp-bmlb":'bmlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){var b=x.al;b&&z.push(function(){return a.load()})})(),n(),a.dfp={load:w},a.options=x,a.cmd=z})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script>            <script>
+                var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,smlb:!1,bmlb:!1,'mobile-below-question':!0};
+                clc.cmd = clc.cmd || [];
+                clc.cmd.push(function () { window.clc_request='AvSWzsxe69YIRcdUAPrWjwICAAAAAgAAAAMPAAAAfGRvY2tlcnxyZWRoYXR8AOCOoCJov4INSpw'; clc.load(); });
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['true'],'so-tag':['docker','redhat'],Persona:['DevOps']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+            </script>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="/q/45272827" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">37</div>
+	</a>
+	<a href="/questions/45272827/docker-ce-on-rhel-requires-container-selinux-2-9?noredirect=1" class="question-hyperlink">Docker CE on RHEL - Requires: container-selinux &gt;= 2.9</a>
+</div>
+<div class="spacer">
+	<a href="/q/45018786" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">59</div>
+	</a>
+	<a href="/questions/45018786/what-is-the-exact-difference-between-docker-ee-enterprise-edition-docker-ce?noredirect=1" class="question-hyperlink">What is the exact difference between Docker EE (Enterprise Edition), Docker CE (Community Edition) and Docker (Custom Support)</a>
+</div>
+<div class="spacer">
+	<a href="/q/45326347" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="/questions/45326347/how-to-know-that-docker-installed-in-redhat-is-community-or-enterprise-edition?noredirect=1" class="question-hyperlink">How to know that docker installed in redhat is community or enterprise edition?</a>
+</div>
+<div class="spacer">
+	<a href="/q/45019110" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/45019110/format-of-the-version-string-for-installing-a-specific-version-of-docker-commu?noredirect=1" class="question-hyperlink">Format of the &lt;version&gt; string for installing a specific version of Docker Community Edition yum CentOS</a>
+</div>			</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer"><a href="/q/16047306" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">3349</div></a><a href="/questions/16047306/how-is-docker-different-from-a-virtual-machine" class="question-hyperlink">How is Docker different from a virtual machine?</a></div><div class="spacer"><a href="/q/16647069" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2004</div></a><a href="/questions/16647069/should-i-use-vagrant-or-docker-for-creating-an-isolated-environment" class="question-hyperlink">Should I use Vagrant or Docker for creating an isolated environment?</a></div><div class="spacer"><a href="/q/16840409" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">820</div></a><a href="/questions/16840409/how-to-list-containers-in-docker" class="question-hyperlink">How to list containers in Docker</a></div><div class="spacer"><a href="/q/17157721" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1072</div></a><a href="/questions/17157721/how-to-get-a-docker-containers-ip-address-from-the-host" class="question-hyperlink">How to get a Docker container&#39;s IP address from the host?</a></div><div class="spacer"><a href="/q/17236796" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1107</div></a><a href="/questions/17236796/how-to-remove-old-docker-containers" class="question-hyperlink">How to remove old Docker containers</a></div><div class="spacer"><a href="/q/18496940" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">938</div></a><a href="/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker" class="question-hyperlink">How to deal with persistent storage (e.g. databases) in Docker</a></div><div class="spacer"><a href="/q/22049212" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1216</div></a><a href="/questions/22049212/copying-files-from-docker-container-to-host" class="question-hyperlink">Copying files from Docker container to host</a></div><div class="spacer"><a href="/q/22907231" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1218</div></a><a href="/questions/22907231/copying-files-from-host-to-docker-container" class="question-hyperlink">Copying files from host to Docker container</a></div><div class="spacer"><a href="/q/23935141" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">994</div></a><a href="/questions/23935141/how-to-copy-docker-images-from-one-host-to-another-without-using-a-repository" class="question-hyperlink">How to copy Docker images from one host to another without using a repository</a></div><div class="spacer"><a href="/q/34930874" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="/questions/34930874/install-docker-on-redhatlinux-6-7" class="question-hyperlink">Install docker on RedHatLinux 6.7</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot"
+           class="js-gps-track s-link s-link__inherit" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/52991/are-there-any-important-biographies-of-nobodies" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are there any important biographies of nobodies?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/442120/active-low-pass-filters-good-to-what-frequencies" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Active low-pass filters --- good to what frequencies?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/213663/a-word-that-means-blending-into-a-community-too-much" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A word that means &quot;blending into a community too much&quot;
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-gis" title="Geographic Information Systems Stack Exchange"></div><a href="https://gis.stackexchange.com/questions/325118/creating-dummy-variables-between-layers-based-on-their-geometries-in-qgis" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:79 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Creating dummy variables between layers based on their geometries in QGIS
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/186456/who-won-a-game-of-bar-dice" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Who won a Game of Bar Dice?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/214050/scientist-couple-raises-alien-baby" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Scientist couple raises alien baby
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-japanese" title="Japanese Language Stack Exchange"></div><a href="https://japanese.stackexchange.com/questions/68719/what-does-%e6%80%9d%e3%81%a3%e3%81%a6%e3%82%84%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8b-mean" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:257 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does 思ってやっている mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/213949/has-there-been-a-multiethnic-star-trek-character" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Has there been a multiethnic Star Trek character?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/56486877/are-browser-differences-in-the-last-digit-of-a-javascript-math-function-atan2" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are browser differences in the last digit of a JavaScript Math function (atan2) within spec?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/149331/how-to-communicate-to-my-gm-that-not-being-allowed-to-use-stealth-isnt-fun-for" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to communicate to my GM that not being allowed to use stealth isn&#39;t fun for me?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/3253240/are-polynomials-with-the-same-roots-identical" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are polynomials with the same roots identical?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="https://space.stackexchange.com/questions/36593/does-the-long-march-11-increase-its-thrust-after-clearing-the-launch-tower" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does the Long March-11 increase its thrust after clearing the launch tower?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="https://cooking.stackexchange.com/questions/99382/wooden-cooking-layout" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Wooden cooking layout
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1445219/why-can-my-keyboard-only-digest-6-keypresses-at-a-time" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can my keyboard only digest 6 keypresses at a time?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/213991/live-action-tv-show-where-high-school-kids-go-into-the-virtual-world-and-have-to" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Live action TV show where High school Kids go into the virtual world and have to clear levels
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/214032/60s-or-70s-novel-about-empire-of-man-making-1st-contact-with-1st-discovered-alie" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    60s or 70s novel about Empire of Man making 1st contact with 1st discovered alien race
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/333430/is-there-a-set-of-positive-integers-of-density-1-which-contains-no-infinite-arit" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a set of positive integers of density 1 which contains no infinite arithmetic progression?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/523209/why-1-2-printed-by-a-command-in-is-not-interpolated" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why {1,2} printed by a command in $() is not interpolated?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/494488/lualatex-how-to-use-number-computed-later-in-the-document" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    LuaLaTex - how to use number, computed later in the document
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/65219/is-it-possible-to-fly-backward-if-you-have-really-strong-headwind" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it possible to fly backward if you have REALLY STRONG headwind?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="https://chemistry.stackexchange.com/questions/116498/what-is-kekulization-in-rdkit" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is kekulization (in RDKit)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/137970/i-have-a-problematic-assistant-manager-but-i-cant-fire-him" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I have a problematic assistant manager, but I can&#39;t fire him
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/45753/is-it-expected-that-a-reader-will-skip-parts-of-what-you-write" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it expected that a reader will skip parts of what you write?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/494553/single-key-teletype" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Single-key teletype?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+
+    <div id="feed-link" class="js-feed-link">
+        <a href="/feeds/question/42981114" title="Feed of this question and its answers">
+            <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"/></svg>
+            Question feed
+        </a>
+    </div>
+    <aside class="s-modal js-feed-link-modal" tabindex="-1" role="dialog" aria-labelledby="feed-modal-title" aria-describedby="feed-modal-description" aria-hidden="true">
+        <div class="s-modal--dialog js-modal-dialog wmx4" role="document"  data-controller="se-draggable">
+            <h1 class="s-modal--header fw-bold js-first-tabbable" id="feed-modal-title" data-target="se-draggable.handle" tabindex="0">
+                Subscribe to RSS
+            </h1>
+            <div class="grid gs4 gsy fd-column">
+                <div class="grid--cell">
+                    <label class="d-block s-label" for="feed-url">
+                        Question feed
+                        <p class="s-description mt2" id="feed-modal-description">To subscribe to this RSS feed, copy and paste this URL into your RSS reader.</p>
+                    </label>
+                </div>
+                <div class="grid ps-relative">
+                    <input class="s-input" type="text" name="feed-url" id="feed-url" readonly="readonly" value="https://stackoverflow.com/feeds/question/42981114" />
+                    <svg aria-hidden="true" class="svg-icon s-input-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"/></svg>
+                </div>
+            </div>
+            <a class="s-modal--close s-btn s-btn__muted js-modal-close js-last-tabbable" href="#" aria-label="Close">
+                <svg aria-hidden="true" class="svg-icon iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41z"/></svg>
+            </a>
+        </div>
+    </aside>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/42981114/ivc/275b');});</script>
+<noscript><div><img src="/posts/42981114/ivc/275b" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang"></div></div>
+
+    <script>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </script>
+
+        </div>
+    </div>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+
+                    
+                    <a href="https://stackoverflow.com"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><path d="M26 33v-9h4v13H0V24h4v9h22z" fill="#BCBBBB"/><path d="M21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM26 18.4L13.3 7.8l2.1-2.5 12.7 10.6-2.1 2.5zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm14 10.79l.68-2.95-16.1-3.35L7 23l16.1 2.99zM23 30H7v-3h16v3z" fill="#F48024"/></svg></a>
+                </div>
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                            <li class="-item"><a href="/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" 
+                                                 data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]"
+                                                 data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertising" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Advertising</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7 7 7z"/></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine&#174; CMS">ExpressionEngine&#174; Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Portugu&#234;s</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="programadores y profesionales de la inform&#225;tica">Stack Overflow en espa&#241;ol</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 26 })">
+                        <strong>
+                            more (31)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 29, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo &#169; 2019 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2019.6.7.33906</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+            <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled
+            <img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno">
+        </div>
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ]
+                });
+
+                    StackExchange.ga.setDimension('dimension1', '5556037');
+
+
+                    StackExchange.ga.setDimension('dimension2', '|docker|redhat|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+            
+    </body>
+    </html>
