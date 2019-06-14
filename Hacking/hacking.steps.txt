@@ -1,0 +1,109 @@
+nmap -v -sSVC -p 445 --script discovery 192.168.55.248
+
+
+msfconsole
+setg rhosts 192.168.55.248
+echo 'setg rhosts 192.168.55.248' > smbscan.rc
+echo 'use auxiliary/scanner/smb/smb_enumusers' >> smbscan.rc
+echo 'run' >> smbscan.rc
+echo 'use auxiliary/scanner/smb/smb_enumshares' >> smbscan.rc
+echo 'run' >> smbscan.rc
+echo 'use auxiliary/scanner/smb/smb_version' >> smbscan.rc
+echo 'run' >> smbscan.rc
+msfconsole -r smbscan.rc
+
+
+
+netcat -z -n -v 198.51.100.0 1-1000 2>&1 | grep succeeded
+
+nbtscan 192.168.1.0/24  Discover Windows / Samba servers on subnet, finds Windows MAC addresses, netbios name and discover
+client workgroup / domain
+
+enum4linux -a 192.168.0.14
+    apt install samba smbclient
+    apt-get download samba smbclient && apt-cache depends -i PACKAGE | awk '/Depends:/ {print $2}' | xargs  apt-get download
+    apt-get download PACKAGE && apt-cache depends -i PACKAGE | awk '/Depends:/ {print $2}' | xargs  apt-get download
+
+enum -a 192.168.0.14
+polenum.py
+ldapsearch
+smbclient -L IP-Address
+smbclient -L //samba-storage.local -U samba_user1
+smbclient -L //server -U user
+Connect to a SMB share with
+
+
+smbclient //server/share -U user
+Enter you user password.
+
+You can connect directly with
+
+
+smbclient //server/share -U user%password
+nbtscan -r IPADDRESS
+
+
+SNMP Enumeration
+
+    snmpcheck -t 192.168.1.X -c public
+    can't locate Tk.pm in @INC
+    apt-get install perl-tk
+    cpan install Tk
+
+    snmpwalk -c public -v1 192.168.1.X 1| grep hrSWRunName|cut -d* * -f     # this one worked
+
+    onesixtyone -c names -i hosts
+
+    python /usr/share/doc/python-impacket-doc/examples /samrdump.py 192.168.XXX.XXX
+
+    git clone https://github.com/SecureAuthCorp/impacket.git
+    cd impacket/
+    apt install python-pip
+    pip install --upgrade pip
+    pip install .
+    find . -iregex '.*samrdump.*'
+    python examples/samrdump.py localhost
+
+Wordlists
+
+    /usr/share/wordlists
+
+Brute Forcing Services
+    Hydra FTP Brute Force
+        Hydra SSH Brute Force
+            hydra -C metasploitableuserpass.txt 192.168.0.14 ssh
+        Hydra FTP Brute Force
+            hydra -l USERNAME -P /usr/share/wordlistsnmap.lst -f 192.168.X.XXX ftp -V
+
+        Hydra POP3 Brute Force
+            hydra -l USERNAME -P /usr/share/wordlistsnmap.lst -f 192.168.X.XXX pop3 -V
+        Hydra SMTP Brute Force
+            hydra -P /usr/share/wordlistsnmap.lst 192.168.X.XXX smtp -V Hydra SMTP brute force   # Use -t to limit concurrent connections, example: -t 15
+Cracking Hashes
+        hashcat -m 500 metasploitablehash.txt metasploitablepass.txt
+
+Password Cracking
+    John The Ripper – JTR
+        john --wordlist=/usr/share/wordlists/rockyou.txt hashes     # JTR password cracking
+        john --format=descrypt --wordlist /usr/share/wordlists/rockyou.txt hash.txt                   # JTR forced descrypt cracking with wordlist
+        john --format=descrypt hash --show                          # JTR forced descrypt brute force cracking
+
+# HTTP / HTTPS Webserver Enumeration
+perl nikto.pl -h example.com
+use auxiliary/scanner/http/dir_scanner  
+dirb http://192.168.1.5/dvwa
+tcpdump tcp port 80 -w output.pcap -i eth0
+
+
+
+
+hydrl -C metasploitableuserpass.txt 192.168.0.14 ssh
+hashcat -m 500 metasploitablehash.txt metasploitablepass.txt
+
+find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
+
+
+
+
+REF:
+https://cowsayroot.com/category/pen-testing/

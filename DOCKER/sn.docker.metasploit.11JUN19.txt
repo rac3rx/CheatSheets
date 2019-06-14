@@ -170,7 +170,7 @@ https://www.kali.org/news/official-kali-linux-docker-images/
 https://medium.com/@airman604/kali-linux-in-a-docker-container-5a06311624eb
 docker pull kalilinux/kali-linux-docker
 docker run -ti kalilinux/kali-linux-docker /bin/bash
-
+docker run -it --net=host --hostname kali -v $HOME/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name kali kalilinux/kali-linux-docker /bin/bash
 https://unix.stackexchange.com/questions/429729/apt-get-update-error-in-kali-linux-after-dist-upgrade
 cat << EOF > /etc/apt/source.list
 deb http://http.kali.org/kali kali-rolling main contrib non-free
@@ -194,6 +194,7 @@ docker commit <CONTAINER ID> my-kali
 docker commit 956badea3fca mykali
 docker run -ti mykali /bin/bash
 sudo docker save -o ~/MyProjects/docker.images/mykali.tar mykali
+sudo docker load -i ~/MyProjects/docker.images/mykali.tar    # mkdir /tmp/data
 
 
 git clone https://github.com/phocean/dockerfile-msf.git
@@ -201,3 +202,6 @@ docker pull phocean/msf
 docker run --rm -it --net=host --hostname msf -v $HOME/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf phocean/msf
 sudo docker save -o ~/MyProjects/docker.images/phocean.msf.tar phocean/msf
 sudo docker load -i ~/MyProjects/docker.images/phocean.msf.tar
+# export from another MSF into my new MSF
+msf-pro > db_export -f xml -a /home/john/Documents/project.export.xml
+

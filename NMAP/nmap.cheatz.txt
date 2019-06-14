@@ -1,0 +1,2 @@
+nmap -sV -T4 -O -F --version-light 192.168.56.102
+nmap -sU -sS –script smb-enum-shares.nse -p U:137,T:139 IP-Address

