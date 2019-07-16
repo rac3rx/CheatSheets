@@ -14,6 +14,21 @@
     db_status
     db_connect msf_user:msf@127.0.0.1:5433/msf_database
 
+#
+# Postgres
+#
+echo "export PATH=$PATH:/usr/lib/postgresql/9.5/bin/" >> ~/.bashrc
+sudo usermod -a -G postgres `whoami`
+sudo su - `whoami`
+sudo su - postgres
+/usr/lib/postgresql/9.5/bin/initdb
+createuser msf_user -P
+createuser msf -P
+createdb --owner=msf_user msf_database
+createdb --owner=msf msf
+db_connect msf_user:msf@127.0.0.1:5433/msf_database
+
+
 https://www.offensive-security.com/metasploit-unleashed/using-databases/
 msf > workspace -a lab4
 [*] Added workspace: lab4

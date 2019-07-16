@@ -1,0 +1,160 @@
+
+mysql -u root -p -P 3308 -h 192.168.3.60 -D $dbName    # 3308=MariaDB & 3306=MySQL
+mysql -u root -p
+
+sudo grep 'temporary password' /var/log/mysqld.log
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+
+SHOW DATABASES;
+
+CREATE DATABASE pets;
+
+USE pets
+
+CREATE TABLE cats
+
+SHOW TABLES;
+
+DESCRIBE cats;
+
+INSERT INTO cats ( name, owner, birth) VALUES
+
+SELECT * FROM cats;
+
+
+# https://www.percona.com/blog/2016/03/16/change-user-password-in-mysql-5-7-with-plugin-auth_socket/
+SELECT User, Host, HEX(authentication_string) FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'test';
+SELECT User, Host, HEX(authentication_string) FROM mysql.user;
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('test');
+SELECT User, Host, HEX(authentication_string) FROM mysql.user;
+show warnings;
+SELECT * from user where User="root"G
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test';
+SELECT User, Host, HEX(authentication_string) FROM mysql.user;
+
+https://medium.com/@crmcmullen/how-to-run-mysql-8-0-with-native-password-authentication-502de5bac661
+CREATE USER 'nativeuser'@'localhost'IDENTIFIED WITH mysql_native_password BY 'password';
+
+cat >> /usr/local/opt/mysql/config/my.cnf
+[mysqld]
+default-authentication-plugin=mysql_native_password
+
+sudo mkdir /usr/local/opt/mysql/config
+
+
+$ docker run --restart always --name mysql8.0 -v /usr/local/opt/mysql/8.0:/var/lib/mysql -v /usr/local/opt/mysql/config:/etc/mysql/conf.d -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=your_password mysql:8.0
+
+
+
+
+#
+# MySQL exercise
+# REF: https://towardsdatascience.com/mysql-how-to-write-a-query-that-returns-the-top-records-in-a-group-12865695f436
+#
+
+CREATE TABLE orders(
+  id BINARY(16),
+  order_number INT,
+  customer_number INT,
+  customer_name VARCHAR(90),
+  order_date DATE,
+  order_amount DECIMAL(13,2),
+  PRIMARY KEY (`id`)
+);
+ 
+INSERT INTO orders VALUES 
+  (UNHEX(‘11E92BDEA738CEB7B78E0242AC110002’), 100, 5001, ‘Wayne Enterprises’, ‘2018–11–14’, 100.00),
+  (UNHEX(‘11E92BDEA73910BBB78E0242AC110002’), 101, 6002, ‘Star Labs’, ‘2018–11–15’, 200.00),
+  (UNHEX(‘11E92BDEA7395C95B78E0242AC110002’), 102, 7003, ‘Daily Planet’, ‘2018–11–15’, 150.00),
+  (UNHEX(‘11E92BDEA739A057B78E0242AC110002’), 103, 5001, ‘Wayne Enterprises’, ‘2018–11–21’, 110.00),
+  (UNHEX(‘11E92BDEA739F892B78E0242AC110002’), 104, 6002, ‘Star Labs’, ‘2018–11–22’, 175.00),
+  (UNHEX(‘11E92BE00BADD97CB78E0242AC110002’), 105, 6002, ‘Star Labs’, ‘2018–11–23’, 117.00),
+  (UNHEX(‘11E92BE00BAE15ACB78E0242AC110002’), 106, 7003, ‘Daily Planet’, ‘2018–11–24’, 255.00),
+  (UNHEX(‘11E92BE00BAE59FEB78E0242AC110002’), 107, 5001, ‘Wayne Enterprises’, ‘2018–12–07’, 321.00),
+  (UNHEX(‘11E92BE00BAE9D7EB78E0242AC110002’), 108, 6002, ‘Star Labs’, ‘2018–12–14’, 55.00),
+  (UNHEX(‘11E92BE00BAED1A4B78E0242AC110002’), 109, 7003, ‘Daily Planet’, ‘2018–12–15’, 127.00),
+  (UNHEX(‘11E92BE021E2DF22B78E0242AC110002’), 110, 6002, ‘Star Labs’, ‘2018–12–15’, 133.00),
+  (UNHEX(‘11E92BE021E31638B78E0242AC110002’), 111, 5001, ‘Wayne Enterprises’, ‘2018–12–17’, 145.00),
+  (UNHEX(‘11E92BE021E35474B78E0242AC110002’), 112, 7003, ‘Daily Planet’, ‘2018–12–21’, 111.00),
+  (UNHEX(‘11E92BE021E39950B78E0242AC110002’), 113, 6002, ‘Star Labs’, ‘2018–12–31’, 321.00),
+  (UNHEX(‘11E92BE021E3CEC5B78E0242AC110002’), 114, 6002, ‘Star Labs’, ‘2019–01–03’, 223.00),
+  (UNHEX(‘11E92BE035EF4BE5B78E0242AC110002’), 115, 6002, ‘Star Labs’, ‘2019–01–05’, 179.00),
+  (UNHEX(‘11E92BE035EF970DB78E0242AC110002’), 116, 5001, ‘Wayne Enterprises’, ‘2019–01–14’, 180.00),
+  (UNHEX(‘11E92BE035EFD540B78E0242AC110002’), 117, 7003, ‘Daily Planet’, ‘2019–01–21’, 162.00),
+  (UNHEX(‘11E92BE035F01B8AB78E0242AC110002’), 118, 5001, ‘Wayne Enterprises’, ‘2019–02–02’, 133.00),
+  (UNHEX(‘11E92BE035F05EF0B78E0242AC110002’), 119, 7003, ‘Daily Planet’, ‘2019–02–05’, 55.00),
+  (UNHEX(‘11E92BE0480B3CBAB78E0242AC110002’), 120, 5001, ‘Wayne Enterprises’, ‘2019–02–08’, 25.00),
+  (UNHEX(‘11E92BE25A9A3D6DB78E0242AC110002’), 121, 6002, ‘Star Labs’, ‘2019–02–08’, 222.00);
+
+
+SELECT order_number, customer_number, customer_name, order_date,
+  YEAR(order_date) AS order_year, 
+  MONTH(order_date) AS order_month, 
+  order_amount, 
+  @order_rank := IF(@current_month = MONTH(order_date),
+  @order_rank + 1, 1) AS order_rank,
+  @current_month := MONTH(order_date) 
+FROM orders
+ORDER BY order_year, order_month, order_amount DESC;
+
+ELECT customer_number, customer_name, order_number, order_date, order_amount 
+FROM 
+  (SELECT order_number, customer_number, customer_name, order_date,
+    YEAR(order_date) AS order_year, 
+    MONTH(order_date) AS order_month,
+    order_amount, 
+    @order_rank := IF(@current_month = MONTH(order_date), 
+    @order_rank + 1, 1) AS order_rank,
+    @current_month := MONTH(order_date) 
+   FROM orders
+   ORDER BY order_year, order_month, order_amount DESC) ranked_orders 
+WHERE order_rank <= 3;
+
+
+
+#
+# python mysql 
+#
+import mysql.connector
+mydb=mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="foo"
+)
+print(mydb)
+
+
+
+scanner/mysql/mysql_authbypass_hashdump
+
+    No applicable hashes in database to crack
+
+auxiliary/scanner/mysql/mysql_version
+
+    [+] 127.0.0.1:3306        - 127.0.0.1:3306 is running MySQL 5.7.26-0ubuntu0.16.04.1 (protocol 10)
+
+#
+# MySQL enter as root without authentication
+#
+cp -rp /var/run/mysql mysql.old
+sudo service mysql stop
+cp -rp /var/run/mysql.old mysql
+sudo mysqld_safe --skip-grant-tables --skip-syslog --skip-networking
+mysql -u
+\! bash
+
+
+
+
+
+
+RESEARCH
+https://exploitstube.com/exploiting_snmp.html
+udo nmap -sU  172.16.201.130 -p161 --script=snmp-brute  -Pn --script-args snmp-brute.communitiesdb=list.txt
+/work/Missions/MIP/MIP.msl.log.txt (END)
+
+REF:
+https://pythonspot.com/mysql-with-python/
+

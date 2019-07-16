@@ -7,6 +7,24 @@
  to page output forward & back: command filename | less
  to print a dataset: lp datasetname (-d printerid) (-o landscape)
 
+BASH COMMENTS
+    #
+
+    << --MULTILINE-COMMENT--
+    line 1
+    line 2
+
+    line 3
+    line 4
+    --MULTILINE-COMMENT--
+
+    << //
+    line 1
+    line 2 we''re going to try this eventually
+    line 3
+    //
+
+
  USE OF QUOTATION MARKS
     echo "$varname"    =   echo The value of \$varname is \"$varname\"
                        =   echo "The value of \$varname is \"$varname\"."

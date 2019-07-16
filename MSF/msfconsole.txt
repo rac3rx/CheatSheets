@@ -1,0 +1,8 @@
+echo 'setg rhosts 192.168.55.248' > smbscan.rc
+echo 'use auxiliary/scanner/smb/smb_enumusers' >> smbscan.rc
+echo 'run' >> smbscan.rc
+echo 'use auxiliary/scanner/smb/smb_enumshares' >> smbscan.rc
+echo 'run' >> smbscan.rc
+echo 'use auxiliary/scanner/smb/smb_version' >> smbscan.rc
+echo 'run' >> smbscan.rc
+msfconsole -r smbscan.rc

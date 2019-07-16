@@ -2,5 +2,62 @@ cat myscript.sh
 awk -F\" '/^NAME=/{NAME=$0; next}/^VERSION=/{print NAME "," $2}' /etc/os-release
 
 
-ssh me@foo.com "bash -s" < myscript.sh
+ssh me@foo.com "bash -s" < myscript.sh                   # read commands from stdin
+
+
+ssh eric@172.17.1.241 '/bin/bash -c "echo <(cat)"'
+ssh eric@172.17.1.241 '/bin/bash -c "$(echo <(cat))"'    # commands are read from the first non-option argument command_string; useful for variables 
+
+ssh -t $HOST sudo ls /root                               # interactive shell; for password prompt; psuedo-tty
+
+ssh -T $HOST <<'EOSSH'                                   # Disable pseudo-tty allocation
+VAR1=`pwd`
+echo $VAR1
+
+VAR2=$(uname -a)
+echo $VAR2
+
+EOSSH
+
+
+ssh -tt for short) to force pseudo-tty allocation even if stdin isn't a terminal.
+
+
+ssh host.domain.com /bin/bash << EOF
+big ugly commands
+lots of them
+EOF
+
+cat /tmp/tempfile_containing_your_script | ssh ${hostname} 
+
+
+If you still want a remote interactive prompt e.g. if the script you're running remotely prompts you for a password or other
+information, because the previous solutions won't allow you to type into the prompts.
+
+ssh -t user@machine "$(<run-command.sh)"
+And if you also want to log the entire session in a file logfile.log:
+
+ssh -t user@machine "$(<run-command.sh)" | tee -a logfile.log    # 
+
+
+for s in server{1..4}.cyberciti.biz
+do
+   ssh vivek@${s} 'bash -s' < /home/vivek/bin/test.sh
+done
+
+
+ssh user@host '''
+temp=`ls -a`
+echo $temp
+'''
+
+
+NOTES:
+diff <(ls dirA) <(ls dirB)                               # process substitution
+<< EOF                                                   # here-doc
+
+
+REF:
+https://stackoverflow.com/questions/7114990/pseudo-terminal-will-not-be-allocated-because-stdin-is-not-a-terminal/7122115#7122115
+https://stackoverflow.com/questions/305035/how-to-use-ssh-to-run-a-shell-script-on-a-remote-machine?noredirect=1&lq=1
 
